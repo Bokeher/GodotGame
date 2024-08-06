@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=3 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://Button.gd" id="1_b2erj"]
+[ext_resource type="Script" path="res://Label.gd" id="2_wu7dc"]
 
 [node name="Main" type="Node2D"]
 
@@ -20,3 +21,4 @@ text = "0 clicks"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+script = ExtResource("2_wu7dc")
