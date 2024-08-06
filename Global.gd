@@ -5,7 +5,6 @@ const save_path: String = "user://save"
 
 func _ready():
 	load_clicks();
-	pass 
 
 func load_clicks():
 	if !FileAccess.file_exists(save_path): 
