@@ -1,6 +1,7 @@
 extends Node
 
-var clicks: int = 0;
+var clicks: int = 0
+var damage: int = 1
 const save_path: String = "user://save"
 
 func _ready():
@@ -20,6 +21,6 @@ func save_clicks():
 	
 	print("saved")
 	
-func _notification(notification):
-	if notification == NOTIFICATION_WM_CLOSE_REQUEST:
-		save_clicks();
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save_clicks()
