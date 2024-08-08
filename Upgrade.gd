@@ -5,7 +5,4 @@ func _pressed():
 		# TODO: show error 
 		return
 	
-	Global.clicks -= 50
-	
-	Global.damage += 1
-	$"../DamageInfo".text = str(Global.damage) + " damage"
+	$"../..".upgrade(50, 1)

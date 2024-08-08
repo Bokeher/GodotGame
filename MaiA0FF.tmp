@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=5 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://Click.gd" id="1_b2erj"]
-[ext_resource type="Script" path="res://Main.gd" id="1_v2884"]
 [ext_resource type="Script" path="res://ClicksInfo.gd" id="2_wu7dc"]
 [ext_resource type="Script" path="res://DamageInfo.gd" id="3_db8ce"]
 [ext_resource type="Script" path="res://Upgrade.gd" id="4_r2q6r"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_v2884")
 
 [node name="Main" type="Node2D" parent="."]
 position = Vector2(38, 29)
