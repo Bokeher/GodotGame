@@ -5,7 +5,7 @@ var damage: int = 1
 const save_path: String = "user://save"
 
 func _ready():
-	load_clicks();
+	load_clicks()
 
 func load_clicks():
 	if !FileAccess.file_exists(save_path): 
@@ -13,13 +13,18 @@ func load_clicks():
 		return
 	
 	var file = FileAccess.open(save_path, FileAccess.READ)
-	clicks = file.get_var()
+	var data = file.get_var()
+	clicks = data[0]
+	damage = data[1]
 
 func save_clicks():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(clicks)
 	
-	print("saved")
+	var save_data = [clicks, damage]
+	
+	file.store_var(save_data)
+	
+	print("Saved")
 	
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
