@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=7 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://Click.gd" id="1_b2erj"]
 [ext_resource type="Script" path="res://Main.gd" id="1_v2884"]
 [ext_resource type="Script" path="res://ClicksInfo.gd" id="2_wu7dc"]
 [ext_resource type="Script" path="res://DamageInfo.gd" id="3_db8ce"]
+[ext_resource type="Script" path="res://Reset.gd" id="4_mll1s"]
 [ext_resource type="Script" path="res://Upgrade.gd" id="4_r2q6r"]
 
 [node name="Game" type="Node2D"]
@@ -27,6 +28,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 script = ExtResource("2_wu7dc")
+
+[node name="Reset" type="Button" parent="Main"]
+offset_left = 31.0
+offset_top = 159.0
+offset_right = 174.0
+offset_bottom = 209.0
+text = "Reset"
+script = ExtResource("4_mll1s")
 
 [node name="Upgrades" type="Node2D" parent="."]
 position = Vector2(218, 37)
