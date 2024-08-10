@@ -30,10 +30,9 @@ uppercase = true
 script = ExtResource("2_wu7dc")
 
 [node name="Reset" type="Button" parent="Main"]
-offset_left = 31.0
-offset_top = 159.0
-offset_right = 174.0
-offset_bottom = 209.0
+offset_top = 142.0
+offset_right = 127.0
+offset_bottom = 192.0
 text = "Reset"
 script = ExtResource("4_mll1s")
 
