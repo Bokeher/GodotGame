@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=8 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://Click.gd" id="1_b2erj"]
 [ext_resource type="Script" path="res://Main.gd" id="1_v2884"]
@@ -6,23 +6,27 @@
 [ext_resource type="Script" path="res://DamageInfo.gd" id="3_db8ce"]
 [ext_resource type="Script" path="res://Reset.gd" id="4_mll1s"]
 [ext_resource type="Script" path="res://Upgrade.gd" id="4_r2q6r"]
+[ext_resource type="Texture2D" uid="uid://2nph3u1tlq2w" path="res://assets/enemies/slimes/slime.png" id="7_jtks7"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_v2884")
 
 [node name="Main" type="Node2D" parent="."]
-position = Vector2(38, 29)
+position = Vector2(651, 62)
 
 [node name="Click" type="Button" parent="Main"]
-offset_top = 45.0
-offset_right = 129.0
-offset_bottom = 118.0
-text = "Click here"
+offset_left = 11.0
+offset_top = 64.0
+offset_right = 140.0
+offset_bottom = 172.0
+text = "Enemy"
 script = ExtResource("1_b2erj")
 
 [node name="ClicksInfo" type="Label" parent="Main"]
-offset_right = 128.0
-offset_bottom = 43.0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 138.0
+offset_bottom = 54.0
 text = "0 clicks"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -30,14 +34,15 @@ uppercase = true
 script = ExtResource("2_wu7dc")
 
 [node name="Reset" type="Button" parent="Main"]
-offset_top = 142.0
-offset_right = 127.0
-offset_bottom = 192.0
+offset_left = 11.0
+offset_top = 203.0
+offset_right = 138.0
+offset_bottom = 253.0
 text = "Reset"
 script = ExtResource("4_mll1s")
 
 [node name="Upgrades" type="Node2D" parent="."]
-position = Vector2(218, 37)
+position = Vector2(412, 61)
 
 [node name="DamageInfo" type="Label" parent="Upgrades"]
 offset_left = 1.0
@@ -56,3 +61,29 @@ offset_right = 137.0
 offset_bottom = 99.0
 text = "Upgrade"
 script = ExtResource("4_r2q6r")
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(42, 31)
+
+[node name="EnemyBody" type="TextureButton" parent="Enemy"]
+offset_left = 2.0
+offset_top = 24.0
+offset_right = 66.0
+offset_bottom = 88.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("7_jtks7")
+
+[node name="EnemyName" type="Label" parent="Enemy"]
+offset_right = 189.0
+offset_bottom = 23.0
+text = "Slime"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyHealth" type="Label" parent="Enemy"]
+offset_top = 209.0
+offset_right = 196.0
+offset_bottom = 232.0
+text = "100 HP"
+horizontal_alignment = 1
+vertical_alignment = 1
