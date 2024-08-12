@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=10 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://Click.gd" id="1_b2erj"]
 [ext_resource type="Script" path="res://Main.gd" id="1_v2884"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://DamageInfo.gd" id="3_db8ce"]
 [ext_resource type="Script" path="res://Reset.gd" id="4_mll1s"]
 [ext_resource type="Script" path="res://Upgrade.gd" id="4_r2q6r"]
+[ext_resource type="Script" path="res://Enemy.gd" id="7_15ehl"]
 [ext_resource type="Texture2D" uid="uid://2nph3u1tlq2w" path="res://assets/enemies/slimes/slime.png" id="7_jtks7"]
+[ext_resource type="Script" path="res://EnemyBody.gd" id="9_lmjn8"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_v2884")
@@ -64,6 +66,7 @@ script = ExtResource("4_r2q6r")
 
 [node name="Enemy" type="Node2D" parent="."]
 position = Vector2(42, 31)
+script = ExtResource("7_15ehl")
 
 [node name="EnemyBody" type="TextureButton" parent="Enemy"]
 offset_left = 2.0
@@ -72,6 +75,7 @@ offset_right = 66.0
 offset_bottom = 88.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("7_jtks7")
+script = ExtResource("9_lmjn8")
 
 [node name="EnemyName" type="Label" parent="Enemy"]
 offset_right = 189.0
