@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=11 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://Click.gd" id="1_b2erj"]
 [ext_resource type="Script" path="res://Main.gd" id="1_v2884"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Enemy.gd" id="7_15ehl"]
 [ext_resource type="Texture2D" uid="uid://2nph3u1tlq2w" path="res://assets/enemies/slimes/slime.png" id="7_jtks7"]
 [ext_resource type="Script" path="res://EnemyBody.gd" id="9_lmjn8"]
+[ext_resource type="Script" path="res://GoldAmount.gd" id="10_m2yng"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_v2884")
@@ -65,7 +66,7 @@ text = "Upgrade"
 script = ExtResource("4_r2q6r")
 
 [node name="Enemy" type="Node2D" parent="."]
-position = Vector2(42, 31)
+position = Vector2(39, 61)
 script = ExtResource("7_15ehl")
 
 [node name="EnemyBody" type="TextureButton" parent="Enemy"]
@@ -91,3 +92,13 @@ offset_bottom = 232.0
 text = "100 HP"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GoldAmount" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 9.0
+offset_right = 241.0
+offset_bottom = 38.0
+text = "0 Gold"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_m2yng")

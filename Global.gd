@@ -4,6 +4,7 @@ var clicks: int = 0
 var damage: int = 1
 const save_path: String = "user://save"
 var enemy_health: int = 100
+var gold: int = 0
 
 func _ready():
 	load_clicks()

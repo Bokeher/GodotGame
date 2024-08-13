@@ -1,15 +1,11 @@
 extends TextureButton
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _pressed():
-	Global.enemy_health -= Global.damage;
+	Global.enemy_health -= Global.damage
+	
+	if (Global.enemy_health <= 0): 
+		Global.enemy_health = 100
+		Global.gold += 1
+		$"../../GoldAmount".update_gold()
+	
 	$"../EnemyHealth".text = str(Global.enemy_health) + " HP"
