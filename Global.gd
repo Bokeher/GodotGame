@@ -18,11 +18,12 @@ func load_clicks():
 	var data = file.get_var()
 	clicks = data[0]
 	damage = data[1]
+	gold = data[2]
 
 func save_clicks():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	
-	var save_data = [clicks, damage]
+	var save_data = [clicks, damage, gold]
 	
 	file.store_var(save_data)
 	
