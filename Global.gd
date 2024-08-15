@@ -15,6 +15,7 @@ func load_clicks():
 		return
 	
 	var file = FileAccess.open(save_path, FileAccess.READ)
+	
 	var data = file.get_var()
 	clicks = data[0]
 	damage = data[1]
