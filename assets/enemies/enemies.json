@@ -1,0 +1,18 @@
+{
+	"enemies": [
+		{
+			"id": 1,
+			"name": "Green Slime",
+			"health": 10,
+			"gold_reward": 1,
+			"image_url": "res://assets/enemies/slimes/green_slime.png"
+		},
+		{
+			"id": 2,
+			"name": "Blue Slime",
+			"health": 15,
+			"gold_reward": 2,
+			"image_url": "res://assets/enemies/slimes/blue_slime.png"		
+		}
+	]
+}

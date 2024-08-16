@@ -5,6 +5,7 @@ var damage: int = 1
 const save_path: String = "user://save"
 var enemy_health: int = 100
 var gold: int = 0
+var curr_stage: int = 1
 
 func _ready():
 	load_clicks()
@@ -20,11 +21,12 @@ func load_clicks():
 	clicks = data[0]
 	damage = data[1]
 	gold = data[2]
+	curr_stage = data[3]
 
 func save_clicks():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	
-	var save_data = [clicks, damage, gold]
+	var save_data = [clicks, damage, gold, curr_stage]
 	
 	file.store_var(save_data)
 	

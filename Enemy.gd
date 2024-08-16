@@ -1,11 +1,22 @@
 extends Node2D
 
+var json_file = "res://assets/enemies/enemies.json"
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	# TODO: do this with resources ?
+	
+	if(!FileAccess.file_exists(json_file)): 
+		print("Enemies file not found")
+		return
+	
+	var json_to_read = FileAccess.open(json_file, FileAccess.READ)
+	var data = JSON.parse_string(json_to_read.get_as_text())
+	
+	if(Global.curr_stage == 1):
+		loadEnemy(data.enemies[0])
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func loadEnemy(enemy):
+	# TODO: set values in global / set curr_enemy object in global and create func to load all this data
+	$EnemyBody.texture_normal = load(enemy.image_url)
+	$EnemyName.text = enemy.name
+	$EnemyHealth.text = str(enemy.health) + " HP"

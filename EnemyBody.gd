@@ -1,4 +1,4 @@
-extends TextureButton
+extends TextureButton	
 
 func _pressed():
 	Global.enemy_health -= Global.damage
