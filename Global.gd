@@ -51,8 +51,8 @@ func loadAllEnemies():
 	var json_to_read = FileAccess.open(json_file, FileAccess.READ)
 	all_enemies = JSON.parse_string(json_to_read.get_as_text()).enemies
 	
-	if(Global.curr_stage == 1):
-		Global.curr_enemy = Global.get_enemy(0)
+	#if(Global.curr_stage == 1):
+		#Global.curr_enemy = Global.get_enemy(0)
 
 func get_enemy(id):
 	return all_enemies[id].duplicate();

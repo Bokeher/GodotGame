@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	if(!Global.curr_enemy): 
+	if(Global.curr_enemy): 
 		update_enemy()
 
 func update_enemy():
