@@ -1,8 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=11 format=3 uid="uid://ops8w8ltn4i7"]
 
-[ext_resource type="Script" path="res://Click.gd" id="1_b2erj"]
 [ext_resource type="Script" path="res://Main.gd" id="1_v2884"]
-[ext_resource type="Script" path="res://ClicksInfo.gd" id="2_wu7dc"]
 [ext_resource type="Script" path="res://DamageInfo.gd" id="3_db8ce"]
 [ext_resource type="Script" path="res://Reset.gd" id="4_mll1s"]
 [ext_resource type="Script" path="res://Upgrade.gd" id="4_r2q6r"]
@@ -16,35 +14,23 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_v2884")
 
-[node name="Main" type="Node2D" parent="."]
-position = Vector2(651, 62)
-
-[node name="Click" type="Button" parent="Main"]
-offset_left = 11.0
-offset_top = 64.0
-offset_right = 140.0
-offset_bottom = 172.0
-text = "Enemy"
-script = ExtResource("1_b2erj")
-
-[node name="ClicksInfo" type="Label" parent="Main"]
-offset_left = 10.0
-offset_top = 11.0
-offset_right = 138.0
-offset_bottom = 54.0
-text = "0 clicks"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-script = ExtResource("2_wu7dc")
-
-[node name="Reset" type="Button" parent="Main"]
-offset_left = 11.0
-offset_top = 203.0
-offset_right = 138.0
-offset_bottom = 253.0
+[node name="Reset" type="Button" parent="."]
+offset_left = 662.0
+offset_top = 265.0
+offset_right = 789.0
+offset_bottom = 315.0
 text = "Reset"
 script = ExtResource("4_mll1s")
+
+[node name="GoldAmount" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 9.0
+offset_right = 241.0
+offset_bottom = 38.0
+text = "0 Gold"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_m2yng")
 
 [node name="Upgrades" type="Node2D" parent="."]
 position = Vector2(412, 61)
@@ -96,13 +82,3 @@ text = "100 HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("11_s6lpg")
-
-[node name="GoldAmount" type="Label" parent="."]
-offset_left = 28.0
-offset_top = 9.0
-offset_right = 241.0
-offset_bottom = 38.0
-text = "0 Gold"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("10_m2yng")
