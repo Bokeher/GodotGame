@@ -1,13 +1,13 @@
 extends Node2D
 
-func click():
-	Global.clicks += Global.damage
-	
-	$Main/ClicksInfo.update_clicks()
-
 func upgrade(cost: int, damage_increase: int):
-	Global.clicks -= cost
+	if Global.gold < cost:
+		# TODO: Show to user
+		print("Not enough gold")
+		return
+		
+	Global.gold -= cost
 	Global.damage += damage_increase
 	
-	$Main/ClicksInfo.update_clicks()
+	$GoldAmount.update_gold()
 	$Upgrades/DamageInfo.update_damage()

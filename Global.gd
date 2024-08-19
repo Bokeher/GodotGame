@@ -1,6 +1,5 @@
 extends Node
 
-var clicks: int = 0
 var damage: int = 1
 const save_path: String = "user://save"
 var gold: int = 0
@@ -11,10 +10,13 @@ var json_file = "res://assets/enemies/enemies.json"
 var all_enemies = [];
 
 func _ready():
-	load_save()
+	load_game()
 	loadAllEnemies()
+	
+	if(!curr_enemy):
+		curr_enemy = get_enemy(0)
 
-func load_save():
+func load_game():
 	if !FileAccess.file_exists(save_path): 
 		print("File not found")
 		return
@@ -22,16 +24,15 @@ func load_save():
 	var file = FileAccess.open(save_path, FileAccess.READ)
 	
 	var data = file.get_var()
-	clicks = data[0]
-	damage = data[1]
-	gold = data[2]
-	curr_stage = data[3]
-	curr_enemy = data[4]
+	damage = data[0]
+	gold = data[1]
+	curr_stage = data[2]
+	curr_enemy = data[3]
 
-func save_clicks():
+func save_game():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	
-	var save_data = [clicks, damage, gold, curr_stage, curr_enemy]
+	var save_data = [damage, gold, curr_stage, curr_enemy]
 	
 	file.store_var(save_data)
 	
@@ -39,7 +40,7 @@ func save_clicks():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		save_clicks()
+		save_game()
 
 func loadAllEnemies():
 	# TODO: do this with resources ?
