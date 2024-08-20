@@ -13,6 +13,13 @@
 			"health": 15,
 			"gold_reward": 2,
 			"image_url": "res://assets/enemies/slimes/blue_slime.png"		
+		},
+		{
+			"id": 3,
+			"name": "Golden Slime",
+			"health": 30,
+			"gold_reward": 5,
+			"image_url": "res://assets/enemies/slimes/golden_slime.png"		
 		}
 	]
 }
