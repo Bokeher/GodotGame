@@ -6,12 +6,16 @@ var gold: int = 0
 var curr_stage: int = 1
 var curr_enemy = null
 
-var json_file = "res://assets/enemies/enemies.json"
-var all_enemies = [];
+var enemies_file = "res://assets/enemies/enemies.json"
+var enemies = []
+
+var stages_file = "res://assets/stages.json"
+var stages = []
 
 func _ready():
 	load_game()
-	loadAllEnemies()
+	load_stages()
+	load_enemies()
 	
 	if(!curr_enemy):
 		curr_enemy = get_enemy(0)
@@ -42,18 +46,27 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_game()
 
-func loadAllEnemies():
-	# TODO: do this with resources ?
-	
-	if(!FileAccess.file_exists(json_file)): 
+func load_enemies():
+	if(!FileAccess.file_exists(enemies_file)): 
 		print("Enemies file not found")
 		return
 	
-	var json_to_read = FileAccess.open(json_file, FileAccess.READ)
-	all_enemies = JSON.parse_string(json_to_read.get_as_text()).enemies
+	var json_to_read = FileAccess.open(enemies_file, FileAccess.READ)
+	enemies = JSON.parse_string(json_to_read.get_as_text()).enemies
 	
 	#if(Global.curr_stage == 1):
 		#Global.curr_enemy = Global.get_enemy(0)
 
-func get_enemy(id):
-	return all_enemies[id].duplicate();
+func get_enemy(id: int):
+	return enemies[id].duplicate()
+
+func load_stages():
+	if(!FileAccess.file_exists(stages_file)): 
+		print("Stages file not found")
+		return
+	
+	var json_to_read = FileAccess.open(stages_file, FileAccess.READ)
+	stages = JSON.parse_string(json_to_read.get_as_text()).stages
+
+func get_stage(id: int):
+	return stages[id].duplicate()
