@@ -5,6 +5,7 @@ const save_path: String = "user://save"
 var gold: int = 0
 var curr_stage: int = 1
 var curr_enemy = null
+var loaded_stage = null
 
 var enemies_file = "res://assets/enemies/enemies.json"
 var enemies = []
@@ -12,10 +13,15 @@ var enemies = []
 var stages_file = "res://assets/stages.json"
 var stages = []
 
+var enemy_pool = []
+
 func _ready():
-	load_game()
 	load_stages()
 	load_enemies()
+	load_game()
+	
+	load_stage(curr_stage)
+	
 	
 	if(!curr_enemy):
 		curr_enemy = get_enemy(0)
@@ -32,6 +38,10 @@ func load_game():
 	gold = data[1]
 	curr_stage = data[2]
 	curr_enemy = data[3]
+
+func  load_stage(id: int):
+	var stage = get_stage(id)
+	enemy_pool = stage.enemies
 
 func save_game():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
@@ -58,7 +68,7 @@ func load_enemies():
 		#Global.curr_enemy = Global.get_enemy(0)
 
 func get_enemy(id: int):
-	return enemies[id].duplicate()
+	return enemies[id - 1].duplicate()
 
 func load_stages():
 	if(!FileAccess.file_exists(stages_file)): 
@@ -69,4 +79,4 @@ func load_stages():
 	stages = JSON.parse_string(json_to_read.get_as_text()).stages
 
 func get_stage(id: int):
-	return stages[id].duplicate()
+	return stages[id - 1].duplicate()
