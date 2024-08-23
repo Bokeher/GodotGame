@@ -1,7 +1,7 @@
 extends Label
 
 func _ready():
-	update_biome_info()
+	update_biome_name()
 
-func update_biome_info():
-	$".".text = Global.get_stage(Global.curr_stage).name
+func update_biome_name():
+	$".".text = Global.curr_stage.name

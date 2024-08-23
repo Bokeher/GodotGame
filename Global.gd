@@ -1,52 +1,54 @@
 extends Node
 
+# file paths
+const PATH_SAVE: String = "user://save"
+const PATH_ENEMIES: String = "res://assets/enemies/enemies.json"
+const PATH_STAGES: String = "res://assets/stages.json"
+
+# saved vars
 var damage: int = 1
-const save_path: String = "user://save"
 var gold: int = 0
-var curr_stage: int = 1
+var max_stage_reached: int = 1
+
+# vars to use in other files
 var curr_enemy = null
-var loaded_stage = null
-
-var enemies_file = "res://assets/enemies/enemies.json"
-var enemies = []
-
-var stages_file = "res://assets/stages.json"
-var stages = []
-
+var curr_stage = null
 var enemy_pool = []
 
+# private vars - use getters to get them
+var _enemies = []
+var _stages = []
+
+# TODO: decide if need to save curr_enemy
+
 func _ready():
-	load_stages()
-	load_enemies()
-	load_game()
+	read_stages()
+	read_enemies()
+	read_savefile()
 	
-	load_stage(curr_stage)
-	
+	curr_stage = get_stage(max_stage_reached)
+	enemy_pool = curr_stage.enemies
 	
 	if(!curr_enemy):
 		curr_enemy = get_enemy(0)
 
-func load_game():
-	if !FileAccess.file_exists(save_path): 
+func read_savefile():
+	if !FileAccess.file_exists(PATH_SAVE): 
 		print("File not found")
 		return
 	
-	var file = FileAccess.open(save_path, FileAccess.READ)
+	var file = FileAccess.open(PATH_SAVE, FileAccess.READ)
 	
 	var data = file.get_var()
 	damage = data[0]
 	gold = data[1]
-	curr_stage = data[2]
+	max_stage_reached = data[2]
 	curr_enemy = data[3]
 
-func  load_stage(id: int):
-	var stage = get_stage(id)
-	enemy_pool = stage.enemies
-
-func save_game():
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
+func save_savefile():
+	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
 	
-	var save_data = [damage, gold, curr_stage, curr_enemy]
+	var save_data = [damage, gold, max_stage_reached, curr_enemy]
 	
 	file.store_var(save_data)
 	
@@ -54,29 +56,26 @@ func save_game():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		save_game()
+		save_savefile()
 
-func load_enemies():
-	if(!FileAccess.file_exists(enemies_file)): 
+func read_enemies():
+	if(!FileAccess.file_exists(PATH_ENEMIES)): 
 		print("Enemies file not found")
 		return
 	
-	var json_to_read = FileAccess.open(enemies_file, FileAccess.READ)
-	enemies = JSON.parse_string(json_to_read.get_as_text()).enemies
-	
-	#if(Global.curr_stage == 1):
-		#Global.curr_enemy = Global.get_enemy(0)
+	var json_to_read = FileAccess.open(PATH_ENEMIES, FileAccess.READ)
+	_enemies = JSON.parse_string(json_to_read.get_as_text()).enemies
 
 func get_enemy(id: int):
-	return enemies[id - 1].duplicate()
+	return _enemies[id - 1].duplicate()
 
-func load_stages():
-	if(!FileAccess.file_exists(stages_file)): 
+func read_stages():
+	if(!FileAccess.file_exists(PATH_STAGES)): 
 		print("Stages file not found")
 		return
 	
-	var json_to_read = FileAccess.open(stages_file, FileAccess.READ)
-	stages = JSON.parse_string(json_to_read.get_as_text()).stages
+	var json_to_read = FileAccess.open(PATH_STAGES, FileAccess.READ)
+	_stages = JSON.parse_string(json_to_read.get_as_text()).stages
 
 func get_stage(id: int):
-	return stages[id - 1].duplicate()
+	return _stages[id - 1].duplicate()
