@@ -12,18 +12,28 @@ func _pressed():
 		
 		var picked_enemy = pick_enemy()
 		
+		$".".disabled = true;
+		
+		Global.curr_enemy = null;
+		$"..".update_enemy()		
+		await get_tree().create_timer(0.05).timeout
+		$".".disabled = false;
+		
 		Global.curr_enemy = Global.get_enemy(picked_enemy)
 		
 	$"..".update_enemy()
 
 func update_texture():
+	if(!Global.curr_enemy):
+		$".".texture_normal = null
+		return
+	
 	$".".texture_normal = load(Global.curr_enemy.image_url)
 	
 func pick_enemy():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 
-	# Generate a random number between 0 and 1
 	var random_value = rng.randf()
 
 	var cumulative_chance = 0.0
