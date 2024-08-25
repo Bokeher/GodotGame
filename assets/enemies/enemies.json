@@ -3,23 +3,23 @@
 		{
 			"id": 1,
 			"name": "Green Slime",
-			"health": 10,
+			"health": 15,
 			"gold_reward": 1,
 			"image_url": "res://assets/enemies/slimes/green_slime.png"
 		},
 		{
 			"id": 2,
 			"name": "Blue Slime",
-			"health": 15,
+			"health": 25,
 			"gold_reward": 2,
-			"image_url": "res://assets/enemies/slimes/blue_slime.png"		
+			"image_url": "res://assets/enemies/slimes/blue_slime.png"
 		},
 		{
 			"id": 3,
 			"name": "Golden Slime",
-			"health": 30,
-			"gold_reward": 5,
-			"image_url": "res://assets/enemies/slimes/golden_slime.png"		
+			"health": 50,
+			"gold_reward": 10,
+			"image_url": "res://assets/enemies/slimes/golden_slime.png"
 		}
 	]
 }
