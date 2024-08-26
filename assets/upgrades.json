@@ -1,0 +1,18 @@
+{
+	"upgrades": [
+		{
+			"id": 1,
+			"name": "Main Weapon",
+			"description": "Inceases your clicking damage",
+			"tiers": [
+				{
+					"tier": 1,
+					"name": "Wooden Sword",
+					"damage_bonus": 1,
+					"cost": 50,
+					"description": "It's better than bare hands! Increases clicking damage by 1."
+				},
+			]
+		}
+	]
+}
