@@ -91,3 +91,6 @@ text = "100 HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("11_s6lpg")
+
+[connection signal="mouse_entered" from="Upgrades/Upgrade" to="Upgrades/Upgrade" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrades/Upgrade" to="Upgrades/Upgrade" method="_on_mouse_exited"]
