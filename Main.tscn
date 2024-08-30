@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=13 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_v2884"]
 [ext_resource type="Script" path="res://BiomeInfo.gd" id="2_u5rkw"]
@@ -12,53 +12,74 @@
 [ext_resource type="Script" path="res://GoldAmount.gd" id="10_m2yng"]
 [ext_resource type="Script" path="res://EnemyHealth.gd" id="11_s6lpg"]
 
+[sub_resource type="FontFile" id="FontFile_p7eyw"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/25/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_v2884")
 
 [node name="BiomeInfo" type="Label" parent="."]
-offset_left = 296.0
-offset_top = 15.0
-offset_right = 409.0
-offset_bottom = 38.0
+offset_left = 37.0
+offset_top = 12.0
+offset_right = 239.0
+offset_bottom = 35.0
+theme_override_fonts/font = SubResource("FontFile_p7eyw")
+theme_override_font_sizes/font_size = 25
 text = "Current biome"
+horizontal_alignment = 1
 script = ExtResource("2_u5rkw")
 
 [node name="Reset" type="Button" parent="."]
-offset_left = 662.0
-offset_top = 265.0
-offset_right = 789.0
-offset_bottom = 315.0
+offset_left = 69.0
+offset_top = 341.0
+offset_right = 196.0
+offset_bottom = 391.0
 text = "Reset"
 script = ExtResource("4_mll1s")
 
-[node name="GoldAmount" type="Label" parent="."]
-offset_left = 28.0
-offset_top = 9.0
-offset_right = 241.0
-offset_bottom = 38.0
-text = "0 Gold"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("10_m2yng")
-
 [node name="Upgrades" type="Node2D" parent="."]
-position = Vector2(412, 61)
-
-[node name="DamageInfo" type="Label" parent="Upgrades"]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 136.0
-offset_bottom = 43.0
-text = "1 damage"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("3_db8ce")
+position = Vector2(281, 340)
 
 [node name="Upgrade" type="Button" parent="Upgrades"]
-offset_left = 1.0
-offset_top = 50.0
-offset_right = 137.0
-offset_bottom = 99.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 141.0
+offset_bottom = 53.0
 text = "Upgrade"
 script = ExtResource("4_r2q6r")
 
@@ -91,6 +112,24 @@ text = "100 HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("11_s6lpg")
+
+[node name="Info" type="Node2D" parent="."]
+position = Vector2(288, 13)
+
+[node name="GoldAmount" type="Label" parent="Info"]
+offset_right = 213.0
+offset_bottom = 36.0
+text = "0 Gold"
+vertical_alignment = 1
+script = ExtResource("10_m2yng")
+
+[node name="DamageInfo" type="Label" parent="Info"]
+offset_top = 39.0
+offset_right = 214.0
+offset_bottom = 83.0
+text = "1 damage"
+vertical_alignment = 1
+script = ExtResource("3_db8ce")
 
 [connection signal="mouse_entered" from="Upgrades/Upgrade" to="Upgrades/Upgrade" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Upgrades/Upgrade" to="Upgrades/Upgrade" method="_on_mouse_exited"]
