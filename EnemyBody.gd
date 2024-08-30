@@ -8,7 +8,7 @@ func _pressed():
 	
 	if (Global.curr_enemy.health <= 0): 
 		Global.gold += Global.curr_enemy.gold_reward
-		$"../../GoldAmount".update_gold()
+		$"../../Info/GoldAmount".update_gold()
 		
 		var picked_enemy = pick_enemy()
 		
