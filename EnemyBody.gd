@@ -12,14 +12,16 @@ func _pressed():
 		
 		var picked_enemy = pick_enemy()
 		
+		# make enemy disapear for a brief moment
 		$".".disabled = true
-		
 		Global.curr_enemy = null
 		$"..".update_enemy()
 		await get_tree().create_timer(0.05).timeout
-		$".".disabled = false
 		
+		# set new enemy after apearing again
+		$".".disabled = false
 		Global.curr_enemy = Global.get_enemy(picked_enemy)
+		$"../HealthBar".set_max_value_healthBar()
 		
 	$"..".update_enemy()
 

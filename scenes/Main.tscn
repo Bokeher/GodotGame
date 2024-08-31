@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=14 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_afq8i"]
 [ext_resource type="Script" path="res://BiomeInfo.gd" id="2_lrkbd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://EnemyBody.gd" id="7_8xw8y"]
 [ext_resource type="Script" path="res://EnemyName.gd" id="8_xasxh"]
 [ext_resource type="Script" path="res://EnemyHealth.gd" id="9_vuj78"]
+[ext_resource type="Script" path="res://HealthBar.gd" id="10_hvvn2"]
 [ext_resource type="Script" path="res://GoldAmount.gd" id="10_uekgw"]
 [ext_resource type="Script" path="res://DamageInfo.gd" id="11_b767f"]
 
@@ -104,10 +105,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_xasxh")
 
-[node name="EnemyHealth" type="Label" parent="Enemy"]
-offset_top = 209.0
-offset_right = 196.0
-offset_bottom = 232.0
+[node name="HealthBar" type="ProgressBar" parent="Enemy"]
+offset_top = 220.0
+offset_right = 202.0
+offset_bottom = 249.0
+show_percentage = false
+script = ExtResource("10_hvvn2")
+
+[node name="EnemyHealth" type="Label" parent="Enemy/HealthBar"]
+offset_right = 204.0
+offset_bottom = 27.0
 text = "100 HP"
 horizontal_alignment = 1
 vertical_alignment = 1
