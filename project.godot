@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Clicker"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Global.gd"
-Popups="*res://Popups.tscn"
+Popups="*res://scenes/Popups.tscn"
 
 [display]
 
