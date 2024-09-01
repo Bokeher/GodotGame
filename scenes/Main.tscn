@@ -113,6 +113,7 @@ show_percentage = false
 script = ExtResource("10_hvvn2")
 
 [node name="EnemyHealth" type="Label" parent="Enemy/HealthBar"]
+layout_mode = 0
 offset_right = 204.0
 offset_bottom = 27.0
 text = "100 HP"
