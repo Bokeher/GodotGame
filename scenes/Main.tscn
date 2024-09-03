@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=13 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://Upgrades.gd" id="3_gsk5d"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://HealthBar.gd" id="10_hvvn2"]
 [ext_resource type="Script" path="res://GoldAmount.gd" id="10_uekgw"]
 [ext_resource type="Script" path="res://DamageInfo.gd" id="11_b767f"]
-[ext_resource type="PackedScene" uid="uid://v6m0je28qwp2" path="res://scenes/Upgrade.tscn" id="13_sgei3"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -73,10 +72,12 @@ text = "Reset"
 script = ExtResource("3_or36x")
 
 [node name="Upgrades" type="Node2D" parent="."]
-position = Vector2(281, 340)
+position = Vector2(293, 162)
 script = ExtResource("3_gsk5d")
 
-[node name="Upgrade" parent="Upgrades" instance=ExtResource("13_sgei3")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrades"]
+offset_right = 786.0
+offset_bottom = 381.0
 
 [node name="Enemy" type="Node2D" parent="."]
 position = Vector2(39, 61)

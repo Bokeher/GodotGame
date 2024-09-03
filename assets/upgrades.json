@@ -13,6 +13,20 @@
 					"description": "It's better than bare hands! Increases clicking damage by 1."
 				},
 			]
+		},
+		{
+			"id": 2,
+			"name": "Main Weapon 2",
+			"description": "Inceases your clicking damage 2",
+			"tiers": [
+				{
+					"tier": 1,
+					"name": "Wooden Sword 2",
+					"damage_bonus": 2,
+					"cost": 51,
+					"description": "It's better than bare hands 2! Increases clicking damage by 1."
+				},
+			]
 		}
 	]
 }

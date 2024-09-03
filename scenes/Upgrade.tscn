@@ -992,6 +992,7 @@ cache/0/30/0/kerning_overrides/29/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [node name="Upgrade" type="Control"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1003,7 +1004,7 @@ script = ExtResource("1_21k3d")
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 564.0
-offset_bottom = 129.0
+offset_bottom = 120.0
 color = Color(0.135758, 0.183149, 0.248944, 1)
 
 [node name="Effect" type="Label" parent="Background"]

@@ -1,7 +1,9 @@
 extends Node2D
 
-const upgrade = preload("res://scenes/Upgrade.tscn")
+const upgrade_scene = preload("res://scenes/Upgrade.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	for upgrade in Global._upgrades:
+		var new_upgrade = upgrade_scene.instantiate()
+		new_upgrade.get_node("Background/Effect").text = upgrade.name
+		$VBoxContainer.add_child(new_upgrade)
