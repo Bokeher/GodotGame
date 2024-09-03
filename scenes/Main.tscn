@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=13 format=3 uid="uid://ops8w8ltn4i7"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_afq8i"]
 [ext_resource type="Script" path="res://BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://Reset.gd" id="3_or36x"]
 [ext_resource type="Script" path="res://Enemy.gd" id="5_unadx"]
@@ -52,7 +51,6 @@ cache/0/25/0/kerning_overrides/20/0 = Vector2(0, 0)
 cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_afq8i")
 
 [node name="BiomeInfo" type="Label" parent="."]
 offset_left = 37.0

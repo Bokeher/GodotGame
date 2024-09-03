@@ -1,4 +1,4 @@
 extends Button
 
 func _pressed():
-	$"../..".upgrade(10, 1)
+	$"..".upgrade(10, 1)
