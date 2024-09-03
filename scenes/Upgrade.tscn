@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://v6m0je28qwp2"]
 
 [ext_resource type="Script" path="res://Upgrade.gd" id="1_21k3d"]
-[ext_resource type="Script" path="res://scenes/Upgrade.gd" id="1_om3v8"]
+[ext_resource type="Script" path="res://UpgradeButton.gd" id="2_sger2"]
 
 [sub_resource type="FontFile" id="FontFile_16vje"]
 cache/0/16/0/ascent = 0.0
@@ -998,7 +998,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_om3v8")
+script = ExtResource("1_21k3d")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -1033,4 +1033,4 @@ offset_top = 21.0
 offset_right = 547.0
 offset_bottom = 98.0
 text = "Upgrade"
-script = ExtResource("1_21k3d")
+script = ExtResource("2_sger2")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=14 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://BiomeInfo.gd" id="2_lrkbd"]
+[ext_resource type="Script" path="res://Upgrades.gd" id="3_gsk5d"]
 [ext_resource type="Script" path="res://Reset.gd" id="3_or36x"]
 [ext_resource type="Script" path="res://Enemy.gd" id="5_unadx"]
 [ext_resource type="Texture2D" uid="uid://2nph3u1tlq2w" path="res://assets/enemies/slimes/green_slime.png" id="6_jbngq"]
@@ -73,6 +74,7 @@ script = ExtResource("3_or36x")
 
 [node name="Upgrades" type="Node2D" parent="."]
 position = Vector2(281, 340)
+script = ExtResource("3_gsk5d")
 
 [node name="Upgrade" parent="Upgrades" instance=ExtResource("13_sgei3")]
 
