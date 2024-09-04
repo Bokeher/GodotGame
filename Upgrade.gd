@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	$".".set_custom_minimum_size($Background.size)
+
 func upgrade(cost: int, damage_increase: int):
 	if Global.gold < cost:
 		# TODO: Show to user
