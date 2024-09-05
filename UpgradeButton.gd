@@ -1,4 +1,7 @@
 extends Button
 
 func _pressed():
-	$"../..".upgrade(10, 1)
+	var upgrade_id = int($"../UpgradeId".text)
+	
+	var upgrade = Global.get_upgrade(upgrade_id)
+	$"../..".upgrade(upgrade.cost, upgrade.damage_bonus)
