@@ -3,16 +3,16 @@
 		{
 			"id": 1,
 			"name": "Main Weapon",
-			"description": "It's better than bare hands! \nIncreases clicking damage by 1.",
+			"description": "Increases damage dealt by 1.",
 			"cost": 50,
 			"damage_bonus": 1,
 		},
 		{
 			"id": 2,
 			"name": "Main Weapon 2",
-			"description": "Inceases your clicking damage 2",
+			"description": "Inceases damage dealt by 2",
+			"cost": 75,
 			"damage_bonus": 2,
-			"cost": 51,
 		}
 	]
 }
