@@ -3,7 +3,7 @@
 		{
 			"id": 1,
 			"name": "Main Weapon",
-			"description": "Increases damage dealt by 1.",
+			"description": "Increases damage dealt by 1",
 			"cost": 50,
 			"damage_bonus": 1,
 		},
