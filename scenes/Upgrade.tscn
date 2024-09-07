@@ -2042,7 +2042,7 @@ script = ExtResource("1_21k3d")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 564.0
+offset_right = 560.0
 offset_bottom = 140.0
 color = Color(0.165205, 0.219524, 0.29494, 1)
 
@@ -2054,7 +2054,7 @@ offset_right = 349.0
 offset_bottom = 130.0
 theme_override_fonts/font = SubResource("FontFile_16vje")
 theme_override_font_sizes/font_size = 20
-text = "+1 Damage"
+text = "Effect desciption"
 autowrap_mode = 3
 
 [node name="UpgradeName" type="Label" parent="Background"]
@@ -2069,10 +2069,10 @@ text = "Upgrade Name"
 
 [node name="UpgradeButton" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 374.0
-offset_top = 31.0
-offset_right = 552.0
-offset_bottom = 108.0
+offset_left = 366.0
+offset_top = 29.0
+offset_right = 544.0
+offset_bottom = 106.0
 theme_override_colors/font_color = Color(0.865643, 0.593809, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_yvvp4")
 theme_override_font_sizes/font_size = 25

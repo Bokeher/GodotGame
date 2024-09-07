@@ -4,7 +4,7 @@
 			"id": 1,
 			"name": "Attack",
 			"description": "Increase your attack by 1",
-			"cost": 50,
+			"cost": 10,
 			"value": 1,
 			"cost_multiplier": 1.5,
 			"max_level": -1

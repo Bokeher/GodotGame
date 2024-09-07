@@ -12,5 +12,5 @@ func upgrade(cost: int, damage_increase: int):
 	Global.gold -= cost
 	Global.damage += damage_increase
 	
-	$"../../../Info/GoldAmount".update_gold()
-	$"../../../Info/DamageInfo".update_damage()
+	$"../../../../Info/GoldAmount".update_gold()
+	$"../../../../Info/DamageInfo".update_damage()

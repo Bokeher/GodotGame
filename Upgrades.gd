@@ -10,4 +10,4 @@ func _ready():
 		new_upgrade.get_node("Background/UpgradeButton").text = str(upgrade.cost)
 		new_upgrade.get_node("Background/UpgradeId").text = str(upgrade.id)
 		
-		$VBoxContainer.add_child(new_upgrade)
+		$ScrollContainer/VBoxContainer.add_child(new_upgrade)
