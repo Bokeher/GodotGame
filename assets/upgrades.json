@@ -2,17 +2,48 @@
 	"upgrades": [
 		{
 			"id": 1,
-			"name": "Main Weapon",
-			"description": "Increases damage dealt by 1",
+			"name": "Attack",
+			"description": "Increase your attack by 1",
 			"cost": 50,
-			"damage_bonus": 1,
+			"value": 1,
+			"cost_multiplier": 1.5,
+			"max_level": -1
 		},
 		{
 			"id": 2,
-			"name": "Main Weapon 2",
-			"description": "Inceases damage dealt by 2",
-			"cost": 75,
-			"damage_bonus": 2,
-		}
+			"name": "Dexterity",
+			"description": "Incease your crit chance by 1%",
+			"cost": 100,
+			"value": 1,
+			"cost_multiplier": 2,
+			"max_level": 100
+		},
+		{
+			"id": 3,
+			"name": "Speed",
+			"description": "Decrease time needed to find new enemy by 1%",
+			"cost": 100,
+			"value": 1,
+			"cost_multiplier": 2,
+			"max_level": 100
+		},
+		{
+			"id": 4,
+			"name": "Wisdom",
+			"description": "Increse XP gain by 1%",
+			"cost": 100,
+			"value": 1,
+			"cost_multiplier": 3,
+			"max_level": 1000
+		},
+		{
+			"id": 5,
+			"name": "Luck",
+			"description": "Increse gold gain by 1%",
+			"cost": 100,
+			"value": 1,
+			"cost_multiplier": 3,
+			"max_level": 1000
+		},
 	]
 }
