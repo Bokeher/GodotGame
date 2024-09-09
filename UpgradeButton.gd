@@ -1,7 +1,19 @@
 extends Button
 
-func _pressed():
+var upgrade;
+
+func _ready():
 	var upgrade_id = int($"../UpgradeId".text)
-	
-	var upgrade = Global.get_upgrade(upgrade_id)
+	upgrade = Global.get_upgrade(upgrade_id)
+
+func _pressed():
 	$"../..".upgrade(upgrade)
+	
+func _process(_delta):
+	check_buy()
+
+func check_buy():
+	if(Global.gold < upgrade.cost):
+		$".".disabled = true;
+	else:
+		$".".disabled = false;
