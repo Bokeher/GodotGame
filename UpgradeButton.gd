@@ -1,6 +1,6 @@
 extends Button
 
-var upgrade;
+var upgrade
 
 func _ready():
 	var upgrade_id = int($"../UpgradeId".text)
@@ -14,6 +14,6 @@ func _process(_delta):
 
 func check_buy():
 	if(Global.gold < upgrade.cost):
-		$".".disabled = true;
+		$".".disabled = true
 	else:
-		$".".disabled = false;
+		$".".disabled = false
