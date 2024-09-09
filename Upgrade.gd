@@ -3,17 +3,17 @@ extends Control
 func _ready():
 	$".".set_custom_minimum_size($Background.size)
 
-func upgrade(upgrade):
-	if(Global.gold < upgrade.cost):
+func upgrade(curr_upgrade):
+	if(Global.gold < curr_upgrade.cost):
 		# TODO: Show to user
 		print("Not enough gold")
 		return
 		
-	Global.gold -= upgrade.cost
+	Global.gold -= curr_upgrade.cost
 	
-	var id = upgrade.id
+	var id = curr_upgrade.id
 	if(id == 1):
-		Global.damage += upgrade.value
+		Global.damage += curr_upgrade.value
 	#elif(id == 2):
 		
 	
