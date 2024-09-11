@@ -7,9 +7,13 @@ const PATH_STAGES: String = "res://assets/stages.json"
 const PATH_UPGRADES: String = "res://assets/upgrades.json"
 
 # saved vars
+class PlayerStats:
 var damage: int = 1
 var gold: int = 0
 var max_stage_reached: int = 1
+	
+var player_stats = PlayerStats.new()
+
 
 # vars to use in other files
 var curr_enemy = null
@@ -31,7 +35,7 @@ func _ready():
 	
 	read_savefile()
 	
-	curr_stage = get_stage(max_stage_reached)
+	curr_stage = get_stage(player_stats.max_stage_reached)
 	enemy_pool = curr_stage.enemies
 	
 	if(!curr_enemy):
