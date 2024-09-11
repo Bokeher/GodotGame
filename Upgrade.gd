@@ -4,16 +4,16 @@ func _ready():
 	$".".set_custom_minimum_size($Background.size)
 
 func upgrade(curr_upgrade):
-	if(Global.gold < curr_upgrade.cost):
+	if(Global.player_stats.gold < curr_upgrade.cost):
 		# TODO: Show to user
 		print("Not enough gold")
 		return
 		
-	Global.gold -= curr_upgrade.cost
+	Global.player_stats.gold -= curr_upgrade.cost
 	
 	var id = curr_upgrade.id
 	if(id == 1):
-		Global.damage += curr_upgrade.value
+		Global.player_stats.damage += curr_upgrade.value
 	#elif(id == 2):
 		
 	

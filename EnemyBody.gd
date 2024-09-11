@@ -4,10 +4,10 @@ func _ready():
 	update_texture()
 
 func _pressed():
-	Global.curr_enemy.health -= Global.damage
+	Global.curr_enemy.health -= Global.player_stats.damage
 	
 	if (Global.curr_enemy.health <= 0): 
-		Global.gold += Global.curr_enemy.gold_reward
+		Global.player_stats.gold += Global.curr_enemy.gold_reward
 		$"../../Info/GoldAmount".update_gold()
 		
 		var picked_enemy = pick_enemy()

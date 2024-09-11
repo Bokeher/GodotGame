@@ -13,7 +13,7 @@ func _process(_delta):
 	check_buy()
 
 func check_buy():
-	if(Global.gold < upgrade.cost):
+	if(Global.player_stats.gold < upgrade.cost):
 		$".".disabled = true
 	else:
 		$".".disabled = false

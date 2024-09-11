@@ -1,5 +1,5 @@
 extends Button
 
 func _pressed():
-	Global.damage = 1
-	Global.gold = 0
+	Global.player_stats.damage = 1
+	Global.player_stats.gold = 0
