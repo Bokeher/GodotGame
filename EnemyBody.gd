@@ -4,7 +4,11 @@ func _ready():
 	update_texture()
 
 func _pressed():
-	Global.curr_enemy.health -= Global.player_stats.damage
+	var damage = Global.player_stats.damage
+	if(is_critical_hit()): 
+		damage *= 2
+	
+	Global.curr_enemy.health -= damage
 	
 	if (Global.curr_enemy.health <= 0): 
 		Global.player_stats.gold += Global.curr_enemy.gold_reward
@@ -43,3 +47,10 @@ func pick_enemy():
 		cumulative_chance += enemy["spawn_chance"]
 		if random_value < cumulative_chance:
 			return enemy["enemy_id"]
+
+func is_critical_hit() -> bool:
+	var crit_chance = Global.player_stats.crit
+	
+	var random_value = randf()
+
+	return random_value <= crit_chance
