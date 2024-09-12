@@ -14,7 +14,8 @@ func upgrade(curr_upgrade):
 	var id = curr_upgrade.id
 	if(id == 1):
 		Global.player_stats.damage += curr_upgrade.value
-	#elif(id == 2):
+	elif(id == 2):
+		Global.player_stats.crit += (curr_upgrade.value / 100)
 		
 	
 	$"../../../../Info/GoldAmount".update_gold()
