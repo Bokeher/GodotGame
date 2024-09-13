@@ -4,6 +4,9 @@ func _ready():
 	update_texture()
 
 func _pressed():
+	$"../../AudioStreamPlayer".change_pitch()
+	$"../../AudioStreamPlayer".play()
+	
 	var damage = Global.player_stats.damage
 	if(is_critical_hit()): 
 		damage *= 2

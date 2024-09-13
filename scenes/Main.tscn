@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=15 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://Upgrades.gd" id="3_gsk5d"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://HealthBar.gd" id="10_hvvn2"]
 [ext_resource type="Script" path="res://GoldAmount.gd" id="10_uekgw"]
 [ext_resource type="Script" path="res://DamageInfo.gd" id="11_b767f"]
+[ext_resource type="AudioStream" uid="uid://bgwunsbbcyb15" path="res://assets/sounds/wood_hit.mp3" id="12_bo8ar"]
+[ext_resource type="Script" path="res://scenes/AudioStreamPlayer.gd" id="12_xw6xw"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -137,3 +139,9 @@ offset_bottom = 83.0
 text = "1 damage"
 vertical_alignment = 1
 script = ExtResource("11_b767f")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_bo8ar")
+volume_db = -15.0
+pitch_scale = 4.0
+script = ExtResource("12_xw6xw")
