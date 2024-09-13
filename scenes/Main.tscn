@@ -142,6 +142,6 @@ script = ExtResource("11_b767f")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_bo8ar")
-volume_db = -15.0
+volume_db = -30.0
 pitch_scale = 4.0
 script = ExtResource("12_xw6xw")
