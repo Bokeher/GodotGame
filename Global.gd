@@ -10,6 +10,8 @@ const PATH_UPGRADES: String = "res://assets/upgrades.json"
 class PlayerStats:
 	var damage: int = 1
 	var crit: float = 0.00
+	var speed: int = 1
+	
 	var gold: int = 0
 	var max_stage_reached: int = 1
 	
@@ -56,8 +58,9 @@ func read_savefile():
 	
 	player_stats.damage = stats[0]
 	player_stats.crit = stats[1]
-	player_stats.gold = stats[2]
-	player_stats.max_stage_reached = stats[3]
+	player_stats.speed = stats[2]
+	player_stats.gold = stats[3]
+	player_stats.max_stage_reached = stats[4]
 
 func save_savefile():
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
@@ -66,6 +69,7 @@ func save_savefile():
 		[
 			player_stats.damage,
 			player_stats.crit,
+			player_stats.speed,
 			player_stats.gold,
 			player_stats.max_stage_reached
 		], 
