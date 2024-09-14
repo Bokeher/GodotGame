@@ -21,9 +21,14 @@ func _pressed():
 		
 		# make enemy disapear for a brief moment
 		$".".disabled = true
+		$"../HealthBar".update_healthBar()
 		Global.curr_enemy = null
 		$"..".update_enemy()
-		await get_tree().create_timer(0.05).timeout
+		
+		var time_to_find_enemy = 1 / Global.player_stats.speed
+		$"../HealthBar".start_filling(time_to_find_enemy)
+		
+		await get_tree().create_timer(time_to_find_enemy).timeout
 		
 		# set new enemy after apearing again
 		$".".disabled = false
