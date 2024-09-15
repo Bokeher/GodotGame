@@ -25,7 +25,7 @@ func _pressed():
 		Global.curr_enemy = null
 		$"..".update_enemy()
 		
-		var time_to_find_enemy = 1 / Global.player_stats.speed
+		var time_to_find_enemy = 1.01 - Global.player_stats.speed * 0.01
 		$"../HealthBar".start_filling(time_to_find_enemy)
 		
 		await get_tree().create_timer(time_to_find_enemy).timeout
