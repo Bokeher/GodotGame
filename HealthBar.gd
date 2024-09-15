@@ -4,6 +4,7 @@ var filling_time = 0
 var elapsed_time = 0.0
 
 func _ready():
+	set_process(false)
 	set_max_value_healthBar()
 	update_healthBar()
 	
