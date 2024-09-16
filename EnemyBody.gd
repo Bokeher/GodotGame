@@ -4,12 +4,17 @@ func _ready():
 	update_texture()
 
 func _pressed():
-	$"../../AudioStreamPlayer".change_pitch()
-	$"../../AudioStreamPlayer".play()
-	
 	var damage = Global.player_stats.damage
+	
+	$"../../AudioStreamPlayer".change_pitch()
+	
+	# check crit
 	if(is_critical_hit()): 
+		$"../../AudioStreamPlayer".change_crit_pitch()
 		damage *= 2
+	
+	# play sound
+	$"../../AudioStreamPlayer".play()
 	
 	Global.curr_enemy.health -= damage
 	
