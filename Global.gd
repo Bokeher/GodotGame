@@ -6,30 +6,31 @@ const PATH_ENEMIES: String = "res://assets/enemies/enemies.json"
 const PATH_STAGES: String = "res://assets/stages.json"
 const PATH_UPGRADES: String = "res://assets/upgrades.json"
 
-# saved vars
 class PlayerStats:
 	var damage: int = 1
 	var crit: float = 0.00
 	var speed: int = 1
+	var wisdom: int = 1
+	var luck: int = 1
 	
 	var gold: int = 0
 	var max_stage_reached: int = 1
-	
+
+# Saved vars
 var player_stats = PlayerStats.new()
 
-
-# vars to use in other files
+# State vars
 var curr_enemy = null
 var curr_stage = null
 var enemy_pool = []
 
-# private vars - use getters to get them
+# Private vars - use getters to get them
 var _enemies = []
 var _stages = []
 var _upgrades = []
 
-# TODO: decide if need to save curr_enemy
-# TODO: decide if need get_upgrade and get_stage
+# TODO: Decide if need to save curr_enemy
+# TODO: Decide if need get_upgrade and get_stage
 
 func _ready():
 	read_stages()
@@ -38,7 +39,10 @@ func _ready():
 	
 	read_savefile()
 	
+	# Set curr_stage to max reached stage
 	curr_stage = get_stage(player_stats.max_stage_reached)
+	
+	# Set enemy_pool to current's stage pool
 	enemy_pool = curr_stage.enemies
 	
 	if(!curr_enemy):
@@ -59,8 +63,11 @@ func read_savefile():
 	player_stats.damage = stats[0]
 	player_stats.crit = stats[1]
 	player_stats.speed = stats[2]
-	player_stats.gold = stats[3]
-	player_stats.max_stage_reached = stats[4]
+	player_stats.wisdom = stats[3]
+	player_stats.luck = stats[4]
+	
+	player_stats.gold = stats[5]
+	player_stats.max_stage_reached = stats[6]
 
 func save_savefile():
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
@@ -70,6 +77,9 @@ func save_savefile():
 			player_stats.damage,
 			player_stats.crit,
 			player_stats.speed,
+			player_stats.wisdom,
+			player_stats.luck,
+			
 			player_stats.gold,
 			player_stats.max_stage_reached
 		], 
@@ -80,6 +90,7 @@ func save_savefile():
 	
 	print("Saved")
 
+# Auto save on exit
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_savefile()
