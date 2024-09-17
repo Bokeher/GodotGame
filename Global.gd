@@ -49,7 +49,7 @@ func _ready():
 		curr_enemy = get_enemy(0)
 
 func read_savefile():
-	if !FileAccess.file_exists(PATH_SAVE): 
+	if !FileAccess.file_exists(PATH_SAVE):
 		print("File not found")
 		return
 	
@@ -82,8 +82,8 @@ func save_savefile():
 			
 			player_stats.gold,
 			player_stats.max_stage_reached
-		], 
-		curr_enemy 
+		],
+		curr_enemy
 	]
 	
 	file.store_var(save_data)
@@ -96,7 +96,7 @@ func _notification(what):
 		save_savefile()
 
 func read_enemies():
-	if(!FileAccess.file_exists(PATH_ENEMIES)): 
+	if(!FileAccess.file_exists(PATH_ENEMIES)):
 		print("Enemies file not found")
 		return
 	
@@ -107,7 +107,7 @@ func get_enemy(id: int):
 	return _enemies[id - 1].duplicate()
 
 func read_stages():
-	if(!FileAccess.file_exists(PATH_STAGES)): 
+	if(!FileAccess.file_exists(PATH_STAGES)):
 		print("Stages file not found")
 		return
 	
@@ -118,7 +118,7 @@ func get_stage(id: int):
 	return _stages[id - 1].duplicate()
 
 func read_upgrades():
-	if(!FileAccess.file_exists(PATH_UPGRADES)): 
+	if(!FileAccess.file_exists(PATH_UPGRADES)):
 		print("Upgrades file not found")
 		return
 	
