@@ -16,8 +16,41 @@ class PlayerStats:
 	var gold: int = 0
 	var max_stage_reached: int = 1
 
+class UpgradeStats:
+	var id: int
+	var cost: float
+	var cost_multiplier: float
+	var level: int
+	
+	func _init(_id: int, _cost: float, _cost_multiplier: int, _level: int = 0):
+		id = _id
+		cost = _cost
+		cost_multiplier = _cost_multiplier
+		level = _level
+	
+	# used in saving
+	func to_dict() -> Dictionary:
+		return {
+			"id": id,
+			"cost": cost,
+			"cost_multiplier": cost_multiplier,
+			"level": level
+		}
+	
+	# used in reading from savefile
+	static func from_dict(data: Dictionary) -> UpgradeStats:
+		var instance = UpgradeStats.new(
+			data.get("id", -1),
+			data.get("cost", -1),
+			data.get("cost_multiplier", -1),
+			data.get("level", -1)
+		)
+		
+		return instance
+
 # Saved vars
-var player_stats = PlayerStats.new()
+var player_stats: PlayerStats = PlayerStats.new()
+var upgrade_stats_array: Array[UpgradeStats] = []
 
 # State vars
 var curr_enemy = null
@@ -38,6 +71,11 @@ func _ready():
 	read_upgrades()
 	
 	read_savefile()
+	
+	if(upgrade_stats_array.is_empty()):
+		for upgrade in _upgrades:
+			var upgrade_stats = UpgradeStats.new(upgrade.id, upgrade.cost, upgrade.cost_multiplier)
+			upgrade_stats_array.append(upgrade_stats)
 	
 	# Set curr_stage to max reached stage
 	curr_stage = get_stage(player_stats.max_stage_reached)
@@ -60,6 +98,11 @@ func read_savefile():
 	var stats = data[0]
 	curr_enemy = data[1]
 	
+	var upgrade_stats_dicts = data[2]
+	
+	for upgrade_stats_dict in upgrade_stats_dicts:
+		upgrade_stats_array.append(UpgradeStats.from_dict(upgrade_stats_dict))
+	
 	player_stats.damage = stats[0]
 	player_stats.crit = stats[1]
 	player_stats.speed = stats[2]
@@ -72,6 +115,10 @@ func read_savefile():
 func save_savefile():
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
 	
+	var upgrade_stats_dict = []
+	for upgrade_stats in upgrade_stats_array:
+		upgrade_stats_dict.append(upgrade_stats.to_dict())
+	
 	var save_data = [
 		[
 			player_stats.damage,
@@ -83,7 +130,8 @@ func save_savefile():
 			player_stats.gold,
 			player_stats.max_stage_reached
 		],
-		curr_enemy
+		curr_enemy,
+		upgrade_stats_dict
 	]
 	
 	file.store_var(save_data)
