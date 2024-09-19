@@ -19,6 +19,10 @@ func upgrade(curr_upgrade):
 		Global.player_stats.crit += (curr_upgrade.value / 100)
 	elif(id == 3):
 		Global.player_stats.speed += curr_upgrade.value
+	elif(id == 4):
+		Global.player_stats.wisdom += curr_upgrade.value
+	elif(id == 5):
+		Global.player_stats.luck += curr_upgrade.value
 	
 	var upgrade_stats = Global.upgrade_stats_array[id - 1]
 	upgrade_stats.level += 1
