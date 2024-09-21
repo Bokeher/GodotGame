@@ -73,9 +73,7 @@ func _ready():
 	read_savefile()
 	
 	if(upgrade_stats_array.is_empty()):
-		for upgrade in _upgrades:
-			var upgrade_stats = UpgradeStats.new(upgrade.id, upgrade.cost, upgrade.cost_multiplier)
-			upgrade_stats_array.append(upgrade_stats)
+		load_upgrade_stats()
 	
 	# Set curr_stage to max reached stage
 	curr_stage = get_stage(player_stats.max_stage_reached)
@@ -85,6 +83,13 @@ func _ready():
 	
 	if(!curr_enemy):
 		curr_enemy = get_enemy(0)
+
+func load_upgrade_stats():
+	upgrade_stats_array = []
+	
+	for upgrade in _upgrades:
+			var upgrade_stats = UpgradeStats.new(upgrade.id, upgrade.cost, upgrade.cost_multiplier)
+			upgrade_stats_array.append(upgrade_stats)
 
 func read_savefile():
 	if !FileAccess.file_exists(PATH_SAVE):
