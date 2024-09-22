@@ -62,6 +62,10 @@ var _enemies = []
 var _stages = []
 var _upgrades = []
 
+# Auto save vars
+const AUTO_SAVE_INTERVAL = 5.0
+var auto_save_timer = 0.0
+
 # TODO: Decide if need to save curr_enemy
 # TODO: Decide if need get_upgrade and get_stage
 
@@ -143,10 +147,17 @@ func save_savefile():
 	
 	print("Saved")
 
-# Auto save on exit
+# Save on exit
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_savefile()
+
+# Auto save 
+func _process(delta):
+	auto_save_timer += delta
+	if auto_save_timer >= AUTO_SAVE_INTERVAL:
+		save_savefile()
+		auto_save_timer = 0.0
 
 func read_enemies():
 	if(!FileAccess.file_exists(PATH_ENEMIES)):
