@@ -5,12 +5,14 @@ func _ready():
 	$Background/Level.update_level()
 
 func upgrade(curr_upgrade):
-	if(Global.player_stats.gold < curr_upgrade.cost):
+	var cost = Global.upgrade_stats_array[curr_upgrade.id - 1].cost
+	
+	if(Global.player_stats.gold < cost):
 		# TODO: Show to user
 		print("Not enough gold")
 		return
-		
-	Global.player_stats.gold -= curr_upgrade.cost
+	
+	Global.player_stats.gold -= cost
 	
 	var id = curr_upgrade.id
 	if(id == 1):
@@ -28,6 +30,7 @@ func upgrade(curr_upgrade):
 	upgrade_stats.level += 1
 	upgrade_stats.cost = upgrade_stats.cost * upgrade_stats.cost_multiplier
 	
+	$Background/UpgradeButton.update_cost()
 	$Background/Level.update_level()
 	$"../../../../Info/GoldAmount".update_gold()
 	$"../../../../Info/DamageInfo".update_damage()
