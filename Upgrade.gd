@@ -28,7 +28,7 @@ func upgrade(curr_upgrade):
 	
 	var upgrade_stats = Global.upgrade_stats_array[id - 1]
 	upgrade_stats.level += 1
-	upgrade_stats.cost = upgrade_stats.cost * upgrade_stats.cost_multiplier
+	upgrade_stats.cost = int(upgrade_stats.cost * upgrade_stats.cost_multiplier)
 	
 	$Background/UpgradeButton.update_cost()
 	$Background/Level.update_level()

@@ -18,11 +18,11 @@ class PlayerStats:
 
 class UpgradeStats:
 	var id: int
-	var cost: float
+	var cost: int
 	var cost_multiplier: float
 	var level: int
 	
-	func _init(_id: int, _cost: float, _cost_multiplier: float, _level: int = 0):
+	func _init(_id: int, _cost: int, _cost_multiplier: float, _level: int = 0):
 		id = _id
 		cost = _cost
 		cost_multiplier = _cost_multiplier
