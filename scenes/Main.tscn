@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://GoldAmount.gd" id="10_uekgw"]
 [ext_resource type="Script" path="res://DamageInfo.gd" id="11_b767f"]
 [ext_resource type="AudioStream" uid="uid://bgwunsbbcyb15" path="res://assets/sounds/wood_hit.mp3" id="12_bo8ar"]
-[ext_resource type="Script" path="res://scenes/AudioStreamPlayer.gd" id="12_xw6xw"]
+[ext_resource type="Script" path="res://AudioStreamPlayer.gd" id="12_xw6xw"]
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/Stats.tscn" id="14_664kw"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
