@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://6tj5xq667lxc"]
+
+[ext_resource type="Script" path="res://scenes/Stats.gd" id="1_foblp"]
+
+[node name="Stats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -902.0
+offset_bottom = -348.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_foblp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 300.0
+color = Color(0.427493, 0.427493, 0.427493, 1)
+
+[node name="StatsContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 240.0
+offset_bottom = 290.0
+
+[node name="Label" type="Label" parent="ColorRect/StatsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Stats"
+
+[node name="Damage" type="Label" parent="ColorRect/StatsContainer"]
+layout_mode = 2
+text = "Damage: -1"
+
+[node name="Crit" type="Label" parent="ColorRect/StatsContainer"]
+layout_mode = 2
+text = "Damage: -1"
