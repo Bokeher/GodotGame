@@ -38,3 +38,15 @@ text = "Damage: -1"
 [node name="Crit" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
 text = "Damage: -1"
+
+[node name="RespawnTime" type="Label" parent="ColorRect/StatsContainer"]
+layout_mode = 2
+text = "Damage: -1"
+
+[node name="GoldMult" type="Label" parent="ColorRect/StatsContainer"]
+layout_mode = 2
+text = "Damage: -1"
+
+[node name="XpMult" type="Label" parent="ColorRect/StatsContainer"]
+layout_mode = 2
+text = "Damage: -1"
