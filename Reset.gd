@@ -7,3 +7,4 @@ func _pressed():
 	
 	$"../Info/GoldAmount".update_gold()
 	$"../Info/DamageInfo".update_damage()
+	$"../Stats".update_stats()

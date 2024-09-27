@@ -26,7 +26,7 @@ offset_top = 10.0
 offset_right = 240.0
 offset_bottom = 290.0
 
-[node name="Label" type="Label" parent="ColorRect/StatsContainer"]
+[node name="Header" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Stats"
@@ -37,16 +37,16 @@ text = "Damage: -1"
 
 [node name="Crit" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
-text = "Damage: -1"
+text = "Crit chance: -100%"
 
 [node name="RespawnTime" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
-text = "Damage: -1"
+text = "Respawn time: -100s"
 
 [node name="GoldMult" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
-text = "Damage: -1"
+text = "Gold multiplier: -100%"
 
 [node name="XpMult" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
-text = "Damage: -1"
+text = "Xp multiplier -100%"
