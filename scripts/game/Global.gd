@@ -2,9 +2,9 @@ extends Node
 
 # file paths
 const PATH_SAVE: String = "user://save"
-const PATH_ENEMIES: String = "res://assets/enemies/enemies.json"
-const PATH_STAGES: String = "res://assets/stages.json"
-const PATH_UPGRADES: String = "res://assets/upgrades.json"
+const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
+const PATH_STAGES: String = "res://assets/jsons/stages.json"
+const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 
 class PlayerStats:
 	var damage: int = 1
