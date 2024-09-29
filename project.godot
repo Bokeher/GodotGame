@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://game/Global.gd"
+Global="*res://scripts/game/Global.gd"
 Popups="*res://scenes/Popups.tscn"
 
 [display]
