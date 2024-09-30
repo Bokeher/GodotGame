@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=15 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/game/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://scripts/game/UpgradeList.gd" id="3_gsk5d"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://scripts/game/enemy/EnemyHealth.gd" id="9_vuj78"]
 [ext_resource type="Script" path="res://scripts/game/enemy/HealthBar.gd" id="10_hvvn2"]
 [ext_resource type="Script" path="res://scripts/game/GoldAmount.gd" id="10_uekgw"]
-[ext_resource type="Script" path="res://scripts/game/DamageInfo.gd" id="11_b767f"]
 [ext_resource type="AudioStream" uid="uid://bgwunsbbcyb15" path="res://assets/sounds/wood_hit.mp3" id="12_bo8ar"]
 [ext_resource type="Script" path="res://scripts/game/AudioStreamPlayer.gd" id="12_xw6xw"]
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/Stats.tscn" id="14_664kw"]
@@ -133,14 +132,6 @@ text = "0 Gold"
 vertical_alignment = 1
 script = ExtResource("10_uekgw")
 
-[node name="DamageInfo" type="Label" parent="Info"]
-offset_top = 39.0
-offset_right = 214.0
-offset_bottom = 83.0
-text = "1 damage"
-vertical_alignment = 1
-script = ExtResource("11_b767f")
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_bo8ar")
 volume_db = -30.0
@@ -148,7 +139,7 @@ pitch_scale = 4.0
 script = ExtResource("12_xw6xw")
 
 [node name="Stats" parent="." instance=ExtResource("14_664kw")]
-offset_left = 286.0
-offset_top = 119.0
-offset_right = 286.0
-offset_bottom = 119.0
+offset_left = 288.0
+offset_top = 90.0
+offset_right = 288.0
+offset_bottom = 90.0

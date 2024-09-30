@@ -6,5 +6,4 @@ func _pressed():
 	Global.load_upgrade_stats()
 	
 	$"../Info/GoldAmount".update_gold()
-	$"../Info/DamageInfo".update_damage()
 	$"../Stats".update_stats()
