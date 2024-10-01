@@ -21,11 +21,11 @@
 		{
 			"id": 3,
 			"name": "Speed",
-			"description": "Decrease time needed to find new enemy by 1%",
+			"description": "Decrease time needed to find new enemy by 0.1s",
 			"cost": 100,
 			"value": 1,
-			"cost_multiplier": 2,
-			"max_level": 100
+			"cost_multiplier": 3,
+			"max_level": 5
 		},
 		{
 			"id": 4,
