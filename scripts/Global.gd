@@ -76,7 +76,9 @@ func _ready():
 	
 	read_savefile()
 	
-	if(upgrade_stats_array.is_empty()):
+	# if not loaded from savefile or when adding new upgrades (dev)
+	if(upgrade_stats_array.is_empty() or upgrade_stats_array.size() != _upgrades.size()):
+		# reset upgrade stats array and fill it from upgrades list 
 		load_upgrade_stats()
 	
 	# Set curr_stage to max reached stage
