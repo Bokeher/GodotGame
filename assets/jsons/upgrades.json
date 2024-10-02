@@ -45,5 +45,14 @@
 			"cost_multiplier": 3,
 			"max_level": 1000
 		},
+		{
+			"id": 6,
+			"name": "Poison",
+			"description": "Increase damage dealt per second by 1% of Attack damage",
+			"cost": 50,
+			"value": 1,
+			"cost_multiplier": 3,
+			"max_level": 100
+		}
 	]
 }
