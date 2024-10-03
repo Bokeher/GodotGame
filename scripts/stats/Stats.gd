@@ -1,9 +1,7 @@
 extends Control
 
-
 func _ready():
 	update_stats()
-
 
 func update_stats():
 	var damage = Global.player_stats.damage
