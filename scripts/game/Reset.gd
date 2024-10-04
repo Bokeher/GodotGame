@@ -11,6 +11,5 @@ func _pressed():
 	Global.player_stats.max_stage_reached = 1
 	
 	Global.load_upgrade_stats()
-	
 	$"../Info/GoldAmount".update_gold()
 	$"../Stats".update_stats()

@@ -4,11 +4,14 @@ var filling_time = 0
 var elapsed_time = 0.0
 
 func _ready():
-	set_process(false)
+	# Dont fill healthbar (used to show progress of finding new enemies) 
+	set_process(false) 
+	
 	set_max_value_healthBar()
 	update_healthBar()
-	
+
 func _process(delta):
+	# Set max to 100%
 	$".".max_value = 1
 	
 	elapsed_time += delta
@@ -25,7 +28,7 @@ func _process(delta):
 	# Stop updating once the fill is complete
 	if progress >= 1.0:
 		set_process(false)
-	
+
 func update_healthBar():
 	if(!Global.curr_enemy):
 		return

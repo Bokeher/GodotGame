@@ -48,14 +48,12 @@ class UpgradeStats:
 		
 		return instance
 
-# Saved vars
-var player_stats: PlayerStats = PlayerStats.new()
-var upgrade_stats_array: Array[UpgradeStats] = []
-
 # State vars
 var curr_enemy = null
 var curr_stage = null
 var enemy_pool = []
+var player_stats: PlayerStats = PlayerStats.new()
+var upgrade_stats_array: Array[UpgradeStats] = []
 
 # Private vars - use getters to get them
 var _enemies = []
@@ -65,9 +63,6 @@ var _upgrades = []
 # Auto save vars
 const AUTO_SAVE_INTERVAL = 5.0
 var auto_save_timer = 0.0
-
-# TODO: Decide if need to save curr_enemy
-# TODO: Decide if need get_upgrade and get_stage
 
 func _ready():
 	read_stages()
