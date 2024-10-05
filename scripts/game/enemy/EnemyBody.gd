@@ -31,7 +31,7 @@ func _pressed() -> void:
 		$"..".update_enemy()
 		
 		# start filling bar to show progress of finding new enemy
-		var time_to_find_enemy = 1.1 - Global.player_stats.speed * 0.10
+		var time_to_find_enemy = Global.calc_time_to_find_enemy()
 		$"../HealthBar".start_filling(time_to_find_enemy)
 		
 		# "sleep"

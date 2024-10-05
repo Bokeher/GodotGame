@@ -188,3 +188,6 @@ func read_upgrades():
 
 func get_upgrade(id: int):
 	return _upgrades[id - 1].duplicate()
+
+func calc_time_to_find_enemy():
+	return 1.1 - player_stats.speed * 0.1

@@ -10,5 +10,5 @@ func update_level():
 	
 	if(max_level > 0):
 		level_text += " / " + str(max_level) 
-
+	
 	$".".text = level_text
