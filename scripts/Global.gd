@@ -89,8 +89,8 @@ func load_upgrade_stats():
 	upgrade_stats_array = []
 	
 	for upgrade in _upgrades:
-			var upgrade_stats = UpgradeStats.new(upgrade.id, upgrade.cost, upgrade.cost_multiplier)
-			upgrade_stats_array.append(upgrade_stats)
+		var upgrade_stats = UpgradeStats.new(upgrade.id, upgrade.cost, upgrade.cost_multiplier)
+		upgrade_stats_array.append(upgrade_stats)
 
 func read_savefile():
 	if !FileAccess.file_exists(PATH_SAVE):
