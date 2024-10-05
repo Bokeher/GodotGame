@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=16 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/game/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://scripts/game/UpgradeList.gd" id="3_gsk5d"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/game/GoldAmount.gd" id="10_uekgw"]
 [ext_resource type="AudioStream" uid="uid://bgwunsbbcyb15" path="res://assets/sounds/wood_hit.mp3" id="12_bo8ar"]
 [ext_resource type="Script" path="res://scripts/game/AudioStreamPlayer.gd" id="12_xw6xw"]
+[ext_resource type="Script" path="res://scenes/Player_health.gd" id="14_0q1kx"]
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/Stats.tscn" id="14_664kw"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
@@ -143,3 +144,10 @@ offset_left = 288.0
 offset_top = 90.0
 offset_right = 288.0
 offset_bottom = 90.0
+
+[node name="Player_health" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 408.0
+offset_right = 137.0
+offset_bottom = 458.0
+script = ExtResource("14_0q1kx")

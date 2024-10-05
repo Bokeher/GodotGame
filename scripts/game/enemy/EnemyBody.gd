@@ -1,4 +1,5 @@
-extends TextureButton	
+extends TextureButton
+
 
 func _ready() -> void:
 	update_texture()
