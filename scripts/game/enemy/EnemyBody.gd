@@ -47,6 +47,9 @@ func _pressed() -> void:
 		
 		# show enemy
 		$".".disabled = false
+		
+		# make enemy start arracking
+		$"../../Player_health".time_passed = 0
 	
 	$"..".update_enemy()
 
