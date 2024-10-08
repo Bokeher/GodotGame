@@ -12,9 +12,9 @@
 [ext_resource type="Script" path="res://scripts/game/GoldAmount.gd" id="10_uekgw"]
 [ext_resource type="AudioStream" uid="uid://bgwunsbbcyb15" path="res://assets/sounds/wood_hit.mp3" id="12_bo8ar"]
 [ext_resource type="Script" path="res://scripts/game/AudioStreamPlayer.gd" id="12_xw6xw"]
-[ext_resource type="Script" path="res://scenes/Player_health.gd" id="14_0q1kx"]
+[ext_resource type="Script" path="res://scripts/game/PlayerHealth.gd" id="14_0q1kx"]
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/Stats.tscn" id="14_664kw"]
-[ext_resource type="Script" path="res://scenes/PlayerHealthBar.gd" id="14_mb0sc"]
+[ext_resource type="Script" path="res://scripts/game/PlayerHealthBar.gd" id="14_mb0sc"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -155,6 +155,7 @@ show_percentage = false
 script = ExtResource("14_mb0sc")
 
 [node name="PlayerHealth" type="Label" parent="PlayerHealthBar"]
+layout_mode = 0
 offset_right = 213.0
 offset_bottom = 27.0
 horizontal_alignment = 1
