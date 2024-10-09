@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=18 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/game/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://scripts/game/UpgradeList.gd" id="3_gsk5d"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/game/PlayerHealth.gd" id="14_0q1kx"]
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/Stats.tscn" id="14_664kw"]
 [ext_resource type="Script" path="res://scripts/game/PlayerHealthBar.gd" id="14_mb0sc"]
+[ext_resource type="Script" path="res://scripts/game/Search.gd" id="14_nqjfl"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -145,6 +146,14 @@ offset_left = 288.0
 offset_top = 90.0
 offset_right = 288.0
 offset_bottom = 90.0
+
+[node name="Search" type="Button" parent="."]
+offset_left = 93.0
+offset_top = 459.0
+offset_right = 219.0
+offset_bottom = 517.0
+text = "Searching"
+script = ExtResource("14_nqjfl")
 
 [node name="PlayerHealthBar" type="ProgressBar" parent="."]
 offset_left = 30.0
