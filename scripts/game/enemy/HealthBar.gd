@@ -27,6 +27,21 @@ func _process(delta):
 
 	# Stop updating once the fill is complete
 	if progress >= 1.0:
+		# set new enemy
+		var picked_enemy_id = pick_new_enemy_id()
+		Global.curr_enemy = Global.get_enemy(picked_enemy_id)
+		$"../HealthBar".set_max_value_healthBar()
+		
+		# make enemy clickable
+		$"../EnemyBody".disabled = false
+		
+		# reset enemy attack cooldown to prevent instahit on spawn
+		$"../../PlayerHealthBar/PlayerHealth".time_passed = 0
+		
+		# show enemy
+		$"..".update_enemy()
+		
+		# disable the timer
 		set_process(false)
 
 func update_healthBar():
@@ -38,7 +53,25 @@ func update_healthBar():
 func set_max_value_healthBar():
 	$".".max_value = Global.get_enemy(Global.curr_enemy.id).health
 
-func start_filling(time_to_fill: float):
+func start_filling():
+	$".".value = 0
 	elapsed_time = 0
-	filling_time = time_to_fill
+	filling_time = Global.calc_time_to_find_enemy()
+	
+	# start filling
 	set_process(true)
+
+func pick_new_enemy_id() -> int:
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+
+	var random_value = rng.randf()
+
+	var cumulative_chance = 0.0
+	for enemy in Global.enemy_pool:
+		cumulative_chance += enemy["spawn_chance"]
+		if random_value < cumulative_chance:
+			return enemy["enemy_id"]
+	
+	print("failed to pick new enemy id")
+	return -1
