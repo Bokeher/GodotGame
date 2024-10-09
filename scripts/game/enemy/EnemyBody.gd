@@ -28,6 +28,7 @@ func _pressed() -> void:
 		# make enemy disapear
 		Global.curr_enemy = null
 		$".".disabled = true
+		
 		$"../HealthBar".update_healthBar()
 		$"..".update_enemy()
 		

@@ -11,6 +11,9 @@ func _ready():
 	update_healthBar()
 
 func _process(delta):
+	if(!$"../../Search".curr_state):
+		return
+	
 	# Set max to 100%
 	$".".max_value = 1
 	
