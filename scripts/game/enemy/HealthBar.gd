@@ -27,7 +27,9 @@ func _process(delta):
 	
 	# Update the ProgressBar value
 	$".".value = progress
-
+	
+	$EnemyHealth.text = str(1 - floor(progress * 10) / 10) + "s"
+	
 	# Stop updating once the fill is complete
 	if progress >= 1.0:
 		# set new enemy
