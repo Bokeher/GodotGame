@@ -1,7 +1,7 @@
 extends Button
 
 const states = ["Idle", "Searching"]
-var curr_state = 0
+var curr_state = 1
 
 func _pressed():
 	flip()
