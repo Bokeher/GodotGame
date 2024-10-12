@@ -38,7 +38,7 @@ func _process(delta):
 		$"../HealthBar".set_max_value_healthBar()
 		
 		# make enemy clickable
-		$"../EnemyBody".disabled = false
+		$"..".show_enemy()
 		
 		# reset enemy attack cooldown to prevent instahit on spawn
 		$"../../PlayerHealthBar/PlayerHealth".time_passed = 0

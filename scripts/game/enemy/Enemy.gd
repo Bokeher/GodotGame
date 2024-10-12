@@ -9,3 +9,11 @@ func update_enemy():
 	$EnemyName.update_enemy_name()
 	$HealthBar/EnemyHealth.update_enemy_health()
 	$HealthBar.update_healthBar()
+
+func hide_enemy():
+	$EnemyAttackTimer.visible = false
+	$EnemyBody.disabled = true
+
+func show_enemy():
+	$EnemyAttackTimer.visible = true
+	$EnemyBody.disabled = false
