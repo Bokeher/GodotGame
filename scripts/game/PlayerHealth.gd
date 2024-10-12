@@ -11,7 +11,12 @@ func update_player_health():
 
 func _process(delta):
 	time_passed += delta
-	if time_passed >= 1.0:
+	
+	var attack_time = 1.0
+	var remaining_time = attack_time - time_passed
+	$"../../Enemy/EnemyAttackTimer".text = str(floor(remaining_time * 10) / 10) + "s"
+	
+	if time_passed >= attack_time:
 		if(!Global.curr_enemy):
 			time_passed = 0
 			return

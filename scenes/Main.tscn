@@ -109,6 +109,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_xasxh")
 
+[node name="EnemyAttackTimer" type="Label" parent="Enemy"]
+offset_left = 73.0
+offset_top = 38.0
+offset_right = 113.0
+offset_bottom = 61.0
+
 [node name="HealthBar" type="ProgressBar" parent="Enemy"]
 offset_top = 220.0
 offset_right = 202.0
