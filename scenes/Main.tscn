@@ -153,7 +153,7 @@ offset_top = 90.0
 offset_right = 288.0
 offset_bottom = 90.0
 
-[node name="Search" type="Button" parent="."]
+[node name="ActionButton" type="Button" parent="."]
 offset_left = 93.0
 offset_top = 459.0
 offset_right = 219.0
