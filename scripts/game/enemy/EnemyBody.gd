@@ -8,15 +8,15 @@ func _pressed() -> void:
 	var damage = Global.player_stats.damage
 	
 	# change pitch to prevent repetitiveness
-	$"../../AudioStreamPlayer".change_pitch()
+	$"../../HitEnemySound".change_pitch()
 	
 	# check crit
 	if(is_critical_hit()): 
-		$"../../AudioStreamPlayer".change_crit_pitch()
+		$"../../HitEnemySound".change_crit_pitch()
 		damage *= 2
 	
 	# play sound
-	$"../../AudioStreamPlayer".play()
+	$"../../HitEnemySound".play()
 	
 	Global.curr_enemy.health -= damage
 	

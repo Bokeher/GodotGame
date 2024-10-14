@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=20 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/game/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://scripts/game/UpgradeList.gd" id="3_gsk5d"]
@@ -10,8 +10,10 @@
 [ext_resource type="Script" path="res://scripts/game/enemy/EnemyHealth.gd" id="9_vuj78"]
 [ext_resource type="Script" path="res://scripts/game/enemy/HealthBar.gd" id="10_hvvn2"]
 [ext_resource type="Script" path="res://scripts/game/GoldAmount.gd" id="10_uekgw"]
+[ext_resource type="AudioStream" uid="uid://o88cpjyc0g0h" path="res://assets/sounds/metal_hit3.mp3" id="11_w2boa"]
 [ext_resource type="AudioStream" uid="uid://bgwunsbbcyb15" path="res://assets/sounds/wood_hit.mp3" id="12_bo8ar"]
-[ext_resource type="Script" path="res://scripts/game/AudioStreamPlayer.gd" id="12_xw6xw"]
+[ext_resource type="Script" path="res://scripts/sounds/ReceiveDamageSound.gd" id="12_imtb5"]
+[ext_resource type="Script" path="res://scripts/sounds/HitEnemySound.gd" id="12_xw6xw"]
 [ext_resource type="Script" path="res://scripts/game/PlayerHealth.gd" id="14_0q1kx"]
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/Stats.tscn" id="14_664kw"]
 [ext_resource type="Script" path="res://scripts/game/PlayerHealthBar.gd" id="14_mb0sc"]
@@ -141,7 +143,13 @@ text = "0 Gold"
 vertical_alignment = 1
 script = ExtResource("10_uekgw")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ReceiveDamageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_w2boa")
+volume_db = -35.288
+pitch_scale = 2.0
+script = ExtResource("12_imtb5")
+
+[node name="HitEnemySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_bo8ar")
 volume_db = -30.0
 pitch_scale = 4.0

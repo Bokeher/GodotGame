@@ -21,6 +21,9 @@ func _process(delta):
 			time_passed = 0
 			return
 		
+		$"../../ReceiveDamageSound".change_pitch()
+		$"../../ReceiveDamageSound".play()
+		
 		Global.player_stats.health -= Global.curr_enemy.damage
 		update_player_health()
 		$"..".update_player_health_bar()
