@@ -2,7 +2,7 @@ extends Node2D
 
 const upgrade_scene = preload("res://scenes/Upgrade.tscn")
 
-func _ready():
+func _ready() -> void:
 	for upgrade in Global._upgrades:
 		var new_upgrade = upgrade_scene.instantiate()
 		new_upgrade.get_node("Background/UpgradeName").text = upgrade.name

@@ -67,7 +67,7 @@ var _upgrades = []
 const AUTO_SAVE_INTERVAL = 5.0
 var auto_save_timer = 0.0
 
-func _ready():
+func _ready() -> void:
 	read_stages()
 	read_enemies()
 	read_upgrades()
@@ -88,14 +88,14 @@ func _ready():
 	if(!curr_enemy):
 		curr_enemy = get_enemy(0)
 
-func load_upgrade_stats():
+func load_upgrade_stats() -> void:
 	upgrade_stats_array = []
 	
 	for upgrade in _upgrades:
 		var upgrade_stats = UpgradeStats.new(upgrade.id, upgrade.cost, upgrade.cost_multiplier)
 		upgrade_stats_array.append(upgrade_stats)
 
-func read_savefile():
+func read_savefile() -> void:
 	if !FileAccess.file_exists(PATH_SAVE):
 		print("File not found")
 		return
@@ -121,7 +121,7 @@ func read_savefile():
 	player_stats.gold = stats[5]
 	player_stats.max_stage_reached = stats[6]
 
-func save_savefile():
+func save_savefile() -> void:
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
 	
 	var upgrade_stats_dict = []
@@ -148,18 +148,18 @@ func save_savefile():
 	print("Saved")
 
 # Save on exit
-func _notification(what):
+func _notification(what) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_savefile()
 
 # Auto save 
-func _process(delta):
+func _process(delta) -> void:
 	auto_save_timer += delta
 	if auto_save_timer >= AUTO_SAVE_INTERVAL:
 		save_savefile()
 		auto_save_timer = 0.0
 
-func read_enemies():
+func read_enemies() -> void:
 	if(!FileAccess.file_exists(PATH_ENEMIES)):
 		print("Enemies file not found")
 		return
@@ -167,10 +167,11 @@ func read_enemies():
 	var json_to_read = FileAccess.open(PATH_ENEMIES, FileAccess.READ)
 	_enemies = JSON.parse_string(json_to_read.get_as_text()).enemies
 
+# TODO: add type after adding Enemy class
 func get_enemy(id: int):
 	return _enemies[id - 1].duplicate()
 
-func read_stages():
+func read_stages() -> void:
 	if(!FileAccess.file_exists(PATH_STAGES)):
 		print("Stages file not found")
 		return
@@ -178,10 +179,11 @@ func read_stages():
 	var json_to_read = FileAccess.open(PATH_STAGES, FileAccess.READ)
 	_stages = JSON.parse_string(json_to_read.get_as_text()).stages
 
+# TODO: add type after adding Stage class
 func get_stage(id: int):
 	return _stages[id - 1].duplicate()
 
-func read_upgrades():
+func read_upgrades() -> void:
 	if(!FileAccess.file_exists(PATH_UPGRADES)):
 		print("Upgrades file not found")
 		return
@@ -189,8 +191,9 @@ func read_upgrades():
 	var json_to_read = FileAccess.open(PATH_UPGRADES, FileAccess.READ)
 	_upgrades = JSON.parse_string(json_to_read.get_as_text()).upgrades
 
+# TODO: add type after adding Upgrade class
 func get_upgrade(id: int):
 	return _upgrades[id - 1].duplicate()
 
-func calc_time_to_find_enemy():
+func calc_time_to_find_enemy() -> float:
 	return 1.1 - player_stats.speed * 0.1

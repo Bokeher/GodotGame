@@ -1,6 +1,6 @@
 extends Label
 
-func update_level():
+func update_level() -> void:
 	var id: int = int($"../UpgradeId".text)
 	
 	var level: int = Global.upgrade_stats_array[id - 1].level

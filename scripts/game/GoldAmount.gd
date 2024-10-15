@@ -1,7 +1,7 @@
 extends Label
 
-func _ready():
+func _ready() -> void:
 	update_gold()
 
-func update_gold():
+func update_gold() -> void:
 	$".".text = str(Global.player_stats.gold) + " Gold"

@@ -1,10 +1,10 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
 	$".".set_custom_minimum_size($Background.size)
 	$Background/Level.update_level()
 
-func upgrade(curr_upgrade):
+func upgrade(curr_upgrade) -> void:
 	var cost = Global.upgrade_stats_array[curr_upgrade.id - 1].cost
 	
 	if(Global.player_stats.gold < cost):

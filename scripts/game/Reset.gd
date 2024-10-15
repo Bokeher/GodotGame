@@ -1,6 +1,6 @@
 extends Button
 
-func _pressed():
+func _pressed() -> void:
 	Global.player_stats.damage = 1
 	Global.player_stats.crit = 0
 	Global.player_stats.speed = 1

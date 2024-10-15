@@ -3,14 +3,14 @@ extends ProgressBar
 var filling_time = 0
 var elapsed_time = 0.0
 
-func _ready():
+func _ready() -> void:
 	# Dont fill healthbar (used to show progress of finding new enemies) 
 	set_process(false) 
 	
 	set_max_value_healthBar()
 	update_healthBar()
 
-func _process(delta):
+func _process(delta) -> void:
 	if(!$"../../ActionButton".curr_state):
 		return
 	
@@ -49,16 +49,16 @@ func _process(delta):
 		# disable the timer
 		set_process(false)
 
-func update_healthBar():
+func update_healthBar() -> void:
 	if(!Global.curr_enemy):
 		return
 	
 	$".".value = Global.curr_enemy.health
 
-func set_max_value_healthBar():
+func set_max_value_healthBar() -> void:
 	$".".max_value = Global.get_enemy(Global.curr_enemy.id).health
 
-func start_filling():
+func start_filling() -> void:
 	$".".value = 0
 	elapsed_time = 0
 	filling_time = Global.calc_time_to_find_enemy()

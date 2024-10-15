@@ -1,6 +1,6 @@
 extends Control
 
-func ItemPopup(parent: Rect2i, text: String, description: String):
+func ItemPopup(parent: Rect2i, text: String, description: String) -> void:
 	var mouse_position = get_viewport().get_mouse_position()
 	var correction = null
 	var padding = 4
@@ -16,5 +16,5 @@ func ItemPopup(parent: Rect2i, text: String, description: String):
 	
 	%ItemPopup.popup(Rect2i(parent.position + correction, %ItemPopup.size))
 
-func HideItemPopup():
+func HideItemPopup() -> void:
 	%ItemPopup.hide()

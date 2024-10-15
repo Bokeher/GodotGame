@@ -1,9 +1,9 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
 	update_stats()
 
-func update_stats():
+func update_stats() -> void:
 	var damage = Global.player_stats.damage
 	var crit = Global.player_stats.crit * 100
 	var respawn_time = Global.calc_time_to_find_enemy()

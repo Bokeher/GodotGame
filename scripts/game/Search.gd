@@ -3,7 +3,7 @@ extends Button
 const states = ["Idle", "Searching"]
 var curr_state = 1
 
-func _pressed():
+func _pressed() -> void:
 	flip()
 	
 	# run away option - if there's an enemy and state is idle 
@@ -19,8 +19,8 @@ func _pressed():
 	
 	update_action_button()
 
-func flip():
+func flip() -> void:
 	curr_state = (curr_state + 1) % 2
 
-func update_action_button():
+func update_action_button() -> void:
 	$".".text = states[curr_state]

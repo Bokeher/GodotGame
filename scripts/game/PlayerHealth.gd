@@ -2,14 +2,14 @@ extends Label
 
 var time_passed = 0
 
-func _ready():
+func _ready() -> void:
 	update_player_health()
 	$"..".update_player_health_bar()
 
-func update_player_health():
+func update_player_health() -> void:
 	$".".text = str(Global.player_stats.health) + " HP"
 
-func _process(delta):
+func _process(delta) -> void:
 	time_passed += delta
 	
 	var attack_time = 1.0
