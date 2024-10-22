@@ -9,6 +9,7 @@ const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 class PlayerStats:
 	var max_health: int = 10
 	var health: int = 10
+	var regen: int = 2
 	
 	var damage: int = 1
 	var crit: float = 0.00
