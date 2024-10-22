@@ -17,14 +17,16 @@ func _process(delta) -> void:
 	var attack_time = 1.0
 	
 	var regen_time = 1.0
-	var regen_amount = 1
+	var regen_amount = Global.player_stats.regen
 	
 	var remaining_time = attack_time - time_passed
 	$"../../Enemy/EnemyAttackTimer".text = str(floor(remaining_time * 10) / 10) + "s"
 	
+	var health = Global.player_stats.health
+	var max_health = Global.player_stats.max_health
+	
 	if(regen_time_passed >= regen_time && $"../../ActionButton".curr_state == 0):
-		if(Global.player_stats.health + regen_amount <= Global.player_stats.max_health):
-			Global.player_stats.health += regen_amount
+		Global.player_stats.health = min(max_health, regen_amount + health)
 		
 		update_player_health()
 		$"..".update_player_health_bar()
