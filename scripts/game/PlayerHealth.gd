@@ -24,7 +24,7 @@ func _process(delta) -> void:
 	var health = Global.player_stats.health
 	var max_health = Global.player_stats.max_health
 	
-	if(regen_time_passed >= REGEN_TIME && $"../../ActionButton".curr_state == 0):
+	if(regen_time_passed >= REGEN_TIME && !Global.curr_enemy):
 		Global.player_stats.health = min(max_health, regen_amount + health)
 		
 		update_player_health()
