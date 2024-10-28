@@ -63,6 +63,8 @@ func read_savefile() -> void:
 	
 	var data = file.get_var()
 	
+	file.close()
+	
 	var stats = data[0]
 	curr_enemy = data[1]
 	
@@ -104,6 +106,7 @@ func save_savefile() -> void:
 	
 	file.store_var(save_data)
 	
+	file.close()
 	print("Saved")
 
 # Save on exit
@@ -123,8 +126,9 @@ func read_enemies() -> void:
 		print("Enemies file not found")
 		return
 	
-	var json_to_read = FileAccess.open(PATH_ENEMIES, FileAccess.READ)
-	_enemies = JSON.parse_string(json_to_read.get_as_text()).enemies
+	var file = FileAccess.open(PATH_ENEMIES, FileAccess.READ)
+	_enemies = JSON.parse_string(file.get_as_text()).enemies
+	file.close()
 
 # TODO: add type after adding Enemy class
 func get_enemy(id: int):
@@ -135,8 +139,9 @@ func read_stages() -> void:
 		print("Stages file not found")
 		return
 	
-	var json_to_read = FileAccess.open(PATH_STAGES, FileAccess.READ)
-	_stages = JSON.parse_string(json_to_read.get_as_text()).stages
+	var file = FileAccess.open(PATH_STAGES, FileAccess.READ)
+	_stages = JSON.parse_string(file.get_as_text()).stages
+	file.close()
 
 # TODO: add type after adding Stage class
 func get_stage(id: int):
@@ -147,8 +152,9 @@ func read_upgrades() -> void:
 		print("Upgrades file not found")
 		return
 	
-	var json_to_read = FileAccess.open(PATH_UPGRADES, FileAccess.READ)
-	_upgrades = JSON.parse_string(json_to_read.get_as_text()).upgrades
+	var file = FileAccess.open(PATH_UPGRADES, FileAccess.READ)
+	_upgrades = JSON.parse_string(file.get_as_text()).upgrades
+	file.close()
 
 # TODO: add type after adding Upgrade class
 func get_upgrade(id: int):
