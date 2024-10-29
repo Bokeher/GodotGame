@@ -18,10 +18,10 @@ func _process(delta) -> void:
 	$".".max_value = 1
 	
 	elapsed_time += delta
-
+	
 	# Calculate the progress based on elapsed time and the fill duration
 	var progress = elapsed_time / filling_time
-
+	
 	# Clamp progress to be between 0 and 1
 	progress = clamp(progress, 0.0, 1.0)
 	

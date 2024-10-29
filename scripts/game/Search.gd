@@ -6,6 +6,9 @@ var curr_state = 1
 func _pressed() -> void:
 	flip()
 	
+	# reset regen timer to prevent instaheal on stopping search
+	$"../PlayerHealthBar/PlayerHealth".regen_time_passed = 0.7
+	
 	# run away option - if there's an enemy and state is idle 
 	if(curr_state == 0 && Global.curr_enemy):
 		$"../Enemy".hide_enemy()

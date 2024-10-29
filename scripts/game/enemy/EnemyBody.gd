@@ -21,6 +21,9 @@ func _pressed() -> void:
 	Global.curr_enemy.health -= damage
 	
 	if (Global.curr_enemy.health <= 0): 
+		# reset regen timer to prevent instaheal on killing enemy
+		$"../../PlayerHealthBar/PlayerHealth".regen_time_passed = 0
+		
 		# give reward for defeating enemy
 		Global.player_stats.gold += Global.curr_enemy.gold_reward
 		$"../../Info/GoldAmount".update_gold()
