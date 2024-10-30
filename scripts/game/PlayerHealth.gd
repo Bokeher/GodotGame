@@ -3,7 +3,6 @@ extends Label
 var time_passed = 0
 var regen_time_passed = 0
 const ATTACK_TIME = 1.0
-const REGEN_TIME = 1.0
 
 func _ready() -> void:
 	update_player_health()
@@ -23,8 +22,9 @@ func _process(delta) -> void:
 	
 	var health = Global.player_stats.health
 	var max_health = Global.player_stats.max_health
+	var regen_time = Global.player_stats.regen_time
 	
-	if(regen_time_passed >= REGEN_TIME && !Global.curr_enemy):
+	if(regen_time_passed >= regen_time && !Global.curr_enemy):
 		Global.player_stats.health = min(max_health, regen_amount + health)
 		
 		update_player_health()

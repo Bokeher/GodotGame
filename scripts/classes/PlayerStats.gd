@@ -3,6 +3,7 @@ class_name PlayerStats
 var max_health: int = 10
 var health: int = 10
 var regen: int = 2
+var regen_time = 1.0
 
 var damage: int = 1
 var crit: float = 0.00
