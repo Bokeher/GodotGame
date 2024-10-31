@@ -138,8 +138,7 @@ func read_enemies() -> void:
 	
 	file.close()
 
-# TODO: add type after adding Enemy class
-func get_enemy(id: int):
+func get_enemy(id: int) -> Enemy:
 	return _enemies[id - 1].duplicate()
 
 func read_stages() -> void:
