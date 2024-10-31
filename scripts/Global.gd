@@ -11,14 +11,14 @@ const PATH_STAGES: String = "res://assets/jsons/stages.json"
 const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 
 # State vars
-var curr_enemy = null
+var curr_enemy: Enemy
 var curr_stage = null
 var enemy_pool = []
 var player_stats: PlayerStats = PlayerStats.new()
 var upgrade_stats_array: Array[UpgradeStats] = []
 
 # Private vars - use getters to get them
-var _enemies = []
+var _enemies: Array[Enemy] = []
 var _stages = []
 var _upgrades = []
 
@@ -45,7 +45,7 @@ func _ready() -> void:
 	enemy_pool = curr_stage.enemies
 	
 	if(!curr_enemy):
-		curr_enemy = get_enemy(0)
+		curr_enemy = get_enemy(1)
 
 func load_upgrade_stats() -> void:
 	upgrade_stats_array = []
@@ -66,7 +66,9 @@ func read_savefile() -> void:
 	file.close()
 	
 	var stats = data[0]
-	curr_enemy = data[1]
+	
+	var curr_enemy_dict = data[1]
+	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
 	
 	var upgrade_stats_dicts = data[2]
 	
@@ -89,6 +91,8 @@ func save_savefile() -> void:
 	for upgrade_stats in upgrade_stats_array:
 		upgrade_stats_dict.append(upgrade_stats.to_dict())
 	
+	var curr_enemy_dict = curr_enemy.to_dict() if curr_enemy else null 
+	
 	var save_data = [
 		[
 			player_stats.damage,
@@ -100,7 +104,7 @@ func save_savefile() -> void:
 			player_stats.gold,
 			player_stats.max_stage_reached
 		],
-		curr_enemy,
+		curr_enemy_dict,
 		upgrade_stats_dict
 	]
 	
@@ -127,7 +131,11 @@ func read_enemies() -> void:
 		return
 	
 	var file = FileAccess.open(PATH_ENEMIES, FileAccess.READ)
-	_enemies = JSON.parse_string(file.get_as_text()).enemies
+	var enemy_dicts = JSON.parse_string(file.get_as_text()).enemies
+	
+	for enemy_dict in enemy_dicts:
+		_enemies.append(Enemy.from_dict(enemy_dict))
+	
 	file.close()
 
 # TODO: add type after adding Enemy class
