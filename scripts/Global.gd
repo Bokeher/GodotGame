@@ -1,9 +1,5 @@
 extends Node
 
-# Load classes
-const UpgradeStats = preload("res://scripts/classes/UpgradeStats.gd")
-const PlayerStats = preload("res://scripts/classes/PlayerStats.gd")
-
 # File paths
 const PATH_SAVE: String = "user://save"
 const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
