@@ -9,7 +9,6 @@ const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 # State vars
 var curr_enemy: Enemy
 var curr_stage = null
-var enemy_pool = []
 var player_stats: PlayerStats = PlayerStats.new()
 var upgrade_stats_array: Array[UpgradeStats] = []
 
@@ -36,9 +35,6 @@ func _ready() -> void:
 	
 	# Set curr_stage to max reached stage
 	curr_stage = get_stage(player_stats.max_stage_reached)
-	
-	# Set enemy_pool to current's stage pool
-	enemy_pool = curr_stage.enemies
 	
 	if(!curr_enemy):
 		curr_enemy = get_enemy(1)

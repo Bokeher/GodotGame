@@ -73,7 +73,7 @@ func pick_new_enemy_id() -> int:
 	var random_value = rng.randf()
 
 	var cumulative_chance = 0.0
-	for enemy in Global.enemy_pool:
+	for enemy in Global.curr_stage.enemies:
 		cumulative_chance += enemy["spawn_chance"]
 		if random_value < cumulative_chance:
 			return enemy["enemy_id"]
