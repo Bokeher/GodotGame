@@ -15,7 +15,7 @@ var upgrade_stats_array: Array[UpgradeStats] = []
 # Private vars - use getters to get them
 var _enemies: Array[Enemy] = []
 var _stages = []
-var _upgrades = []
+var _upgrades: Array[Upgrade] = []
 
 # Auto save vars
 const AUTO_SAVE_INTERVAL = 5.0
@@ -150,9 +150,13 @@ func read_upgrades() -> void:
 	if(!FileAccess.file_exists(PATH_UPGRADES)):
 		print("Upgrades file not found")
 		return
+		
+	var file = FileAccess.open(PATH_UPGRADES, FileAccess.READ)	
+	var upgrade_dicts = JSON.parse_string(file.get_as_text()).upgrades
 	
-	var file = FileAccess.open(PATH_UPGRADES, FileAccess.READ)
-	_upgrades = JSON.parse_string(file.get_as_text()).upgrades
+	for upgrade_dict in upgrade_dicts:
+		_upgrades.append(Upgrade.from_dict(upgrade_dict))
+	
 	file.close()
 
 # TODO: add type after adding Upgrade class
