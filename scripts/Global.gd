@@ -159,8 +159,7 @@ func read_upgrades() -> void:
 	
 	file.close()
 
-# TODO: add type after adding Upgrade class
-func get_upgrade(id: int):
+func get_upgrade(id: int) -> Upgrade:
 	return _upgrades[id - 1].duplicate()
 
 func calc_time_to_find_enemy() -> float:
