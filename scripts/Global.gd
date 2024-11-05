@@ -57,7 +57,7 @@ func read_savefile() -> void:
 	
 	file.close()
 	
-	var stats = data[0]
+	var player_stats_dict = data[0]
 	
 	var curr_enemy_dict = data[1]
 	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
@@ -67,35 +67,21 @@ func read_savefile() -> void:
 	for upgrade_stats_dict in upgrade_stats_dicts:
 		upgrade_stats_array.append(UpgradeStats.from_dict(upgrade_stats_dict))
 	
-	player_stats.damage = stats[0]
-	player_stats.crit = stats[1]
-	player_stats.speed = stats[2]
-	player_stats.wisdom = stats[3]
-	player_stats.luck = stats[4]
-	
-	player_stats.gold = stats[5]
-	player_stats.max_stage_reached = stats[6]
+	player_stats = PlayerStats.from_dict(player_stats_dict)
 
 func save_savefile() -> void:
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
+	
+	var player_stats_dict = player_stats.to_dict() if player_stats else null 
+	
+	var curr_enemy_dict = curr_enemy.to_dict() if curr_enemy else null 
 	
 	var upgrade_stats_dict = []
 	for upgrade_stats in upgrade_stats_array:
 		upgrade_stats_dict.append(upgrade_stats.to_dict())
 	
-	var curr_enemy_dict = curr_enemy.to_dict() if curr_enemy else null 
-	
 	var save_data = [
-		[
-			player_stats.damage,
-			player_stats.crit,
-			player_stats.speed,
-			player_stats.wisdom,
-			player_stats.luck,
-			
-			player_stats.gold,
-			player_stats.max_stage_reached
-		],
+		player_stats_dict,
 		curr_enemy_dict,
 		upgrade_stats_dict
 	]
