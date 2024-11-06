@@ -1,6 +1,8 @@
 extends Button
 
-const states = ["Idle", "Searching"]
+const IDLE_STATE = 0
+const SEARCH_STATE = 1
+const STATES_TEXTS = ["Idle", "Searching"]
 var curr_state = 1
 
 func _pressed() -> void:
@@ -26,4 +28,4 @@ func flip() -> void:
 	curr_state = (curr_state + 1) % 2
 
 func update_action_button() -> void:
-	$".".text = states[curr_state]
+	$".".text = STATES_TEXTS[curr_state]
