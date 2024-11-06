@@ -11,7 +11,6 @@ func update_enemy() -> void:
 	$HealthBar.update_healthBar()
 
 func hide_enemy() -> void:
-	$"../ActionButton".update_action_button()
 	$EnemyAttackTimer.visible = false
 	$EnemyBody.disabled = true
 
