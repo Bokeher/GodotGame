@@ -32,8 +32,6 @@ func _pressed() -> void:
 		Global.curr_enemy = null
 		$"..".hide_enemy()
 		
-		$"../HealthBar".update_healthBar()
-		
 		# start filling bar to show progress of finding new enemy
 		$"../HealthBar".start_filling()
 	
