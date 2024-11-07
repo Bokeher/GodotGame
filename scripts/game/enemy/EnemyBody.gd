@@ -33,7 +33,6 @@ func _pressed() -> void:
 		$"..".hide_enemy()
 		
 		$"../HealthBar".update_healthBar()
-		$"..".update_enemy()
 		
 		# start filling bar to show progress of finding new enemy
 		$"../HealthBar".start_filling()
