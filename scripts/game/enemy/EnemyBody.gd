@@ -1,6 +1,5 @@
 extends TextureButton
 
-
 func _ready() -> void:
 	update_texture()
 
@@ -43,11 +42,6 @@ func update_texture() -> void:
 		return
 	
 	$".".texture_normal = load(Global.curr_enemy.image_url)
-	
 
 func is_critical_hit() -> bool:
-	var crit_chance = Global.player_stats.crit
-	
-	var random_value = randf()
-
-	return random_value <= crit_chance
+	return randf() <= Global.player_stats.crit
