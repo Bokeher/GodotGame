@@ -67,15 +67,11 @@ func start_filling() -> void:
 	set_process(true)
 
 func pick_new_enemy_id() -> int:
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-
-	var random_value = rng.randf()
-
 	var cumulative_chance = 0.0
+	
 	for enemy in Global.curr_stage.enemies:
 		cumulative_chance += enemy["spawn_chance"]
-		if random_value < cumulative_chance:
+		if randf() < cumulative_chance:
 			return enemy["enemy_id"]
 	
 	print("failed to pick new enemy id")
