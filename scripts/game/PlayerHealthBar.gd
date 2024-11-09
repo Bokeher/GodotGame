@@ -10,3 +10,4 @@ func update_player_health_bar() -> void:
 	$".".value = health
 	$".".max_value = max_hp
 	
+	$PlayerHealth.text = str(Global.player_stats.health) + " HP"

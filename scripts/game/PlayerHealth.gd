@@ -5,11 +5,7 @@ var regen_time_passed = 0
 const ATTACK_TIME = 1.0
 
 func _ready() -> void:
-	update_player_health()
 	$"..".update_player_health_bar()
-
-func update_player_health() -> void:
-	$".".text = str(Global.player_stats.health) + " HP"
 
 func _process(delta) -> void:
 	time_passed += delta
@@ -27,7 +23,6 @@ func _process(delta) -> void:
 	if(regen_time_passed >= regen_time && !Global.curr_enemy):
 		Global.player_stats.health = min(max_health, regen_amount + health)
 		
-		update_player_health()
 		$"..".update_player_health_bar()
 		regen_time_passed = 0
 	
@@ -40,7 +35,6 @@ func _process(delta) -> void:
 		$"../../ReceiveDamageSound".play()
 		
 		Global.player_stats.health -= Global.curr_enemy.damage
-		update_player_health()
 		$"..".update_player_health_bar()
 		
 		if(Global.player_stats.health <= 0):
