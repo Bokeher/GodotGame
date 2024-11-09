@@ -32,9 +32,8 @@ func _process(delta) -> void:
 	
 	# Stop updating once the fill is complete
 	if progress >= 1.0:
-		# set new enemy
-		var picked_enemy_id = pick_new_enemy_id()
-		Global.curr_enemy = Global.get_enemy(picked_enemy_id)
+		set_new_enemy()
+		
 		$"../HealthBar".set_max_value_healthBar()
 		
 		# make enemy clickable
@@ -66,13 +65,15 @@ func start_filling() -> void:
 	# start filling
 	set_process(true)
 
-func pick_new_enemy_id() -> int:
+func set_new_enemy() -> void:
 	var cumulative_chance = 0.0
 	
 	for enemy in Global.curr_stage.enemies:
 		cumulative_chance += enemy["spawn_chance"]
 		if randf() < cumulative_chance:
-			return enemy["enemy_id"]
+			var new_enemy_id = enemy["enemy_id"]
+			Global.curr_enemy = Global.get_enemy(new_enemy_id)
+			return
 	
-	print("failed to pick new enemy id")
-	return -1
+	print("failed to pick new enemy")
+	return
