@@ -12,7 +12,7 @@ func _pressed() -> void:
 	# check crit
 	if(is_critical_hit()): 
 		$"../../HitEnemySound".change_crit_pitch()
-		damage *= 2
+		damage *= Global.player_stats.crit_multiplier
 	
 	# play sound
 	$"../../HitEnemySound".play()

@@ -7,6 +7,8 @@ var regen_time: float
 
 var damage: int
 var crit_chance: float
+var crit_multiplier: float
+
 var speed: int
 var wisdom: int
 var luck: int
@@ -20,7 +22,8 @@ func _init(
 	_regen: int = 2, 
 	_regen_time: float = 1.0,
 	_damage: int = 1, 
-	_crit_chance: float = 0.0, 
+	_crit_chance: float = 0.0,
+	_crit_multiplier: float = 2.0,
 	_speed: int = 1, 
 	_wisdom: int = 1, 
 	_luck: int = 1,
@@ -33,6 +36,7 @@ func _init(
 	regen_time = _regen_time
 	damage = _damage
 	crit_chance = _crit_chance
+	crit_multiplier = _crit_multiplier
 	speed = _speed
 	wisdom = _wisdom
 	luck = _luck
@@ -48,6 +52,7 @@ func to_dict() -> Dictionary:
 		"regen_time": regen_time,
 		"damage": damage,
 		"crit_chance": crit_chance,
+		"crit_multiplier": crit_multiplier,
 		"speed": speed,
 		"wisdom": wisdom,
 		"luck": luck,
@@ -63,7 +68,8 @@ static func from_dict(data: Dictionary) -> PlayerStats:
 		data.get("regen", 2),
 		data.get("regen_time", 1.0),
 		data.get("damage", 1),
-		data.get("crit", 0.0),
+		data.get("crit_chance", 0.0),
+		data.get("crit_multiplier", 2.0),
 		data.get("speed", 1),
 		data.get("wisdom", 1),
 		data.get("luck", 1),
