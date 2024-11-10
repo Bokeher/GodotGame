@@ -44,4 +44,4 @@ func update_texture() -> void:
 	$".".texture_normal = load(Global.curr_enemy.image_url)
 
 func is_critical_hit() -> bool:
-	return randf() <= Global.player_stats.crit
+	return randf() <= Global.player_stats.crit_chance

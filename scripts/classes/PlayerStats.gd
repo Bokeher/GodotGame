@@ -6,7 +6,7 @@ var regen: int
 var regen_time: float
 
 var damage: int
-var crit: float
+var crit_chance: float
 var speed: int
 var wisdom: int
 var luck: int
@@ -20,7 +20,7 @@ func _init(
 	_regen: int = 2, 
 	_regen_time: float = 1.0,
 	_damage: int = 1, 
-	_crit: float = 0.0, 
+	_crit_chance: float = 0.0, 
 	_speed: int = 1, 
 	_wisdom: int = 1, 
 	_luck: int = 1,
@@ -32,7 +32,7 @@ func _init(
 	regen = _regen
 	regen_time = _regen_time
 	damage = _damage
-	crit = _crit
+	crit_chance = _crit_chance
 	speed = _speed
 	wisdom = _wisdom
 	luck = _luck
@@ -47,7 +47,7 @@ func to_dict() -> Dictionary:
 		"regen": regen,
 		"regen_time": regen_time,
 		"damage": damage,
-		"crit": crit,
+		"crit_chance": crit_chance,
 		"speed": speed,
 		"wisdom": wisdom,
 		"luck": luck,
