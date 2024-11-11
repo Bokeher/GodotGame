@@ -5,7 +5,7 @@ func _ready() -> void:
 		update_enemy()
 
 func update_enemy() -> void:
-	$EnemyBody.update_texture()
+	$EnemyBody.update_enemy_sprite()
 	$EnemyName.update_enemy_name()
 	$HealthBar/EnemyHealth.update_enemy_health()
 	$HealthBar.update_healthBar()

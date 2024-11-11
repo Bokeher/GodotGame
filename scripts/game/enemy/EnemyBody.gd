@@ -1,7 +1,7 @@
 extends TextureButton
 
 func _ready() -> void:
-	update_texture()
+	update_enemy_sprite()
 
 func _pressed() -> void:
 	var damage = Global.player_stats.damage
@@ -36,7 +36,7 @@ func _pressed() -> void:
 	
 	$"..".update_enemy()
 
-func update_texture() -> void:
+func update_enemy_sprite() -> void:
 	if(!Global.curr_enemy):
 		$".".texture_normal = null
 		return
