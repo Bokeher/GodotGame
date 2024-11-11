@@ -68,9 +68,11 @@ func start_filling() -> void:
 func set_new_enemy() -> void:
 	var cumulative_chance = 0.0
 	
+	var random_value = randf()
+	
 	for enemy in Global.curr_stage.enemies:
 		cumulative_chance += enemy["spawn_chance"]
-		if randf() < cumulative_chance:
+		if random_value < cumulative_chance:
 			var new_enemy_id = enemy["enemy_id"]
 			Global.curr_enemy = Global.get_enemy(new_enemy_id)
 			return
