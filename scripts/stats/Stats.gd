@@ -5,7 +5,7 @@ var stats_texts = {
 	"CritChance": "Crit chance",
 	"RespawnTime": "Time to find enemy",
 	"GoldMultiplier": "Gold multiplier",
-	"XpMultiplier": "XP mulitplier"
+	"XpMultiplier": "XP multiplier"
 }
 
 func _ready() -> void:
