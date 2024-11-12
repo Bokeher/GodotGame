@@ -1,5 +1,13 @@
 extends Control
 
+var stats_texts = {
+	"Damage": "Damage",
+	"CritChance": "Crit chance",
+	"RespawnTime": "Time to find enemy",
+	"GoldMultiplier": "Gold multiplier",
+	"XpMultiplier": "XP mulitplier"
+}
+
 func _ready() -> void:
 	update_stats()
 
@@ -10,9 +18,12 @@ func update_stats() -> void:
 	var gold_mult = Global.player_stats.luck + 99
 	var xp_mult = Global.player_stats.wisdom + 99
 	
-	$ColorRect/StatsContainer/Damage.text = "Damage: " + str(damage)
-	$ColorRect/StatsContainer/Crit.text = "Crit chance: " + str(crit) + "%"
-	$ColorRect/StatsContainer/RespawnTime.text = "Enemy find time: " + str(respawn_time) + "s"
-	$ColorRect/StatsContainer/GoldMult.text = "Gold multiplier: " + str(gold_mult) + "%"
-	$ColorRect/StatsContainer/XpMult.text = "Xp multiplier: " + str(xp_mult) + "%"
-	
+	update_stat_text("Damage", damage)
+	update_stat_text("CritChance", crit, "%")
+	update_stat_text("RespawnTime", respawn_time, "s")
+	update_stat_text("GoldMultiplier", gold_mult, "%")
+	update_stat_text("XpMultiplier", xp_mult, "%")
+
+func update_stat_text(stat_name: String, value: Variant, suffix: String = "") -> void:
+	var text_node = $ColorRect/StatsContainer.get_node(stat_name)
+	text_node.text = stats_texts[stat_name] + ": " + str(value) + suffix
