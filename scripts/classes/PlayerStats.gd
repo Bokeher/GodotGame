@@ -77,3 +77,16 @@ static func from_dict(data: Dictionary) -> PlayerStats:
 		data.get("max_stage_reached", 1)
 	)
 	return instance
+
+func calc_respawn_time() -> float:
+	return 1.1 - speed * 0.1
+
+func calc_crit_chance() -> float:
+	return crit_chance * 100
+
+func calc_gold_mult() -> int:
+	return luck + 99
+
+func calc_xp_mult() -> int:
+	return wisdom + 99
+
