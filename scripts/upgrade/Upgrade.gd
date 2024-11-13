@@ -17,7 +17,7 @@ func upgrade(curr_upgrade) -> void:
 	var id = curr_upgrade.id
 	if(id == 1):
 		Global.player_stats.damage += curr_upgrade.value
-	elif(id == 2):	
+	elif(id == 2):
 		Global.player_stats.crit_chance += (curr_upgrade.value / 100)
 	elif(id == 3):
 		Global.player_stats.speed += curr_upgrade.value
