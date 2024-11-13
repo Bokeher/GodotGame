@@ -60,7 +60,7 @@ func set_max_value_healthBar() -> void:
 func start_filling() -> void:
 	$".".value = 0
 	elapsed_time = 0
-	filling_time = Global.calc_time_to_find_enemy()
+	filling_time = Global.player_stats.calc_respawn_time()
 	
 	# start filling
 	set_process(true)

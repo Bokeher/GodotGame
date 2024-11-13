@@ -13,10 +13,10 @@ func _ready() -> void:
 
 func update_stats() -> void:
 	var damage = Global.player_stats.damage
-	var crit = Global.player_stats.crit_chance * 100
-	var respawn_time = Global.calc_time_to_find_enemy()
-	var gold_mult = Global.player_stats.luck + 99
-	var xp_mult = Global.player_stats.wisdom + 99
+	var crit = Global.player_stats.calc_crit_chance()
+	var respawn_time = Global.player_stats.calc_respawn_time()
+	var gold_mult = Global.player_stats.calc_gold_mult()
+	var xp_mult = Global.player_stats.calc_xp_mult()
 	
 	update_stat_text("Damage", damage)
 	update_stat_text("CritChance", crit, "%")
