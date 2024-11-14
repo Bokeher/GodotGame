@@ -1,6 +1,8 @@
 extends ProgressBar
 
 func _ready() -> void:
+	Global.player_stats.health = Global.player_stats.max_health
+	
 	update_player_health_bar()
 
 func update_player_health_bar() -> void:
