@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://scripts/game/PlayerHealth.gd" id="14_0q1kx"]
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/Stats.tscn" id="14_664kw"]
 [ext_resource type="Script" path="res://scripts/game/PlayerHealthBar.gd" id="14_mb0sc"]
-[ext_resource type="Script" path="res://scripts/game/Search.gd" id="14_nqjfl"]
+[ext_resource type="Script" path="res://scripts/game/ActionButton.gd" id="14_nqjfl"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
