@@ -1,6 +1,7 @@
 extends ProgressBar
 
 func _ready() -> void:
+	# Regenerate player health to maximum upon game launch
 	Global.player_stats.health = Global.player_stats.max_health
 	
 	update_player_health_bar()
