@@ -16,6 +16,9 @@ var luck: int
 var gold: int
 var max_stage_reached: int
 
+var xp: int
+var level: int
+
 func _init(
 	_max_health: int = 10, 
 	_health: int = 10, 
@@ -28,7 +31,9 @@ func _init(
 	_wisdom: int = 1, 
 	_luck: int = 1,
 	_gold: int = 0, 
-	_max_stage_reached: int = 1
+	_max_stage_reached: int = 1,
+	_xp: int = 0,
+	_level: int = 1
 ):
 	max_health = _max_health
 	health = _health
@@ -42,6 +47,8 @@ func _init(
 	luck = _luck
 	gold = _gold
 	max_stage_reached = _max_stage_reached
+	xp = _xp
+	level = _level
 
 # used in saving
 func to_dict() -> Dictionary:
@@ -57,7 +64,9 @@ func to_dict() -> Dictionary:
 		"wisdom": wisdom,
 		"luck": luck,
 		"gold": gold,
-		"max_stage_reached": max_stage_reached
+		"max_stage_reached": max_stage_reached,
+		"xp": xp,
+		"level": level
 	}
 
 # used in reading from savefile
@@ -74,8 +83,11 @@ static func from_dict(data: Dictionary) -> PlayerStats:
 		data.get("wisdom", 1),
 		data.get("luck", 1),
 		data.get("gold", 0),
-		data.get("max_stage_reached", 1)
+		data.get("max_stage_reached", 1),
+		data.get("xp", 0),
+		data.get("level", 1)
 	)
+	
 	return instance
 
 func calc_respawn_time() -> float:
