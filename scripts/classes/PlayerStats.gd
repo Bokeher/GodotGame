@@ -71,7 +71,7 @@ func to_dict() -> Dictionary:
 
 # used in reading from savefile
 static func from_dict(data: Dictionary) -> PlayerStats:
-	var instance = PlayerStats.new(
+	return PlayerStats.new(
 		data.get("max_health", 10),
 		data.get("health", 10),
 		data.get("regen", 2),
@@ -87,8 +87,6 @@ static func from_dict(data: Dictionary) -> PlayerStats:
 		data.get("xp", 0),
 		data.get("level", 1)
 	)
-	
-	return instance
 
 func calc_respawn_time() -> float:
 	return 1.1 - speed * 0.1
