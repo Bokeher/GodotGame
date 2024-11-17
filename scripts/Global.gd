@@ -48,45 +48,43 @@ func load_upgrade_stats() -> void:
 
 func read_savefile() -> void:
 	if !FileAccess.file_exists(PATH_SAVE):
-		print("File not found")
+		print("Savefile not found")
 		return
 	
+	# Read data from file
 	var file = FileAccess.open(PATH_SAVE, FileAccess.READ)
-	
 	var data = file.get_var()
-	
 	file.close()
 	
+	# Get dictionaries from file
 	var player_stats_dict = data[0]
-	
 	var curr_enemy_dict = data[1]
-	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
-	
 	var upgrade_stats_dicts = data[2]
+	
+	# Convert dictionaries to objects
+	player_stats = PlayerStats.from_dict(player_stats_dict)
+	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
 	
 	for upgrade_stats_dict in upgrade_stats_dicts:
 		upgrade_stats_array.append(UpgradeStats.from_dict(upgrade_stats_dict))
-	
-	player_stats = PlayerStats.from_dict(player_stats_dict)
 
 func save_savefile() -> void:
-	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
-	
+	# Convert objects to dictionaries
 	var player_stats_dict = player_stats.to_dict() if player_stats else null 
-	
 	var curr_enemy_dict = curr_enemy.to_dict() if curr_enemy else null 
 	
 	var upgrade_stats_dict = []
 	for upgrade_stats in upgrade_stats_array:
 		upgrade_stats_dict.append(upgrade_stats.to_dict())
 	
-	var save_data = [
+	# Save dictionaries
+	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
+	
+	file.store_var([
 		player_stats_dict,
 		curr_enemy_dict,
 		upgrade_stats_dict
-	]
-	
-	file.store_var(save_data)
+	])
 	
 	file.close()
 	print("Saved")
