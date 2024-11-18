@@ -6,20 +6,19 @@ func _ready() -> void:
 func _pressed() -> void:
 	var damage = Global.player_stats.damage
 	
-	# change pitch to prevent repetitiveness
-	$"../../HitEnemySound".change_pitch()
-	
 	# check crit
-	if(is_critical_hit()): 
-		$"../../HitEnemySound".change_crit_pitch()
+	if(is_critical_hit()):
+		$"../../HitEnemySound".change_pitch(true)
 		damage *= Global.player_stats.crit_multiplier
-	
+	else:
+		$"../../HitEnemySound".change_pitch()
+		
 	# play sound
 	$"../../HitEnemySound".play()
 	
 	Global.curr_enemy.health -= damage
 	
-	if (Global.curr_enemy.health <= 0): 
+	if (Global.curr_enemy.health <= 0):
 		# reset regen timer to prevent instaheal on killing enemy
 		$"../../PlayerHealthBar/PlayerHealth".regen_time_passed = 0
 		
