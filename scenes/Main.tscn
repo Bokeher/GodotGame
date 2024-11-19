@@ -1,7 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/game/BiomeInfo.gd" id="2_lrkbd"]
-[ext_resource type="Script" path="res://scripts/game/UpgradeList.gd" id="3_gsk5d"]
 [ext_resource type="Script" path="res://scripts/game/Reset.gd" id="3_or36x"]
 [ext_resource type="Script" path="res://scripts/game/enemy/Enemy.gd" id="5_unadx"]
 [ext_resource type="Texture2D" uid="uid://2nph3u1tlq2w" path="res://assets/sprites/enemies/slimes/green_slime.png" id="6_jbngq"]
@@ -18,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/Stats.tscn" id="14_664kw"]
 [ext_resource type="Script" path="res://scripts/game/PlayerHealthBar.gd" id="14_mb0sc"]
 [ext_resource type="Script" path="res://scripts/game/ActionButton.gd" id="14_nqjfl"]
+[ext_resource type="Script" path="res://scripts/UpgradeContainer.gd" id="19_w4tlj"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -77,18 +77,6 @@ offset_right = 196.0
 offset_bottom = 391.0
 text = "Reset"
 script = ExtResource("3_or36x")
-
-[node name="UpgradeList" type="Node2D" parent="."]
-position = Vector2(585, 13)
-script = ExtResource("3_gsk5d")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="UpgradeList"]
-offset_right = 554.0
-offset_bottom = 630.0
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeList/ScrollContainer"]
-layout_mode = 2
 
 [node name="Enemy" type="Node2D" parent="."]
 position = Vector2(39, 61)
@@ -183,3 +171,22 @@ offset_right = 213.0
 offset_bottom = 27.0
 horizontal_alignment = 1
 script = ExtResource("14_0q1kx")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+offset_left = 581.0
+offset_right = 1151.0
+offset_bottom = 647.0
+
+[node name="UpgradeList" type="Node2D" parent="TabContainer"]
+position = Vector2(12, -6)
+
+[node name="UpgradeContainer" type="ScrollContainer" parent="TabContainer/UpgradeList"]
+offset_left = -9.0
+offset_top = 8.0
+offset_right = 558.0
+offset_bottom = 649.0
+horizontal_scroll_mode = 0
+script = ExtResource("19_w4tlj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/UpgradeList/UpgradeContainer"]
+layout_mode = 2
