@@ -144,12 +144,6 @@ volume_db = -30.0
 pitch_scale = 4.0
 script = ExtResource("12_xw6xw")
 
-[node name="Stats" parent="." instance=ExtResource("14_664kw")]
-offset_left = 288.0
-offset_top = 90.0
-offset_right = 288.0
-offset_bottom = 90.0
-
 [node name="ActionButton" type="Button" parent="."]
 offset_left = 70.0
 offset_top = 450.0
@@ -185,4 +179,8 @@ horizontal_scroll_mode = 0
 script = ExtResource("19_w4tlj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainTabContainer/UpgradeContainer"]
+layout_mode = 2
+
+[node name="Stats" parent="MainTabContainer" instance=ExtResource("14_664kw")]
+visible = false
 layout_mode = 2
