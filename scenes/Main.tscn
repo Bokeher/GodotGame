@@ -177,16 +177,10 @@ offset_left = 581.0
 offset_right = 1151.0
 offset_bottom = 647.0
 
-[node name="UpgradeList" type="Node2D" parent="TabContainer"]
-position = Vector2(12, -6)
-
-[node name="UpgradeContainer" type="ScrollContainer" parent="TabContainer/UpgradeList"]
-offset_left = -9.0
-offset_top = 8.0
-offset_right = 558.0
-offset_bottom = 649.0
+[node name="UpgradeContainer" type="ScrollContainer" parent="TabContainer"]
+layout_mode = 2
 horizontal_scroll_mode = 0
 script = ExtResource("19_w4tlj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/UpgradeList/UpgradeContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/UpgradeContainer"]
 layout_mode = 2
