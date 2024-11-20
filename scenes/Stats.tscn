@@ -26,11 +26,6 @@ offset_top = 10.0
 offset_right = 240.0
 offset_bottom = 290.0
 
-[node name="Header" type="Label" parent="ColorRect/StatsContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Stats"
-
 [node name="Damage" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
 text = "Damage: -1"
