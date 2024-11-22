@@ -1,6 +1,6 @@
 extends TabContainer
 
-const TAB_NAMES = ["Upgrades", "Stats"];
+const TAB_NAMES = ["Upgrades", "Stats", "Skills"];
 
 func _ready():
 	# Set custom tab names
