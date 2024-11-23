@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bscctmm55ktp5"]
+[gd_scene load_steps=2 format=3 uid="uid://bscctmm55ktp5"]
+
+[ext_resource type="PackedScene" uid="uid://wguylvq1tt10" path="res://scenes/SkillNode.tscn" id="1_rjqu1"]
 
 [node name="SkilTree" type="Control"]
 layout_mode = 3
@@ -15,3 +17,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkillNode" parent="GridContainer" instance=ExtResource("1_rjqu1")]
+layout_mode = 2
