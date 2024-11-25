@@ -40,7 +40,7 @@ func _process(delta) -> void:
 		$"..".show_enemy()
 		
 		# reset enemy attack cooldown to prevent instahit on spawn
-		$"../../PlayerHealthBar/PlayerHealth".time_passed = 0
+		$"../../PlayerHealthBar/PlayerHealth".attack_time_passed = 0
 		
 		# show enemy
 		$"..".update_enemy()
