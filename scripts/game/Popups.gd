@@ -5,14 +5,13 @@ func ItemPopup(parent: Rect2i, text: String, description: String) -> void:
 	var correction = null
 	var padding = 4
 	
-	if(mouse_position.x <= get_viewport_rect().size.x/2):
+	if(mouse_position.x <= get_viewport_rect().size.x / 2):
 		correction = Vector2i(parent.size.x + padding, 0)
 	else:
 		correction = -Vector2i(%ItemPopup.size.x + padding, 0)
 	
 	%PopupTitle.text = text
 	%PopupDescription.text = description
-	
 	
 	%ItemPopup.popup(Rect2i(parent.position + correction, %ItemPopup.size))
 
