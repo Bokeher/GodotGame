@@ -4,8 +4,8 @@ var dragging = false
 var last_mouse_position = Vector2()
 
 var zoom_level = 1.0
-var zoom_min = 0.5
-var zoom_max = 2.0
+var zoom_min = 0.3
+var zoom_max = 1.5
 
 func _input(event):
 	if event is InputEventMouseButton:
