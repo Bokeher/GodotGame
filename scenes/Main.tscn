@@ -135,7 +135,7 @@ script = ExtResource("10_uekgw")
 
 [node name="ReceiveDamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_w2boa")
-volume_db = -35.288
+volume_db = -66.62
 pitch_scale = 2.0
 script = ExtResource("12_imtb5")
 
