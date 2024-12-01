@@ -70,8 +70,17 @@ func read_savefile() -> void:
 
 func save_savefile() -> void:
 	# Convert objects to dictionaries
-	var player_stats_dict = player_stats.to_dict() if player_stats else null 
-	var curr_enemy_dict = curr_enemy.to_dict() if curr_enemy else null 
+	var player_stats_dict
+	if(player_stats):
+		player_stats_dict = player_stats.to_dict()
+	else: 
+		player_stats_dict = null 
+	
+	var curr_enemy_dict
+	if(curr_enemy):
+		curr_enemy_dict = curr_enemy.to_dict()
+	else:
+		curr_enemy_dict = null
 	
 	var upgrade_stats_dict = []
 	for upgrade_stats in upgrade_stats_array:
