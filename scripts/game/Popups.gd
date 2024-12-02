@@ -12,6 +12,9 @@ func ItemPopup(parent: Rect2i, text: String, description: String) -> void:
 	
 	%PopupTitle.text = text
 	%PopupDescription.text = description
+
+	# TODO: remove this offset
+	var offset = Vector2i(715, 35)
 	
 	%ItemPopup.popup(Rect2i(parent.position + correction, %ItemPopup.size))
 
