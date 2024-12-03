@@ -19,23 +19,23 @@ script = ExtResource("1_b6xkg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ItemPopup" type="PopupPanel" parent="CanvasLayer"]
+[node name="SkillPopup" type="PopupPanel" parent="CanvasLayer"]
 unique_name_in_owner = true
 position = Vector2i(100, 35)
 size = Vector2i(100, 60)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ItemPopup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/SkillPopup"]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 96.0
 offset_bottom = 56.0
 
-[node name="PopupTitle" type="Label" parent="CanvasLayer/ItemPopup/VBoxContainer"]
+[node name="PopupTitle" type="Label" parent="CanvasLayer/SkillPopup/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Name"
 
-[node name="PopupDescription" type="Label" parent="CanvasLayer/ItemPopup/VBoxContainer"]
+[node name="PopupDescription" type="Label" parent="CanvasLayer/SkillPopup/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_v7jdx")
