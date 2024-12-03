@@ -6,10 +6,10 @@ func ItemPopup(parent: Rect2i, text: String, description: String) -> void:
 	%PopupTitle.text = text
 	%PopupDescription.text = description
 
-	# TODO: remove this offset
-	var offset = Vector2i(715, 35)
-	
-	%ItemPopup.popup(Rect2i(parent.position + offset, %ItemPopup.size))
+	# TODO: somehow make this appear to the left of the $MainTabContainer without this hardcoded
+	var offset = Vector2i(455, 30)
+
+	%ItemPopup.popup(Rect2i(offset, %ItemPopup.size))
 
 func HideItemPopup() -> void:
 	%ItemPopup.hide()
