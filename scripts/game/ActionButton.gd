@@ -8,7 +8,7 @@ var curr_state = 1
 func _pressed() -> void:
 	flip()
 	
-	# reset regen timer to prevent instaheal on stopping search
+	# Reset regen timer to prevent instaheal on stopping search
 	$"../PlayerHealthBar/PlayerHealth".regen_time_passed = 0.7
 	
 	# run away option - if there's an enemy and state is idle 
@@ -19,7 +19,7 @@ func _pressed() -> void:
 		$"../Enemy".hide_enemy()
 		$"../Enemy".update_enemy()
 	
-	# if no enemy
+	# If no enemy
 	# AND loading bar is at 0% (this allows resuming search instead of starting from 0) 
 	# AND state is searching
 	if (

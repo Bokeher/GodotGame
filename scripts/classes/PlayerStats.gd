@@ -50,7 +50,7 @@ func _init(
 	xp = _xp
 	level = _level
 
-# used in saving
+# Used in saving
 func to_dict() -> Dictionary:
 	return {
 		"max_health": max_health,
@@ -69,7 +69,7 @@ func to_dict() -> Dictionary:
 		"level": level
 	}
 
-# used in reading from savefile
+# Used in reading from savefile
 static func from_dict(data: Dictionary) -> PlayerStats:
 	return PlayerStats.new(
 		data.get("max_health", 10),

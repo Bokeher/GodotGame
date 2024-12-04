@@ -15,7 +15,7 @@ func _init(_id: int, _name: String, _health: int, _gold_reward: int, _image_url:
 	image_url = _image_url
 	damage = _damage
 
-# used in saving
+# Used in saving
 func to_dict() -> Dictionary:
 	return {
 		"id": id,
@@ -26,7 +26,7 @@ func to_dict() -> Dictionary:
 		"damage": damage
 	}
 
-# used in reading from savefile
+# Used in reading from savefile
 static func from_dict(data: Dictionary) -> Enemy:
 	var instance = Enemy.new(
 		data.get("id", -1),

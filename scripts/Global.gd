@@ -28,9 +28,9 @@ func _ready() -> void:
 	
 	read_savefile()
 	
-	# if not loaded from savefile or when adding new upgrades (dev)
+	# If not loaded from savefile or when adding new upgrades (dev)
 	if(upgrade_stats_array.is_empty() or upgrade_stats_array.size() != _upgrades.size()):
-		# reset upgrade stats array and fill it from upgrades list 
+		# Reset upgrade stats array and fill it from upgrades list 
 		load_upgrade_stats()
 	
 	# Set curr_stage to max reached stage
@@ -135,7 +135,7 @@ func read_stages() -> void:
 	_stages = JSON.parse_string(file.get_as_text()).stages
 	file.close()
 
-# TODO: add type after adding Stage class
+# TODO: Add type after adding Stage class
 func get_stage(id: int):
 	return _stages[id - 1].duplicate()
 

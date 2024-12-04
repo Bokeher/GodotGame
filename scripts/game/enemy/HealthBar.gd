@@ -36,16 +36,16 @@ func _process(delta) -> void:
 		
 		$"../HealthBar".set_max_value_healthBar()
 		
-		# make enemy clickable
+		# Make enemy clickable
 		$"..".show_enemy()
 		
-		# reset enemy attack cooldown to prevent instahit on spawn
+		# Reset enemy attack cooldown to prevent instahit on spawn
 		$"../../PlayerHealthBar/PlayerHealth".attack_time_passed = 0
 		
-		# show enemy
+		# Show enemy
 		$"..".update_enemy()
 		
-		# disable the timer
+		# Disable the timer
 		set_process(false)
 
 func update_healthBar() -> void:
@@ -62,5 +62,5 @@ func start_filling() -> void:
 	elapsed_time = 0
 	filling_time = Global.player_stats.calc_respawn_time()
 	
-	# start filling
+	# Start filling
 	set_process(true)

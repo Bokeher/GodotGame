@@ -6,31 +6,31 @@ func _ready() -> void:
 func _pressed() -> void:
 	var damage = Global.player_stats.damage
 	
-	# check crit
+	# Check crit
 	if(is_critical_hit()):
 		$"../../HitEnemySound".change_pitch(true)
 		damage *= Global.player_stats.crit_multiplier
 	else:
 		$"../../HitEnemySound".change_pitch()
 		
-	# play sound
+	# Play sound
 	$"../../HitEnemySound".play()
 	
 	Global.curr_enemy.health -= damage
 	
 	if (Global.curr_enemy.health <= 0):
-		# reset regen timer to prevent instaheal on killing enemy
+		# Reset regen timer to prevent instaheal on killing enemy
 		$"../../PlayerHealthBar/PlayerHealth".regen_time_passed = 0
 		
-		# give reward for defeating enemy
+		# Give reward for defeating enemy
 		Global.player_stats.gold += Global.curr_enemy.gold_reward
 		$"../../Info/GoldAmount".update_gold()
 		
-		# make enemy disapear
+		# Make enemy disapear
 		Global.curr_enemy = null
 		$"..".hide_enemy()
 		
-		# start filling bar to show progress of finding new enemy
+		# Start filling bar to show progress of finding new enemy
 		$"../HealthBar".start_filling()
 	
 	$"..".update_enemy()
