@@ -14,13 +14,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t1asw")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="SkillButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
 texture_normal = ExtResource("2_fiaw0")
 
-[node name="Label" type="Label" parent="."]
+[node name="SkillLevelLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 93.0
 offset_top = 98.0
@@ -28,6 +28,6 @@ offset_right = 120.0
 offset_bottom = 121.0
 text = "0/5"
 
-[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
-[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="mouse_entered" from="SkillButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="SkillButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="SkillButton" to="." method="_on_texture_button_pressed"]

@@ -25,4 +25,4 @@ func level_up_skill():
 	update_level_label()
 
 func update_level_label():
-	$Label.text = str(skill_level) + " / " + str(max_level)
+	$SkillLevelLabel.text = str(skill_level) + " / " + str(max_level)
