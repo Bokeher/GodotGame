@@ -26,7 +26,7 @@ offset_left = 93.0
 offset_top = 98.0
 offset_right = 120.0
 offset_bottom = 121.0
-text = "0/5"
+text = "0 / 5"
 
 [connection signal="mouse_entered" from="SkillButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="SkillButton" to="." method="_on_texture_button_mouse_exited"]
