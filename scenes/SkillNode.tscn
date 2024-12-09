@@ -22,10 +22,10 @@ texture_normal = ExtResource("2_fiaw0")
 
 [node name="SkillLevelLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 93.0
-offset_top = 98.0
+offset_left = 87.0
+offset_top = 100.0
 offset_right = 120.0
-offset_bottom = 121.0
+offset_bottom = 123.0
 text = "0 / 5"
 
 [connection signal="mouse_entered" from="SkillButton" to="." method="_on_texture_button_mouse_entered"]
