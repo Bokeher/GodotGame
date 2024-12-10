@@ -6,6 +6,8 @@ var skill_level = 0
 var max_level = 5
 
 func _ready():
+	skill_name = $".".get_meta("skill_name")
+	skill_descritpion = $".".get_meta("skill_descritpion")
 	update_level_label()
 
 func _on_texture_button_mouse_entered():

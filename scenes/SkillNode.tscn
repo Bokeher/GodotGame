@@ -13,6 +13,8 @@ offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t1asw")
+metadata/skill_name = ""
+metadata/skill_descritpion = ""
 
 [node name="SkillButton" type="TextureButton" parent="."]
 layout_mode = 0
