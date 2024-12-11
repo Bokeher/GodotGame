@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game/Popups.gd" id="1_8mifk"]
 
-[node name="Popups" type="Control"]
+[node name="Popups2" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

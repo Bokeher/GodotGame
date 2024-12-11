@@ -1,8 +1,9 @@
 extends Control
 
-func SkillPopup(text: String, description: String) -> void:
+func SkillPopup(text: String, description: String, skill_level: int) -> void:
 	%PopupTitle.text = text
 	%PopupDescription.text = description
+	%PopupSkillLevel.text = "Level " + str(skill_level)
 
 	# TODO: Somehow make this appear to the left of the $MainTabContainer without this hardcoded
 	var popup_position = Vector2i(455, 30)
