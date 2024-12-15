@@ -6,7 +6,8 @@
 			"health": 15,
 			"gold_reward": 1,
 			"image_url": "res://assets/sprites/enemies/slimes/green_slime.png",
-			"damage": 1
+			"damage": 1,
+			"xp_reward": 1
 		},
 		{
 			"id": 2,
@@ -14,7 +15,8 @@
 			"health": 25,
 			"gold_reward": 2,
 			"image_url": "res://assets/sprites/enemies/slimes/blue_slime.png",
-			"damage": 2
+			"damage": 2,
+			"xp_reward": 2
 		},
 		{
 			"id": 3,
@@ -22,7 +24,8 @@
 			"health": 50,
 			"gold_reward": 10,
 			"image_url": "res://assets/sprites/enemies/slimes/golden_slime.png",
-			"damage": 3
+			"damage": 3,
+			"xp_reward": 5
 		}
 	]
 }

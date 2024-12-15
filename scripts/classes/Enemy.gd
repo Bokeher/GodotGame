@@ -6,14 +6,16 @@ var health: int
 var gold_reward: int
 var image_url: String
 var damage: int
+var xp_reward: int
 
-func _init(_id: int, _name: String, _health: int, _gold_reward: int, _image_url: String, _damage: int):
+func _init(_id: int, _name: String, _health: int, _gold_reward: int, _image_url: String, _damage: int, _xp_reward: int):
 	id = _id
 	name = _name
 	health = _health
 	gold_reward = _gold_reward
 	image_url = _image_url
 	damage = _damage
+	xp_reward = _xp_reward
 
 # Used in saving
 func to_dict() -> Dictionary:
@@ -23,7 +25,8 @@ func to_dict() -> Dictionary:
 		"health": health,
 		"gold_reward": gold_reward,
 		"image_url": image_url,
-		"damage": damage
+		"damage": damage,
+		"xp_reward": xp_reward
 	}
 
 # Used in reading from savefile
@@ -34,13 +37,14 @@ static func from_dict(data: Dictionary) -> Enemy:
 		data.get("health", 0),
 		data.get("gold_reward", 0),
 		data.get("image_url", ""),
-		data.get("damage", 0)
+		data.get("damage", 0),
+		data.get("xp_reward", 1)
 	)
 	
 	return instance
 
 func duplicate() -> Enemy:
-	return Enemy.new(id, name, health, gold_reward, image_url, damage)
+	return Enemy.new(id, name, health, gold_reward, image_url, damage, xp_reward)
 
 static func set_new_random_enemy() -> void:
 	var cumulative_chance = 0.0
