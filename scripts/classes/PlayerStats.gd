@@ -100,11 +100,15 @@ func calc_gold_mult() -> int:
 func calc_xp_mult() -> int:
 	return wisdom + 99
 
-func add_xp(amount: int) -> void:
+func add_xp(amount: int) -> bool:
 	var required_xp = 100
+	var leveled_up = false
 	
 	xp += amount
 	
 	while(xp > required_xp):
 		xp -= required_xp
 		level += 1
+		leveled_up = true
+	
+	return leveled_up
