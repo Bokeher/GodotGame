@@ -45,3 +45,9 @@ text = "Gold multiplier: -100%"
 [node name="XpMultiplier" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
 text = "Xp multiplier -100%"
+
+[node name="XpAmount" type="Label" parent="ColorRect/StatsContainer"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="ColorRect/StatsContainer"]
+layout_mode = 2
