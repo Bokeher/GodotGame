@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=23 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/game/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://scripts/game/Reset.gd" id="3_or36x"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scripts/game/MainTabContainer.gd" id="18_wedra"]
 [ext_resource type="Script" path="res://scripts/UpgradeContainer.gd" id="19_w4tlj"]
 [ext_resource type="PackedScene" uid="uid://bscctmm55ktp5" path="res://scenes/SkillTree.tscn" id="20_mjx3u"]
+[ext_resource type="PackedScene" uid="uid://iohn0aebg218" path="res://scenes/Inventory.tscn" id="21_0usff"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -187,5 +188,9 @@ visible = false
 layout_mode = 2
 
 [node name="SkilTree" parent="MainTabContainer" instance=ExtResource("20_mjx3u")]
+visible = false
+layout_mode = 2
+
+[node name="Inventory" parent="MainTabContainer" instance=ExtResource("21_0usff")]
 visible = false
 layout_mode = 2
