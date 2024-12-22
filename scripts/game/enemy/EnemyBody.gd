@@ -25,7 +25,7 @@ func _pressed() -> void:
 		# Give reward for defeating enemy
 		Global.player_stats.gold += Global.curr_enemy.gold_reward
 		Global.player_stats.add_xp(Global.curr_enemy.xp_reward)
-		$"../../Info/GoldAmount".update_gold()
+		$"../../MainTabContainer/Panel/GoldAmount".update_gold()
 		
 		# Make enemy disapear
 		Global.curr_enemy = null

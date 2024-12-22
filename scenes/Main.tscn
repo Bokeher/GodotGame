@@ -124,16 +124,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_vuj78")
 
-[node name="Info" type="Node2D" parent="."]
-position = Vector2(288, 13)
-
-[node name="GoldAmount" type="Label" parent="Info"]
-offset_right = 213.0
-offset_bottom = 36.0
-text = "0 Gold"
-vertical_alignment = 1
-script = ExtResource("10_uekgw")
-
 [node name="ReceiveDamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_w2boa")
 volume_db = -66.62
@@ -176,12 +166,27 @@ offset_right = 1151.0
 offset_bottom = 647.0
 script = ExtResource("18_wedra")
 
-[node name="UpgradeContainer" type="ScrollContainer" parent="MainTabContainer"]
+[node name="Panel" type="Panel" parent="MainTabContainer"]
 layout_mode = 2
+
+[node name="GoldAmount" type="Label" parent="MainTabContainer/Panel"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 20
+text = "0 Gold"
+vertical_alignment = 1
+script = ExtResource("10_uekgw")
+
+[node name="UpgradeContainer" type="ScrollContainer" parent="MainTabContainer/Panel"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
 horizontal_scroll_mode = 0
 script = ExtResource("19_w4tlj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainTabContainer/UpgradeContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTabContainer/Panel/UpgradeContainer"]
 layout_mode = 2
 
 [node name="Stats" parent="MainTabContainer" instance=ExtResource("14_664kw")]
