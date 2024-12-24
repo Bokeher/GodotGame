@@ -3,7 +3,7 @@ extends Button
 var upgrade
 
 func _ready() -> void:
-	var upgrade_id = int($"../UpgradeId".text)
+	var upgrade_id = $"../..".get_meta("upgrade_id")
 	upgrade = Global.get_upgrade(upgrade_id)
 	update_cost()
 
