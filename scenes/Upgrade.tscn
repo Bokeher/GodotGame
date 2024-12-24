@@ -2031,12 +2031,13 @@ cache/0/25/0/kerning_overrides/24/0 = Vector2(0, 0)
 cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
 
 [node name="Upgrade" type="Control"]
+custom_minimum_size = Vector2(560, 120)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -587.0
-offset_bottom = -498.0
+offset_right = -592.0
+offset_bottom = -528.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rkmo7")
@@ -2044,37 +2045,49 @@ script = ExtResource("1_rkmo7")
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 560.0
-offset_bottom = 121.0
+offset_bottom = 120.0
 color = Color(0.165205, 0.219524, 0.29494, 1)
+
+[node name="UpgradeName" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 360.0
+offset_bottom = 55.0
+theme_override_fonts/font = SubResource("FontFile_16vje")
+theme_override_font_sizes/font_size = 35
+text = "Upgrade Name"
 
 [node name="UpgradeBonus" type="Label" parent="Background"]
 layout_mode = 2
-offset_left = 11.0
-offset_top = 58.0
-offset_right = 349.0
-offset_bottom = 117.0
+offset_left = 10.0
+offset_top = 55.0
+offset_right = 360.0
+offset_bottom = 115.0
 theme_override_fonts/font = SubResource("FontFile_16vje")
 theme_override_font_sizes/font_size = 20
 text = "Effect desciption 
 ddwawa"
 autowrap_mode = 3
 
-[node name="UpgradeName" type="Label" parent="Background"]
+[node name="Level" type="Label" parent="Background"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 7.0
-offset_right = 213.0
-offset_bottom = 48.0
+offset_left = 370.0
+offset_top = 5.0
+offset_right = 550.0
+offset_bottom = 35.0
 theme_override_fonts/font = SubResource("FontFile_16vje")
-theme_override_font_sizes/font_size = 35
-text = "Upgrade Name"
+theme_override_font_sizes/font_size = 20
+text = "Level 0"
+horizontal_alignment = 1
+script = ExtResource("3_ckew1")
 
 [node name="UpgradeButton" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 369.0
-offset_top = 36.0
-offset_right = 547.0
-offset_bottom = 113.0
+offset_left = 370.0
+offset_top = 40.0
+offset_right = 550.0
+offset_bottom = 110.0
 theme_override_colors/font_color = Color(0.865643, 0.593809, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_yvvp4")
 theme_override_font_sizes/font_size = 25
@@ -2086,15 +2099,3 @@ visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-
-[node name="Level" type="Label" parent="Background"]
-layout_mode = 0
-offset_left = 371.0
-offset_top = 3.0
-offset_right = 544.0
-offset_bottom = 31.0
-theme_override_fonts/font = SubResource("FontFile_16vje")
-theme_override_font_sizes/font_size = 20
-text = "Level 0"
-horizontal_alignment = 1
-script = ExtResource("3_ckew1")
