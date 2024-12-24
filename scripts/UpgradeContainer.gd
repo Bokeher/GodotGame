@@ -3,6 +3,11 @@ extends ScrollContainer
 const upgrade_scene = preload("res://scenes/Upgrade.tscn")
 
 func _ready() -> void:
+	# remove placeholder upgrades
+	var childs = $VBoxContainer.get_children()
+	for child in childs:
+		$VBoxContainer.remove_child(child)
+	
 	for upgrade in Global._upgrades:
 		var new_upgrade = upgrade_scene.instantiate()
 		new_upgrade.get_node("Background/UpgradeName").text = upgrade.name
