@@ -168,10 +168,10 @@ offset_right = 1150.0
 offset_bottom = 646.0
 script = ExtResource("18_wedra")
 
-[node name="Panel" type="Panel" parent="MainTabContainer"]
+[node name="UpgradesPanel" type="Panel" parent="MainTabContainer"]
 layout_mode = 2
 
-[node name="GoldAmount" type="Label" parent="MainTabContainer/Panel"]
+[node name="GoldAmount" type="Label" parent="MainTabContainer/UpgradesPanel"]
 layout_mode = 0
 offset_right = 555.0
 offset_bottom = 46.0
@@ -182,7 +182,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("10_uekgw")
 
-[node name="UpgradeContainer" type="ScrollContainer" parent="MainTabContainer/Panel"]
+[node name="UpgradeContainer" type="ScrollContainer" parent="MainTabContainer/UpgradesPanel"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -190,33 +190,33 @@ offset_top = 46.0
 horizontal_scroll_mode = 0
 script = ExtResource("19_w4tlj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainTabContainer/Panel/UpgradeContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTabContainer/UpgradesPanel/UpgradeContainer"]
 layout_mode = 2
 
-[node name="Upgrade" parent="MainTabContainer/Panel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
+[node name="Upgrade" parent="MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
 layout_mode = 2
 
-[node name="Upgrade2" parent="MainTabContainer/Panel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
+[node name="Upgrade2" parent="MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
 layout_mode = 2
 
-[node name="Upgrade3" parent="MainTabContainer/Panel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
+[node name="Upgrade3" parent="MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
 layout_mode = 2
 
-[node name="Upgrade4" parent="MainTabContainer/Panel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
+[node name="Upgrade4" parent="MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
 layout_mode = 2
 
-[node name="Upgrade5" parent="MainTabContainer/Panel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
+[node name="Upgrade5" parent="MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
 layout_mode = 2
 
 [node name="Stats" parent="MainTabContainer" instance=ExtResource("14_664kw")]
 visible = false
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="MainTabContainer"]
+[node name="SkillsPanel" type="Panel" parent="MainTabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="SkillPointsAmount" type="Label" parent="MainTabContainer/Panel2"]
+[node name="SkillPointsAmount" type="Label" parent="MainTabContainer/SkillsPanel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
@@ -226,7 +226,7 @@ theme_override_font_sizes/font_size = 22
 text = "Skill points: 0"
 vertical_alignment = 1
 
-[node name="ResetSkillsButton" type="Button" parent="MainTabContainer/Panel2"]
+[node name="ResetSkillsButton" type="Button" parent="MainTabContainer/SkillsPanel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -239,7 +239,7 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "Reset skills"
 
-[node name="SkilTree" parent="MainTabContainer/Panel2" instance=ExtResource("20_mjx3u")]
+[node name="SkilTree" parent="MainTabContainer/SkillsPanel" instance=ExtResource("20_mjx3u")]
 layout_mode = 2
 offset_left = 10.0
 offset_top = 50.0
