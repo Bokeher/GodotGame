@@ -213,9 +213,39 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="SkilTree" parent="MainTabContainer" instance=ExtResource("20_mjx3u")]
+[node name="Panel2" type="Panel" parent="MainTabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="SkillPointsAmount" type="Label" parent="MainTabContainer/Panel2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 22
+text = "Skill points: 0"
+vertical_alignment = 1
+
+[node name="ResetSkillsButton" type="Button" parent="MainTabContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -125.0
+offset_top = 6.0
+offset_right = -10.0
+offset_bottom = 42.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "Reset skills"
+
+[node name="SkilTree" parent="MainTabContainer/Panel2" instance=ExtResource("20_mjx3u")]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 10.0
+offset_bottom = 50.0
 
 [node name="Inventory" parent="MainTabContainer" instance=ExtResource("21_0usff")]
 visible = false
