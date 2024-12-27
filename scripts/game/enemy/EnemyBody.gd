@@ -34,7 +34,7 @@ func _pressed() -> void:
 		# Start filling bar to show progress of finding new enemy
 		$"../HealthBar".start_filling()
 	
-	$"../../MainTabContainer/Stats".update_stats()
+	$"../../MainTabContainer/StatsPanel/Stats".update_stats()
 	$"..".update_enemy()
 
 func update_enemy_sprite() -> void:

@@ -166,9 +166,11 @@ offset_left = 580.0
 offset_top = 2.0
 offset_right = 1150.0
 offset_bottom = 646.0
+current_tab = 1
 script = ExtResource("18_wedra")
 
 [node name="UpgradesPanel" type="Panel" parent="MainTabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="GoldAmount" type="Label" parent="MainTabContainer/UpgradesPanel"]
@@ -208,9 +210,16 @@ layout_mode = 2
 [node name="Upgrade5" parent="MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer" instance=ExtResource("19_wq6sx")]
 layout_mode = 2
 
-[node name="Stats" parent="MainTabContainer" instance=ExtResource("14_664kw")]
-visible = false
+[node name="StatsPanel" type="Panel" parent="MainTabContainer"]
 layout_mode = 2
+
+[node name="Stats" parent="MainTabContainer/StatsPanel" instance=ExtResource("14_664kw")]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -560.0
+offset_bottom = -603.0
 
 [node name="SkillsPanel" type="Panel" parent="MainTabContainer"]
 visible = false

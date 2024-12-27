@@ -34,4 +34,4 @@ func upgrade(curr_upgrade) -> void:
 	$Background/Level.update_level()
 	
 	$"../../../GoldAmount".update_gold()
-	$"../../../../Stats".update_stats()
+	$"../../../../StatsPanel/Stats".update_stats()

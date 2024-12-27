@@ -17,7 +17,7 @@ script = ExtResource("1_foblp")
 layout_mode = 0
 offset_right = 250.0
 offset_bottom = 300.0
-color = Color(0.427493, 0.427493, 0.427493, 1)
+color = Color(0.215902, 0.215902, 0.215902, 1)
 
 [node name="StatsContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 0

@@ -6,4 +6,4 @@ func _pressed() -> void:
 	
 	Global.load_upgrade_stats()
 	$"../MainTabContainer/UpgradesPanel/GoldAmount".update_gold()
-	$"../MainTabContainer/Stats".update_stats()
+	$"../MainTabContainer/StatsPanel/Stats".update_stats()
