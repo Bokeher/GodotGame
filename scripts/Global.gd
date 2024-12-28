@@ -6,6 +6,9 @@ const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
 const PATH_STAGES: String = "res://assets/jsons/stages.json"
 const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 
+# Used to precisely set postion of Popups based on position of MainTabContainer 
+const MAIN_TAB_CONTAINER_POSITION = Vector2i(580, 0)
+
 # State vars
 var curr_enemy: Enemy
 var curr_stage = null
