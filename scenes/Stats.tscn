@@ -48,6 +48,8 @@ text = "Xp multiplier -100%"
 
 [node name="XpAmount" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
+text = "XP: -1/100"
 
 [node name="Level" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
+text = "Level: -1"
