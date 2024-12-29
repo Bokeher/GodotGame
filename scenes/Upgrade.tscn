@@ -2031,12 +2031,12 @@ cache/0/25/0/kerning_overrides/24/0 = Vector2(0, 0)
 cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
 
 [node name="Upgrade" type="Control"]
-custom_minimum_size = Vector2(560, 120)
+custom_minimum_size = Vector2(550, 120)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -592.0
+offset_right = -602.0
 offset_bottom = -528.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -2045,7 +2045,7 @@ metadata/upgrade_id = -1
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 560.0
+offset_right = 550.0
 offset_bottom = 120.0
 color = Color(0.165205, 0.219524, 0.29494, 1)
 
@@ -2053,7 +2053,7 @@ color = Color(0.165205, 0.219524, 0.29494, 1)
 layout_mode = 0
 offset_left = 10.0
 offset_top = 5.0
-offset_right = 360.0
+offset_right = 355.0
 offset_bottom = 55.0
 theme_override_fonts/font = SubResource("FontFile_16vje")
 theme_override_font_sizes/font_size = 35
@@ -2063,7 +2063,7 @@ text = "Upgrade Name"
 layout_mode = 2
 offset_left = 10.0
 offset_top = 55.0
-offset_right = 360.0
+offset_right = 355.0
 offset_bottom = 115.0
 theme_override_fonts/font = SubResource("FontFile_16vje")
 theme_override_font_sizes/font_size = 20
@@ -2073,9 +2073,9 @@ autowrap_mode = 3
 
 [node name="Level" type="Label" parent="Background"]
 layout_mode = 0
-offset_left = 370.0
+offset_left = 360.0
 offset_top = 5.0
-offset_right = 550.0
+offset_right = 540.0
 offset_bottom = 35.0
 theme_override_fonts/font = SubResource("FontFile_16vje")
 theme_override_font_sizes/font_size = 20
@@ -2085,9 +2085,9 @@ script = ExtResource("3_ckew1")
 
 [node name="UpgradeButton" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 370.0
+offset_left = 360.0
 offset_top = 40.0
-offset_right = 550.0
+offset_right = 540.0
 offset_bottom = 110.0
 theme_override_colors/font_color = Color(0.865643, 0.593809, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_yvvp4")
