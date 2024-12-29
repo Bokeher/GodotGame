@@ -33,6 +33,7 @@ func _pressed() -> void:
 		
 		# Start filling bar to show progress of finding new enemy
 		$"../HealthBar".start_filling()
+		$"../../PlayerXpBar".update_xp_bar()
 	
 	$"../../MainTabContainer/StatsPanel/Stats".update_stats()
 	$"..".update_enemy()
