@@ -5,6 +5,7 @@ const PATH_SAVE: String = "user://save"
 const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
 const PATH_STAGES: String = "res://assets/jsons/stages.json"
 const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
+const PATH_SKILLS: String = "res://assets/jsons/skills.json"
 
 # Used to precisely set postion of Popups based on position of MainTabContainer 
 const MAIN_TAB_CONTAINER_POSITION = Vector2i(580, 0)
@@ -19,15 +20,18 @@ var upgrade_stats_array: Array[UpgradeStats] = []
 var _enemies: Array[Enemy] = []
 var _stages = []
 var _upgrades: Array[Upgrade] = []
+var _skills: Array[Skill] = []
 
 # Auto save vars
 const AUTO_SAVE_INTERVAL = 5.0
 var auto_save_timer = 0.0
 
 func _ready() -> void:
+	# Read all json files
 	read_stages()
 	read_enemies()
 	read_upgrades()
+	read_skills()
 	
 	read_savefile()
 	
@@ -147,11 +151,24 @@ func read_upgrades() -> void:
 		print("Upgrades file not found")
 		return
 		
-	var file = FileAccess.open(PATH_UPGRADES, FileAccess.READ)	
+	var file = FileAccess.open(PATH_UPGRADES, FileAccess.READ)
 	var upgrade_dicts = JSON.parse_string(file.get_as_text()).upgrades
 	
 	for upgrade_dict in upgrade_dicts:
 		_upgrades.append(Upgrade.from_dict(upgrade_dict))
+	
+	file.close()
+
+func read_skills() -> void:
+	if(!FileAccess.file_exists(PATH_SKILLS)):
+		print("Skills file not found")
+		return
+		
+	var file = FileAccess.open(PATH_SKILLS, FileAccess.READ)
+	var skill_dicts = JSON.parse_string(file.get_as_text()).skills
+	
+	for skill_dict in skill_dicts:
+		_skills.append(Skill.from_dict(skill_dict))
 	
 	file.close()
 
