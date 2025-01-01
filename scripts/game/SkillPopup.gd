@@ -1,6 +1,6 @@
 extends Control
 
-func SkillPopup(text: String, description: String, skill_level: int) -> void:
+func show_skill_popup(text: String, description: String, skill_level: int) -> void:
 	%PopupTitle.text = text
 	%PopupDescription.text = description
 	%PopupSkillLevel.text = "Level " + str(skill_level)
@@ -9,5 +9,5 @@ func SkillPopup(text: String, description: String, skill_level: int) -> void:
 
 	%SkillPopup.popup(Rect2i(popup_position, %SkillPopup.size))
 
-func HideSkillPopup() -> void:
+func hide_skill_popup() -> void:
 	%SkillPopup.hide()
