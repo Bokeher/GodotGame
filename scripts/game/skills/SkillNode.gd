@@ -1,7 +1,5 @@
 extends Control
 
-var skill_level = 0
-
 var skill: Skill
 
 func _ready():
@@ -12,7 +10,7 @@ func _ready():
 	update_level_label()
 
 func _on_texture_button_mouse_entered():
-	SkillPopup.show_skill_popup(skill.name, skill.description, skill_level)
+	SkillPopup.show_skill_popup(skill.name, skill.description, skill.level)
 
 func _on_texture_button_mouse_exited():
 	SkillPopup.hide_skill_popup()
@@ -21,11 +19,11 @@ func _on_texture_button_pressed():
 	level_up_skill()
 
 func level_up_skill():
-	if(skill_level >= skill.max_level):
+	if(skill.level >= skill.max_level):
 		return
 	
-	skill_level += 1
+	skill.level += 1
 	update_level_label()
 
 func update_level_label():
-	$SkillLevelLabel.text = str(skill_level) + " / " + str(skill.max_level)
+	$SkillLevelLabel.text = str(skill.level) + " / " + str(skill.max_level)
