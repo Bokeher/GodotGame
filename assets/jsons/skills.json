@@ -4,7 +4,7 @@
 			"id": 1,
 			"name": "Skill 1",
 			"description": "Description 1",
-			"image_url": "res://assets/sprites/skills/skill1.png",
+			"image_path": "res://assets/sprites/skills/skill1.png",
 			"level": 0,
 			"max_level": 3
 		},
@@ -12,7 +12,7 @@
 			"id": 2,
 			"name": "Skill 2",
 			"description": "Description 2",
-			"image_url": "res://assets/sprites/skills/skill2.png",
+			"image_path": "res://assets/sprites/skills/skill2.png",
 			"level": 0,
 			"max_level": 5
 		}
