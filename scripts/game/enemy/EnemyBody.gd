@@ -43,7 +43,7 @@ func update_enemy_sprite() -> void:
 		$".".texture_normal = null
 		return
 	
-	$".".texture_normal = load(Global.curr_enemy.image_url)
+	$".".texture_normal = load(Global.curr_enemy.image_path)
 
 func is_critical_hit() -> bool:
 	return randf() <= Global.player_stats.crit_chance

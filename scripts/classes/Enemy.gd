@@ -4,16 +4,16 @@ var id: int
 var name: String
 var health: int
 var gold_reward: int
-var image_url: String
+var image_path: String
 var damage: int
 var xp_reward: int
 
-func _init(_id: int, _name: String, _health: int, _gold_reward: int, _image_url: String, _damage: int, _xp_reward: int):
+func _init(_id: int, _name: String, _health: int, _gold_reward: int, _image_path: String, _damage: int, _xp_reward: int):
 	id = _id
 	name = _name
 	health = _health
 	gold_reward = _gold_reward
-	image_url = _image_url
+	image_path = _image_path
 	damage = _damage
 	xp_reward = _xp_reward
 
@@ -24,7 +24,7 @@ func to_dict() -> Dictionary:
 		"name": name,
 		"health": health,
 		"gold_reward": gold_reward,
-		"image_url": image_url,
+		"image_path": image_path,
 		"damage": damage,
 		"xp_reward": xp_reward
 	}
@@ -36,7 +36,7 @@ static func from_dict(data: Dictionary) -> Enemy:
 		data.get("name", ""),
 		data.get("health", 0),
 		data.get("gold_reward", 0),
-		data.get("image_url", ""),
+		data.get("image_path", ""),
 		data.get("damage", 0),
 		data.get("xp_reward", 1)
 	)
@@ -44,7 +44,7 @@ static func from_dict(data: Dictionary) -> Enemy:
 	return instance
 
 func duplicate() -> Enemy:
-	return Enemy.new(id, name, health, gold_reward, image_url, damage, xp_reward)
+	return Enemy.new(id, name, health, gold_reward, image_path, damage, xp_reward)
 
 static func set_new_random_enemy() -> void:
 	var cumulative_chance = 0.0

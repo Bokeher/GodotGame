@@ -5,7 +5,7 @@
 			"name": "Green Slime",
 			"health": 15,
 			"gold_reward": 1,
-			"image_url": "res://assets/sprites/enemies/slimes/green_slime.png",
+			"image_path": "res://assets/sprites/enemies/slimes/green_slime.png",
 			"damage": 1,
 			"xp_reward": 1
 		},
@@ -14,7 +14,7 @@
 			"name": "Blue Slime",
 			"health": 25,
 			"gold_reward": 2,
-			"image_url": "res://assets/sprites/enemies/slimes/blue_slime.png",
+			"image_path": "res://assets/sprites/enemies/slimes/blue_slime.png",
 			"damage": 2,
 			"xp_reward": 2
 		},
@@ -23,7 +23,7 @@
 			"name": "Golden Slime",
 			"health": 50,
 			"gold_reward": 10,
-			"image_url": "res://assets/sprites/enemies/slimes/golden_slime.png",
+			"image_path": "res://assets/sprites/enemies/slimes/golden_slime.png",
 			"damage": 3,
 			"xp_reward": 5
 		}
