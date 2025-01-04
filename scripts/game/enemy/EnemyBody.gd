@@ -24,7 +24,7 @@ func _pressed() -> void:
 		
 		# Give reward for defeating enemy
 		Global.player_stats.gold += Global.curr_enemy.gold_reward
-		Global.player_stats.add_xp(Global.curr_enemy.xp_reward)
+		var leveled_up: bool = Global.player_stats.add_xp(Global.curr_enemy.xp_reward)
 		$"../../MainTabContainer/UpgradesPanel/GoldAmount".update_gold()
 		
 		# Make enemy disapear
@@ -35,6 +35,9 @@ func _pressed() -> void:
 		$"../HealthBar".start_filling()
 		$"../../PlayerXpBar".update_xp_bar()
 		$"../../MainTabContainer/StatsPanel/Stats".update_stats()
+		
+		if(leveled_up):
+			$"../../MainTabContainer/SkillsPanel/SkillPointsAmount".update_skill_points()
 	
 	$"..".update_enemy()
 
