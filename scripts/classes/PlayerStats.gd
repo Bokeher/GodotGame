@@ -18,6 +18,7 @@ var max_stage_reached: int
 
 var xp: int
 var level: int
+var skill_points: int
 
 func _init(
 	_max_health: int = 10, 
@@ -33,7 +34,8 @@ func _init(
 	_gold: int = 0, 
 	_max_stage_reached: int = 1,
 	_xp: int = 0,
-	_level: int = 1
+	_level: int = 1,
+	_skill_points: int = 0
 ):
 	max_health = _max_health
 	health = _health
@@ -49,6 +51,7 @@ func _init(
 	max_stage_reached = _max_stage_reached
 	xp = _xp
 	level = _level
+	skill_points = _skill_points
 
 # Used in saving
 func to_dict() -> Dictionary:
@@ -66,7 +69,8 @@ func to_dict() -> Dictionary:
 		"gold": gold,
 		"max_stage_reached": max_stage_reached,
 		"xp": xp,
-		"level": level
+		"level": level,
+		"skill_points": skill_points
 	}
 
 # Used in reading from savefile
@@ -85,7 +89,8 @@ static func from_dict(data: Dictionary) -> PlayerStats:
 		data.get("gold", 0),
 		data.get("max_stage_reached", 1),
 		data.get("xp", 0),
-		data.get("level", 1)
+		data.get("level", 1),
+		data.get("skill_points", 0)
 	)
 
 func calc_respawn_time() -> float:
@@ -109,6 +114,7 @@ func add_xp(amount: int) -> bool:
 	while(xp > required_xp):
 		xp -= required_xp
 		level += 1
+		skill_points += 1
 		leveled_up = true
 	
 	return leveled_up
