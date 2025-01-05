@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=27 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/game/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://scripts/game/Reset.gd" id="3_or36x"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bscctmm55ktp5" path="res://scenes/SkillTree.tscn" id="20_mjx3u"]
 [ext_resource type="PackedScene" uid="uid://iohn0aebg218" path="res://scenes/Inventory.tscn" id="21_0usff"]
 [ext_resource type="Script" path="res://scripts/game/SkillPointsAmount.gd" id="22_nrpqb"]
+[ext_resource type="Script" path="res://scripts/game/ResetSkillsButton.gd" id="23_imyjl"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -257,6 +258,7 @@ offset_bottom = 42.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "Reset skills"
+script = ExtResource("23_imyjl")
 
 [node name="SkilTree" parent="MainTabContainer/SkillsPanel" instance=ExtResource("20_mjx3u")]
 layout_mode = 2
