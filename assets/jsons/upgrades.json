@@ -7,6 +7,7 @@
 			"cost": 10,
 			"value": 1,
 			"cost_multiplier": 1.5,
+			"level": 0,
 			"max_level": -1
 		},
 		{
@@ -16,6 +17,7 @@
 			"cost": 100,
 			"value": 1,
 			"cost_multiplier": 2,
+			"level": 0,
 			"max_level": 100
 		},
 		{
@@ -25,6 +27,7 @@
 			"cost": 100,
 			"value": 1,
 			"cost_multiplier": 3,
+			"level": 0,
 			"max_level": 5
 		},
 		{
@@ -34,6 +37,7 @@
 			"cost": 100,
 			"value": 1,
 			"cost_multiplier": 3,
+			"level": 0,
 			"max_level": 1000
 		},
 		{
@@ -43,6 +47,7 @@
 			"cost": 100,
 			"value": 1,
 			"cost_multiplier": 3,
+			"level": 0,
 			"max_level": 1000
 		},
 		{
@@ -52,6 +57,7 @@
 			"cost": 50,
 			"value": 1,
 			"cost_multiplier": 3,
+			"level": 0,
 			"max_level": 100
 		}
 	]

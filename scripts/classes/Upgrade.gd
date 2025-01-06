@@ -6,15 +6,17 @@ var description: String
 var cost: int
 var value: int
 var cost_multiplier: float
+var level: int
 var max_level: int
 
-func _init(_id: int, _name: String, _description: String, _cost: int, _value: int, _cost_multiplier: float, _max_level: int):
+func _init(_id: int, _name: String, _description: String, _cost: int, _value: int, _cost_multiplier: float, _level: int, _max_level: int):
 	id = _id
 	name = _name
 	description = _description
 	cost = _cost
 	value = _value
 	cost_multiplier = _cost_multiplier
+	level = _level
 	max_level = _max_level
 
 # Convert instance to dictionary for saving
@@ -26,6 +28,7 @@ func to_dict() -> Dictionary:
 		"cost": cost,
 		"value": value,
 		"cost_multiplier": cost_multiplier,
+		"level": level,
 		"max_level": max_level
 	}
 
@@ -38,8 +41,9 @@ static func from_dict(data: Dictionary) -> Upgrade:
 		data.get("cost", 0),
 		data.get("value", 0),
 		data.get("cost_multiplier", 1.0),
+		data.get("level", 0),
 		data.get("max_level", -1)
 	)
 
 func duplicate() -> Upgrade:
-	return Upgrade.new(id, name, description, cost, value, cost_multiplier, max_level)
+	return Upgrade.new(id, name, description, cost, value, cost_multiplier, level, max_level)
