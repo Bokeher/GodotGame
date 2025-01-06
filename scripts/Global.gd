@@ -14,7 +14,6 @@ const MAIN_TAB_CONTAINER_POSITION = Vector2i(580, 0)
 var curr_enemy: Enemy
 var curr_stage = null
 var player_stats: PlayerStats = PlayerStats.new()
-var upgrade_stats_array: Array[UpgradeStats] = []
 
 # Private vars - use getters to get them
 var _enemies: Array[Enemy] = []
@@ -36,23 +35,11 @@ func _ready() -> void:
 	
 	if(_skills.is_empty()): read_skills()
 	
-	# If not loaded from savefile or when adding new upgrades (dev)
-	if(upgrade_stats_array.is_empty() or upgrade_stats_array.size() != _upgrades.size()):
-		# Reset upgrade stats array and fill it from upgrades list 
-		load_upgrade_stats()
-	
 	# Set curr_stage to max reached stage
 	curr_stage = get_stage(player_stats.max_stage_reached)
 	
 	if(!curr_enemy):
 		curr_enemy = get_enemy(1)
-
-func load_upgrade_stats() -> void:
-	upgrade_stats_array = []
-	
-	for upgrade in _upgrades:
-		var upgrade_stats = UpgradeStats.new(upgrade.id, upgrade.cost, upgrade.cost_multiplier)
-		upgrade_stats_array.append(upgrade_stats)
 
 func read_savefile() -> void:
 	if !FileAccess.file_exists(PATH_SAVE):
@@ -67,15 +54,11 @@ func read_savefile() -> void:
 	# Get dictionaries from file
 	var player_stats_dict = data[0]
 	var curr_enemy_dict = data[1]
-	var upgrade_stats_dicts = data[2]
-	var skills_dicts = data[3]
+	var skills_dicts = data[2]
 	
 	# Convert dictionaries to objects
 	player_stats = PlayerStats.from_dict(player_stats_dict)
 	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
-	
-	for upgrade_stats_dict in upgrade_stats_dicts:
-		upgrade_stats_array.append(UpgradeStats.from_dict(upgrade_stats_dict))
 	
 	_skills = []
 	for skills_dict in skills_dicts:
@@ -95,10 +78,6 @@ func save_savefile() -> void:
 	else:
 		curr_enemy_dict = null
 	
-	var upgrade_stats_dicts = []
-	for upgrade_stats in upgrade_stats_array:
-		upgrade_stats_dicts.append(upgrade_stats.to_dict())
-	
 	var skills_dicts = []
 	for skill in _skills:
 		skills_dicts.append(skill.to_dict())
@@ -109,7 +88,6 @@ func save_savefile() -> void:
 	file.store_var([
 		player_stats_dict,
 		curr_enemy_dict,
-		upgrade_stats_dicts,
 		skills_dicts
 	])
 	

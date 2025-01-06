@@ -3,12 +3,11 @@ extends Label
 func update_level() -> void:
 	var id: int = $"../..".get_meta("upgrade_id")
 	
-	var level: int = Global.upgrade_stats_array[id - 1].level
-	var max_level: int = Global.get_upgrade(id).max_level
+	var upgrade = Global._upgrades[id - 1]
 	
-	var level_text = "Level " + str(level)
+	var level_text = "Level " + str(upgrade.level)
 	
-	if(max_level > 0):
-		level_text += " / " + str(max_level) 
+	if(upgrade.max_level > 0):
+		level_text += " / " + str(upgrade.max_level) 
 	
 	$".".text = level_text
