@@ -31,9 +31,10 @@ func _ready() -> void:
 	read_stages()
 	read_enemies()
 	read_upgrades()
-	read_skills()
 	
 	read_savefile()
+	
+	if(_skills.is_empty()): read_skills()
 	
 	# If not loaded from savefile or when adding new upgrades (dev)
 	if(upgrade_stats_array.is_empty() or upgrade_stats_array.size() != _upgrades.size()):
@@ -67,6 +68,7 @@ func read_savefile() -> void:
 	var player_stats_dict = data[0]
 	var curr_enemy_dict = data[1]
 	var upgrade_stats_dicts = data[2]
+	var skills_dicts = data[3]
 	
 	# Convert dictionaries to objects
 	player_stats = PlayerStats.from_dict(player_stats_dict)
@@ -74,6 +76,10 @@ func read_savefile() -> void:
 	
 	for upgrade_stats_dict in upgrade_stats_dicts:
 		upgrade_stats_array.append(UpgradeStats.from_dict(upgrade_stats_dict))
+	
+	_skills = []
+	for skills_dict in skills_dicts:
+		_skills.append(Skill.from_dict(skills_dict))
 
 func save_savefile() -> void:
 	# Convert objects to dictionaries
@@ -89,9 +95,13 @@ func save_savefile() -> void:
 	else:
 		curr_enemy_dict = null
 	
-	var upgrade_stats_dict = []
+	var upgrade_stats_dicts = []
 	for upgrade_stats in upgrade_stats_array:
-		upgrade_stats_dict.append(upgrade_stats.to_dict())
+		upgrade_stats_dicts.append(upgrade_stats.to_dict())
+	
+	var skills_dicts = []
+	for skill in _skills:
+		skills_dicts.append(skill.to_dict())
 	
 	# Save dictionaries
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
@@ -99,7 +109,8 @@ func save_savefile() -> void:
 	file.store_var([
 		player_stats_dict,
 		curr_enemy_dict,
-		upgrade_stats_dict
+		upgrade_stats_dicts,
+		skills_dicts
 	])
 	
 	file.close()
