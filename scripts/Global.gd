@@ -29,11 +29,12 @@ func _ready() -> void:
 	# Read all json files
 	read_stages()
 	read_enemies()
-	read_upgrades()
 	
 	read_savefile()
 	
+	# Read from json when there are no instances of them
 	if(_skills.is_empty()): read_skills()
+	if(_upgrades.is_empty()): read_upgrades()
 	
 	# Set curr_stage to max reached stage
 	curr_stage = get_stage(player_stats.max_stage_reached)
@@ -55,14 +56,17 @@ func read_savefile() -> void:
 	var player_stats_dict = data[0]
 	var curr_enemy_dict = data[1]
 	var skills_dicts = data[2]
+	var upgrades_dicts = data[3]
 	
 	# Convert dictionaries to objects
 	player_stats = PlayerStats.from_dict(player_stats_dict)
 	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
 	
-	_skills = []
 	for skills_dict in skills_dicts:
 		_skills.append(Skill.from_dict(skills_dict))
+	
+	for upgrades_dict in upgrades_dicts:
+		_upgrades.append(Upgrade.from_dict(upgrades_dict))
 
 func save_savefile() -> void:
 	# Convert objects to dictionaries
@@ -82,13 +86,18 @@ func save_savefile() -> void:
 	for skill in _skills:
 		skills_dicts.append(skill.to_dict())
 	
+	var upgrdes_dicts = []
+	for upgrade in _upgrades:
+		upgrdes_dicts.append(upgrade.to_dict())
+	
 	# Save dictionaries
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
 	
 	file.store_var([
 		player_stats_dict,
 		curr_enemy_dict,
-		skills_dicts
+		skills_dicts,
+		upgrdes_dicts
 	])
 	
 	file.close()
