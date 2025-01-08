@@ -152,6 +152,7 @@ func read_upgrades() -> void:
 	var file = FileAccess.open(PATH_UPGRADES, FileAccess.READ)
 	var upgrade_dicts = JSON.parse_string(file.get_as_text()).upgrades
 	
+	_upgrades = []
 	for upgrade_dict in upgrade_dicts:
 		_upgrades.append(Upgrade.from_dict(upgrade_dict))
 	
@@ -165,6 +166,7 @@ func read_skills() -> void:
 	var file = FileAccess.open(PATH_SKILLS, FileAccess.READ)
 	var skill_dicts = JSON.parse_string(file.get_as_text()).skills
 	
+	_skills = []
 	for skill_dict in skill_dicts:
 		_skills.append(Skill.from_dict(skill_dict))
 	
