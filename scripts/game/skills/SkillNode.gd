@@ -10,6 +10,8 @@ func _ready():
 	update_level_label()
 
 func update_skill():
+	if(skill == null): return
+	
 	skill = Global._skills[skill.id - 1]
 	
 	update_level_label()
