@@ -9,6 +9,11 @@ func _ready():
 	
 	update_level_label()
 
+func update_skill():
+	skill = Global._skills[skill.id - 1]
+	
+	update_level_label()
+
 func _on_texture_button_mouse_entered():
 	SkillPopup.show_skill_popup(skill.name, skill.description, skill.level)
 

@@ -10,7 +10,12 @@ func _pressed() -> void:
 	for upgradeChild in upgradeVBox.get_children():
 		upgradeChild.update_upgrade()
 	
-	# TODO: Update skills
+	# Update skills
+	var skillTreePanel = $"../MainTabContainer/SkillsPanel/SkilTree/SubViewportContainer/SubViewport/SkillTreePanel"
+	for skillNode in skillTreePanel.get_children():
+		skillNode.update_skill()
+	
+	$"../MainTabContainer/SkillsPanel/SkillPointsAmount".update_skill_points()
 	
 	$"../PlayerHealthBar".update_player_health_bar()
 	$"../MainTabContainer/UpgradesPanel/GoldAmount".update_gold()
