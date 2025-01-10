@@ -15,11 +15,10 @@ var curr_enemy: Enemy
 var curr_stage = null
 var player_stats: PlayerStats = PlayerStats.new()
 
-# Private vars - use getters to get them
-var _enemies: Array[Enemy] = []
-var _stages = []
-var _upgrades: Array[Upgrade] = []
-var _skills: Array[Skill] = []
+var enemies: Array[Enemy] = []
+var stages = []
+var upgrades: Array[Upgrade] = []
+var skills: Array[Skill] = []
 
 # Auto save vars
 const AUTO_SAVE_INTERVAL = 5.0
@@ -33,8 +32,8 @@ func _ready() -> void:
 	read_savefile()
 	
 	# Read from json when there are no instances of them
-	if(_skills.is_empty()): read_skills()
-	if(_upgrades.is_empty()): read_upgrades()
+	if(skills.is_empty()): read_skills()
+	if(upgrades.is_empty()): read_upgrades()
 	
 	# Set curr_stage to max reached stage
 	curr_stage = get_stage(player_stats.max_stage_reached)
@@ -63,10 +62,10 @@ func read_savefile() -> void:
 	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
 	
 	for skills_dict in skills_dicts:
-		_skills.append(Skill.from_dict(skills_dict))
+		skills.append(Skill.from_dict(skills_dict))
 	
 	for upgrades_dict in upgrades_dicts:
-		_upgrades.append(Upgrade.from_dict(upgrades_dict))
+		upgrades.append(Upgrade.from_dict(upgrades_dict))
 
 func save_savefile() -> void:
 	# Convert objects to dictionaries
@@ -83,11 +82,11 @@ func save_savefile() -> void:
 		curr_enemy_dict = null
 	
 	var skills_dicts = []
-	for skill in _skills:
+	for skill in skills:
 		skills_dicts.append(skill.to_dict())
 	
 	var upgrdes_dicts = []
-	for upgrade in _upgrades:
+	for upgrade in upgrades:
 		upgrdes_dicts.append(upgrade.to_dict())
 	
 	# Save dictionaries
@@ -124,12 +123,12 @@ func read_enemies() -> void:
 	var enemy_dicts = JSON.parse_string(file.get_as_text()).enemies
 	
 	for enemy_dict in enemy_dicts:
-		_enemies.append(Enemy.from_dict(enemy_dict))
+		enemies.append(Enemy.from_dict(enemy_dict))
 	
 	file.close()
 
 func get_enemy(id: int) -> Enemy:
-	return _enemies[id - 1].duplicate()
+	return enemies[id - 1].duplicate()
 
 func read_stages() -> void:
 	if(!FileAccess.file_exists(PATH_STAGES)):
@@ -137,12 +136,12 @@ func read_stages() -> void:
 		return
 	
 	var file = FileAccess.open(PATH_STAGES, FileAccess.READ)
-	_stages = JSON.parse_string(file.get_as_text()).stages
+	stages = JSON.parse_string(file.get_as_text()).stages
 	file.close()
 
 # TODO: Add type after adding Stage class
 func get_stage(id: int):
-	return _stages[id - 1].duplicate()
+	return stages[id - 1].duplicate()
 
 func read_upgrades() -> void:
 	if(!FileAccess.file_exists(PATH_UPGRADES)):
@@ -152,9 +151,9 @@ func read_upgrades() -> void:
 	var file = FileAccess.open(PATH_UPGRADES, FileAccess.READ)
 	var upgrade_dicts = JSON.parse_string(file.get_as_text()).upgrades
 	
-	_upgrades = []
+	upgrades = []
 	for upgrade_dict in upgrade_dicts:
-		_upgrades.append(Upgrade.from_dict(upgrade_dict))
+		upgrades.append(Upgrade.from_dict(upgrade_dict))
 	
 	file.close()
 
@@ -166,11 +165,11 @@ func read_skills() -> void:
 	var file = FileAccess.open(PATH_SKILLS, FileAccess.READ)
 	var skill_dicts = JSON.parse_string(file.get_as_text()).skills
 	
-	_skills = []
+	skills = []
 	for skill_dict in skill_dicts:
-		_skills.append(Skill.from_dict(skill_dict))
+		skills.append(Skill.from_dict(skill_dict))
 	
 	file.close()
 
 func get_upgrade(id: int) -> Upgrade:
-	return _upgrades[id - 1].duplicate()
+	return upgrades[id - 1].duplicate()

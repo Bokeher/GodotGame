@@ -4,7 +4,7 @@ var upgrade: Upgrade
 
 func _ready() -> void:
 	var upgrade_id = $".".get_meta("upgrade_id")
-	upgrade = Global._upgrades[upgrade_id - 1]
+	upgrade = Global.upgrades[upgrade_id - 1]
 	$Background/UpgradeButton.update_cost(upgrade.cost)
 	
 	$".".set_custom_minimum_size($Background.size)
@@ -49,7 +49,7 @@ func check_buy() -> void:
 
 # TODO: delete this if not needed after reset button deleted
 func update_upgrade() -> void:
-	upgrade = Global._upgrades[upgrade.id - 1]
+	upgrade = Global.upgrades[upgrade.id - 1]
 	
 	$Background/Level.update_level(upgrade.level, upgrade.max_level)
 	$Background/UpgradeButton.update_cost(upgrade.cost)

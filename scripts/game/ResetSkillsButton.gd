@@ -1,7 +1,7 @@
 extends Button
 
 func _pressed():
-	for skill in Global._skills:
+	for skill in Global.skills:
 		Global.player_stats.skill_points += skill.level
 		skill.level = 0
 	

@@ -5,14 +5,14 @@ var skill: Skill
 func _ready():
 	var id = $".".get_meta("id")
 	
-	skill = Global._skills[id - 1]
+	skill = Global.skills[id - 1]
 	
 	update_level_label()
 
 func update_skill():
 	if(skill == null): return
 	
-	skill = Global._skills[skill.id - 1]
+	skill = Global.skills[skill.id - 1]
 	
 	update_level_label()
 

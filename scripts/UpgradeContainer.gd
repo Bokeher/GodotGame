@@ -8,7 +8,7 @@ func _ready() -> void:
 	for child in childs:
 		$VBoxContainer.remove_child(child)
 	
-	for upgrade in Global._upgrades:
+	for upgrade in Global.upgrades:
 		var new_upgrade = upgrade_scene.instantiate()
 		new_upgrade.set_meta("upgrade_id", upgrade.id)
 		new_upgrade.get_node("Background/UpgradeName").text = upgrade.name
