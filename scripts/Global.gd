@@ -36,7 +36,7 @@ func _ready() -> void:
 	if(upgrades.is_empty()): read_upgrades()
 	
 	# Set curr_stage to max reached stage
-	curr_stage = get_stage(player_stats.max_stage_reached)
+	curr_stage = stages[player_stats.max_stage_reached - 1]
 	
 	if(!curr_enemy):
 		curr_enemy = get_enemy(1)
@@ -139,10 +139,6 @@ func read_stages() -> void:
 	stages = JSON.parse_string(file.get_as_text()).stages
 	file.close()
 
-# TODO: Add type after adding Stage class
-func get_stage(id: int):
-	return stages[id - 1].duplicate()
-
 func read_upgrades() -> void:
 	if(!FileAccess.file_exists(PATH_UPGRADES)):
 		print("Upgrades file not found")
@@ -170,6 +166,3 @@ func read_skills() -> void:
 		skills.append(Skill.from_dict(skill_dict))
 	
 	file.close()
-
-func get_upgrade(id: int) -> Upgrade:
-	return upgrades[id - 1].duplicate()
