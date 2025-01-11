@@ -69,17 +69,13 @@ func read_savefile() -> void:
 
 func save_savefile() -> void:
 	# Convert objects to dictionaries
-	var player_stats_dict
+	var player_stats_dict = null
 	if(player_stats):
 		player_stats_dict = player_stats.to_dict()
-	else: 
-		player_stats_dict = null 
 	
-	var curr_enemy_dict
+	var curr_enemy_dict = null
 	if(curr_enemy):
 		curr_enemy_dict = curr_enemy.to_dict()
-	else:
-		curr_enemy_dict = null
 	
 	var skills_dicts = []
 	for skill in skills:
