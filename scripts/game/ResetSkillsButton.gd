@@ -6,4 +6,3 @@ func _pressed():
 		skill.level = 0
 	
 	$"../SkillPointsAmount".update_skill_points()
-	#TODO: update all levels on all skills in skill tree
