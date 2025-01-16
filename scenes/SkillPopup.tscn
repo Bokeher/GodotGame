@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://t7suyxul08tk"]
 
-[ext_resource type="Script" path="res://scripts/game/SkillPopup.gd" id="1_8mifk"]
+[ext_resource type="Script" path="res://scripts/skills/SkillPopup.gd" id="1_8mifk"]
 
 [node name="SkillPopup" type="Control"]
 layout_mode = 3

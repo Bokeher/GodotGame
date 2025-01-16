@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wguylvq1tt10"]
 
-[ext_resource type="Script" path="res://scripts/game/skills/SkillNode.gd" id="1_t1asw"]
+[ext_resource type="Script" path="res://scripts/skills/SkillNode.gd" id="1_t1asw"]
 [ext_resource type="Texture2D" uid="uid://dkai0hqseo7n6" path="res://icon.svg" id="2_fiaw0"]
 
 [node name="SkillNode" type="Control"]

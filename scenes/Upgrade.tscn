@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://v6m0je28qwp2"]
 
-[ext_resource type="Script" path="res://scripts/upgrade/Upgrade.gd" id="1_rkmo7"]
-[ext_resource type="Script" path="res://scripts/upgrade/UpgradeButton.gd" id="2_fb6qr"]
-[ext_resource type="Script" path="res://scripts/upgrade/Level.gd" id="3_ckew1"]
+[ext_resource type="Script" path="res://scripts/upgrades/Upgrade.gd" id="1_jimq5"]
+[ext_resource type="Script" path="res://scripts/upgrades/Level.gd" id="2_kmbwh"]
+[ext_resource type="Script" path="res://scripts/upgrades/UpgradeButton.gd" id="3_j17g4"]
 
 [sub_resource type="FontFile" id="FontFile_16vje"]
 cache/0/16/0/ascent = 0.0
@@ -2040,7 +2040,7 @@ offset_right = -602.0
 offset_bottom = -528.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rkmo7")
+script = ExtResource("1_jimq5")
 metadata/upgrade_id = -1
 
 [node name="Background" type="ColorRect" parent="."]
@@ -2081,7 +2081,7 @@ theme_override_fonts/font = SubResource("FontFile_16vje")
 theme_override_font_sizes/font_size = 20
 text = "Level 0"
 horizontal_alignment = 1
-script = ExtResource("3_ckew1")
+script = ExtResource("2_kmbwh")
 
 [node name="UpgradeButton" type="Button" parent="Background"]
 layout_mode = 0
@@ -2093,7 +2093,7 @@ theme_override_colors/font_color = Color(0.865643, 0.593809, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_yvvp4")
 theme_override_font_sizes/font_size = 25
 text = "Upgrade"
-script = ExtResource("2_fb6qr")
+script = ExtResource("3_j17g4")
 
 [node name="UpgradeId" type="Label" parent="Background"]
 visible = false
