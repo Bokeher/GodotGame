@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://v6m0je28qwp2"]
 
 [ext_resource type="Script" path="res://scripts/upgrades/Upgrade.gd" id="1_jimq5"]
-[ext_resource type="Script" path="res://scripts/upgrades/Level.gd" id="2_kmbwh"]
+[ext_resource type="Script" path="res://scripts/upgrades/UpgradeLevel.gd" id="2_kmbwh"]
 [ext_resource type="Script" path="res://scripts/upgrades/UpgradeButton.gd" id="3_j17g4"]
 
 [sub_resource type="FontFile" id="FontFile_16vje"]

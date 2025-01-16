@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/enemy/EnemyBody.gd" id="7_8xw8y"]
 [ext_resource type="Script" path="res://scripts/enemy/EnemyName.gd" id="8_xasxh"]
 [ext_resource type="Script" path="res://scripts/enemy/EnemyHealth.gd" id="9_vuj78"]
-[ext_resource type="Script" path="res://scripts/enemy/HealthBar.gd" id="10_hvvn2"]
+[ext_resource type="Script" path="res://scripts/enemy/EnemyHealthBar.gd" id="10_hvvn2"]
 [ext_resource type="Script" path="res://scripts/upgrades/GoldAmount.gd" id="10_uekgw"]
 [ext_resource type="AudioStream" uid="uid://o88cpjyc0g0h" path="res://assets/sounds/metal_hit3.mp3" id="11_w2boa"]
 [ext_resource type="AudioStream" uid="uid://bgwunsbbcyb15" path="res://assets/sounds/wood_hit.mp3" id="12_bo8ar"]
