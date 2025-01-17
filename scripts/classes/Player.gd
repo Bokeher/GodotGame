@@ -1,4 +1,4 @@
-class_name PlayerStats
+class_name Player
 
 var max_health: int
 var health: int
@@ -74,8 +74,8 @@ func to_dict() -> Dictionary:
 	}
 
 # Used in reading from savefile
-static func from_dict(data: Dictionary) -> PlayerStats:
-	return PlayerStats.new(
+static func from_dict(data: Dictionary) -> Player:
+	return Player.new(
 		data.get("max_health", 10),
 		data.get("health", 10),
 		data.get("regen", 2),

@@ -1,7 +1,7 @@
 extends Button
 
 func _pressed() -> void:
-	Global.player_stats = PlayerStats.new()
+	Global.player_stats = Player.new()
 	Global.read_upgrades()
 	Global.read_skills()
 	

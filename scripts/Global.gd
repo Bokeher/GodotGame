@@ -13,7 +13,7 @@ const MAIN_TAB_CONTAINER_POSITION = Vector2i(580, 0)
 # State vars
 var curr_enemy: Enemy
 var curr_stage = null
-var player_stats: PlayerStats = PlayerStats.new()
+var player_stats: Player = Player.new()
 
 var enemies: Array[Enemy] = []
 var stages = []
@@ -58,7 +58,7 @@ func read_savefile() -> void:
 	var upgrades_dicts = data[3]
 	
 	# Convert dictionaries to objects
-	player_stats = PlayerStats.from_dict(player_stats_dict)
+	player_stats = Player.from_dict(player_stats_dict)
 	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
 	
 	for skills_dict in skills_dicts:
