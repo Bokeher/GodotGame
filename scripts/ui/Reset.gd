@@ -16,7 +16,6 @@ func _pressed() -> void:
 		skillNode.update_skill()
 	
 	$"../MainTabContainer/SkillsPanel/SkillPointsAmount".update_skill_points()
-	
 	$"../PlayerHealthBar".update_player_health_bar()
 	$"../MainTabContainer/UpgradesPanel/GoldAmount".update_gold()
 	$"../MainTabContainer/StatsPanel/Stats".update_stats()
