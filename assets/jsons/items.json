@@ -1,0 +1,10 @@
+{
+	"items": [
+		{
+			"id": 1,
+			"name": "Stick",
+			"description": "Just a stick",
+			"image_path": "res://assets/sprites/items/stick.png"
+		}
+	]
+}
