@@ -8,6 +8,7 @@ func _ready():
 	skill = Global.skills[id - 1]
 	
 	update_level_label()
+	update_skill_image()
 
 func update_skill():
 	if(skill == null): return
@@ -37,3 +38,6 @@ func level_up_skill():
 
 func update_level_label():
 	$SkillLevelLabel.text = str(skill.level) + " / " + str(skill.max_level)
+
+func update_skill_image():
+	$SkillButton.texture_normal = load(skill.image_path)
