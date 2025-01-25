@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wguylvq1tt10"]
 
 [ext_resource type="Script" path="res://scripts/skills/SkillNode.gd" id="1_t1asw"]
-[ext_resource type="Texture2D" uid="uid://dkai0hqseo7n6" path="res://icon.svg" id="2_fiaw0"]
+[ext_resource type="Texture2D" uid="uid://o2n5ulu72kfo" path="res://assets/sprites/skills/skill1.png" id="2_yq7fh"]
 
 [node name="SkillNode" type="Control"]
 layout_mode = 3
@@ -17,9 +17,10 @@ metadata/id = -1
 
 [node name="SkillButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
-texture_normal = ExtResource("2_fiaw0")
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_yq7fh")
 
 [node name="SkillLevelLabel" type="Label" parent="."]
 layout_mode = 0
@@ -27,6 +28,7 @@ offset_left = 87.0
 offset_top = 100.0
 offset_right = 120.0
 offset_bottom = 123.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0 / 5"
 
 [connection signal="mouse_entered" from="SkillButton" to="." method="_on_texture_button_mouse_entered"]
