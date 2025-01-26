@@ -6,6 +6,7 @@ const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
 const PATH_STAGES: String = "res://assets/jsons/stages.json"
 const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 const PATH_SKILLS: String = "res://assets/jsons/skills.json"
+const PATH_ITEMS: String = "res://assets/jsons/items.json"
 
 # Used to precisely set postion of Popups based on position of MainTabContainer 
 const MAIN_TAB_CONTAINER_POSITION = Vector2i(580, 0)
@@ -19,6 +20,7 @@ var enemies: Array[Enemy] = []
 var stages = []
 var upgrades: Array[Upgrade] = []
 var skills: Array[Skill] = []
+var items: Array[Item] = []
 
 # Auto save vars
 const AUTO_SAVE_INTERVAL = 5.0
@@ -28,6 +30,7 @@ func _ready() -> void:
 	# Read all json files
 	read_stages()
 	read_enemies()
+	read_items()
 	
 	read_savefile()
 	
@@ -160,5 +163,19 @@ func read_skills() -> void:
 	skills = []
 	for skill_dict in skill_dicts:
 		skills.append(Skill.from_dict(skill_dict))
+	
+	file.close()
+
+func read_items() -> void:
+	if(!FileAccess.file_exists(PATH_ITEMS)):
+		print("Items file not found")
+		return
+		
+	var file = FileAccess.open(PATH_ITEMS, FileAccess.READ)
+	var items_dicts = JSON.parse_string(file.get_as_text()).items
+	
+	items = []
+	for items_dict in items_dicts:
+		items.append(Item.from_dict(items_dict))
 	
 	file.close()
