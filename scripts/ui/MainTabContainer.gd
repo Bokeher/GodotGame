@@ -10,7 +10,7 @@ func _ready():
 	for i in range(min($".".get_tab_count(), TAB_NAMES.size())):
 		$".".set_tab_title(i, TAB_NAMES[i])
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("JumpUpgrades"):
 		$".".current_tab = 0
 	if Input.is_action_just_pressed("JumpStats"):
