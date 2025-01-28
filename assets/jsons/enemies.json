@@ -7,7 +7,13 @@
 			"gold_reward": 100,
 			"image_path": "res://assets/sprites/enemies/slimes/green_slime.png",
 			"damage": 1,
-			"xp_reward": 99
+			"xp_reward": 99,
+			"loot_table": [
+				{
+					"item_id": 1,
+					"drop_chance": 0.8
+				}
+			]
 		},
 		{
 			"id": 2,
@@ -16,7 +22,13 @@
 			"gold_reward": 200,
 			"image_path": "res://assets/sprites/enemies/slimes/blue_slime.png",
 			"damage": 2,
-			"xp_reward": 101
+			"xp_reward": 101,
+			"loot_table": [
+				{
+					"item_id": 1,
+					"drop_chance": 1.0
+				}
+			]
 		},
 		{
 			"id": 3,
@@ -25,7 +37,13 @@
 			"gold_reward": 10,
 			"image_path": "res://assets/sprites/enemies/slimes/golden_slime.png",
 			"damage": 3,
-			"xp_reward": 5
+			"xp_reward": 5,
+			"loot_table": [
+				{
+					"item_id": 1,
+					"drop_chance": 0.01
+				}
+			]
 		}
 	]
 }

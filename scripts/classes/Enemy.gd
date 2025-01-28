@@ -42,7 +42,7 @@ static func from_dict(data: Dictionary) -> Enemy:
 		data.get("image_path", ""),
 		data.get("damage", 0),
 		data.get("xp_reward", 1),
-		#data.get("loot_table", [])
+		data.get("loot_table", [])
 	)
 	
 	return instance
