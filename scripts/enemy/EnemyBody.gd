@@ -27,6 +27,11 @@ func _pressed() -> void:
 		var leveled_up: bool = Global.player_stats.add_xp(Global.curr_enemy.xp_reward)
 		$"../../MainTabContainer/UpgradesPanel/GoldAmount".update_gold()
 		
+		# Drop items
+		var dropped_item_ids = Global.curr_enemy.get_loot()
+		for item_id in dropped_item_ids:
+			Global.inventory[item_id] = Global.inventory.get(item_id, 0) + 1
+		
 		# Make enemy disapear
 		Global.curr_enemy = null
 		$"..".hide_enemy()

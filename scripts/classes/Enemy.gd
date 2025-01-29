@@ -55,13 +55,13 @@ func get_loot() -> Array:
 	var dropped_items = []
 	var cumulative_chance = 0.0
 	var random_value = randf()
-
+	
 	for loot in loot_table:
-		cumulative_chance += loot["drop_chance"]
+		cumulative_chance += loot.drop_chance
 		if random_value < cumulative_chance:
-			dropped_items.append(loot["item"])
+			dropped_items.append(loot.item_id)
 			random_value = randf()  # Roll again for potential multiple drops
-
+	
 	return dropped_items
 
 static func set_new_random_enemy() -> void:
