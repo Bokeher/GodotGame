@@ -175,9 +175,11 @@ script = ExtResource("16_4kpbv")
 offset_left = 580.0
 offset_right = 1150.0
 offset_bottom = 646.0
+current_tab = 3
 script = ExtResource("18_wedra")
 
 [node name="UpgradesPanel" type="Panel" parent="MainTabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="GoldAmount" type="Label" parent="MainTabContainer/UpgradesPanel"]
@@ -267,5 +269,4 @@ offset_right = 10.0
 offset_bottom = 50.0
 
 [node name="Inventory" parent="MainTabContainer" instance=ExtResource("21_0usff")]
-visible = false
 layout_mode = 2
