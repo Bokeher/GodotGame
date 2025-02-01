@@ -1,7 +1,18 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
 	update_inventory()
 
 func update_inventory() -> void:
-	$VBoxContainer/Item1.text = "Stick: " + str(Global.inventory.get(1, 0))
+	# Remove all children
+	for child in $VBoxContainer.get_children():
+		$VBoxContainer.remove_child(child)
+	
+	# Add items
+	for item_id in Global.inventory:
+		var label = Label.new()
+		var item_name = Global.items[item_id - 1].name
+		
+		label.text = item_name + ": " + str(Global.inventory[item_id])
+		$VBoxContainer.add_child(label)
+		
