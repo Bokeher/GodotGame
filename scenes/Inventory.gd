@@ -6,6 +6,8 @@ func _ready() -> void:
 func update_inventory() -> void:
 	# Remove all children
 	for child in $VBoxContainer.get_children():
+		if(child.text == "Empty inventory"): continue
+		
 		$VBoxContainer.remove_child(child)
 	
 	# Add items
@@ -15,4 +17,9 @@ func update_inventory() -> void:
 		
 		label.text = item_name + ": " + str(Global.inventory[item_id])
 		$VBoxContainer.add_child(label)
+	
+	var isEmptyInventoryInfoShown: bool = true
+	if($VBoxContainer.get_children().size() > 1):
+		isEmptyInventoryInfoShown = false
 		
+	$VBoxContainer/EmptyInventoryInfo.visible = isEmptyInventoryInfoShown
