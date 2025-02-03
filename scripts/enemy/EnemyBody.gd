@@ -33,7 +33,7 @@ func _pressed() -> void:
 	$"../../PlayerXpBar".update_xp_bar()
 	$"../../MainTabContainer/StatsPanel/Stats".update_stats()
 	$"../../MainTabContainer/UpgradesPanel/GoldAmount".update_gold()
-	$"../../MainTabContainer/Inventory".update_inventory()
+	$"../../MainTabContainer/InventoryPanel/Inventory".update_inventory()
 	if(leveled_up):
 		$"../../MainTabContainer/SkillsPanel/SkillPointsAmount".update_skill_points()
 	

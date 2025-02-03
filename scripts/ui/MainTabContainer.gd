@@ -1,6 +1,6 @@
 extends TabContainer
 
-const TAB_NAMES = ["Upgrades", "Stats", "Skills"]
+const TAB_NAMES = ["Upgrades", "Stats", "Skills", "Inventory"]
 
 func _ready():
 	# Set position like this to easily access it in other scenes

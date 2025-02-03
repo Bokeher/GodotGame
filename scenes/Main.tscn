@@ -268,5 +268,9 @@ offset_top = 50.0
 offset_right = 10.0
 offset_bottom = 50.0
 
-[node name="Inventory" parent="MainTabContainer" instance=ExtResource("21_0usff")]
+[node name="InventoryPanel" type="Panel" parent="MainTabContainer"]
 layout_mode = 2
+
+[node name="Inventory" parent="MainTabContainer/InventoryPanel" instance=ExtResource("21_0usff")]
+layout_mode = 2
+anchors_preset = 0
