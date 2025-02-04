@@ -12,6 +12,10 @@
 				{
 					"item_id": 1,
 					"drop_chance": 0.8
+				},
+				{
+					"item_id": 2,
+					"drop_chance": 0.5
 				}
 			]
 		},
