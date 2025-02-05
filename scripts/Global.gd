@@ -62,6 +62,7 @@ func read_savefile() -> void:
 	var curr_enemy_dict = data[1]
 	var skills_dicts = data[2]
 	var upgrades_dicts = data[3]
+	inventory = data[4]
 	
 	# Convert dictionaries to objects
 	player_stats = Player.from_dict(player_stats_dict)
@@ -98,7 +99,8 @@ func save_savefile() -> void:
 		player_stats_dict,
 		curr_enemy_dict,
 		skills_dicts,
-		upgrdes_dicts
+		upgrdes_dicts,
+		inventory
 	])
 	
 	file.close()
