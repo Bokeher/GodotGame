@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvc2aoxhaw818"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wcudp"]
+
+[node name="InventoryItem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemBackground" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(540, 70)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.164706, 0.219608, 0.294118, 1)
+
+[node name="ItemName" type="Label" parent="ItemBackground"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 89.0
+offset_bottom = 28.0
+text = "Item name"
+
+[node name="ItemDescription" type="Label" parent="ItemBackground"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 35.0
+offset_right = 134.0
+offset_bottom = 58.0
+text = "Item Description"
+
+[node name="ItemImage" type="TextureRect" parent="ItemBackground"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 8.0
+offset_right = 533.0
+offset_bottom = 65.0
+texture = SubResource("CanvasTexture_wcudp")
