@@ -13,10 +13,8 @@ func _ready() -> void:
 func performUpgrade() -> void:
 	var cost = upgrade.cost
 	
-	if(Global.player_stats.gold < cost):
-		# TODO: Show to user
-		print("Not enough gold")
-		return
+	# dont need to check anything here since this interaction is only 
+	# available when button is active
 	
 	Global.player_stats.gold -= cost
 	
