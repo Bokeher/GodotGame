@@ -42,6 +42,10 @@ func performUpgrade() -> void:
 	$"../../../../StatsPanel/Stats".update_stats()
 
 func check_buy() -> void:
+	if(upgrade.max_level != -1 && upgrade.level >= upgrade.max_level):
+		$Background/UpgradeButton.disabled = true
+		return
+	
 	if(Global.player_stats.gold < upgrade.cost):
 		$Background/UpgradeButton.disabled = true
 	else:
