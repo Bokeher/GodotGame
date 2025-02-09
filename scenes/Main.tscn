@@ -169,7 +169,16 @@ offset_left = 40.0
 offset_top = 460.0
 offset_right = 240.0
 offset_bottom = 490.0
+show_percentage = false
 script = ExtResource("16_4kpbv")
+
+[node name="PlayerXpProgressLabel" type="Label" parent="PlayerXpBar"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 30.0
+text = "0 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MainTabContainer" type="TabContainer" parent="."]
 offset_left = 580.0
