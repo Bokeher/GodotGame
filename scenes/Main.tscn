@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=28 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://iohn0aebg218" path="res://scenes/Inventory.tscn" id="21_0usff"]
 [ext_resource type="Script" path="res://scripts/skills/SkillPointsAmount.gd" id="22_nrpqb"]
 [ext_resource type="Script" path="res://scripts/skills/ResetSkillsButton.gd" id="23_imyjl"]
+[ext_resource type="PackedScene" uid="uid://ivxjfj7k3lt1" path="res://scenes/Pets.tscn" id="26_lyvra"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -283,3 +284,10 @@ layout_mode = 2
 [node name="Inventory" parent="MainTabContainer/InventoryPanel" instance=ExtResource("21_0usff")]
 layout_mode = 2
 anchors_preset = 0
+
+[node name="PetsPanel" type="Panel" parent="MainTabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Pets" parent="MainTabContainer/PetsPanel" instance=ExtResource("26_lyvra")]
+layout_mode = 1
