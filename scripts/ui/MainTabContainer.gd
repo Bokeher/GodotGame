@@ -13,9 +13,12 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("JumpUpgrades"):
 		$".".current_tab = 0
-	if Input.is_action_just_pressed("JumpStats"):
+	elif Input.is_action_just_pressed("JumpStats"):
 		$".".current_tab = 1
-	if Input.is_action_just_pressed("JumpSkills"):
+	elif Input.is_action_just_pressed("JumpSkills"):
 		$".".current_tab = 2
-	if Input.is_action_just_pressed("JumpInventory"):
+	elif Input.is_action_just_pressed("JumpInventory"):
 		$".".current_tab = 3
+	elif Input.is_action_just_pressed("JumpPets"):
+		$".".current_tab = 4
+	
