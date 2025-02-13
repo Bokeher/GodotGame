@@ -24,6 +24,7 @@ var stages = []
 var upgrades: Array[Upgrade] = []
 var skills: Array[Skill] = []
 var items: Array[Item] = []
+var pet: Pet = null
 
 # Auto save vars
 const AUTO_SAVE_INTERVAL = 5.0
