@@ -35,7 +35,7 @@ static func generate_random_pet():
 	var pet_skins = ["Stone", "Rock", "Boulder", "Pebble", "Flint"]
 	
 	# Choose random values
-	var pet_name = names[randi() % names.length]
-	var pet_skin = pet_skins[randi() % pet_skins.length]
+	var pet_name = names[randi() % names.size()]
+	var pet_skin = pet_skins[randi() % pet_skins.size()]
 	
 	return Pet.new(1, pet_name, pet_skin, "image_path")

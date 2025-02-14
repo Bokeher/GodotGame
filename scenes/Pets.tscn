@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ivxjfj7k3lt1"]
+[gd_scene load_steps=3 format=3 uid="uid://ivxjfj7k3lt1"]
 
 [ext_resource type="Script" path="res://scripts/pets/FindPetButton.gd" id="1_6jomu"]
+[ext_resource type="Script" path="res://scripts/pets/Pets.gd" id="1_urpl6"]
 
 [node name="Pets" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_urpl6")
 
 [node name="FindPetButton" type="Button" parent="."]
 layout_mode = 0
@@ -18,3 +20,19 @@ offset_right = 123.0
 offset_bottom = 72.0
 text = "Find new pet"
 script = ExtResource("1_6jomu")
+
+[node name="PetName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 94.0
+offset_bottom = 103.0
+text = "Pet name"
+
+[node name="PetSkin" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 110.0
+offset_right = 60.0
+offset_bottom = 133.0
+text = "Pet skin"
