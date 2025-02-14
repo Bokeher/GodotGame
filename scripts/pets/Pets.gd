@@ -8,4 +8,4 @@ func update_pet_name():
 	$PetName.text = Global.pet.name
 
 func update_pet_skin():
-	$PetSkin.text = Global.pet.pet_skin_name
+	$PetSkin.text = Global.pet.skin_name
