@@ -1,4 +1,4 @@
 extends Button
 
 func _pressed():
-	Global.pet = Pet.new()
+	Global.pet = Pet.generate_random_pet()

@@ -29,3 +29,13 @@ static func from_dict(data: Dictionary) -> Pet:
 		data.get("pet_skin_name", ""),
 		data.get("image_path", "")
 	)
+
+static func generate_random_pet():
+	var names = ["Jhin", "Jin", "Dhjin", "Jin", "Jinn", "Djiin"]
+	var pet_skins = ["Stone", "Rock", "Boulder", "Pebble", "Flint"]
+	
+	# Choose random values
+	var pet_name = names[randi() % names.length]
+	var pet_skin = pet_skins[randi() % pet_skins.length]
+	
+	return Pet.new(1, pet_name, pet_skin, "image_path")
