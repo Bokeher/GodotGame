@@ -64,16 +64,19 @@ func read_savefile() -> void:
 	var skills_dicts = data[2]
 	var upgrades_dicts = data[3]
 	inventory = data[4]
+	var pet_dict = data[5]
 	
 	# Convert dictionaries to objects
 	player_stats = Player.from_dict(player_stats_dict)
 	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
+	pet = Pet.from_dict(pet_dict)
 	
 	for skills_dict in skills_dicts:
 		skills.append(Skill.from_dict(skills_dict))
 	
 	for upgrades_dict in upgrades_dicts:
 		upgrades.append(Upgrade.from_dict(upgrades_dict))
+	
 
 func save_savefile() -> void:
 	# Convert objects to dictionaries
@@ -93,6 +96,10 @@ func save_savefile() -> void:
 	for upgrade in upgrades:
 		upgrdes_dicts.append(upgrade.to_dict())
 	
+	var pet_dict = null
+	if(pet):
+		pet_dict = pet.to_dict()
+	
 	# Save dictionaries
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
 	
@@ -101,7 +108,8 @@ func save_savefile() -> void:
 		curr_enemy_dict,
 		skills_dicts,
 		upgrdes_dicts,
-		inventory
+		inventory,
+		pet_dict
 	])
 	
 	file.close()
