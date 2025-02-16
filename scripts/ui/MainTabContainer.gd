@@ -2,7 +2,7 @@ extends TabContainer
 
 const TAB_NAMES = ["Upgrades", "Stats", "Skills", "Inventory", "Pets"]
 
-func _ready():
+func _ready() -> void:
 	# Set position like this to easily access it in other scenes
 	$".".position = Global.MAIN_TAB_CONTAINER_POSITION
 	
@@ -10,7 +10,7 @@ func _ready():
 	for i in range(min($".".get_tab_count(), TAB_NAMES.size())):
 		$".".set_tab_title(i, TAB_NAMES[i])
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if Input.is_action_just_pressed("JumpUpgrades"):
 		$".".current_tab = 0
 	elif Input.is_action_just_pressed("JumpStats"):

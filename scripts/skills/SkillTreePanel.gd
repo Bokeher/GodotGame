@@ -7,7 +7,7 @@ var zoom_level = 1.0
 var zoom_min = 0.3
 var zoom_max = 1.5
 
-func _input(event):
+func _input(event) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:

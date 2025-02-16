@@ -30,7 +30,7 @@ static func from_dict(data: Dictionary) -> Pet:
 		data.get("image_path", "")
 	)
 
-static func generate_random_pet():
+static func generate_random_pet() -> Pet:
 	var names = ["Jhin", "Jin", "Dhjin", "Jin", "Jinn", "Djiin"]
 	var pet_skins = ["Stone", "Rock", "Boulder", "Pebble", "Flint"]
 	
