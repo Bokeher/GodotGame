@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://iohn0aebg218"]
+[gd_scene load_steps=3 format=3 uid="uid://iohn0aebg218"]
 
 [ext_resource type="Script" path="res://scripts/inventory/Inventory.gd" id="1_gluma"]
+[ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="2_d6i37"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -20,5 +21,5 @@ offset_bottom = 55.0
 
 [node name="EmptyInventoryInfo" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("2_d6i37")
 text = "Empty inventory"

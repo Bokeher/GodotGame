@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=29 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/player/PlayerHealthBar.gd" id="14_mb0sc"]
 [ext_resource type="Script" path="res://scripts/ui/ActionButton.gd" id="14_nqjfl"]
 [ext_resource type="Script" path="res://scripts/player/PlayerXpBar.gd" id="16_4kpbv"]
+[ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="18_m8vt2"]
 [ext_resource type="Script" path="res://scripts/ui/MainTabContainer.gd" id="18_wedra"]
 [ext_resource type="Script" path="res://scripts/upgrades/UpgradeContainer.gd" id="19_w4tlj"]
 [ext_resource type="PackedScene" uid="uid://v6m0je28qwp2" path="res://scenes/Upgrade.tscn" id="19_wq6sx"]
@@ -197,8 +198,8 @@ layout_mode = 0
 offset_left = 15.0
 offset_right = 570.0
 offset_bottom = 50.0
+theme = ExtResource("18_m8vt2")
 theme_override_colors/font_color = Color(0.866667, 0.592157, 0, 1)
-theme_override_font_sizes/font_size = 26
 text = "0 Gold"
 vertical_alignment = 1
 script = ExtResource("10_uekgw")
@@ -252,7 +253,7 @@ layout_mode = 0
 offset_left = 15.0
 offset_right = 156.0
 offset_bottom = 50.0
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("18_m8vt2")
 text = "Skill points: 0"
 vertical_alignment = 1
 script = ExtResource("22_nrpqb")
