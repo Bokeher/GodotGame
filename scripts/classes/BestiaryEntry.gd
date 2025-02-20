@@ -2,7 +2,7 @@ class_name BestiaryEntry
 
 var enemy_id: int
 var times_slayed: int
-var items_dropped: Dictionary # use InventoryItem class instead of dict
+var items_dropped: Dictionary # <id, has_dropped: bool>
 
 func _init(_enemy_id: int, _times_slayed: int, _items_dropped: Dictionary):
 	enemy_id = _enemy_id
