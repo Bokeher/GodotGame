@@ -25,6 +25,7 @@ var upgrades: Array[Upgrade] = []
 var skills: Array[Skill] = []
 var items: Array[Item] = []
 var pet: Pet = Pet.new(-1, "", "", "")
+var bestiary: Bestiary
 
 # Auto save vars
 const AUTO_SAVE_INTERVAL = 5.0
@@ -37,6 +38,8 @@ func _ready() -> void:
 	read_items()
 	
 	read_savefile()
+	
+	#read_bestiary()
 	
 	# Read from json when there are no instances of them
 	if(skills.is_empty()): read_skills()
