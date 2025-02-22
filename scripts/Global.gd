@@ -39,8 +39,6 @@ func _ready() -> void:
 	
 	read_savefile()
 	
-	#read_bestiary()
-	
 	# Read from json when there are no instances of them
 	if(skills.is_empty()): read_skills()
 	if(upgrades.is_empty()): read_upgrades()
@@ -68,11 +66,13 @@ func read_savefile() -> void:
 	var upgrades_dicts = data[3]
 	inventory = data[4]
 	var pet_dict = data[5]
+	var bestiary_dict = data[6]
 	
 	# Convert dictionaries to objects
-	player_stats = Player.from_dict(player_stats_dict)
+	player_stats = Player.from_dict(player_stats_dict) if player_stats_dict else null
 	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
-	pet = Pet.from_dict(pet_dict)
+	pet = Pet.from_dict(pet_dict) if pet_dict else null
+	bestiary = Bestiary.from_dict(bestiary_dict) if bestiary_dict else null
 	
 	for skills_dict in skills_dicts:
 		skills.append(Skill.from_dict(skills_dict))
@@ -103,6 +103,10 @@ func save_savefile() -> void:
 	if(pet):
 		pet_dict = pet.to_dict()
 	
+	var bestiary_dict = null
+	if(bestiary):
+		bestiary_dict = bestiary.to_dict()
+	
 	# Save dictionaries
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
 	
@@ -112,7 +116,8 @@ func save_savefile() -> void:
 		skills_dicts,
 		upgrdes_dicts,
 		inventory,
-		pet_dict
+		pet_dict,
+		bestiary_dict
 	])
 	
 	file.close()
