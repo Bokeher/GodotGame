@@ -13,8 +13,16 @@ func set_entry(enemy_id: int, entry: BestiaryEntry) -> void:
 func get_entry(enemy_id: int) -> BestiaryEntry:
 	return enemyEntries[enemy_id]
 
-func to_dict() -> Dictionary:
-	return enemyEntries
+func to_dicts() -> Array[Dictionary]:
+	var dicts: Array[Dictionary] = []
+	
+	for enemy_id in enemyEntries:
+		dicts.append({
+			"enemy_id": enemy_id,
+			"entry": enemyEntries[enemy_id].to_dict()
+		})
+	
+	return dicts
 
 static func from_dict(dict: Dictionary) -> Bestiary:
 	return Bestiary.new(dict)
