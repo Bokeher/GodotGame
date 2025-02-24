@@ -7,6 +7,17 @@ func _init(_times_slayed: int, _items_dropped: Dictionary):
 	times_slayed = _times_slayed
 	items_dropped = _items_dropped
 
+func add_slay() -> void:
+	times_slayed += 1
+
+func add_item_dropped(item_id: int) -> void:
+	if(has_dropped_item(item_id)): return
+	
+	items_dropped[item_id] = true
+
+func has_dropped_item(item_id: int) -> bool:
+	return items_dropped.has(item_id) && items_dropped[item_id]
+
 func to_dict() -> Dictionary:
 	return {
 		"times_slayed": times_slayed,
