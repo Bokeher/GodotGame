@@ -1,7 +1,5 @@
 class_name Bestiary
 
-var BESTIARY_PATH
-
 var enemyEntries: Dictionary = {} # <enemy_id, entry>
 
 func _init(entries: Dictionary):

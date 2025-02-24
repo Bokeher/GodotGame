@@ -25,7 +25,7 @@ var upgrades: Array[Upgrade] = []
 var skills: Array[Skill] = []
 var items: Array[Item] = []
 var pet: Pet = Pet.new(-1, "", "", "")
-var bestiary: Bestiary
+var bestiary: Bestiary = Bestiary.new({})
 
 # Auto save vars
 const AUTO_SAVE_INTERVAL = 5.0
