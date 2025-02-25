@@ -9,6 +9,14 @@ func _pressed() -> void:
 	if (Global.curr_enemy.health > 0):
 		return
 	
+	var enemy_id = Global.curr_enemy.id
+	
+	var entry: BestiaryEntry = Global.bestiary.get_entry(enemy_id)
+	if(!entry): 
+		entry = Global.bestiary.set_entry(enemy_id, BestiaryEntry.new(0, {}))
+	
+	entry.add_slay()
+	
 	# Reset regen timer to prevent instaheal on killing enemy
 	$"../../PlayerHealthBar/PlayerHealth".regen_time_passed = 0
 	
@@ -19,6 +27,7 @@ func _pressed() -> void:
 	# Drop items
 	var dropped_item_ids = Global.curr_enemy.get_loot()
 	for item_id: int in dropped_item_ids:
+		entry.add_item_dropped(item_id)
 		Global.inventory[item_id] = Global.inventory.get(item_id, 0) + 1
 	
 	# Make enemy disapear

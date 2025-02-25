@@ -5,10 +5,13 @@ var enemyEntries: Dictionary = {} # <enemy_id, entry>
 func _init(entries: Dictionary):
 	enemyEntries = entries
 
-func set_entry(enemy_id: int, entry: BestiaryEntry) -> void:
+func set_entry(enemy_id: int, entry: BestiaryEntry) -> BestiaryEntry:
 	enemyEntries[enemy_id] = entry
+	return entry
 
 func get_entry(enemy_id: int) -> BestiaryEntry:
+	if(!enemyEntries.has(enemy_id)): return null
+	
 	return enemyEntries[enemy_id]
 
 func to_dicts() -> Array[Dictionary]:
@@ -22,5 +25,6 @@ func to_dicts() -> Array[Dictionary]:
 	
 	return dicts
 
-static func from_dict(dict: Dictionary) -> Bestiary:
-	return Bestiary.new(dict)
+static func from_dicts(dicts: Dictionary) -> Bestiary:
+	# TODO: fix this
+	return Bestiary.new(dicts)

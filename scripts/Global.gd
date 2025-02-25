@@ -72,7 +72,8 @@ func read_savefile() -> void:
 	player_stats = Player.from_dict(player_stats_dict) if player_stats_dict else null
 	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
 	pet = Pet.from_dict(pet_dict) if pet_dict else null
-	bestiary = Bestiary.from_dict(bestiary_dict) if bestiary_dict else null
+	#bestiary = Bestiary.from_dict(bestiary_dict) if bestiary_dict else Bestiary.new({})
+	# TODO: fix this bestiary saving
 	
 	for skills_dict in skills_dicts:
 		skills.append(Skill.from_dict(skills_dict))
@@ -105,7 +106,7 @@ func save_savefile() -> void:
 	
 	var bestiary_dict = null
 	if(bestiary):
-		bestiary_dict = bestiary.to_dict()
+		bestiary_dict = bestiary.to_dicts()
 	
 	# Save dictionaries
 	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
