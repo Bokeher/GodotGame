@@ -1,6 +1,6 @@
 class_name Bestiary
 
-var enemyEntries: Dictionary = {} # <enemy_id, entry>
+var enemyEntries: Dictionary = {} # <enemy_id: int, entry: BestiaryEntry>
 
 func _init(entries: Dictionary):
 	enemyEntries = entries
@@ -14,17 +14,25 @@ func get_entry(enemy_id: int) -> BestiaryEntry:
 	
 	return enemyEntries[enemy_id]
 
-func to_dicts() -> Array[Dictionary]:
-	var dicts: Array[Dictionary] = []
+# Bestiary contains BestiaryEntry objects 
+# so these objects have to be converted to dictionary (used in saving)
+func to_dict() -> Dictionary:
+	var dict: Dictionary = {}
 	
 	for enemy_id in enemyEntries:
-		dicts.append({
-			"enemy_id": enemy_id,
-			"entry": enemyEntries[enemy_id].to_dict()
-		})
+		dict[enemy_id] = enemyEntries[enemy_id].to_dict()
 	
-	return dicts
+	return dict
 
-static func from_dicts(dicts: Dictionary) -> Bestiary:
-	# TODO: fix this
-	return Bestiary.new(dicts)
+# Undo the conversion from 'to_dict()' method (used in saving)
+static func from_dict(dict: Dictionary) -> Bestiary:
+	var entries: Dictionary = {}
+	
+	for enemy_id in dict:
+		var entry: Dictionary = dict[enemy_id]
+		entries[enemy_id] = BestiaryEntry.new(
+			entry["times_slayed"], 
+			entry["items_dropped"]
+		)
+	
+	return Bestiary.new(entries)
