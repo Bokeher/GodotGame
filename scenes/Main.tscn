@@ -292,3 +292,7 @@ layout_mode = 2
 
 [node name="Pets" parent="MainTabContainer/PetsPanel" instance=ExtResource("26_lyvra")]
 layout_mode = 1
+
+[node name="BestiaryPanel" type="Panel" parent="MainTabContainer"]
+visible = false
+layout_mode = 2
