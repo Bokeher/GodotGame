@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://o2xs4oyyyo8u"]
+
+[ext_resource type="Texture2D" uid="uid://bnak2378gaqwc" path="res://assets/sprites/enemies/slimes/golden_slime.png" id="1_gnn1t"]
+
+[sub_resource type="Gradient" id="Gradient_i3gen"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lg0wp"]
+gradient = SubResource("Gradient_i3gen")
+width = 40
+height = 40
+fill_from = Vector2(1, 0)
+
+[node name="BestiaryItem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 3.0
+offset_right = 123.0
+offset_bottom = 26.0
+text = "Enemy name"
+
+[node name="EnemyImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 32.0
+offset_right = 140.0
+offset_bottom = 160.0
+texture = ExtResource("1_gnn1t")
+
+[node name="DefeatCount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 164.0
+offset_right = 148.0
+offset_bottom = 189.0
+text = "Times defeated: "
+
+[node name="DropTable" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 197.0
+offset_right = 136.0
+offset_bottom = 220.0
+text = "Drops:
+"
+
+[node name="LootTable" type="GridContainer" parent="DropTable"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 122.0
+columns = 3
+
+[node name="Loot1" type="TextureRect" parent="DropTable/LootTable"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_lg0wp")
+
+[node name="Loot2" type="TextureRect" parent="DropTable/LootTable"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_lg0wp")
+
+[node name="Loot3" type="TextureRect" parent="DropTable/LootTable"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_lg0wp")
