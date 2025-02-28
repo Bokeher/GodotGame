@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=30 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://scripts/skills/SkillPointsAmount.gd" id="22_nrpqb"]
 [ext_resource type="Script" path="res://scripts/skills/ResetSkillsButton.gd" id="23_imyjl"]
 [ext_resource type="PackedScene" uid="uid://ivxjfj7k3lt1" path="res://scenes/Pets.tscn" id="26_lyvra"]
+[ext_resource type="PackedScene" uid="uid://bw2cwrtnmxrcv" path="res://scenes/Bestiary.tscn" id="28_oy4c8"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -296,3 +297,6 @@ layout_mode = 1
 [node name="BestiaryPanel" type="Panel" parent="MainTabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="Bestiary" parent="MainTabContainer/BestiaryPanel" instance=ExtResource("28_oy4c8")]
+layout_mode = 1
