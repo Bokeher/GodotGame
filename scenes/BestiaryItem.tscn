@@ -26,6 +26,33 @@ offset_right = 123.0
 offset_bottom = 26.0
 text = "Enemy name"
 
+[node name="Drops" type="Node2D" parent="."]
+position = Vector2(171, 11)
+
+[node name="DropTable" type="Label" parent="Drops"]
+offset_right = 114.0
+offset_bottom = 23.0
+text = "Drops:
+"
+
+[node name="LootTable" type="GridContainer" parent="Drops"]
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 122.0
+columns = 3
+
+[node name="Loot1" type="TextureRect" parent="Drops/LootTable"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_lg0wp")
+
+[node name="Loot2" type="TextureRect" parent="Drops/LootTable"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_lg0wp")
+
+[node name="Loot3" type="TextureRect" parent="Drops/LootTable"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_lg0wp")
+
 [node name="EnemyImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 7.0
@@ -42,30 +69,28 @@ offset_right = 148.0
 offset_bottom = 189.0
 text = "Times defeated: "
 
-[node name="DropTable" type="Label" parent="."]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 197.0
-offset_right = 136.0
-offset_bottom = 220.0
-text = "Drops:
-"
+[node name="EnemyStats" type="Node2D" parent="."]
+position = Vector2(20, 236)
 
-[node name="LootTable" type="GridContainer" parent="DropTable"]
-layout_mode = 0
-offset_top = 32.0
-offset_right = 128.0
-offset_bottom = 122.0
-columns = 3
+[node name="Health" type="Label" parent="EnemyStats"]
+offset_right = 60.0
+offset_bottom = 30.0
+text = "Health: "
 
-[node name="Loot1" type="TextureRect" parent="DropTable/LootTable"]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_lg0wp")
+[node name="Damage" type="Label" parent="EnemyStats"]
+offset_top = 30.0
+offset_right = 69.0
+offset_bottom = 60.0
+text = "Damage:"
 
-[node name="Loot2" type="TextureRect" parent="DropTable/LootTable"]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_lg0wp")
+[node name="GoldReward" type="Label" parent="EnemyStats"]
+offset_top = 60.0
+offset_right = 100.0
+offset_bottom = 90.0
+text = "Gold reward:"
 
-[node name="Loot3" type="TextureRect" parent="DropTable/LootTable"]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_lg0wp")
+[node name="XpReward" type="Label" parent="EnemyStats"]
+offset_top = 90.0
+offset_right = 84.0
+offset_bottom = 120.0
+text = "Xp reward:"
