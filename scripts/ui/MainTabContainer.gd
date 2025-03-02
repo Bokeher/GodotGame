@@ -21,4 +21,6 @@ func _process(_delta) -> void:
 		$".".current_tab = 3
 	elif Input.is_action_just_pressed("JumpPets"):
 		$".".current_tab = 4
+	elif Input.is_action_just_pressed("JumpBestiary"):
+		$".".current_tab = 5
 	
