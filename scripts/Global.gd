@@ -15,6 +15,7 @@ const MAIN_TAB_CONTAINER_POSITION = Vector2i(580, 0)
 var curr_enemy: Enemy
 var curr_stage = null
 var player_stats: Player = Player.new()
+var curr_bestiary_enemy_id: int = 1
 
 var inventory: Dictionary = {}
 # Key is id of item, value is amount
