@@ -7,7 +7,8 @@ func _ready():
 	entries = Global.bestiary.enemyEntries
 	
 	for enemy_id in entries:
-		var label = Label.new()
-		label.text = str(enemy_id)
-		$ScrollContainer/BestiaryList.add_child(label)
-		# TODO: display here all bestiary entries
+		var entryButton = TextureButton.new()
+		var image_path = Global.enemies[enemy_id - 1].image_path
+		entryButton.texture_normal = load(image_path)
+		
+		$ScrollContainer/BestiaryList.add_child(entryButton)
