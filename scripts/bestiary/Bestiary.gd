@@ -2,16 +2,17 @@ extends Control
 
 var bestiary = null
 var entries = null
+const bestiary_list_item_scene = preload("res://scenes/BestiaryListItem.tscn")
 
 func _ready():
 	entries = Global.bestiary.enemyEntries
 	
 	for enemy_id in entries:
-		var entryButton = TextureButton.new()
-		var image_path = Global.enemies[enemy_id - 1].image_path
-		entryButton.texture_normal = load(image_path)
+		var new_list_item = bestiary_list_item_scene.instantiate()
+		new_list_item.set_enemy(enemy_id)
 		
-		$ScrollContainer/BestiaryList.add_child(entryButton)
+		$ScrollContainer/BestiaryList.add_child(new_list_item)
 
 func update_selected_bestiary(enemy_id: int):
+	# TODO: change bestiary item
 	print("selected "+ str(enemy_id))

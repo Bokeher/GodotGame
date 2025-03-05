@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bahyfiwxfgnrh" path="res://assets/sprites/enemies/slimes/blue_slime.png" id="2_oq1js"]
 
 [node name="BestiaryListItem" type="Control"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1088.0
+offset_bottom = -584.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fu3nf")
