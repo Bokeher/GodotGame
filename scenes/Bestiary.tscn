@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw2cwrtnmxrcv"]
 
 [ext_resource type="PackedScene" uid="uid://o2xs4oyyyo8u" path="res://scenes/BestiaryItem.tscn" id="1_0oh51"]
-[ext_resource type="Script" path="res://scenes/Bestiary.gd" id="1_ff3ro"]
+[ext_resource type="Script" path="res://scripts/bestiary/Bestiary.gd" id="1_ff3ro"]
 
 [sub_resource type="Gradient" id="Gradient_gbbd8"]
 
