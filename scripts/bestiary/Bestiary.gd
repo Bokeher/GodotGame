@@ -12,3 +12,6 @@ func _ready():
 		entryButton.texture_normal = load(image_path)
 		
 		$ScrollContainer/BestiaryList.add_child(entryButton)
+
+func update_selected_bestiary(enemy_id: int):
+	print("selected "+ str(enemy_id))

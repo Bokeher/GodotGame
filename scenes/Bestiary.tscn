@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw2cwrtnmxrcv"]
+[gd_scene load_steps=6 format=3 uid="uid://bw2cwrtnmxrcv"]
 
 [ext_resource type="PackedScene" uid="uid://o2xs4oyyyo8u" path="res://scenes/BestiaryItem.tscn" id="1_0oh51"]
 [ext_resource type="Script" path="res://scripts/bestiary/Bestiary.gd" id="1_ff3ro"]
+[ext_resource type="PackedScene" uid="uid://1xls08saquag" path="res://scenes/BestiaryListItem.tscn" id="2_etlud"]
 
 [sub_resource type="Gradient" id="Gradient_gbbd8"]
 
@@ -120,6 +121,9 @@ texture = SubResource("GradientTexture2D_6j4h6")
 [node name="TextureRect23" type="TextureRect" parent="ScrollContainer/BestiaryList"]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_6j4h6")
+
+[node name="BestiaryListItem" parent="ScrollContainer/BestiaryList" instance=ExtResource("2_etlud")]
+layout_mode = 2
 
 [node name="TextureRect24" type="TextureRect" parent="ScrollContainer/BestiaryList"]
 layout_mode = 2
