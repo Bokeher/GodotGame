@@ -13,6 +13,5 @@ func _ready():
 		
 		$ScrollContainer/BestiaryList.add_child(new_list_item)
 
-func update_selected_bestiary(enemy_id: int):
-	# TODO: change bestiary item
-	print("selected "+ str(enemy_id))
+func update_selected_bestiary():
+	$BestiaryItem.update_bestiary_item()

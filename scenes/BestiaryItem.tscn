@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://o2xs4oyyyo8u"]
+[gd_scene load_steps=5 format=3 uid="uid://o2xs4oyyyo8u"]
 
 [ext_resource type="Texture2D" uid="uid://bnak2378gaqwc" path="res://assets/sprites/enemies/slimes/golden_slime.png" id="1_gnn1t"]
+[ext_resource type="Script" path="res://scripts/bestiary/BestiaryItem.gd" id="1_qclms"]
 
 [sub_resource type="Gradient" id="Gradient_i3gen"]
 
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qclms")
 
 [node name="EnemyName" type="Label" parent="."]
 layout_mode = 0
@@ -81,16 +83,16 @@ text = "Health: "
 offset_top = 30.0
 offset_right = 69.0
 offset_bottom = 60.0
-text = "Damage:"
+text = "Damage: "
 
 [node name="GoldReward" type="Label" parent="EnemyStats"]
 offset_top = 60.0
 offset_right = 100.0
 offset_bottom = 90.0
-text = "Gold reward:"
+text = "Gold reward: "
 
 [node name="XpReward" type="Label" parent="EnemyStats"]
 offset_top = 90.0
 offset_right = 84.0
 offset_bottom = 120.0
-text = "Xp reward:"
+text = "Xp reward: "

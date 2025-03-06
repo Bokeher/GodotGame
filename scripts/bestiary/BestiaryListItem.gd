@@ -9,4 +9,6 @@ func set_enemy(enemy_id: int):
 
 func _on_texture_button_pressed():
 	var enemy_id = $".".get_meta("enemy_id")
-	$"../../..".update_selected_bestiary(enemy_id)
+	
+	Global.curr_bestiary_enemy_id = enemy_id
+	$"../../..".update_selected_bestiary()
