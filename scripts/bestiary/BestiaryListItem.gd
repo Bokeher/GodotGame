@@ -12,3 +12,7 @@ func _on_texture_button_pressed():
 	
 	Global.curr_bestiary_enemy_id = enemy_id
 	$"../../..".update_selected_bestiary()
+
+# TODO: make some border to make this visible
+func _on_texture_button_focus_entered():
+	_on_texture_button_pressed()
