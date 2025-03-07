@@ -17,8 +17,15 @@ func update_bestiary_item():
 	
 	# <id, has_dropped: bool>
 	var drops = bestiaryEntry.items_dropped
-	# TODO: update drops
-	#for item_id in drops:
-		#if(drops[item_id]):
-			#
+	
+	for child in $Drops/LootTable.get_children():
+		$Drops/LootTable.remove_child(child)
+	
+	for item_id in drops:
+		if(drops[item_id]):
+			var item_rect = TextureRect.new()
+			var image_path = Global.items[item_id - 1].image_path
+			item_rect.texture = load(image_path)
+			$Drops/LootTable.add_child(item_rect)
+			# TODO: make this TextureRect a seperate scene and add popup
 	
