@@ -22,12 +22,12 @@
 [ext_resource type="Script" path="res://scripts/ui/MainTabContainer.gd" id="18_wedra"]
 [ext_resource type="Script" path="res://scripts/upgrades/UpgradeContainer.gd" id="19_w4tlj"]
 [ext_resource type="PackedScene" uid="uid://v6m0je28qwp2" path="res://scenes/Upgrade.tscn" id="19_wq6sx"]
-[ext_resource type="PackedScene" uid="uid://bscctmm55ktp5" path="res://scenes/SkillTree.tscn" id="20_mjx3u"]
-[ext_resource type="PackedScene" uid="uid://iohn0aebg218" path="res://scenes/Inventory.tscn" id="21_0usff"]
+[ext_resource type="PackedScene" uid="uid://bscctmm55ktp5" path="res://scenes/skills/SkillTree.tscn" id="20_mjx3u"]
+[ext_resource type="PackedScene" uid="uid://iohn0aebg218" path="res://scenes/inventory/Inventory.tscn" id="21_0usff"]
 [ext_resource type="Script" path="res://scripts/skills/SkillPointsAmount.gd" id="22_nrpqb"]
 [ext_resource type="Script" path="res://scripts/skills/ResetSkillsButton.gd" id="23_imyjl"]
 [ext_resource type="PackedScene" uid="uid://ivxjfj7k3lt1" path="res://scenes/Pets.tscn" id="26_lyvra"]
-[ext_resource type="PackedScene" uid="uid://bw2cwrtnmxrcv" path="res://scenes/Bestiary.tscn" id="28_oy4c8"]
+[ext_resource type="PackedScene" uid="uid://bw2cwrtnmxrcv" path="res://scenes/bestiary/Bestiary.tscn" id="28_oy4c8"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
