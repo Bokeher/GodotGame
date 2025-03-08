@@ -1,5 +1,7 @@
 extends Control
 
+const loot_item_scene = preload("res://scenes/BestiaryLootItem.tscn")
+
 func _ready():
 	update_bestiary_item()
 
@@ -23,9 +25,12 @@ func update_bestiary_item():
 	
 	for item_id in drops:
 		if(drops[item_id]):
-			var item_rect = TextureRect.new()
+			var new_loot_item = loot_item_scene.instantiate()
+			
+			var item_image = new_loot_item.get_node("./LootImage")
 			var image_path = Global.items[item_id - 1].image_path
-			item_rect.texture = load(image_path)
-			$Drops/LootTable.add_child(item_rect)
-			# TODO: make this TextureRect a seperate scene and add popup
+			item_image.texture = load(image_path)
+			
+			$Drops/LootTable.add_child(new_loot_item)
+			#TODO: Add popups
 	

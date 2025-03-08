@@ -1,15 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://o2xs4oyyyo8u"]
+[gd_scene load_steps=4 format=3 uid="uid://o2xs4oyyyo8u"]
 
 [ext_resource type="Texture2D" uid="uid://bnak2378gaqwc" path="res://assets/sprites/enemies/slimes/golden_slime.png" id="1_gnn1t"]
 [ext_resource type="Script" path="res://scripts/bestiary/BestiaryItem.gd" id="1_qclms"]
-
-[sub_resource type="Gradient" id="Gradient_i3gen"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lg0wp"]
-gradient = SubResource("Gradient_i3gen")
-width = 40
-height = 40
-fill_from = Vector2(1, 0)
+[ext_resource type="PackedScene" uid="uid://0x6b4dwek88a" path="res://scenes/BestiaryLootItem.tscn" id="2_lxawc"]
 
 [node name="BestiaryItem" type="Control"]
 layout_mode = 3
@@ -38,22 +31,20 @@ text = "Drops:
 "
 
 [node name="LootTable" type="GridContainer" parent="Drops"]
+custom_minimum_size = Vector2(32, 32)
 offset_top = 32.0
 offset_right = 128.0
-offset_bottom = 122.0
+offset_bottom = 128.0
 columns = 3
 
-[node name="Loot1" type="TextureRect" parent="Drops/LootTable"]
+[node name="BestiaryLootItem" parent="Drops/LootTable" instance=ExtResource("2_lxawc")]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_lg0wp")
 
-[node name="Loot2" type="TextureRect" parent="Drops/LootTable"]
+[node name="BestiaryLootItem2" parent="Drops/LootTable" instance=ExtResource("2_lxawc")]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_lg0wp")
 
-[node name="Loot3" type="TextureRect" parent="Drops/LootTable"]
+[node name="BestiaryLootItem3" parent="Drops/LootTable" instance=ExtResource("2_lxawc")]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_lg0wp")
 
 [node name="EnemyImage" type="TextureRect" parent="."]
 layout_mode = 0
