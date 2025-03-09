@@ -15,4 +15,9 @@ func _on_texture_button_pressed():
 
 # TODO: make some border to make this visible
 func _on_texture_button_focus_entered():
+	$ColorRect.color = Color(0.30, 0.30, 0.30)
 	_on_texture_button_pressed()
+
+func _on_texture_button_focus_exited():
+	$ColorRect.color = Color(0.21, 0.21, 0.21)
+	pass # Replace with function body.
