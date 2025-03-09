@@ -1,6 +1,6 @@
 extends Control
 
-const loot_item_scene = preload("res://scenes/BestiaryLootItem.tscn")
+const loot_item_scene = preload("res://scenes/bestiary/BestiaryLootItem.tscn")
 
 func _ready():
 	update_bestiary_item()

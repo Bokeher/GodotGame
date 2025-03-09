@@ -2,7 +2,7 @@ extends Control
 
 var bestiary = null
 var entries = null
-const bestiary_list_item_scene = preload("res://scenes/BestiaryListItem.tscn")
+const bestiary_list_item_scene = preload("res://scenes/bestiary/BestiaryListItem.tscn")
 
 func _ready():
 	entries = Global.bestiary.enemyEntries
