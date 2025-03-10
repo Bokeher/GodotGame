@@ -300,3 +300,5 @@ layout_mode = 2
 
 [node name="Bestiary" parent="MainTabContainer/BestiaryPanel" instance=ExtResource("28_oy4c8")]
 layout_mode = 1
+
+[connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]

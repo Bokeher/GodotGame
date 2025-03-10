@@ -23,4 +23,11 @@ func _process(_delta) -> void:
 		$".".current_tab = 4
 	elif Input.is_action_just_pressed("JumpBestiary"):
 		$".".current_tab = 5
+
+func _on_tab_changed(tab):
+	# TODO: add here all focus grabers
+	if(tab == 5): # 5 == BestiaryTab
+		var childs = $BestiaryPanel/Bestiary/ScrollContainer/BestiaryList.get_children()
+		var selected_child = childs[Global.curr_bestiary_enemy_id - 1].get_node("TextureButton")
+		selected_child.grab_focus()
 	
