@@ -34,3 +34,20 @@ func update_bestiary_item():
 			$Drops/LootTable.add_child(new_loot_item)
 			#TODO: Add popups
 	
+	var childs = $Drops/LootTable.get_children()
+	var loot_table = enemy.loot_table
+	
+	for loot_table_element in loot_table:
+		if(loot_table.size() == childs.size()): 
+			break
+		
+		if(drops.has(int(loot_table_element["item_id"]))): 
+			continue
+		
+		var new_loot_item = loot_item_scene.instantiate()
+		
+		var item_image = new_loot_item.get_node("./LootImage")
+		var image_path = "res://assets/sprites/enemies/unknown_enemy.png"
+		item_image.texture = load(image_path)
+		
+		$Drops/LootTable.add_child(new_loot_item)
