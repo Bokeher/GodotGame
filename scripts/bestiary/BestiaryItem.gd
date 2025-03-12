@@ -41,7 +41,7 @@ func update_bestiary_item():
 		if(loot_table.size() == childs.size()): 
 			break
 		
-		if(drops.has(int(loot_table_element["item_id"]))): 
+		if(drops.has(loot_table_element["item_id"])): 
 			continue
 		
 		var new_loot_item = loot_item_scene.instantiate()

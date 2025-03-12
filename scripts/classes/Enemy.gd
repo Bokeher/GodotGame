@@ -34,6 +34,11 @@ func to_dict() -> Dictionary:
 
 # Used in reading from savefile
 static func from_dict(data: Dictionary) -> Enemy:
+	# TODO: investigate this further
+	# Convert float to int (for some reason its float)
+	for loot in data.get("loot_table"):
+		loot["item_id"] = int(loot["item_id"])
+	
 	var instance = Enemy.new(
 		data.get("id", -1),
 		data.get("name", ""),
