@@ -43,6 +43,7 @@ func _pressed() -> void:
 	$"../../MainTabContainer/StatsPanel/Stats".update_stats()
 	$"../../MainTabContainer/UpgradesPanel/GoldAmount".update_gold()
 	$"../../MainTabContainer/InventoryPanel/Inventory".update_inventory()
+	$"../../MainTabContainer/BestiaryPanel/Bestiary".update_selected_bestiary()
 	if(leveled_up):
 		$"../../MainTabContainer/SkillsPanel/SkillPointsAmount".update_skill_points()
 	
