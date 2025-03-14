@@ -47,7 +47,7 @@ func update_bestiary_item():
 		var new_loot_item = loot_item_scene.instantiate()
 		
 		var item_image = new_loot_item.get_node("./LootImage")
-		var image_path = "res://assets/sprites/enemies/unknown_enemy.png"
+		var image_path = "res://assets/sprites/unknown.png"
 		item_image.texture = load(image_path)
 		
 		$Drops/LootTable.add_child(new_loot_item)
