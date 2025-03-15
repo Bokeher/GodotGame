@@ -4,7 +4,7 @@ var bestiary = null
 var entries = null
 const bestiary_list_item_scene = preload("res://scenes/bestiary/BestiaryListItem.tscn")
 
-func _ready():
+func _ready() -> void:
 	entries = Global.bestiary.enemyEntries
 	
 	for enemy_id in entries:
@@ -15,7 +15,7 @@ func _ready():
 	
 	
 
-func update_selected_bestiary(old_selected_enemy_id: int = -1):
+func update_selected_bestiary(old_selected_enemy_id: int = -1) -> void:
 	if (
 		old_selected_enemy_id == Global.curr_bestiary_enemy_id
 	): return
