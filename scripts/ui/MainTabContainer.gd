@@ -28,6 +28,7 @@ func _on_tab_changed(tab):
 	# TODO: add here all focus grabers
 	if(tab == 5): # 5 == BestiaryTab
 		var childs = $BestiaryPanel/Bestiary/ScrollContainer/BestiaryList.get_children()
-		var selected_child = childs[Global.curr_bestiary_enemy_id - 1].get_node("TextureButton")
-		selected_child.grab_focus()
+		var selected_child = childs[Global.curr_bestiary_enemy_id - 1]
+		selected_child.focus()
+		selected_child.get_node("TextureButton").grab_focus()
 	
