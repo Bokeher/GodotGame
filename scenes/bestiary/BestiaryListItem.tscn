@@ -16,17 +16,17 @@ grow_vertical = 2
 script = ExtResource("1_fu3nf")
 metadata/enemy_id = -1
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 color = Color(0.215902, 0.215902, 0.215902, 1)
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="ItemButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 texture_normal = ExtResource("2_oq1js")
 
-[connection signal="focus_entered" from="TextureButton" to="." method="_on_texture_button_focus_entered"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="focus_entered" from="ItemButton" to="." method="_on_texture_button_focus_entered"]
+[connection signal="pressed" from="ItemButton" to="." method="_on_texture_button_pressed"]
