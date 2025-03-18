@@ -5,7 +5,7 @@ func set_enemy(enemy_id: int) -> void:
 	
 	# Set texture
 	var image_path = Global.enemies[enemy_id - 1].image_path
-	$TextureButton.texture_normal = load(image_path)
+	$ItemButton.texture_normal = load(image_path)
 
 func _on_texture_button_pressed() -> void:
 	var old_enemy_id = Global.curr_bestiary_enemy_id
@@ -18,7 +18,7 @@ func _on_texture_button_focus_entered() -> void:
 	_on_texture_button_pressed()
 
 func focus() -> void:
-	$ColorRect.color = Color(0.30, 0.30, 0.30)
+	$Background.color = Color(0.30, 0.30, 0.30)
 
 func unfocus() -> void:
-	$ColorRect.color = Color(0.21, 0.21, 0.21)
+	$Background.color = Color(0.21, 0.21, 0.21)

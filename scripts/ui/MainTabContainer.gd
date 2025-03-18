@@ -30,5 +30,5 @@ func _on_tab_changed(tab):
 		var childs = $BestiaryPanel/Bestiary/ScrollContainer/BestiaryList.get_children()
 		var selected_child = childs[Global.curr_bestiary_enemy_id - 1]
 		selected_child.focus()
-		selected_child.get_node("TextureButton").grab_focus()
+		selected_child.get_node("ItemButton").grab_focus()
 	
