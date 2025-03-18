@@ -1,0 +1,14 @@
+{
+    "name": "Warrior",
+    "image_path": "res://assets/sprites/classes/warrior.png",
+    "skills": [
+        {
+			"id": 1,
+			"name": "Heavy Blow",
+			"description": "Deal 10% more damage, but reduce attack speed by 5%.",
+			"image_path": "res://assets/sprites/skills/heavy_blow.png",
+			"level": 0,
+			"max_level": 5
+		}
+    ]
+}
