@@ -1,6 +1,7 @@
 {
     "name": "Warrior",
     "image_path": "res://assets/sprites/classes/warrior.png",
+	"description": "Class specializing in heavy strikes with deadly precision",
     "skills": [
         {
 			"id": 1,
