@@ -1,6 +1,6 @@
 {
     "name": "Umbral Reaver",
-    "image_path": "res://assets/sprites/classes/warrior.png",
+    "image_path": "res://assets/sprites/classes/umral_reaver.png",
 	"description": "Class that heavily relies on damage dealth over time and dodges",
     "skills": [
         {

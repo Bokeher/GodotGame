@@ -1,6 +1,6 @@
 {
     "name": "Lucksworn",
-    "image_path": "res://assets/sprites/classes/warrior.png",
+    "image_path": "res://assets/sprites/classes/lucksworn.png",
 	"description": "A class that heavily relies on luck to win battles",
     "skills": [
         {
