@@ -26,6 +26,14 @@
 			"image_path": "res://assets/sprites/skills/echo_of_agony.png",
 			"level": 0,
 			"max_level": 1
+		},
+		{
+			"id": 4,
+			"name": "Ambush",
+			"description": "Increase initial damage by 10%",
+			"image_path": "res://assets/sprites/skills/ambush.png",
+			"level": 0,
+			"max_level": 3
 		}
     ]
 }

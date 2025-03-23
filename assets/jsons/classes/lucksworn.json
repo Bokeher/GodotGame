@@ -26,6 +26,14 @@
 			"image_path": "res://assets/sprites/skills/second_chance.png",
 			"level": 0,
 			"max_level": 1
+		},
+		{
+			"id": 4,
+			"name": "High Roller",
+			"description": "10% to double received loot, but 1% to lose it all",
+			"image_path": "res://assets/sprites/skills/high_roller.png",
+			"level": 0,
+			"max_level": 1
 		}
     ]
 }

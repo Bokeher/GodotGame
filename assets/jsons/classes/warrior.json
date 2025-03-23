@@ -26,6 +26,14 @@
 			"image_path": "res://assets/sprites/skills/bloodrage.png",
 			"level": 0,
 			"max_level": 5
+		},
+		{
+			"id": 4,
+			"name": "Berserk",
+			"description": "When health is below 40%, gain 25% attack speed",
+			"image_path": "res://assets/sprites/skills/berserk.png",
+			"level": 0,
+			"max_level": 1
 		}
     ]
 }
