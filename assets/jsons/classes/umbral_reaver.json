@@ -6,18 +6,18 @@
         {
 			"id": 1,
 			"name": "Poisoned Blade",
-			"description": "Deal 10% of your damage over 3 seconds, but reduce damage dealt by weapon by 5%.",
+			"description": "Deal 50% of your damage over 3 seconds, but reduce damage dealt by weapon by 25%.",
 			"image_path": "res://assets/sprites/skills/poisoned_blade.png",
 			"level": 0,
-			"max_level": 5
+			"max_level": 1
 		},
 		{
 			"id": 2,
 			"name": "Mirage",
-			"description": "5% chance to completely ignore incoming damage",
+			"description": "3% chance to completely ignore incoming damage",
 			"image_path": "res://assets/sprites/skills/mirage.png",
 			"level": 0,
-			"max_level": 2
+			"max_level": 5
 		},
 		{
 			"id": 3,
@@ -33,7 +33,7 @@
 			"description": "Increase initial damage by 10%",
 			"image_path": "res://assets/sprites/skills/ambush.png",
 			"level": 0,
-			"max_level": 3
+			"max_level": 5
 		}
     ]
 }

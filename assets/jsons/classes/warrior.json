@@ -6,34 +6,34 @@
         {
 			"id": 1,
 			"name": "Heavy Blow",
-			"description": "Deal 10% more damage, but reduce attack speed by 5%.",
+			"description": "Deal 50% more damage, but reduce attack speed by 25%.",
 			"image_path": "res://assets/sprites/skills/heavy_blow.png",
 			"level": 0,
-			"max_level": 5
+			"max_level": 1
 		},
         {
 			"id": 2,
 			"name": "Overkill",
-			"description": "When dealing a killing blow, deal 25% of overkill damage to the next enemy.",
+			"description": "When dealing a killing blow, deal 50% of overkill damage to the next enemy.",
 			"image_path": "res://assets/sprites/skills/overkill.png",
-			"level": 0,
-			"max_level": 4
-		},
-        {
-			"id": 3,
-			"name": "Bloodrage",
-			"description": "After killing an enemy, gain 5% more damage for 10 seconds.",
-			"image_path": "res://assets/sprites/skills/bloodrage.png",
 			"level": 0,
 			"max_level": 5
 		},
 		{
-			"id": 4,
+			"id": 3,
 			"name": "Berserk",
 			"description": "When health is below 40%, gain 25% attack speed",
 			"image_path": "res://assets/sprites/skills/berserk.png",
 			"level": 0,
 			"max_level": 1
+		},
+        {
+			"id": 4,
+			"name": "Bloodrage",
+			"description": "After killing an enemy, gain 5% more damage for 10 seconds.",
+			"image_path": "res://assets/sprites/skills/bloodrage.png",
+			"level": 0,
+			"max_level": 5
 		}
     ]
 }

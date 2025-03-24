@@ -9,7 +9,7 @@
 			"description": "Deal 20% more damage with each successful hit, but reduce hit chance by 16%.",
 			"image_path": "res://assets/sprites/skills/gamblers_fate.png",
 			"level": 0,
-			"max_level": 2
+			"max_level": 1
 		},
 		{
 			"id": 2,
@@ -17,7 +17,7 @@
 			"description": "1% chance do deal double damage",
 			"image_path": "res://assets/sprites/skills/lucky_strike.png",
 			"level": 0,
-			"max_level": 3
+			"max_level": 5
 		},
 		{
 			"id": 3,
@@ -29,6 +29,14 @@
 		},
 		{
 			"id": 4,
+			"name": "Guaranteed Win",
+			"description": "Every 9/8/7/6/5-th hit is guaranteed to hit and deal 25% more damage",
+			"image_path": "res://assets/sprites/skills/guaranteed_win.png",
+			"level": 0,
+			"max_level": 5
+		},
+		{
+			"id": 5,
 			"name": "High Roller",
 			"description": "10% to double received loot, but 1% to lose it all",
 			"image_path": "res://assets/sprites/skills/high_roller.png",
