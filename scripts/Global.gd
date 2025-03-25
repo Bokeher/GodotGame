@@ -1,5 +1,12 @@
 extends Node
 
+# Enums
+enum Classes {
+	LUCKSWORN,
+	UMBRAL_REAVER,
+	WARRIOR
+}
+
 # File paths
 const PATH_SAVE: String = "user://save"
 const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
@@ -7,6 +14,13 @@ const PATH_STAGES: String = "res://assets/jsons/stages.json"
 const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 const PATH_SKILLS: String = "res://assets/jsons/skills.json"
 const PATH_ITEMS: String = "res://assets/jsons/items.json"
+const PATH_CLASSES_DIR: String = "res://assets/jsons/classes/"
+
+const CLASS_PATHS: Array = [
+	PATH_CLASSES_DIR + "lucksworn.json",
+	PATH_CLASSES_DIR + "umbral_reaver.json",
+	PATH_CLASSES_DIR + "warrior.json"
+]
 
 # Used to precisely set postion of Popups based on position of MainTabContainer 
 const MAIN_TAB_CONTAINER_POSITION = Vector2i(580, 0)
@@ -202,3 +216,10 @@ func read_items() -> void:
 		items.append(Item.from_dict(items_dict))
 	
 	file.close()
+
+func get_class_path(class_type: int) -> String:
+	if class_type < 0 or class_type > CLASS_PATHS.size(): 
+		push_error("Provided wrong class_type")
+		return ""
+	
+	return CLASS_PATHS[class_type]
