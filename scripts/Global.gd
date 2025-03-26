@@ -66,7 +66,7 @@ func _ready() -> void:
 
 func read_savefile() -> void:
 	if !FileAccess.file_exists(PATH_SAVE):
-		print("Savefile not found")
+		push_error("Savefile not found")
 		return
 	
 	# Read data from file
@@ -152,7 +152,7 @@ func _process(delta) -> void:
 
 func read_enemies() -> void:
 	if(!FileAccess.file_exists(PATH_ENEMIES)):
-		print("Enemies file not found")
+		push_error("Enemies file not found")
 		return
 	
 	var file = FileAccess.open(PATH_ENEMIES, FileAccess.READ)
@@ -168,7 +168,7 @@ func get_enemy(id: int) -> Enemy:
 
 func read_stages() -> void:
 	if(!FileAccess.file_exists(PATH_STAGES)):
-		print("Stages file not found")
+		push_error("Stages file not found")
 		return
 	
 	var file = FileAccess.open(PATH_STAGES, FileAccess.READ)
@@ -177,7 +177,7 @@ func read_stages() -> void:
 
 func read_upgrades() -> void:
 	if(!FileAccess.file_exists(PATH_UPGRADES)):
-		print("Upgrades file not found")
+		push_error("Upgrades file not found")
 		return
 		
 	var file = FileAccess.open(PATH_UPGRADES, FileAccess.READ)
@@ -191,7 +191,7 @@ func read_upgrades() -> void:
 
 func read_skills() -> void:
 	if(!FileAccess.file_exists(PATH_SKILLS)):
-		print("Skills file not found")
+		push_error("Skills file not found")
 		return
 		
 	var file = FileAccess.open(PATH_SKILLS, FileAccess.READ)
@@ -205,7 +205,7 @@ func read_skills() -> void:
 
 func read_items() -> void:
 	if(!FileAccess.file_exists(PATH_ITEMS)):
-		print("Items file not found")
+		push_error("Items file not found")
 		return
 		
 	var file = FileAccess.open(PATH_ITEMS, FileAccess.READ)
