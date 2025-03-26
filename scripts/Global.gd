@@ -218,7 +218,7 @@ func read_items() -> void:
 	file.close()
 
 func get_class_path(class_type: int) -> String:
-	if class_type < 0 or class_type > CLASS_PATHS.size(): 
+	if class_type < 0 or class_type >= CLASS_PATHS.size(): 
 		push_error("Provided wrong class_type")
 		return ""
 	
