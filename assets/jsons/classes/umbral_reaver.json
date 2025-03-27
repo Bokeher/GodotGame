@@ -1,9 +1,9 @@
 {
-    "name": "Umbral Reaver",
-    "image_path": "res://assets/sprites/classes/umral_reaver.png",
+	"name": "Umbral Reaver",
+	"image_path": "res://assets/sprites/classes/umral_reaver.png",
 	"description": "Class that heavily relies on damage dealth over time and dodges",
-    "skills": [
-        {
+	"skills": [
+		{
 			"id": 1,
 			"name": "Poisoned Blade",
 			"description": "Deal 50% of your damage over 3 seconds, but reduce damage dealt by weapon by 25%.",
@@ -22,7 +22,7 @@
 		{
 			"id": 3,
 			"name": "Echo of Agony",
-			"description": "Critical damage deals 100% of target's incoming damgage over time and removes it",
+			"description": "Critical damage deals 100% of target's incoming damage over time and removes it",
 			"image_path": "res://assets/sprites/skills/echo_of_agony.png",
 			"level": 0,
 			"max_level": 1
@@ -35,5 +35,5 @@
 			"level": 0,
 			"max_level": 5
 		}
-    ]
+	]
 }

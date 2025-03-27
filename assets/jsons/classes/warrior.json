@@ -1,9 +1,9 @@
 {
-    "name": "Warrior",
-    "image_path": "res://assets/sprites/classes/warrior.png",
+	"name": "Warrior",
+	"image_path": "res://assets/sprites/classes/warrior.png",
 	"description": "Class specializing in heavy strikes with deadly precision",
-    "skills": [
-        {
+	"skills": [
+		{
 			"id": 1,
 			"name": "Heavy Blow",
 			"description": "Deal 50% more damage, but reduce attack speed by 25%.",
@@ -11,7 +11,7 @@
 			"level": 0,
 			"max_level": 1
 		},
-        {
+		{
 			"id": 2,
 			"name": "Overkill",
 			"description": "When dealing a killing blow, deal 50% of overkill damage to the next enemy.",
@@ -27,7 +27,7 @@
 			"level": 0,
 			"max_level": 1
 		},
-        {
+		{
 			"id": 4,
 			"name": "Bloodrage",
 			"description": "After killing an enemy, gain 5% more damage for 10 seconds.",
@@ -35,5 +35,5 @@
 			"level": 0,
 			"max_level": 5
 		}
-    ]
+	]
 }

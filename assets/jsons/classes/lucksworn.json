@@ -1,9 +1,9 @@
 {
-    "name": "Lucksworn",
-    "image_path": "res://assets/sprites/classes/lucksworn.png",
+	"name": "Lucksworn",
+	"image_path": "res://assets/sprites/classes/lucksworn.png",
 	"description": "A class that heavily relies on luck to win battles",
-    "skills": [
-        {
+	"skills": [
+		{
 			"id": 1,
 			"name": "Gambler's fate",
 			"description": "Deal 20% more damage with each successful hit, but reduce hit chance by 16%.",
@@ -43,5 +43,5 @@
 			"level": 0,
 			"max_level": 1
 		}
-    ]
+	]
 }
