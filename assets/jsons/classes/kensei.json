@@ -1,0 +1,47 @@
+{
+	"name": "Kensei",
+	"image_path": "res://assets/sprites/classes/kensei.png",
+	"description": "A class that relies solely on his sword",
+	"skills": [
+		{
+			"id": 1,
+			"name": "Sword's path",
+			"description": "Do not deal damage on hit. Instead Charge your attack and then deal all damage at once (2s cooldown). Increase damage for 8% with each hit",
+			"image_path": "res://assets/sprites/skills/swords_path.png",
+			"level": 0,
+			"max_level": 1
+		},
+		{
+			"id": 2,
+			"name": "Master's Tempo",
+			"description": "Every 10/8/7/6/4-th hit hits twice for a total of 125% damage",
+			"image_path": "res://assets/sprites/skills/masters_tempo.png",
+			"level": 0,
+			"max_level": 5
+		},
+		{
+			"id": 3,
+			"name": "Swordmaster's Instinct",
+			"description": "Display a skull indicator above an enemy when Sword's Path damage exceeds 120% of their health.",
+			"image_path": "res://assets/sprites/skills/swordmasters_instinct.png",
+			"level": 0,
+			"max_level": 1
+		},
+		{
+			"id": 4,
+			"name": "Flawless Precision",
+			"description": "You cannot crit, but Sword's Path damage is increased by 1/2/2/3/5% for every 10% of your crit chance.",
+			"image_path": "res://assets/sprites/skills/guaranteed_win.png",
+			"level": 0,
+			"max_level": 5
+		},
+		{
+			"id": 5,
+			"name": "Kensei’s Burden",
+			"description": "Increase *Swordmaster's Instinct* threshhold to 175% of enemy health. Increase *Sword's path* damage by 2%. If you deal damage exceeding 100% of the target's health, you die.",
+			"image_path": "res://assets/sprites/skills/kenseis_burden.png",
+			"level": 0,
+			"max_level": 1
+		}
+	]
+}
