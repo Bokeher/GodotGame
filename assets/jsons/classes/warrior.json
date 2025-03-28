@@ -34,6 +34,14 @@
 			"image_path": "res://assets/sprites/skills/bloodrage.png",
 			"level": 0,
 			"max_level": 5
+		},
+		{
+			"id": 5,
+			"name": "Adrenaline",
+			"description": "Every time you take damage increase your next attack damage by 25%",
+			"image_path": "res://assets/sprites/skills/adrenaline.png",
+			"level": 0,
+			"max_level": 1
 		}
 	]
 }

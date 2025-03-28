@@ -34,6 +34,14 @@
 			"image_path": "res://assets/sprites/skills/ambush.png",
 			"level": 0,
 			"max_level": 5
+		},
+		{
+			"id": 5,
+			"name": "Shadow counter",
+			"description": "After dodging an attack, your next attack deals double damage",
+			"image_path": "res://assets/sprites/skills/shadow_counter.png",
+			"level": 0,
+			"max_level": 1
 		}
 	]
 }
