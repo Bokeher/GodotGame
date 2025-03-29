@@ -2,9 +2,10 @@ extends Node
 
 # Enums
 enum Classes {
-	LUCKSWORN,
+	WARRIOR,
 	UMBRAL_REAVER,
-	WARRIOR
+	LUCKSWORN,
+	KENSEI
 }
 
 # File paths
@@ -17,9 +18,10 @@ const PATH_ITEMS: String = "res://assets/jsons/items.json"
 const PATH_CLASSES_DIR: String = "res://assets/jsons/classes/"
 
 const CLASS_PATHS: Array = [
-	PATH_CLASSES_DIR + "lucksworn.json",
+	PATH_CLASSES_DIR + "warrior.json",
 	PATH_CLASSES_DIR + "umbral_reaver.json",
-	PATH_CLASSES_DIR + "warrior.json"
+	PATH_CLASSES_DIR + "lucksworn.json",
+	PATH_CLASSES_DIR + "kensei.json",
 ]
 
 # Used to precisely set postion of Popups based on position of MainTabContainer 
@@ -30,6 +32,7 @@ var curr_enemy: Enemy
 var curr_stage = null
 var player_stats: Player = Player.new()
 var curr_bestiary_enemy_id: int = 1
+var selected_class_id: int = Classes.LUCKSWORN
 
 var inventory: Dictionary = {}
 # Key is id of item, value is amount
