@@ -4,13 +4,37 @@
 			"id": 1,
 			"name": "Ring of Haste",
 			"description": "Increase attack speed by 5%",
-			"image_path": "res://assets/sprites/artifacts/ring_of_haste.png"
+			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 2,
 			"name": "Ring of Duality",
 			"description": "Reduce damage by 10%, but your every second hit has a 25% chance to hit twice",
-			"image_path": "res://assets/sprites/artifacts/ring_of_duality.png"
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 3,
+			"name": "Kensei's Ancient Sheath",
+			"description": "Only usable by kensei. Increase **Sword's path** damage by 1%. Increase attack speed by 5%",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 4,
+			"name": "Warrior's Ancient Amulet",
+			"description": "Only usable by warrior. Reduce **Heavy Blow** penalty by 5%. Increase damage by 5%",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 5,
+			"name": "Umbral Reaver's Ancient Dagger",
+			"description": "Only usable by umbral reaver. Reduce **Poisoned Blade** penalty by 5%. Increase dodge chance by 5%",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 6,
+			"name": "Lucksworn's Ancient Coin",
+			"description": "Only usable by lucksworn. Reduce **Gambler's fate** penalty by 1%. Increase loot chance by 5%",
+			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
 }
