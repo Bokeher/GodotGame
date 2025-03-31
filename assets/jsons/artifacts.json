@@ -35,6 +35,12 @@
 			"name": "Lucksworn's Ancient Coin",
 			"description": "Only usable by lucksworn. Reduce **Gambler's fate** penalty by 1%. Increase loot chance by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 7,
+			"name": "Ring of Sacrifice",
+			"description": "Decrease health by 10%. Increase damage by 10%",
+			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
 }
