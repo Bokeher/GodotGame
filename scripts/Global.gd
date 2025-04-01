@@ -15,6 +15,7 @@ const PATH_STAGES: String = "res://assets/jsons/stages.json"
 const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 const PATH_SKILLS: String = "res://assets/jsons/skills.json"
 const PATH_ITEMS: String = "res://assets/jsons/items.json"
+const PATH_ARTIFACTS: String = "res://assets/jsons/artifacts.json"
 const PATH_CLASSES_DIR: String = "res://assets/jsons/classes/"
 
 const CLASS_PATHS: Array = [
@@ -44,6 +45,7 @@ var skills: Array[Skill] = []
 var items: Array[Item] = []
 var pet: Pet = Pet.new(-1, "", "", "")
 var bestiary: Bestiary = Bestiary.new({})
+var artifacts: Array[Artifact] = []
 
 # Auto save vars
 const AUTO_SAVE_INTERVAL = 5.0
@@ -54,6 +56,7 @@ func _ready() -> void:
 	read_stages()
 	read_enemies()
 	read_items()
+	read_artifacts()
 	
 	read_savefile()
 	
@@ -217,6 +220,20 @@ func read_items() -> void:
 	items = []
 	for items_dict in items_dicts:
 		items.append(Item.from_dict(items_dict))
+	
+	file.close()
+
+func read_artifacts() -> void:
+	if(!FileAccess.file_exists(PATH_ARTIFACTS)):
+		push_error("Artifacts file not found")
+		return
+		
+	var file = FileAccess.open(PATH_ARTIFACTS, FileAccess.READ)
+	var artifacts_dicts = JSON.parse_string(file.get_as_text()).artifacts
+	
+	artifacts = []
+	for artifacts_dict in artifacts_dicts:
+		artifacts.append(Artifact.from_dict(artifacts_dict))
 	
 	file.close()
 
