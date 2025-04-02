@@ -20,8 +20,8 @@ func to_dict() -> Dictionary:
 		"image_path": image_path
 	}
 
-static func from_dict(data: Dictionary) -> Item:
-	return Item.new(
+static func from_dict(data: Dictionary) -> Artifact:
+	return Artifact.new(
 		data.get("id", -1),
 		data.get("name", ""),
 		data.get("description", ""),
