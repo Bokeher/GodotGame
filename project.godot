@@ -23,6 +23,8 @@ SkillPopup="*res://scenes/skills/SkillPopup.tscn"
 [display]
 
 window/size/resizable=false
+mouse_cursor/custom_image="res://assets/sprites/cursor_warrior.png"
+mouse_cursor/custom_image_hotspot=Vector2(11, 9)
 
 [input]
 
