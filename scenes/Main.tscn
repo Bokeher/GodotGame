@@ -95,9 +95,8 @@ position = Vector2(40, 50)
 script = ExtResource("5_unadx")
 
 [node name="EnemyBody" type="TextureButton" parent="Enemy"]
-offset_left = 2.0
 offset_top = 24.0
-offset_right = 66.0
+offset_right = 64.0
 offset_bottom = 88.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("6_jbngq")
