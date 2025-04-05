@@ -1,10 +1,25 @@
 extends TextureButton
 
+var can_attack: bool = true
+
 func _ready() -> void:
 	update_enemy_sprite()
 
+func _process(delta):
+	if Global.attack_timer >= Global.attack_interval:
+		can_attack = true
+		return
+	
+	Global.attack_timer += delta
+
 func _pressed() -> void:
+	if !can_attack:
+		return
+	
 	deal_damage()
+	
+	can_attack = false
+	Global.attack_timer = 0.0
 	
 	if (Global.curr_enemy.health > 0):
 		return

@@ -35,6 +35,9 @@ var player_stats: Player = Player.new()
 var curr_bestiary_enemy_id: int = 1
 var selected_class_id: int = Classes.LUCKSWORN
 
+var attack_interval: float = 1.0
+var attack_timer: float = 0.0
+
 var inventory: Dictionary = {}
 # Key is id of item, value is amount
 
@@ -48,8 +51,8 @@ var bestiary: Bestiary = Bestiary.new({})
 var artifacts: Array[Artifact] = []
 
 # Auto save vars
-const AUTO_SAVE_INTERVAL = 5.0
-var auto_save_timer = 0.0
+const AUTO_SAVE_INTERVAL: float = 5.0
+var auto_save_timer: float = 0.0
 
 func _ready() -> void:
 	# Read all json files
