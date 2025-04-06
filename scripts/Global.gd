@@ -36,7 +36,6 @@ var curr_bestiary_enemy_id: int = 1
 var selected_class_id: int = Classes.LUCKSWORN
 
 var attack_interval: float = 1.0
-var attack_timer: float = 0.0
 
 var inventory: Dictionary = {}
 # Key is id of item, value is amount
