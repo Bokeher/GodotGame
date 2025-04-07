@@ -2,7 +2,7 @@
 	"artifacts": [
 		{
 			"id": 1,
-			"name": "Ring of Haste",
+			"name": "Ring of Minor Haste",
 			"description": "Increase attack speed by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
@@ -15,31 +15,49 @@
 		{
 			"id": 3,
 			"name": "Kensei's Ancient Sheath",
-			"description": "Only usable by kensei. Increase **Sword's path** damage by 1%. Increase attack speed by 5%",
+			"description": "Only usable by -Kensei-. Increase **Sword's Path** damage by 1%. Increase attack speed by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 4,
 			"name": "Warrior's Ancient Amulet",
-			"description": "Only usable by warrior. Reduce **Heavy Blow** penalty by 5%. Increase damage by 5%",
+			"description": "Only usable by -Warrior-. Reduce **Heavy Blow** penalty by 5%. Increase damage by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 5,
 			"name": "Umbral Reaver's Ancient Dagger",
-			"description": "Only usable by umbral reaver. Reduce **Poisoned Blade** penalty by 5%. Increase dodge chance by 5%",
+			"description": "Only usable by -Umbral Reaver-. Reduce **Poisoned Blade** penalty by 5%. Increase dodge chance by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 6,
 			"name": "Lucksworn's Ancient Coin",
-			"description": "Only usable by lucksworn. Reduce **Gambler's fate** penalty by 1%. Increase loot chance by 5%",
+			"description": "Only usable by -Lucksworn-. Reduce **Gambler's Fate** penalty by 1%. Increase loot chance by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 7,
 			"name": "Ring of Sacrifice",
-			"description": "Decrease health by 10%. Increase damage by 10%",
+			"description": "Decrease health by 20%. Increase damage by 10%",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 8,
+			"name": "Ring of Balance",
+			"description": "Increase damage by 5%. Increase health by 5%",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 9,
+			"name": "Ring of Major Haste",
+			"description": "Increase attack speed by 10%",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 10,
+			"name": "Ring of Major Sacrifice",
+			"description": "Decrease health by 50%. Increase damage by 25%",
 			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
