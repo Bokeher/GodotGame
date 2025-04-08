@@ -59,6 +59,12 @@
 			"name": "Ring of Major Sacrifice",
 			"description": "Decrease health by 50%. Increase damage by 25%",
 			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 11,
+			"name": "Faulty Dagger",
+			"description": "0.1% to deal 10x damage, 1% do deal 2x damage, 10% to deal 1.5x damage",
+			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
 }
