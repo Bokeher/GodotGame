@@ -65,6 +65,18 @@
 			"name": "Faulty Dagger",
 			"description": "0.1% to deal 10x damage, 1% do deal 2x damage, 10% to deal 1.5x damage",
 			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 12,
+			"name": "Ring of the Blood God",
+			"description": "Dealing damage do enemy below 25% heals you for 1% of max health",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 13,
+			"name": "Bloody Ring of the Blood God",
+			"description": "Dealing damage do enemy below 25% heals you for 3% of max health",
+			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
 }
