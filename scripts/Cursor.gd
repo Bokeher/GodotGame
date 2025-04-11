@@ -5,7 +5,7 @@ var rotation_timer = 0.0  # Timer to track elapsed time
 var is_rotating = false  # Flag to check if rotation is in progress
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)  # Hide default cursor
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta):
 	# Follow the mouse position
@@ -27,13 +27,18 @@ func _process(delta):
 		if rotation_timer >= rotation_duration:
 			is_rotating = false
 	
-	if(
+	if (
 		cursor_pos.x > (enemy_pos + (enemy_size * enemy_scale)).x ||
 		cursor_pos.x < enemy_pos.x ||
 		cursor_pos.y < enemy_pos.y ||
 		cursor_pos.y > (enemy_pos + (enemy_size * enemy_scale)).y
 	):
+		$".".visible = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		return
+	
+	$".".visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	# Start rotation when the left mouse button is pressed
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !is_rotating:
