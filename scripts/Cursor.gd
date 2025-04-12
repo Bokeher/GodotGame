@@ -3,6 +3,7 @@ extends Node2D
 var rotation_duration = 0.5  # Duration to complete one full rotation (in seconds)
 var rotation_timer = 0.0  # Timer to track elapsed time
 var is_rotating = false  # Flag to check if rotation is in progress
+var was_mouse_click_last_frame = false # Used to prevent mouse hold
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -41,7 +42,9 @@ func _process(delta):
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	# Start rotation when the left mouse button is pressed
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !is_rotating:
+	var mouse_clicked = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+	if mouse_clicked and !is_rotating and !was_mouse_click_last_frame:
 		is_rotating = true
 		rotation_timer = 0.0  # Reset the timer at the start of the rotation
 	
+	was_mouse_click_last_frame = mouse_clicked
