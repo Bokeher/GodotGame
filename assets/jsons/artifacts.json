@@ -83,6 +83,12 @@
 			"name": "Faultier Faulty Dagger",
 			"description": "0.1% to deal 25x damage, 10% to deal 1.25x damage",
 			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 15,
+			"name": "Giant Slayer's Emblem",
+			"description": "Deal 10% more damage to enemies above 50% health",
+			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
 }
