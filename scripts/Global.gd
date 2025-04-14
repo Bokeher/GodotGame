@@ -198,11 +198,13 @@ func read_upgrades() -> void:
 	file.close()
 
 func read_skills() -> void:
-	if(!FileAccess.file_exists(PATH_SKILLS)):
+	var PATH = CLASS_PATHS[selected_class_id]
+	
+	if(!FileAccess.file_exists(PATH)):
 		push_error("Skills file not found")
 		return
 		
-	var file = FileAccess.open(PATH_SKILLS, FileAccess.READ)
+	var file = FileAccess.open(PATH, FileAccess.READ)
 	var skill_dicts = JSON.parse_string(file.get_as_text()).skills
 	
 	skills = []
