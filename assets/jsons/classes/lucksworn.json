@@ -7,7 +7,7 @@
 			"id": 1,
 			"name": "Gambler's fate",
 			"description": "Deal 20% more damage with each successful hit, but reduce hit chance by 16%.",
-			"image_path": "res://assets/sprites/skills/gamblers_fate.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1
 		},
@@ -15,7 +15,7 @@
 			"id": 2,
 			"name": "Lucky Strike",
 			"description": "1% chance do deal double damage",
-			"image_path": "res://assets/sprites/skills/lucky_strike.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5
 		},
@@ -23,7 +23,7 @@
 			"id": 3,
 			"name": "Second Chance",
 			"description": "After missing an attack, you roll the sworn dice. If you get a 6, you get another chance to hit.",
-			"image_path": "res://assets/sprites/skills/second_chance.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1
 		},
@@ -31,7 +31,7 @@
 			"id": 4,
 			"name": "Guaranteed Win",
 			"description": "Every 9/8/7/6/5-th hit is guaranteed to hit and deal 25% more damage",
-			"image_path": "res://assets/sprites/skills/guaranteed_win.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5
 		},
@@ -39,7 +39,7 @@
 			"id": 5,
 			"name": "High Roller",
 			"description": "10% to double received loot, but 1% to lose it all",
-			"image_path": "res://assets/sprites/skills/high_roller.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1
 		}

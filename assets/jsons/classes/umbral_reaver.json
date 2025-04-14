@@ -7,7 +7,7 @@
 			"id": 1,
 			"name": "Poisoned Blade",
 			"description": "Deal 50% of your damage over 3 seconds, but reduce damage dealt by weapon by 25%.",
-			"image_path": "res://assets/sprites/skills/poisoned_blade.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1
 		},
@@ -15,7 +15,7 @@
 			"id": 2,
 			"name": "Mirage",
 			"description": "3% chance to completely ignore incoming damage",
-			"image_path": "res://assets/sprites/skills/mirage.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5
 		},
@@ -23,7 +23,7 @@
 			"id": 3,
 			"name": "Echo of Agony",
 			"description": "Critical damage deals 100% of target's incoming damage over time and removes it",
-			"image_path": "res://assets/sprites/skills/echo_of_agony.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1
 		},
@@ -31,7 +31,7 @@
 			"id": 4,
 			"name": "Ambush",
 			"description": "Increase initial damage by 10%",
-			"image_path": "res://assets/sprites/skills/ambush.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5
 		},
@@ -39,7 +39,7 @@
 			"id": 5,
 			"name": "Shadow counter",
 			"description": "After dodging an attack, your next attack deals double damage",
-			"image_path": "res://assets/sprites/skills/shadow_counter.png",
+			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1
 		}
