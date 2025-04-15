@@ -89,6 +89,18 @@
 			"name": "Giant Slayer's Emblem",
 			"description": "Deal 10% more damage to enemies above 50% health",
 			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 16,
+			"name": "Ring of the Undying",
+			"description": "When you die, you flee the combat and destroy this ring",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 17,
+			"name": "Ring of the Mad God",
+			"description": "Increase damage by 25%",
+			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
 }
