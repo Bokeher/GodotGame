@@ -101,6 +101,18 @@
 			"name": "Ring of the Mad God",
 			"description": "Increase damage by 25%",
 			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 18,
+			"name": "Last Stand Banner",
+			"description": "When at 15% hp become damage immune for 3 seconds",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 19,
+			"name": "Blessed Last Stand Banner",
+			"description": "When at 20% hp become damage immune for 3 seconds. Increase damage dealt by 10% when immune",
+			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
 }
