@@ -4,8 +4,15 @@ var rotation_duration = 0.5  # Duration to complete one full rotation (in second
 var rotation_timer = 0.0  # Timer to track elapsed time
 var is_rotating = false  # Flag to check if rotation is in progress
 var was_mouse_click_last_frame = false # Used to prevent mouse hold
+var cursor_paths = [
+	"res://assets/sprites/cursor_warrior.png",
+	"res://assets/sprites/cursor_umbral_reaver.png", # sprite missing
+	"res://assets/sprites/cursor_lucksworn.png", # sprite missing
+	"res://assets/sprites/cursor_kensei.png"
+]
 
 func _ready():
+	$".".texture = load(cursor_paths[Global.selected_class_id])
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta):
