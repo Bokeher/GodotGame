@@ -303,6 +303,7 @@ layout_mode = 2
 layout_mode = 1
 
 [node name="Cursor" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("29_pyqnk")
 script = ExtResource("29_w55t7")
 

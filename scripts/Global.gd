@@ -33,7 +33,7 @@ var curr_enemy: Enemy
 var curr_stage = null
 var player_stats: Player = Player.new()
 var curr_bestiary_enemy_id: int = 1
-var selected_class_id: int = Classes.KENSEI
+var selected_class_id: int = Classes.UMBRAL_REAVER
 
 var attack_interval: float = .5
 
