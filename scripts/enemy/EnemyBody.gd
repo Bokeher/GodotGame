@@ -1,13 +1,54 @@
 extends TextureButton
 
 @onready var player_attack_timer: Timer = $"../../PlayerAttackTimer"
+@onready var cursor = $"../../Cursor"
+
+var rotation_duration = 0.5  # Duration to complete one full rotation (in seconds)
+var rotation_timer = 0.0  # Timer to track elapsed time
+var is_rotating = false  # Flag to check if rotation is in progress
+
+var cursor_paths = [
+	"res://assets/sprites/cursor_warrior.png",
+	"res://assets/sprites/cursor_umbral_reaver.png", # sprite missing
+	"res://assets/sprites/cursor_lucksworn.png", # sprite missing
+	"res://assets/sprites/cursor_kensei.png"
+]
 
 func _ready() -> void:
 	update_enemy_sprite()
+	
+	# Load correct cursor depending on class
+	cursor.visible = false
+	cursor.texture = load(cursor_paths[Global.selected_class_id])
+
+func _process(delta):
+	# Follow the mouse position
+	cursor.position = get_viewport().get_mouse_position()
+	
+	# Rotate the cursor sprite if it's in rotation mode
+	if is_rotating:
+		rotation_timer += delta
+		# Calculate the rotation angle based on the elapsed time
+		var rotation_amount = (rotation_timer / rotation_duration) * 360
+		cursor.rotation_degrees = rotation_amount
+		
+		# Stop the rotation after the set duration
+		if rotation_timer >= rotation_duration:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			cursor.visible = false
+			is_rotating = false
+		
+	
 
 func _pressed() -> void:
 	if !player_attack_timer.is_stopped():
 		return
+	
+	# Change cursor
+	rotation_timer = 0.0
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	cursor.visible = true
+	is_rotating = true
 	
 	deal_damage()
 	
