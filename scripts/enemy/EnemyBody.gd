@@ -25,6 +25,14 @@ func _process(delta):
 	# Follow the mouse position
 	cursor.position = get_viewport().get_mouse_position()
 	
+	# Show custom cursor when pointing at enemy AND hide when not pointing
+	var is_enemy_targeted: bool = is_cursor_pointing_at_enemy()
+	cursor.visible = is_enemy_targeted
+	if is_enemy_targeted:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	# Rotate the cursor sprite if it's in rotation mode
 	if is_rotating:
 		rotation_timer += delta
@@ -121,3 +129,16 @@ func update_enemy_sprite() -> void:
 
 func is_critical_hit() -> bool:
 	return randf() <= Global.player_stats.crit_chance
+
+func is_cursor_pointing_at_enemy() -> bool:
+	var enemy_pos = $"..".position + $".".position
+	var enemy_size = $".".size
+	var enemy_scale = $".".scale
+	var cursor_pos = cursor.position
+	
+	return (
+		cursor_pos.x < (enemy_pos + (enemy_size * enemy_scale)).x &&
+		cursor_pos.x > enemy_pos.x &&
+		cursor_pos.y > enemy_pos.y &&
+		cursor_pos.y < (enemy_pos + (enemy_size * enemy_scale)).y
+	)
