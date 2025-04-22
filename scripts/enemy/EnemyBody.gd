@@ -42,8 +42,6 @@ func _process(delta):
 		
 		# Stop the rotation after the set duration
 		if rotation_timer >= rotation_duration:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			cursor.visible = false
 			is_rotating = false
 		
 	
