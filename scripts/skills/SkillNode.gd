@@ -18,7 +18,7 @@ func update_skill() -> void:
 	update_level_label()
 
 func _on_texture_button_mouse_entered() -> void:
-	SkillPopup.show_skill_popup(skill.name, skill.description, skill.level)
+	SkillPopup.show_skill_popup(skill)
 
 func _on_texture_button_mouse_exited() -> void:
 	SkillPopup.hide_skill_popup()
