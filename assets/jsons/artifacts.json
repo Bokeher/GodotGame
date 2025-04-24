@@ -113,6 +113,18 @@
 			"name": "Blessed Last Stand Banner",
 			"description": "When at 20% hp become damage immune for 3 seconds. Increase damage dealt by 10% when immune",
 			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 19,
+			"name": "Vampire's Fang",
+			"description": "With each hit heal by 5% of damage dealt",
+			"image_path": "res://assets/sprites/unknown.png"
+		},
+		{
+			"id": 19,
+			"name": "Vampire's Fang of Greater Vampirism",
+			"description": "With each hit heal by 10% of damage dealt",
+			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
 }
