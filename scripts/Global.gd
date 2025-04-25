@@ -247,3 +247,17 @@ func get_class_path(class_type: int) -> String:
 		return ""
 	
 	return CLASS_PATHS[class_type]
+
+func calc_attack_speed() -> void:
+	var base: float = 1.00
+	var mult: float = 1.00
+	
+	if selected_class_id == Classes.WARRIOR:
+		for skill in skills:
+			if skill.id == 1 and skill.level > 0: # Heavy Blow
+				base += 0.25
+			elif skill.id == 3 and skill.level > 0: # Bloodrage
+				if player_stats.health < 0.4 * player_stats.max_health:
+					mult -= 0.25
+	
+	attack_interval = base * mult
