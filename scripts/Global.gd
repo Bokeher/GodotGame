@@ -49,9 +49,12 @@ var pet: Pet = Pet.new(-1, "", "", "")
 var bestiary: Bestiary = Bestiary.new({})
 var artifacts: Array[Artifact] = []
 
-# Auto save vars
-const AUTO_SAVE_INTERVAL: float = 5.0
-var auto_save_timer: float = 0.0
+# Process timers
+var process_auto_save_timer: float = 0.0
+const PROCESS_AUTO_SAVE_INTERVAL: float = 5.0
+
+var process_calc_timer: float = 0.0
+const PROCESS_CALC_INTERVAL: float = 0.5
 
 func _ready() -> void:
 	# Read all json files
@@ -151,12 +154,17 @@ func _notification(what) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_savefile()
 
-# Auto save 
 func _process(delta) -> void:
-	auto_save_timer += delta
-	if auto_save_timer >= AUTO_SAVE_INTERVAL:
+	process_calc_timer += delta
+	if process_calc_timer >= PROCESS_CALC_INTERVAL:
+		attack_interval = calc_attack_interval()
+		process_calc_timer = 0.0
+	
+	# Auto save 
+	process_auto_save_timer += delta
+	if process_auto_save_timer >= PROCESS_AUTO_SAVE_INTERVAL:
 		save_savefile()
-		auto_save_timer = 0.0
+		process_auto_save_timer = 0.0
 
 func read_enemies() -> void:
 	if(!FileAccess.file_exists(PATH_ENEMIES)):
@@ -248,7 +256,7 @@ func get_class_path(class_type: int) -> String:
 	
 	return CLASS_PATHS[class_type]
 
-func calc_attack_speed() -> void:
+func calc_attack_interval() -> float:
 	var base: float = 1.00
 	var mult: float = 1.00
 	
@@ -260,4 +268,4 @@ func calc_attack_speed() -> void:
 				if player_stats.health < 0.4 * player_stats.max_health:
 					mult -= 0.25
 	
-	attack_interval = base * mult
+	return base * mult
