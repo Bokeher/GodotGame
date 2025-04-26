@@ -9,6 +9,9 @@ func update_bestiary_item() -> void:
 	var enemy: Enemy = Global.enemies[Global.curr_bestiary_enemy_id - 1]
 	var bestiaryEntry: BestiaryEntry = Global.bestiary.get_entry(enemy.id)
 	
+	if !bestiaryEntry:
+		return
+	
 	$EnemyName.text = enemy.name
 	$EnemyImage.texture = load(enemy.image_path)
 	$DefeatCount.text = "Times defeated: " + str(bestiaryEntry.times_slayed)

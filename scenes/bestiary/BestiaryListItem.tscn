@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://1xls08saquag"]
 
-[ext_resource type="Script" path="res://scripts/bestiary/BestiaryListItem.gd" id="1_fu3nf"]
+[ext_resource type="Script" uid="uid://dpwk64wxycs67" path="res://scripts/bestiary/BestiaryListItem.gd" id="1_fu3nf"]
 [ext_resource type="Texture2D" uid="uid://bahyfiwxfgnrh" path="res://assets/sprites/enemies/slimes/blue_slime.png" id="2_oq1js"]
 
 [node name="BestiaryListItem" type="Control"]

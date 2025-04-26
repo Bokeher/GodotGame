@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bscctmm55ktp5"]
 
-[ext_resource type="Script" path="res://scripts/skills/SkillTreePanel.gd" id="1_pbg1n"]
+[ext_resource type="Script" uid="uid://fm1m0fatuqqf" path="res://scripts/skills/SkillTreePanel.gd" id="1_pbg1n"]
 [ext_resource type="PackedScene" uid="uid://wguylvq1tt10" path="res://scenes/skills/SkillNode.tscn" id="1_rjqu1"]
 
 [node name="SkilTree" type="Control"]

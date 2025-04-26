@@ -1,10 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://v6m0je28qwp2"]
 
-[ext_resource type="Script" path="res://scripts/upgrades/Upgrade.gd" id="1_jimq5"]
-[ext_resource type="Script" path="res://scripts/upgrades/UpgradeLevel.gd" id="2_kmbwh"]
-[ext_resource type="Script" path="res://scripts/upgrades/UpgradeButton.gd" id="3_j17g4"]
+[ext_resource type="Script" uid="uid://cxsddnoj6lk4n" path="res://scripts/upgrades/Upgrade.gd" id="1_jimq5"]
+[ext_resource type="Script" uid="uid://bbnib6cljgc2y" path="res://scripts/upgrades/UpgradeLevel.gd" id="2_kmbwh"]
+[ext_resource type="Script" uid="uid://bbi5u8rm4l3fg" path="res://scripts/upgrades/UpgradeButton.gd" id="3_j17g4"]
 
 [sub_resource type="FontFile" id="FontFile_16vje"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -1333,6 +1336,9 @@ cache/0/35/0/kerning_overrides/34/0 = Vector2(0, 0)
 cache/0/35/0/kerning_overrides/35/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="FontFile_yvvp4"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

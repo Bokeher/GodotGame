@@ -21,6 +21,8 @@ func update_selected_bestiary(old_selected_enemy_id: int = -1) -> void:
 	): return
 	
 	var childs = $ScrollContainer/BestiaryList.get_children()
+	if childs.is_empty():
+		return
 	
 	if(old_selected_enemy_id != -1): 
 		childs[old_selected_enemy_id - 1].unfocus()

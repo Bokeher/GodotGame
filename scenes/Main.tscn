@@ -1,31 +1,31 @@
 [gd_scene load_steps=31 format=3 uid="uid://ops8w8ltn4i7"]
 
-[ext_resource type="Script" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
-[ext_resource type="Script" path="res://scripts/ui/Reset.gd" id="3_or36x"]
-[ext_resource type="Script" path="res://scripts/enemy/Enemy.gd" id="5_unadx"]
+[ext_resource type="Script" uid="uid://dgo0pke6nqqb8" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
+[ext_resource type="Script" uid="uid://ct7xcpextwtga" path="res://scripts/ui/Reset.gd" id="3_or36x"]
+[ext_resource type="Script" uid="uid://cfdw8t5cl1s2e" path="res://scripts/enemy/Enemy.gd" id="5_unadx"]
 [ext_resource type="Texture2D" uid="uid://2nph3u1tlq2w" path="res://assets/sprites/enemies/slimes/green_slime.png" id="6_jbngq"]
-[ext_resource type="Script" path="res://scripts/enemy/EnemyBody.gd" id="7_8xw8y"]
-[ext_resource type="Script" path="res://scripts/enemy/EnemyName.gd" id="8_xasxh"]
-[ext_resource type="Script" path="res://scripts/enemy/EnemyHealth.gd" id="9_vuj78"]
-[ext_resource type="Script" path="res://scripts/enemy/EnemyHealthBar.gd" id="10_hvvn2"]
-[ext_resource type="Script" path="res://scripts/upgrades/GoldAmount.gd" id="10_uekgw"]
+[ext_resource type="Script" uid="uid://borxcol17xgjb" path="res://scripts/enemy/EnemyBody.gd" id="7_8xw8y"]
+[ext_resource type="Script" uid="uid://dkuudjey55yh8" path="res://scripts/enemy/EnemyName.gd" id="8_xasxh"]
+[ext_resource type="Script" uid="uid://bpi71lgxv1sc" path="res://scripts/enemy/EnemyHealth.gd" id="9_vuj78"]
+[ext_resource type="Script" uid="uid://bw0lblkr8i24r" path="res://scripts/enemy/EnemyHealthBar.gd" id="10_hvvn2"]
+[ext_resource type="Script" uid="uid://dug0gecpr5ipt" path="res://scripts/upgrades/GoldAmount.gd" id="10_uekgw"]
 [ext_resource type="AudioStream" uid="uid://o88cpjyc0g0h" path="res://assets/sounds/metal_hit3.mp3" id="11_w2boa"]
 [ext_resource type="AudioStream" uid="uid://bgwunsbbcyb15" path="res://assets/sounds/wood_hit.mp3" id="12_bo8ar"]
-[ext_resource type="Script" path="res://scripts/sounds/ReceiveDamageSound.gd" id="12_imtb5"]
-[ext_resource type="Script" path="res://scripts/sounds/HitEnemySound.gd" id="12_xw6xw"]
-[ext_resource type="Script" path="res://scripts/player/PlayerHealth.gd" id="14_0q1kx"]
+[ext_resource type="Script" uid="uid://ctdpc5l7if2ln" path="res://scripts/sounds/ReceiveDamageSound.gd" id="12_imtb5"]
+[ext_resource type="Script" uid="uid://ti3c0en16wqo" path="res://scripts/sounds/HitEnemySound.gd" id="12_xw6xw"]
+[ext_resource type="Script" uid="uid://bhe0yclv4gxit" path="res://scripts/player/PlayerHealth.gd" id="14_0q1kx"]
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/Stats.tscn" id="14_664kw"]
-[ext_resource type="Script" path="res://scripts/player/PlayerHealthBar.gd" id="14_mb0sc"]
-[ext_resource type="Script" path="res://scripts/ui/ActionButton.gd" id="14_nqjfl"]
-[ext_resource type="Script" path="res://scripts/player/PlayerXpBar.gd" id="16_4kpbv"]
+[ext_resource type="Script" uid="uid://eps4cueoegai" path="res://scripts/player/PlayerHealthBar.gd" id="14_mb0sc"]
+[ext_resource type="Script" uid="uid://bc86yxsmnufr5" path="res://scripts/ui/ActionButton.gd" id="14_nqjfl"]
+[ext_resource type="Script" uid="uid://0eed3w5gpukt" path="res://scripts/player/PlayerXpBar.gd" id="16_4kpbv"]
 [ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="18_m8vt2"]
-[ext_resource type="Script" path="res://scripts/ui/MainTabContainer.gd" id="18_wedra"]
-[ext_resource type="Script" path="res://scripts/upgrades/UpgradeContainer.gd" id="19_w4tlj"]
+[ext_resource type="Script" uid="uid://bphf88vlpfc32" path="res://scripts/ui/MainTabContainer.gd" id="18_wedra"]
+[ext_resource type="Script" uid="uid://byvey1fbdvtta" path="res://scripts/upgrades/UpgradeContainer.gd" id="19_w4tlj"]
 [ext_resource type="PackedScene" uid="uid://v6m0je28qwp2" path="res://scenes/Upgrade.tscn" id="19_wq6sx"]
 [ext_resource type="PackedScene" uid="uid://bscctmm55ktp5" path="res://scenes/skills/SkillTree.tscn" id="20_mjx3u"]
 [ext_resource type="PackedScene" uid="uid://iohn0aebg218" path="res://scenes/inventory/Inventory.tscn" id="21_0usff"]
-[ext_resource type="Script" path="res://scripts/skills/SkillPointsAmount.gd" id="22_nrpqb"]
-[ext_resource type="Script" path="res://scripts/skills/ResetSkillsButton.gd" id="23_imyjl"]
+[ext_resource type="Script" uid="uid://l56l3emoiwwg" path="res://scripts/skills/SkillPointsAmount.gd" id="22_nrpqb"]
+[ext_resource type="Script" uid="uid://dlfvmvn6lexmg" path="res://scripts/skills/ResetSkillsButton.gd" id="23_imyjl"]
 [ext_resource type="PackedScene" uid="uid://ivxjfj7k3lt1" path="res://scenes/Pets.tscn" id="26_lyvra"]
 [ext_resource type="PackedScene" uid="uid://bw2cwrtnmxrcv" path="res://scenes/bestiary/Bestiary.tscn" id="28_oy4c8"]
 [ext_resource type="Texture2D" uid="uid://qt1prw712ybr" path="res://assets/sprites/cursor_warrior.png" id="29_pyqnk"]
@@ -193,6 +193,7 @@ script = ExtResource("18_wedra")
 [node name="UpgradesPanel" type="Panel" parent="MainTabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="GoldAmount" type="Label" parent="MainTabContainer/UpgradesPanel"]
 layout_mode = 0
@@ -236,6 +237,7 @@ layout_mode = 2
 [node name="StatsPanel" type="Panel" parent="MainTabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Stats" parent="MainTabContainer/StatsPanel" instance=ExtResource("14_664kw")]
 layout_mode = 2
@@ -248,6 +250,7 @@ offset_bottom = -603.0
 [node name="SkillsPanel" type="Panel" parent="MainTabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="SkillPointsAmount" type="Label" parent="MainTabContainer/SkillsPanel"]
 layout_mode = 0
@@ -282,6 +285,7 @@ offset_bottom = 50.0
 
 [node name="InventoryPanel" type="Panel" parent="MainTabContainer"]
 layout_mode = 2
+metadata/_tab_index = 3
 
 [node name="Inventory" parent="MainTabContainer/InventoryPanel" instance=ExtResource("21_0usff")]
 layout_mode = 2
@@ -290,6 +294,7 @@ anchors_preset = 0
 [node name="PetsPanel" type="Panel" parent="MainTabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 4
 
 [node name="Pets" parent="MainTabContainer/PetsPanel" instance=ExtResource("26_lyvra")]
 layout_mode = 1
@@ -297,6 +302,7 @@ layout_mode = 1
 [node name="BestiaryPanel" type="Panel" parent="MainTabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 5
 
 [node name="Bestiary" parent="MainTabContainer/BestiaryPanel" instance=ExtResource("28_oy4c8")]
 layout_mode = 1

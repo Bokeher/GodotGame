@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://o2xs4oyyyo8u"]
 
 [ext_resource type="Texture2D" uid="uid://bnak2378gaqwc" path="res://assets/sprites/enemies/slimes/golden_slime.png" id="1_gnn1t"]
-[ext_resource type="Script" path="res://scripts/bestiary/BestiaryItem.gd" id="1_qclms"]
+[ext_resource type="Script" uid="uid://dyarkewha1vn" path="res://scripts/bestiary/BestiaryItem.gd" id="1_qclms"]
 [ext_resource type="PackedScene" uid="uid://0x6b4dwek88a" path="res://scenes/bestiary/BestiaryLootItem.tscn" id="2_lxawc"]
 
 [node name="BestiaryItem" type="Control"]
