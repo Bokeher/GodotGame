@@ -1,14 +1,15 @@
 extends TextureButton
 
 @onready var player_attack_timer: Timer = $"../../PlayerAttackTimer"
-@onready var cursor = $"../../Cursor"
+@onready var custom_cursor = $"../../CustomCursor"
 
-var is_rotating = false  # Flag to check if rotation is in progress
+# Flag to check if rotation is in progress
+var is_cursor_rotating = false  
 
 var cursor_paths = [
 	"res://assets/sprites/cursor_warrior.png",
-	"res://assets/sprites/cursor_umbral_reaver.png", # sprite missing
-	"res://assets/sprites/cursor_lucksworn.png", # sprite missing
+	"res://assets/sprites/cursor_umbral_reaver.png",
+	"res://assets/sprites/cursor_lucksworn.png",
 	"res://assets/sprites/cursor_kensei.png"
 ]
 
@@ -16,27 +17,25 @@ func _ready() -> void:
 	update_enemy_sprite()
 	
 	# Load correct cursor depending on class
-	cursor.visible = false
-	cursor.texture = load(cursor_paths[Global.selected_class_id])
+	custom_cursor.texture = load(cursor_paths[Global.selected_class_id])
+	
+	# Hide custom cursor
+	toggle_custom_cursor(false)
 
 func _process(_delta):
 	# Follow the mouse position
-	cursor.position = get_viewport().get_mouse_position()
+	custom_cursor.position = get_viewport().get_mouse_position()
 	
 	# Show custom cursor when pointing at enemy AND hide when not pointing
 	var is_enemy_targeted: bool = is_cursor_pointing_at_enemy()
-	cursor.visible = is_enemy_targeted
-	if is_enemy_targeted:
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	toggle_custom_cursor(is_enemy_targeted)
 	
 	# Rotate the cursor sprite if it's in rotation mode
-	if is_rotating:
+	if is_cursor_rotating:
 		var time_elapsed = player_attack_timer.wait_time - player_attack_timer.time_left
 		# Calculate the rotation angle based on the elapsed time
 		var rotation_amount = (time_elapsed / player_attack_timer.wait_time) * 360
-		cursor.rotation_degrees = rotation_amount
+		custom_cursor.rotation_degrees = rotation_amount
 	
 
 func _pressed() -> void:
@@ -44,15 +43,13 @@ func _pressed() -> void:
 	if !player_attack_timer.is_stopped():
 		return
 	
-	# Change cursor
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	cursor.visible = true
-	is_rotating = true
+	deal_damage_to_enemy()
 	
-	deal_damage()
-	
+	toggle_custom_cursor(true)
+	is_cursor_rotating = true
 	player_attack_timer.start(Global.attack_interval)
 	
+	# Early return if enemy is not dead
 	if (Global.curr_enemy.health > 0):
 		return
 	
@@ -95,7 +92,7 @@ func _pressed() -> void:
 		$"../../MainTabContainer/SkillsPanel/SkillPointsAmount".update_skill_points()
 	
 
-func deal_damage() -> void:
+func deal_damage_to_enemy() -> void:
 	var damage = Global.player_stats.damage
 	
 	# Check crit
@@ -125,7 +122,7 @@ func is_cursor_pointing_at_enemy() -> bool:
 	var enemy_pos = $"..".position + $".".position
 	var enemy_size = $".".size
 	var enemy_scale = $".".scale
-	var cursor_pos = cursor.position
+	var cursor_pos = custom_cursor.position
 	
 	return (
 		cursor_pos.x < (enemy_pos + (enemy_size * enemy_scale)).x &&
@@ -134,6 +131,13 @@ func is_cursor_pointing_at_enemy() -> bool:
 		cursor_pos.y < (enemy_pos + (enemy_size * enemy_scale)).y
 	)
 
-
 func _on_player_attack_timer_timeout():
-	is_rotating = false
+	is_cursor_rotating = false
+
+func toggle_custom_cursor(show_custom_cursor: bool) -> void:
+	if show_custom_cursor:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		custom_cursor.visible = true
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		custom_cursor.visible = false
