@@ -3,8 +3,6 @@ extends TextureButton
 @onready var player_attack_timer: Timer = $"../../PlayerAttackTimer"
 @onready var cursor = $"../../Cursor"
 
-var rotation_duration = 0.5  # Duration to complete one full rotation (in seconds)
-var rotation_timer = 0.0  # Timer to track elapsed time
 var is_rotating = false  # Flag to check if rotation is in progress
 
 var cursor_paths = [
@@ -21,7 +19,7 @@ func _ready() -> void:
 	cursor.visible = false
 	cursor.texture = load(cursor_paths[Global.selected_class_id])
 
-func _process(delta):
+func _process(_delta):
 	# Follow the mouse position
 	cursor.position = get_viewport().get_mouse_position()
 	
@@ -35,23 +33,18 @@ func _process(delta):
 	
 	# Rotate the cursor sprite if it's in rotation mode
 	if is_rotating:
-		rotation_timer += delta
+		var time_elapsed = player_attack_timer.wait_time - player_attack_timer.time_left
 		# Calculate the rotation angle based on the elapsed time
-		var rotation_amount = (rotation_timer / rotation_duration) * 360
+		var rotation_amount = (time_elapsed / player_attack_timer.wait_time) * 360
 		cursor.rotation_degrees = rotation_amount
-		
-		# Stop the rotation after the set duration
-		if rotation_timer >= rotation_duration:
-			is_rotating = false
-		
 	
 
 func _pressed() -> void:
+	# Early return if not ready for attack
 	if !player_attack_timer.is_stopped():
 		return
 	
 	# Change cursor
-	rotation_timer = 0.0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	cursor.visible = true
 	is_rotating = true
@@ -140,3 +133,7 @@ func is_cursor_pointing_at_enemy() -> bool:
 		cursor_pos.y > enemy_pos.y &&
 		cursor_pos.y < (enemy_pos + (enemy_size * enemy_scale)).y
 	)
+
+
+func _on_player_attack_timer_timeout():
+	is_rotating = false

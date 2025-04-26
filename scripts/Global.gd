@@ -74,6 +74,8 @@ func _ready() -> void:
 	
 	if(!curr_enemy):
 		curr_enemy = get_enemy(1)
+	
+	attack_interval = calc_attack_interval()
 
 func read_savefile() -> void:
 	if !FileAccess.file_exists(PATH_SAVE):
