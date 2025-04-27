@@ -34,6 +34,7 @@ var curr_stage = null
 var player_stats: Player = Player.new()
 var curr_bestiary_enemy_id: int = 1
 var selected_class_id: int = Classes.WARRIOR
+var BASE_ATTACK_INTERVAL: float = 0.5
 
 var attack_interval: float = .5
 
@@ -259,7 +260,7 @@ func get_class_path(class_type: int) -> String:
 	return CLASS_PATHS[class_type]
 
 func calc_attack_interval() -> float:
-	var base: float = 1.00
+	var base: float = BASE_ATTACK_INTERVAL
 	var mult: float = 1.00
 	
 	if selected_class_id == Classes.WARRIOR:
