@@ -47,7 +47,7 @@ var upgrades: Array[Upgrade] = []
 var skills: Array[Skill] = []
 var items: Array[Item] = []
 var pet: Pet = Pet.new(-1, "", "", "")
-var bestiary: Bestiary = Bestiary.new({})
+var bestiary: Bestiary = Bestiary.new()
 var artifacts: Array[Artifact] = []
 
 # Process timers
@@ -101,7 +101,7 @@ func read_savefile() -> void:
 	player_stats = Player.from_dict(player_stats_dict) if player_stats_dict else null
 	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
 	pet = Pet.from_dict(pet_dict) if pet_dict else null
-	bestiary = Bestiary.from_dict(bestiary_dict) if bestiary_dict else Bestiary.new({})
+	bestiary = Bestiary.from_dict(bestiary_dict) if bestiary_dict else Bestiary.new()
 	
 	for skills_dict in skills_dicts:
 		skills.append(Skill.from_dict(skills_dict))

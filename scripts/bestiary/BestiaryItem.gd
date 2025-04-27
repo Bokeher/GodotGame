@@ -3,6 +3,7 @@ extends Control
 const loot_item_scene = preload("res://scenes/bestiary/BestiaryLootItem.tscn")
 
 func _ready() -> void:
+	Global.bestiary = Bestiary.new()
 	update_bestiary_item()
 
 func update_bestiary_item() -> void:

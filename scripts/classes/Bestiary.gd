@@ -2,7 +2,7 @@ class_name Bestiary
 
 var enemyEntries: Dictionary = {} # <enemy_id: int, entry: BestiaryEntry>
 
-func _init(entries: Dictionary):
+func _init(entries: Dictionary = {}):
 	enemyEntries = entries
 
 func set_entry(enemy_id: int, entry: BestiaryEntry) -> BestiaryEntry:
