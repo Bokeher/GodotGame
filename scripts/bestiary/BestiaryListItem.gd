@@ -15,7 +15,7 @@ func _on_texture_button_pressed() -> void:
 	
 	Global.curr_bestiary_enemy_id = $".".get_meta("enemy_id")
 	
-	$"../../..".update_selected_bestiary(old_enemy_id)
+	$"../../..".update_bestiary(old_enemy_id)
 
 func _on_texture_button_focus_entered() -> void:
 	_on_texture_button_pressed()

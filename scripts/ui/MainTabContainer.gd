@@ -28,7 +28,7 @@ func _on_tab_changed(tab):
 	# TODO: add here all focus grabers
 	if(tab == 5): # 5 == BestiaryTab
 		var childs = $BestiaryPanel/Bestiary/ScrollContainer/BestiaryList.get_children()
-		if childs.is_empty():
+		if Global.bestiary.enemyEntries.is_empty():
 			return
 		
 		var selected_child = childs[Global.curr_bestiary_enemy_id - 1]
