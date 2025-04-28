@@ -1,7 +1,7 @@
 extends Control
 
 var bestiary = null
-var entries = null
+var entries: Dictionary = {}
 const bestiary_list_item_scene = preload("res://scenes/bestiary/BestiaryListItem.tscn")
 
 func _ready() -> void:
@@ -13,7 +13,12 @@ func _ready() -> void:
 		
 		$ScrollContainer/BestiaryList.add_child(new_list_item)
 	
-	
+	for enemy in Global.enemies:
+		if !entries.has(enemy.name):
+			var new_list_item = bestiary_list_item_scene.instantiate()
+			new_list_item.set_enemy(enemy.id, false)
+			
+			$ScrollContainer/BestiaryList.add_child(new_list_item)
 
 func update_selected_bestiary(old_selected_enemy_id: int = -1) -> void:
 	if (

@@ -1,10 +1,13 @@
 extends Control
 
-func set_enemy(enemy_id: int) -> void:
+func set_enemy(enemy_id: int, discovered: bool = true) -> void:
 	$".".set_meta("enemy_id", enemy_id)
 	
 	# Set texture
-	var image_path = Global.enemies[enemy_id - 1].image_path
+	var image_path = "res://assets/sprites/unknown.png"
+	if discovered:
+		image_path = Global.enemies[enemy_id - 1].image_path
+	
 	$ItemButton.texture_normal = load(image_path)
 
 func _on_texture_button_pressed() -> void:
