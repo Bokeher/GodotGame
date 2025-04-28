@@ -1,6 +1,5 @@
 extends Control
 
-var bestiary = null
 @onready var entries: Dictionary = Global.bestiary.enemyEntries
 const bestiary_list_item_scene = preload("res://scenes/bestiary/BestiaryListItem.tscn")
 
