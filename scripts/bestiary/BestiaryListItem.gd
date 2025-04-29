@@ -13,8 +13,6 @@ func set_enemy(enemy_id: int, discovered: bool = true) -> void:
 func _on_texture_button_pressed() -> void:
 	var selected_id: int = $".".get_meta("enemy_id")
 	
-	print(selected_id)
-	
 	if !Global.bestiary.enemyEntries.has(selected_id):
 		return
 	
