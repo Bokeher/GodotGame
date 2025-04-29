@@ -46,3 +46,4 @@ func update_selected_bestiary() -> void:
 	old_selected_enemy_id = Global.curr_bestiary_enemy_id
 	
 	$BestiaryItem.update_bestiary_item()
+	$BestiaryItem.visible = true
