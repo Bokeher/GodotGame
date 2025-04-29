@@ -2,18 +2,19 @@ extends Control
 
 @onready var entries: Dictionary = Global.bestiary.enemyEntries
 const bestiary_list_item_scene = preload("res://scenes/bestiary/BestiaryListItem.tscn")
+var old_selected_enemy_id: int = -1
 
 func _ready() -> void:
 	load_bestiary_list()
 	update_bestiary()
 
-func update_bestiary(old_enemy_id: int = -1) -> void:
+func update_bestiary() -> void:
 	if entries.is_empty():
 		$BestiaryItem.visible = false
 		return
 		
 	load_bestiary_list()
-	update_selected_bestiary(old_enemy_id)
+	update_selected_bestiary()
 	
 
 func load_bestiary_list() -> void:
@@ -33,17 +34,15 @@ func load_bestiary_list() -> void:
 			
 			$ScrollContainer/BestiaryList.add_child(new_list_item)
 
-func update_selected_bestiary(old_selected_enemy_id: int = -1) -> void:
-	if (
-		old_selected_enemy_id == Global.curr_bestiary_enemy_id
-	): return
-	
+func update_selected_bestiary() -> void:
 	var childs = $ScrollContainer/BestiaryList.get_children()
 	if childs.is_empty():
 		return
 	
-	if(old_selected_enemy_id != -1): 
+	if(old_selected_enemy_id != -1):
 		childs[old_selected_enemy_id - 1].unfocus()
 	childs[Global.curr_bestiary_enemy_id - 1].focus()
+	
+	old_selected_enemy_id = Global.curr_bestiary_enemy_id
 	
 	$BestiaryItem.update_bestiary_item()

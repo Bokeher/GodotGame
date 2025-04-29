@@ -11,11 +11,16 @@ func set_enemy(enemy_id: int, discovered: bool = true) -> void:
 	$ItemButton.texture_normal = load(image_path)
 
 func _on_texture_button_pressed() -> void:
-	var old_enemy_id = Global.curr_bestiary_enemy_id
+	var selected_id: int = $".".get_meta("enemy_id")
 	
-	Global.curr_bestiary_enemy_id = $".".get_meta("enemy_id")
+	print(selected_id)
 	
-	$"../../..".update_bestiary(old_enemy_id)
+	if !Global.bestiary.enemyEntries.has(selected_id):
+		return
+	
+	Global.curr_bestiary_enemy_id = selected_id
+	
+	$"../../..".update_bestiary()
 
 func _on_texture_button_focus_entered() -> void:
 	_on_texture_button_pressed()
