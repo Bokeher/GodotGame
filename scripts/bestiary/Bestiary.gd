@@ -36,12 +36,15 @@ func load_bestiary_list() -> void:
 
 func update_selected_bestiary() -> void:
 	var childs = $ScrollContainer/BestiaryList.get_children()
-	if childs.is_empty():
+	if childs.is_empty() || Global.curr_bestiary_enemy_id == -1:
 		return
 	
-	if(old_selected_enemy_id != -1):
-		childs[old_selected_enemy_id - 1].unfocus()
-	childs[Global.curr_bestiary_enemy_id - 1].focus()
+	for child in childs:
+		var id = child.get_meta("enemy_id")
+		if id == Global.curr_bestiary_enemy_id:
+			child.focus()
+		elif id == old_selected_enemy_id:
+			child.unfocus()
 	
 	old_selected_enemy_id = Global.curr_bestiary_enemy_id
 	

@@ -27,11 +27,5 @@ func _process(_delta) -> void:
 func _on_tab_changed(tab):
 	# TODO: add here all focus grabers
 	if(tab == 5): # 5 == BestiaryTab
-		var childs = $BestiaryPanel/Bestiary/ScrollContainer/BestiaryList.get_children()
-		if Global.bestiary.enemyEntries.is_empty():
-			return
-		
-		var selected_child = childs[Global.curr_bestiary_enemy_id - 1]
-		selected_child.focus()
-		selected_child.get_node("ItemButton").grab_focus()
+		$BestiaryPanel/Bestiary.update_bestiary()
 	

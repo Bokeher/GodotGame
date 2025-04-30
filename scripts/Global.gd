@@ -32,7 +32,7 @@ const MAIN_TAB_CONTAINER_POSITION = Vector2i(580, 0)
 var curr_enemy: Enemy
 var curr_stage = null
 var player_stats: Player = Player.new()
-var curr_bestiary_enemy_id: int = 1
+var curr_bestiary_enemy_id: int = -1
 var selected_class_id: int = Classes.WARRIOR
 var BASE_ATTACK_INTERVAL: float = 0.5
 
