@@ -12,7 +12,7 @@ func update_bestiary() -> void:
 	if entries.is_empty() || Global.curr_bestiary_enemy_id == -1:
 		$BestiaryItem.visible = false
 		return
-		
+	
 	load_bestiary_list()
 	update_selected_bestiary()
 	
