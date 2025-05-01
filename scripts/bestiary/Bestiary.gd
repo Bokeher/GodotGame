@@ -9,7 +9,7 @@ func _ready() -> void:
 	update_bestiary()
 
 func update_bestiary() -> void:
-	if entries.is_empty():
+	if entries.is_empty() || Global.curr_bestiary_enemy_id == -1:
 		$BestiaryItem.visible = false
 		return
 		
