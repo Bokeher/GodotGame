@@ -2,9 +2,6 @@ extends Control
 
 const loot_item_scene = preload("res://scenes/bestiary/BestiaryLootItem.tscn")
 
-func _ready() -> void:
-	Global.bestiary = Bestiary.new()
-
 func update_bestiary_item() -> void:
 	var enemy: Enemy = Global.enemies[Global.curr_bestiary_enemy_id - 1]
 	var bestiaryEntry: BestiaryEntry = Global.bestiary.get_entry(enemy.id)
