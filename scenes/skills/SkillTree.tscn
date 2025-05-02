@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bscctmm55ktp5"]
+[gd_scene load_steps=2 format=3 uid="uid://bscctmm55ktp5"]
 
 [ext_resource type="Script" uid="uid://fm1m0fatuqqf" path="res://scripts/skills/SkillTreePanel.gd" id="1_pbg1n"]
-[ext_resource type="PackedScene" uid="uid://wguylvq1tt10" path="res://scenes/skills/SkillNode.tscn" id="1_rjqu1"]
 
 [node name="SkilTree" type="Control"]
 layout_mode = 3
@@ -27,29 +26,3 @@ color = Color(0.215686, 0.215686, 0.215686, 1)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_pbg1n")
-
-[node name="SkillNode" parent="SubViewportContainer/SubViewport/SkillTreePanel" instance=ExtResource("1_rjqu1")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 25.0
-offset_bottom = 25.0
-metadata/id = 1
-
-[node name="SkillNode2" parent="SubViewportContainer/SubViewport/SkillTreePanel" instance=ExtResource("1_rjqu1")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 200.0
-offset_top = 25.0
-offset_right = 200.0
-offset_bottom = 25.0
-metadata/id = 2
