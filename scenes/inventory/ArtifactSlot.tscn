@@ -4,25 +4,29 @@
 [ext_resource type="Texture2D" uid="uid://cjc3xpixdrpj" path="res://assets/sprites/artifact_slot_inactive.png" id="2_f87qy"]
 
 [node name="ArtifactSlot" type="Control"]
-custom_minimum_size = Vector2(70, 70)
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1080.0
+offset_bottom = -576.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fbunm")
 
 [node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
-offset_right = 70.0
-offset_bottom = 70.0
+offset_right = 72.0
+offset_bottom = 72.0
 color = Color(0.21, 0.21, 0.21, 1)
 
 [node name="ArtifactTexture" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
-offset_right = 70.0
-offset_bottom = 70.0
+offset_right = 72.0
+offset_bottom = 72.0
 texture_normal = ExtResource("2_f87qy")
 stretch_mode = 3
 

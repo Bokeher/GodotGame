@@ -1,5 +1,8 @@
 extends Control
 
+@onready var childs = $ArtifactSlots.get_children()
+var last_selected_artifact_slot_id = -1
+
 func _ready() -> void:
 	update_inventory()
 
@@ -23,3 +26,15 @@ func update_inventory() -> void:
 		isEmptyInventoryInfoShown = false
 		
 	$VBoxContainer/EmptyInventoryInfo.visible = isEmptyInventoryInfoShown
+
+func select_artifact_slot(selected_slot_id: int) -> void:
+	if last_selected_artifact_slot_id == selected_slot_id:
+		return
+	
+	#TODO: here handle changing artifacts
+	
+	childs[selected_slot_id - 1].focus()
+	if last_selected_artifact_slot_id != -1:
+		childs[last_selected_artifact_slot_id - 1].unfocus()
+	
+	last_selected_artifact_slot_id = selected_slot_id
