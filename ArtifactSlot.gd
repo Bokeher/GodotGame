@@ -10,4 +10,3 @@ func unfocus() -> void:
 
 func _on_artifact_texture_pressed() -> void:
 	$"../..".select_artifact_slot(this_artifact_slot_id)
-	pass
