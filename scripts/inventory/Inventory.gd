@@ -29,11 +29,15 @@ func update_inventory() -> void:
 
 func select_artifact_slot(selected_slot_id: int) -> void:
 	if last_selected_artifact_slot_id == selected_slot_id:
-		return
+		last_selected_artifact_slot_id = selected_slot_id
+		selected_slot_id = -1
 	
 	#TODO: here handle changing artifacts
 	
-	childs[selected_slot_id - 1].focus()
+	
+	
+	if selected_slot_id != -1: 
+		childs[selected_slot_id - 1].focus()
 	if last_selected_artifact_slot_id != -1:
 		childs[last_selected_artifact_slot_id - 1].unfocus()
 	

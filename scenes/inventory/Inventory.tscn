@@ -25,8 +25,8 @@ text = "Artifacts"
 layout_mode = 2
 offset_left = 15.0
 offset_top = 36.0
-offset_right = 431.0
-offset_bottom = 116.0
+offset_right = 391.0
+offset_bottom = 108.0
 
 [node name="ArtifactSlot1" parent="ArtifactSlots" instance=ExtResource("2_78qb0")]
 layout_mode = 2
