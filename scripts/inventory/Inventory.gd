@@ -34,8 +34,6 @@ func select_artifact_slot(selected_slot_id: int) -> void:
 	
 	#TODO: here handle changing artifacts
 	
-	
-	
 	if selected_slot_id != -1: 
 		childs[selected_slot_id - 1].focus()
 	if last_selected_artifact_slot_id != -1:

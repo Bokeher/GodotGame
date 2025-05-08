@@ -39,6 +39,10 @@ func update_selected_bestiary() -> void:
 	if childs.is_empty() || Global.curr_bestiary_enemy_id == -1:
 		return
 	
+	if Global.curr_bestiary_enemy_id == old_selected_enemy_id:
+		old_selected_enemy_id = Global.curr_bestiary_enemy_id
+		Global.curr_bestiary_enemy_id = -1
+	
 	for child in childs:
 		var id = child.get_meta("enemy_id")
 		if id == Global.curr_bestiary_enemy_id:
@@ -49,4 +53,7 @@ func update_selected_bestiary() -> void:
 	old_selected_enemy_id = Global.curr_bestiary_enemy_id
 	
 	$BestiaryItem.update_bestiary_item()
-	$BestiaryItem.visible = true
+	if Global.curr_bestiary_enemy_id == -1:
+		$BestiaryItem.visible = false
+	else:
+		$BestiaryItem.visible = true
