@@ -5,17 +5,12 @@ const bestiary_list_item_scene = preload("res://scenes/bestiary/BestiaryListItem
 var old_selected_enemy_id: int = -1
 
 func _ready() -> void:
-	load_bestiary_list()
+	$BestiaryItem.visible = false
 	update_bestiary()
 
 func update_bestiary() -> void:
-	if entries.is_empty() || Global.curr_bestiary_enemy_id == -1:
-		$BestiaryItem.visible = false
-		return
-	
 	load_bestiary_list()
 	update_selected_bestiary()
-	
 
 func load_bestiary_list() -> void:
 	for child in $ScrollContainer/BestiaryList.get_children():
