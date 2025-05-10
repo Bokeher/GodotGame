@@ -5,6 +5,7 @@ func _pressed() -> void:
 	Global.read_upgrades()
 	Global.read_skills()
 	Global.inventory = {}
+	Global.bestiary = Bestiary.new()
 	
 	# Update upgrades
 	var upgradeVBox = $"../MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer"
@@ -15,6 +16,9 @@ func _pressed() -> void:
 	var skillTreePanel = $"../MainTabContainer/SkillsPanel/SkilTree/SubViewportContainer/SubViewport/SkillTreePanel"
 	for skillNode in skillTreePanel.get_children():
 		skillNode.update_skill()
+	
+	# Upodate bestiary
+	$"../MainTabContainer/BestiaryPanel/Bestiary".update_bestiary()
 	
 	$"../MainTabContainer/InventoryPanel/Inventory".update_inventory()
 	
