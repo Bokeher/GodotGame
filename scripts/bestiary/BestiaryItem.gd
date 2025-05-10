@@ -9,9 +9,6 @@ func update_bestiary_item() -> void:
 	if !bestiaryEntry:
 		return
 	
-	# TODO: reduce into one loop, 
-	# TODO: preserve position of dropped items (same in bestiary)
-	
 	$EnemyName.text = enemy.name
 	$EnemyImage.texture = load(enemy.image_path)
 	$DefeatCount.text = "Times defeated: " + str(bestiaryEntry.times_slayed)
@@ -27,38 +24,21 @@ func update_bestiary_item() -> void:
 	for child in $Drops/LootTable.get_children():
 		$Drops/LootTable.remove_child(child)
 	
-	# Add items
-	for item_id in drops:
-		# Skip iteration if item has not been dropped before
-		if(!drops[item_id]):
-			continue
+	# Add drops
+	for loot_table_item in enemy.loot_table:
+		var item_id: int = loot_table_item.item_id
 		
 		var new_loot_item = loot_item_scene.instantiate()
 		
 		var item_image = new_loot_item.get_node("./LootImage")
 		var image_path = Global.items[item_id - 1].image_path
+		
+		# Change texture to unknown.png when not dropped
+		if(!drops.has(item_id)):
+			image_path = "res://assets/sprites/skills/unknown.png"
+		
 		item_image.texture = load(image_path)
 		
 		$Drops/LootTable.add_child(new_loot_item)
-		#TODO: Add popups
+		
 	
-	var childs = $Drops/LootTable.get_children()
-	var loot_table = enemy.loot_table
-	
-	# Add items that has not been dropped as uknown.png
-	for loot_table_element in loot_table:
-		# All items dropped => end loop
-		if(loot_table.size() == childs.size()): 
-			break
-		
-		# If item dropped => skip iteration
-		if(drops.has(loot_table_element["item_id"])): 
-			continue
-		
-		var new_loot_item = loot_item_scene.instantiate()
-		
-		var item_image = new_loot_item.get_node("./LootImage")
-		var image_path = "res://assets/sprites/unknown.png"
-		item_image.texture = load(image_path)
-		
-		$Drops/LootTable.add_child(new_loot_item)

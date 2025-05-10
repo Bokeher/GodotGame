@@ -9,6 +9,7 @@ func _ready() -> void:
 	update_bestiary()
 
 func update_bestiary() -> void:
+	#TODO: Rewrite this entire bestiary logic
 	load_bestiary_list()
 	update_selected_bestiary()
 
