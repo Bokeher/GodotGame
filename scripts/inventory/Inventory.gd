@@ -1,6 +1,6 @@
 extends Control
 
-@onready var childs = $ArtifactSlots.get_children()
+@onready var childs = $InventoryTabContainer/ArtifactsPanel/ArtifactSlots.get_children()
 var last_selected_artifact_slot_id = -1
 
 func _ready() -> void:
