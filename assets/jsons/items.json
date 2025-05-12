@@ -134,35 +134,35 @@
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
-			"id": 19,
+			"id": 20,
 			"name": "Vampire's Fang",
 			"type": "artifact",
 			"description": "With each hit heal by 5% of damage dealt",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
-			"id": 19,
+			"id": 21,
 			"type": "artifact",
 			"name": "Vampire's Fang of Greater Vampirism",
 			"description": "With each hit heal by 10% of damage dealt",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
-			"id": 20,
+			"id": 22,
 			"type": "artifact",
 			"name": "Ring of Minor Damage",
 			"description": "Increase damage dealt by 1",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
-			"id": 21,
+			"id": 23,
 			"type": "artifact",
 			"name": "Ring of Damage",
 			"description": "Increase damage dealt by 2",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
-			"id": 22,
+			"id": 24,
 			"type": "artifact",
 			"name": "Ring of Major Damage",
 			"description": "Increase damage dealt by 3",

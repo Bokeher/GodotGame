@@ -10,11 +10,11 @@
 			"xp_reward": 99,
 			"loot_table": [
 				{
-					"item_id": 20,
+					"item_id": 22,
 					"drop_chance": 0.05
 				},
 				{
-					"item_id": 21,
+					"item_id": 23,
 					"drop_chance": 0.005
 				}
 			]
@@ -29,7 +29,7 @@
 			"xp_reward": 101,
 			"loot_table": [
 				{
-					"item_id": 21,
+					"item_id": 23,
 					"drop_chance": 0.05
 				}
 			]
@@ -44,7 +44,7 @@
 			"xp_reward": 5,
 			"loot_table": [
 				{
-					"item_id": 22,
+					"item_id": 24,
 					"drop_chance": 0.03
 				}
 			]
