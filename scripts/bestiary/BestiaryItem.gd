@@ -35,7 +35,7 @@ func update_bestiary_item() -> void:
 		
 		# Change texture to unknown.png when not dropped
 		if(!drops.has(item_id)):
-			image_path = "res://assets/sprites/skills/unknown.png"
+			image_path = "res://assets/sprites/unknown.png"
 		
 		item_image.texture = load(image_path)
 		
