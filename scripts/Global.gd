@@ -1,12 +1,6 @@
 extends Node
 
-# Enums
-enum Classes {
-	WARRIOR,
-	UMBRAL_REAVER,
-	LUCKSWORN,
-	KENSEI
-}
+const Enums = preload("res://scripts/Enums.gd")
 
 # File paths
 const PATH_SAVE: String = "user://save"
@@ -32,7 +26,7 @@ var curr_enemy: Enemy
 var curr_stage = null
 var player_stats: Player = Player.new()
 var curr_bestiary_enemy_id: int = -1
-var selected_class_id: int = Classes.WARRIOR
+var selected_class_id: int = Enums.Classes.WARRIOR
 var BASE_ATTACK_INTERVAL: float = 0.5
 
 var attack_interval: float = .5
@@ -246,7 +240,7 @@ func calc_attack_interval() -> float:
 	var base: float = BASE_ATTACK_INTERVAL
 	var mult: float = 1.00
 	
-	if selected_class_id == Classes.WARRIOR:
+	if selected_class_id == Enums.Classes.WARRIOR:
 		for skill in skills:
 			if skill.id == 1 and skill.level > 0: # Heavy Blow
 				base += 0.25
