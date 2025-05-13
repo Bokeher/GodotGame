@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw05nt0shkixx"]
 
-[ext_resource type="Script" uid="uid://byu1gk2k5p2ak" path="res://ArtifactSlot.gd" id="1_fbunm"]
-[ext_resource type="Texture2D" uid="uid://cjc3xpixdrpj" path="res://assets/sprites/artifact_slot_inactive.png" id="2_f87qy"]
+[ext_resource type="Script" uid="uid://byu1gk2k5p2ak" path="res://EquippedInventorySlot.gd" id="1_ho61k"]
+[ext_resource type="Texture2D" uid="uid://cjc3xpixdrpj" path="res://assets/sprites/artifact_slot_inactive.png" id="2_jxda5"]
 
-[node name="ArtifactSlot" type="Control"]
+[node name="EquippedInventorySlot" type="Control"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 3
 anchors_preset = 15
@@ -13,7 +13,9 @@ offset_right = -1080.0
 offset_bottom = -576.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fbunm")
+script = ExtResource("1_ho61k")
+metadata/id = -1
+metadata/slot_type = "null"
 
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(72, 72)
@@ -22,12 +24,12 @@ offset_right = 72.0
 offset_bottom = 72.0
 color = Color(0.21, 0.21, 0.21, 1)
 
-[node name="ArtifactTexture" type="TextureButton" parent="."]
+[node name="SlotTexture" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
 offset_right = 72.0
 offset_bottom = 72.0
-texture_normal = ExtResource("2_f87qy")
+texture_normal = ExtResource("2_jxda5")
 stretch_mode = 3
 
-[connection signal="pressed" from="ArtifactTexture" to="." method="_on_artifact_texture_pressed"]
+[connection signal="pressed" from="SlotTexture" to="." method="_on_slot_texture_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://iohn0aebg218"]
 
 [ext_resource type="Script" uid="uid://do3kjdro823wu" path="res://scripts/inventory/Inventory.gd" id="1_gluma"]
-[ext_resource type="PackedScene" uid="uid://bw05nt0shkixx" path="res://scenes/inventory/ArtifactSlot.tscn" id="2_78qb0"]
+[ext_resource type="PackedScene" uid="uid://bw05nt0shkixx" path="res://scenes/inventory/EquippedInventorySlot.tscn" id="2_78qb0"]
 [ext_resource type="Script" uid="uid://cpgbd5hsdr564" path="res://scenes/inventory/inventory_tab_container.gd" id="2_a22in"]
 [ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="2_d6i37"]
 
@@ -34,11 +34,11 @@ offset_top = 10.0
 offset_right = 381.0
 offset_bottom = 82.0
 
-[node name="ArtifactSlot1" parent="InventoryTabContainer/ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
+[node name="EquippedArtifactSlot1" parent="InventoryTabContainer/ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
 layout_mode = 2
 metadata/id = 1
 
-[node name="ArtifactSlot2" parent="InventoryTabContainer/ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
+[node name="EquippedArtifactSlot2" parent="InventoryTabContainer/ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
 layout_mode = 2
 metadata/id = 2
 
