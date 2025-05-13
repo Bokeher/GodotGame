@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjc3xpixdrpj"
-path="res://.godot/imported/artifact_slot_inactive.png-8876d59b36aeb3f136a648163ee902fe.ctex"
+path="res://.godot/imported/artifact_slot.png-0062c40695d8c4060d0c32f6c3c26686.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/artifact_slot_inactive.png"
-dest_files=["res://.godot/imported/artifact_slot_inactive.png-8876d59b36aeb3f136a648163ee902fe.ctex"]
+source_file="res://assets/sprites/artifact_slot.png"
+dest_files=["res://.godot/imported/artifact_slot.png-0062c40695d8c4060d0c32f6c3c26686.ctex"]
 
 [params]
 
