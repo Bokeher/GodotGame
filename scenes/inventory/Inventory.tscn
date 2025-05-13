@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://do3kjdro823wu" path="res://scripts/inventory/Inventory.gd" id="1_gluma"]
 [ext_resource type="PackedScene" uid="uid://bw05nt0shkixx" path="res://scenes/inventory/EquippedInventorySlot.tscn" id="2_78qb0"]
-[ext_resource type="Script" uid="uid://cpgbd5hsdr564" path="res://scenes/inventory/inventory_tab_container.gd" id="2_a22in"]
+[ext_resource type="Script" uid="uid://cpgbd5hsdr564" path="res://scripts/inventory/InventoryTabContainer.gd" id="2_a22in"]
 [ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="2_d6i37"]
 
 [node name="Inventory" type="Control"]
