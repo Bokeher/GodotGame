@@ -20,4 +20,4 @@ func unfocus() -> void:
 	$Background.color = Color(0.21, 0.21, 0.21)
 
 func _on_slot_texture_pressed() -> void:
-	$"../../../..".select_artifact_slot(this_slot_id)
+	$"../../..".select_artifact_slot(this_slot_id)
