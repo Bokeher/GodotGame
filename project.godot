@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/Global.gd"
 SkillPopup="*res://scenes/skills/SkillPopup.tscn"
+Enums="*res://scripts/Enums.gd"
 
 [display]
 

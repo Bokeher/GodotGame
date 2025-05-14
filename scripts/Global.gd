@@ -1,7 +1,5 @@
 extends Node
 
-const Enums = preload("res://scripts/Enums.gd")
-
 # File paths
 const PATH_SAVE: String = "user://save"
 const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
