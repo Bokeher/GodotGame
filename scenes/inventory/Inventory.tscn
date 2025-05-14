@@ -37,22 +37,12 @@ offset_bottom = 82.0
 [node name="EquippedArtifactSlot1" parent="InventoryTabContainer/ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
 layout_mode = 2
 metadata/id = 1
+metadata/slot_type = 1
 
 [node name="EquippedArtifactSlot2" parent="InventoryTabContainer/ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
 layout_mode = 2
 metadata/id = 2
-
-[node name="ArtifactSlot3" parent="InventoryTabContainer/ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
-layout_mode = 2
-metadata/id = 3
-
-[node name="ArtifactSlot4" parent="InventoryTabContainer/ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
-layout_mode = 2
-metadata/id = 4
-
-[node name="ArtifactSlot5" parent="InventoryTabContainer/ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
-layout_mode = 2
-metadata/id = 5
+metadata/slot_type = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0

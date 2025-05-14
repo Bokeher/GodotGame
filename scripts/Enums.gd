@@ -8,5 +8,5 @@ enum Classes {
 }
 
 enum InventoryType {
-	ARTIFACT
+	ARTIFACT = 1
 }

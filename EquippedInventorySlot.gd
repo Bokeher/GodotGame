@@ -1,7 +1,17 @@
 extends Control
 
 @onready var this_slot_id: int = $".".get_meta("id")
-@onready var this_slot_type: String = $".".get_meta("slot_type")
+@onready var this_slot_type: int = $".".get_meta("slot_type")
+
+func _ready() -> void:
+	if this_slot_id == -1 or this_slot_type == -1:
+		print("WARNING! Default equipped inventory slot")
+	
+	var texture_path: String = "res://assets/sprites/unknown.png"
+	if this_slot_type == Enums.InventoryType.ARTIFACT:
+		texture_path = "res://assets/sprites/artifact_slot.png"
+	
+	$SlotTexture.texture_normal = load(texture_path)
 
 func focus() -> void:
 	$Background.color = Color(0.30, 0.30, 0.30)
