@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw05nt0shkixx"]
 
-[ext_resource type="Script" uid="uid://byu1gk2k5p2ak" path="res://EquippedInventorySlot.gd" id="1_ho61k"]
+[ext_resource type="Script" uid="uid://byu1gk2k5p2ak" path="res://scripts/inventory/EquippedInventorySlot.gd" id="1_ho61k"]
 [ext_resource type="Texture2D" uid="uid://cjc3xpixdrpj" path="res://assets/sprites/artifact_slot.png" id="2_jxda5"]
 
 [node name="EquippedInventorySlot" type="Control"]
