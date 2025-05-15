@@ -48,9 +48,3 @@ offset_bottom = 247.0
 layout_mode = 2
 theme = ExtResource("2_d6i37")
 text = "Empty inventory"
-
-[node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 532.0
-offset_bottom = 464.0

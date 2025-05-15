@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw05nt0shkixx"]
 
 [ext_resource type="Script" uid="uid://byu1gk2k5p2ak" path="res://scripts/inventory/EquippedInventorySlot.gd" id="1_ho61k"]
-[ext_resource type="Texture2D" uid="uid://cjc3xpixdrpj" path="res://assets/sprites/artifact_slot.png" id="2_jxda5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_02ahe"]
+load_path = "res://.godot/imported/artifact_slot.png-0062c40695d8c4060d0c32f6c3c26686.ctex"
 
 [node name="EquippedInventorySlot" type="Control"]
 custom_minimum_size = Vector2(72, 72)
@@ -29,7 +31,7 @@ custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
 offset_right = 72.0
 offset_bottom = 72.0
-texture_normal = ExtResource("2_jxda5")
+texture_normal = SubResource("CompressedTexture2D_02ahe")
 stretch_mode = 3
 
 [connection signal="pressed" from="SlotTexture" to="." method="_on_slot_texture_pressed"]
