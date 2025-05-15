@@ -14,9 +14,11 @@ func _ready() -> void:
 	$SlotTexture.texture_normal = load(texture_path)
 
 func focus() -> void:
+	$Border.color = Color(0.38, 0.38, 0.38)
 	$Background.color = Color(0.30, 0.30, 0.30)
 
 func unfocus() -> void:
+	$Border.color = Color(0.30, 0.30, 0.30)
 	$Background.color = Color(0.21, 0.21, 0.21)
 
 func _on_slot_texture_pressed() -> void:
