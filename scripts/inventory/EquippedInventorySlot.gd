@@ -10,7 +10,9 @@ func _ready() -> void:
 	var texture_path: String = "res://assets/sprites/unknown.png"
 	if this_slot_type == Enums.InventoryType.ARTIFACT:
 		texture_path = "res://assets/sprites/artifact_slot.png"
-	
+	elif this_slot_type == Enums.InventoryType.CHEST:
+		texture_path = "res://assets/sprites/chest_slot.png"
+		
 	$SlotTexture.texture_normal = load(texture_path)
 
 func focus() -> void:
