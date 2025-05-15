@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwsu6nrlvug6f"
-path="res://.godot/imported/cursor_kensei.png-9d4ada4a7a3047733b2efabc4f9a39c2.ctex"
+uid="uid://bjnljomf68nfd"
+path="res://.godot/imported/cursor_lucksworn.png-7a13231fa5b67ae84fa778156dd7adcf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cursor_kensei.png"
-dest_files=["res://.godot/imported/cursor_kensei.png-9d4ada4a7a3047733b2efabc4f9a39c2.ctex"]
+source_file="res://assets/sprites/cursors/cursor_lucksworn.png"
+dest_files=["res://.godot/imported/cursor_lucksworn.png-7a13231fa5b67ae84fa778156dd7adcf.ctex"]
 
 [params]
 

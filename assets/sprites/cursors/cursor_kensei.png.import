@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qt1prw712ybr"
-path="res://.godot/imported/cursor_warrior.png-b599cc53eb9f32b301126ac17fa75694.ctex"
+uid="uid://dwsu6nrlvug6f"
+path="res://.godot/imported/cursor_kensei.png-93706d310ba63e75994b148acae4acee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cursor_warrior.png"
-dest_files=["res://.godot/imported/cursor_warrior.png-b599cc53eb9f32b301126ac17fa75694.ctex"]
+source_file="res://assets/sprites/cursors/cursor_kensei.png"
+dest_files=["res://.godot/imported/cursor_kensei.png-93706d310ba63e75994b148acae4acee.ctex"]
 
 [params]
 

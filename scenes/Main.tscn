@@ -28,7 +28,7 @@
 [ext_resource type="Script" uid="uid://dlfvmvn6lexmg" path="res://scripts/skills/ResetSkillsButton.gd" id="23_imyjl"]
 [ext_resource type="PackedScene" uid="uid://ivxjfj7k3lt1" path="res://scenes/Pets.tscn" id="26_lyvra"]
 [ext_resource type="PackedScene" uid="uid://bw2cwrtnmxrcv" path="res://scenes/bestiary/Bestiary.tscn" id="28_oy4c8"]
-[ext_resource type="Texture2D" uid="uid://qt1prw712ybr" path="res://assets/sprites/cursor_warrior.png" id="29_pyqnk"]
+[ext_resource type="Texture2D" uid="uid://qt1prw712ybr" path="res://assets/sprites/cursors/cursor_warrior.png" id="29_pyqnk"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0

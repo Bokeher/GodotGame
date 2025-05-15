@@ -7,10 +7,10 @@ extends TextureButton
 var is_cursor_rotating = false  
 
 var cursor_paths = [
-	"res://assets/sprites/cursor_warrior.png",
-	"res://assets/sprites/cursor_umbral_reaver.png",
-	"res://assets/sprites/cursor_lucksworn.png",
-	"res://assets/sprites/cursor_kensei.png"
+	"res://assets/sprites/cursors/cursor_warrior.png",
+	"res://assets/sprites/cursors/cursor_umbral_reaver.png",
+	"res://assets/sprites/cursors/cursor_lucksworn.png",
+	"res://assets/sprites/cursors/cursor_kensei.png"
 ]
 
 func _ready() -> void:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://0x6b4dwek88a"]
 
-[ext_resource type="Texture2D" uid="uid://by0qjwgmrjcmm" path="res://assets/sprites/items/stick.png" id="1_mawy3"]
+[ext_resource type="Texture2D" uid="uid://c6bbu3bcbvhvn" path="res://assets/sprites/items/slots/artifact_slot.png" id="1_fcj7p"]
 
 [node name="BestiaryLootItem" type="Control"]
 custom_minimum_size = Vector2(64, 64)
@@ -17,4 +17,4 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
-texture = ExtResource("1_mawy3")
+texture = ExtResource("1_fcj7p")

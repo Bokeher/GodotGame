@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by0qjwgmrjcmm"
-path="res://.godot/imported/stick.png-837c2087166c1bc70825e59fd7ce4faa.ctex"
+uid="uid://qt1prw712ybr"
+path="res://.godot/imported/cursor_warrior.png-78008603ebf4872689794baf80e83385.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/stick.png"
-dest_files=["res://.godot/imported/stick.png-837c2087166c1bc70825e59fd7ce4faa.ctex"]
+source_file="res://assets/sprites/cursors/cursor_warrior.png"
+dest_files=["res://.godot/imported/cursor_warrior.png-78008603ebf4872689794baf80e83385.ctex"]
 
 [params]
 

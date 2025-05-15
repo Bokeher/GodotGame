@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjnljomf68nfd"
-path="res://.godot/imported/cursor_lucksworn.png-b7fb64cadd9c9f08fa4a74355f9a2e4c.ctex"
+uid="uid://214vusqb156k"
+path="res://.godot/imported/chest_slot.png-42e3d40ff9c1715cdc46fc26e958ec39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cursor_lucksworn.png"
-dest_files=["res://.godot/imported/cursor_lucksworn.png-b7fb64cadd9c9f08fa4a74355f9a2e4c.ctex"]
+source_file="res://assets/sprites/items/slots/chest_slot.png"
+dest_files=["res://.godot/imported/chest_slot.png-42e3d40ff9c1715cdc46fc26e958ec39.ctex"]
 
 [params]
 

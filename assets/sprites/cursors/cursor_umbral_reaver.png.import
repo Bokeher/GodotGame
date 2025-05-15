@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckvocl2y6diqs"
-path="res://.godot/imported/cursor_umbral_reaver.png-c97ce68d57f2ce867c4b8a832df58988.ctex"
+path="res://.godot/imported/cursor_umbral_reaver.png-9517f6a25fc9b217b426c01f92b21912.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cursor_umbral_reaver.png"
-dest_files=["res://.godot/imported/cursor_umbral_reaver.png-c97ce68d57f2ce867c4b8a832df58988.ctex"]
+source_file="res://assets/sprites/cursors/cursor_umbral_reaver.png"
+dest_files=["res://.godot/imported/cursor_umbral_reaver.png-9517f6a25fc9b217b426c01f92b21912.ctex"]
 
 [params]
 
