@@ -49,7 +49,14 @@ offset_top = 197.0
 offset_right = 196.0
 offset_bottom = 237.0
 
-[node name="EmptyInventoryInfo" type="Label" parent="ArtifactsPanel/VBoxContainer"]
+[node name="ItemContainer" type="HBoxContainer" parent="ArtifactsPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 125.0
+offset_right = 203.0
+offset_bottom = 165.0
+
+[node name="EmptyInventoryInfo" type="Label" parent="ArtifactsPanel/ItemContainer"]
 layout_mode = 2
 theme = ExtResource("2_d6i37")
 text = "Empty inventory"
