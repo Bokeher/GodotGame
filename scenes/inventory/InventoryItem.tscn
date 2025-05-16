@@ -1,42 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvc2aoxhaw818"]
+[gd_scene load_steps=2 format=3 uid="uid://ippb0gmlm381"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_wcudp"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_al7tc"]
+load_path = "res://.godot/imported/artifact_slot.png-0062c40695d8c4060d0c32f6c3c26686.ctex"
 
 [node name="InventoryItem" type="Control"]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1080.0
+offset_bottom = -576.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ItemBackground" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(540, 70)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.164706, 0.219608, 0.294118, 1)
+[node name="Border" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(72, 72)
+offset_right = 72.0
+offset_bottom = 72.0
+color = Color(0.235294, 0.235294, 0.235294, 1)
 
-[node name="ItemName" type="Label" parent="ItemBackground"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 89.0
-offset_bottom = 28.0
-text = "Item name"
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(68, 68)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 70.0
+offset_bottom = 70.0
+color = Color(0.21, 0.21, 0.21, 1)
 
-[node name="ItemDescription" type="Label" parent="ItemBackground"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 35.0
-offset_right = 134.0
-offset_bottom = 58.0
-text = "Item Description"
+[node name="SlotTexture" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(72, 72)
+offset_right = 72.0
+offset_bottom = 72.0
+texture_normal = SubResource("CompressedTexture2D_al7tc")
+stretch_mode = 3
 
-[node name="ItemImage" type="TextureRect" parent="ItemBackground"]
-layout_mode = 0
-offset_left = 468.0
-offset_top = 8.0
-offset_right = 533.0
-offset_bottom = 65.0
-texture = SubResource("CanvasTexture_wcudp")
+[node name="Count" type="Label" parent="."]
+layout_mode = 1
+offset_left = 29.0
+offset_top = 47.0
+offset_right = 69.0
+offset_bottom = 70.0
+text = "0"
+horizontal_alignment = 2

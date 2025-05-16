@@ -2,30 +2,32 @@ extends Control
 
 @onready var childs = $ArtifactsPanel/ArtifactSlots.get_children()
 var last_selected_artifact_slot_id = -1
+const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
 
 func _ready() -> void:
 	update_inventory()
 
 func update_inventory() -> void:
 	# Remove all children
-	for child in $VBoxContainer.get_children():
+	for child in $ArtifactsPanel/VBoxContainer.get_children():
 		if(child.text == "Empty inventory"): continue
 		
 		$VBoxContainer.remove_child(child)
 	
 	# Add items
 	for item_id in Global.inventory:
-		var label = Label.new()
+		var item_scene = inventory_item_scene.instantiate()
 		var item_name = Global.items[item_id - 1].name
 		
-		label.text = item_name + ": " + str(Global.inventory[item_id])
-		$VBoxContainer.add_child(label)
+		item_scene.get_node("./Count")
+		
+		$ArtifactsPanel/VBoxContainer.add_child(item_scene)
 	
 	var isEmptyInventoryInfoShown: bool = true
-	if($VBoxContainer.get_children().size() > 1):
+	if($ArtifactsPanel/VBoxContainer.get_children().size() > 1):
 		isEmptyInventoryInfoShown = false
 		
-	$VBoxContainer/EmptyInventoryInfo.visible = isEmptyInventoryInfoShown
+	$ArtifactsPanel/VBoxContainer/EmptyInventoryInfo.visible = isEmptyInventoryInfoShown
 
 func select_artifact_slot(selected_slot_id: int) -> void:
 	if last_selected_artifact_slot_id == selected_slot_id:
