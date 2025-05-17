@@ -17,8 +17,9 @@ func update_inventory() -> void:
 	for item_id in Global.inventory:
 		var item_scene = inventory_item_scene.instantiate()
 		var item_name = Global.items[item_id - 1].name
+		var count = Global.inventory[item_id]
 		
-		item_scene.get_node("./Count")
+		item_scene.get_node("Count").text = str(count)
 		
 		ItemContainer.add_child(item_scene)
 
