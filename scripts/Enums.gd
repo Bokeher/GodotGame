@@ -8,6 +8,7 @@ enum Classes {
 }
 
 enum InventoryType {
+	NONE = 0,
 	ARTIFACT = 1,
 	CHEST = 2
 }

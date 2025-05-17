@@ -3,167 +3,167 @@
 		{
 			"id": 1,
 			"name": "Ring of Minor Haste",
-			"type": "artifact",
+			"type": 1,
 			"description": "Increase attack speed by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 2,
 			"name": "Ring of Duality",
-			"type": "artifact",
+			"type": 1,
 			"description": "Reduce damage by 10%, but your every second hit has a 25% chance to hit twice",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 3,
 			"name": "Kensei's Ancient Sheath",
-			"type": "artifact",
+			"type": 1,
 			"description": "Only usable by -Kensei-. Increase **Sword's Path** damage by 1%. Increase attack speed by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 4,
 			"name": "Warrior's Ancient Amulet",
-			"type": "artifact",
+			"type": 1,
 			"description": "Only usable by -Warrior-. Reduce **Heavy Blow** penalty by 5%. Increase damage by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 5,
 			"name": "Umbral Reaver's Ancient Dagger",
-			"type": "artifact",
+			"type": 1,
 			"description": "Only usable by -Umbral Reaver-. Reduce **Poisoned Blade** penalty by 5%. Increase dodge chance by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 6,
 			"name": "Lucksworn's Ancient Coin",
-			"type": "artifact",
+			"type": 1,
 			"description": "Only usable by -Lucksworn-. Reduce **Gambler's Fate** penalty by 1%. Increase loot chance by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 7,
 			"name": "Ring of Sacrifice",
-			"type": "artifact",
+			"type": 1,
 			"description": "Decrease health by 20%. Increase damage by 10%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 8,
 			"name": "Ring of Balance",
-			"type": "artifact",
+			"type": 1,
 			"description": "Increase damage by 5%. Increase health by 5%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 9,
 			"name": "Ring of Major Haste",
-			"type": "artifact",
+			"type": 1,
 			"description": "Increase attack speed by 10%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 10,
 			"name": "Ring of Major Sacrifice",
-			"type": "artifact",
+			"type": 1,
 			"description": "Decrease health by 50%. Increase damage by 25%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 11,
 			"name": "Faulty Dagger",
-			"type": "artifact",
+			"type": 1,
 			"description": "0.1% to deal 10x damage, 1% do deal 2x damage, 10% to deal 1.5x damage",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 12,
 			"name": "Ring of the Blood God",
-			"type": "artifact",
+			"type": 1,
 			"description": "Dealing damage do enemy below 25% heals you for 1% of max health",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 13,
 			"name": "Bloody Ring of the Blood God",
-			"type": "artifact",
+			"type": 1,
 			"description": "Dealing damage do enemy below 25% heals you for 3% of max health",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 14,
 			"name": "Faultier Faulty Dagger",
-			"type": "artifact",
+			"type": 1,
 			"description": "0.1% to deal 25x damage, 10% to deal 1.25x damage",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 15,
 			"name": "Giant Slayer's Emblem",
-			"type": "artifact",
+			"type": 1,
 			"description": "Deal 10% more damage to enemies above 50% health",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 16,
 			"name": "Ring of the Undying",
-			"type": "artifact",
+			"type": 1,
 			"description": "When you die, you flee the combat and destroy this ring",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 17,
 			"name": "Ring of the Mad God",
-			"type": "artifact",
+			"type": 1,
 			"description": "Increase damage by 25%",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 18,
 			"name": "Last Stand Banner",
-			"type": "artifact",
+			"type": 1,
 			"description": "When at 15% hp become damage immune for 3 seconds",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 19,
 			"name": "Blessed Last Stand Banner",
-			"type": "artifact",
+			"type": 1,
 			"description": "When at 20% hp become damage immune for 3 seconds. Increase damage dealt by 10% when immune",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 20,
 			"name": "Vampire's Fang",
-			"type": "artifact",
+			"type": 1,
 			"description": "With each hit heal by 5% of damage dealt",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 21,
-			"type": "artifact",
+			"type": 1,
 			"name": "Vampire's Fang of Greater Vampirism",
 			"description": "With each hit heal by 10% of damage dealt",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 22,
-			"type": "artifact",
+			"type": 1,
 			"name": "Ring of Minor Damage",
 			"description": "Increase damage dealt by 1",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 23,
-			"type": "artifact",
+			"type": 1,
 			"name": "Ring of Damage",
 			"description": "Increase damage dealt by 2",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 24,
-			"type": "artifact",
+			"type": 1,
 			"name": "Ring of Major Damage",
 			"description": "Increase damage dealt by 3",
 			"image_path": "res://assets/sprites/unknown.png"
