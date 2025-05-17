@@ -1,9 +1,9 @@
 extends Control
 
 @onready var childs = $ArtifactsPanel/ArtifactSlots.get_children()
+@onready var ItemContainer = $ArtifactsPanel/ItemContainer
 var last_selected_artifact_slot_id = -1
 const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
-@onready var ItemContainer = $ArtifactsPanel/ItemContainer
 
 func _ready() -> void:
 	update_inventory()
@@ -11,8 +11,6 @@ func _ready() -> void:
 func update_inventory() -> void:
 	# Remove all children
 	for child in ItemContainer.get_children():
-		if(child.text == "Empty inventory"): continue
-		
 		ItemContainer.remove_child(child)
 	
 	# Add items
@@ -23,12 +21,6 @@ func update_inventory() -> void:
 		item_scene.get_node("./Count")
 		
 		ItemContainer.add_child(item_scene)
-	
-	var isEmptyInventoryInfoShown: bool = true
-	if(ItemContainer.get_children().size() > 1):
-		isEmptyInventoryInfoShown = false
-		
-	ItemContainer.get_node("EmptyInventoryInfo").visible = isEmptyInventoryInfoShown
 
 func select_artifact_slot(selected_slot_id: int) -> void:
 	if last_selected_artifact_slot_id == selected_slot_id:

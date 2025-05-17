@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://iohn0aebg218"]
+[gd_scene load_steps=3 format=3 uid="uid://iohn0aebg218"]
 
 [ext_resource type="Script" uid="uid://do3kjdro823wu" path="res://scripts/inventory/Inventory.gd" id="1_gluma"]
 [ext_resource type="PackedScene" uid="uid://bw05nt0shkixx" path="res://scenes/inventory/EquippedInventorySlot.tscn" id="2_78qb0"]
-[ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="2_d6i37"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -55,8 +54,3 @@ offset_left = 12.0
 offset_top = 125.0
 offset_right = 203.0
 offset_bottom = 165.0
-
-[node name="EmptyInventoryInfo" type="Label" parent="ArtifactsPanel/ItemContainer"]
-layout_mode = 2
-theme = ExtResource("2_d6i37")
-text = "Empty inventory"
