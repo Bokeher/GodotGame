@@ -15,10 +15,16 @@ func update_inventory() -> void:
 	
 	# Add items
 	for item_id in Global.inventory:
-		var item_scene = inventory_item_scene.instantiate()
-		var item_name = Global.items[item_id - 1].name
+		var item = Global.items[item_id - 1]
+		var type = item.type
+		
+		# Skip this iteration if item type is different than filter
+		if type != Global.inventory_filter or Global.inventory_filter == Enums.InventoryType.NONE:
+			continue
+		
 		var count = Global.inventory[item_id]
 		
+		var item_scene = inventory_item_scene.instantiate()
 		item_scene.get_node("Count").text = str(count)
 		
 		ItemContainer.add_child(item_scene)
