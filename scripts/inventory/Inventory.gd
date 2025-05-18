@@ -30,12 +30,15 @@ func update_inventory() -> void:
 		ItemContainer.add_child(item_scene)
 
 func select_artifact_slot(selected_slot_id: int) -> void:
+	# Clicked the same slot second time [Deselect action]
 	if last_selected_artifact_slot_id == selected_slot_id:
 		last_selected_artifact_slot_id = selected_slot_id
 		selected_slot_id = -1
+		Global.inventory_filter = Enums.InventoryType.NONE
 	
 	#TODO: here handle changing artifacts
 	
+	# Focus / Unfocus if not default value (default value = -1)
 	if selected_slot_id != -1: 
 		childs[selected_slot_id - 1].focus()
 	if last_selected_artifact_slot_id != -1:

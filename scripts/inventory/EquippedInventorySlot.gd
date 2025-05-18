@@ -24,4 +24,6 @@ func unfocus() -> void:
 	$Background.color = Color(0.21, 0.21, 0.21)
 
 func _on_slot_texture_pressed() -> void:
+	Global.inventory_filter = this_slot_type
 	$"../../..".select_artifact_slot(this_slot_id)
+	$"../../..".update_inventory()
