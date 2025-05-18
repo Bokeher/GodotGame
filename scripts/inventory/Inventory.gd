@@ -1,6 +1,6 @@
 extends Control
 
-@onready var childs = $ArtifactsPanel/ArtifactSlots.get_children()
+@onready var children = $ArtifactsPanel/ArtifactSlots.get_children()
 @onready var ItemContainer = $ArtifactsPanel/ItemContainer
 var last_selected_artifact_slot_id = -1
 const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
@@ -40,8 +40,8 @@ func select_artifact_slot(selected_slot_id: int) -> void:
 	
 	# Focus / Unfocus if not default value (default value = -1)
 	if selected_slot_id != -1: 
-		childs[selected_slot_id - 1].focus()
+		children[selected_slot_id - 1].focus()
 	if last_selected_artifact_slot_id != -1:
-		childs[last_selected_artifact_slot_id - 1].unfocus()
+		children[last_selected_artifact_slot_id - 1].unfocus()
 	
 	last_selected_artifact_slot_id = selected_slot_id

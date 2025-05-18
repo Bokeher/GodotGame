@@ -4,8 +4,8 @@ const upgrade_scene = preload("res://scenes/Upgrade.tscn")
 
 func _ready() -> void:
 	# remove placeholder upgrades
-	var childs = $VBoxContainer.get_children()
-	for child in childs:
+	var children = $VBoxContainer.get_children()
+	for child in children:
 		$VBoxContainer.remove_child(child)
 	
 	for upgrade in Global.upgrades:
