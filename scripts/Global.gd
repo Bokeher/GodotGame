@@ -30,6 +30,7 @@ var BASE_ATTACK_INTERVAL: float = 0.5
 var attack_interval: float = .5
 
 var inventory_filter: int = Enums.InventoryType.NONE
+var selected_equip_slot_id: int = -1
 
 var inventory: Dictionary = {}
 # Key is id of item, value is amount
