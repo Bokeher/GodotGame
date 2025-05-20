@@ -152,21 +152,21 @@
 			"type": 1,
 			"name": "Ring of Minor Damage",
 			"description": "Increase damage dealt by 1",
-			"image_path": "res://assets/sprites/unknown.png"
+			"image_path": "res://assets/sprites/items/artifacts/damage_ring_1.png"
 		},
 		{
 			"id": 23,
 			"type": 1,
 			"name": "Ring of Damage",
 			"description": "Increase damage dealt by 2",
-			"image_path": "res://assets/sprites/unknown.png"
+			"image_path": "res://assets/sprites/items/artifacts/damage_ring_2.png"
 		},
 		{
 			"id": 24,
 			"type": 1,
 			"name": "Ring of Major Damage",
 			"description": "Increase damage dealt by 3",
-			"image_path": "res://assets/sprites/unknown.png"
+			"image_path": "res://assets/sprites/items/artifacts/damage_ring_3.png"
 		}
 	]
 }
