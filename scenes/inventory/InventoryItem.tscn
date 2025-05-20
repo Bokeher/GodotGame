@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ippb0gmlm381"]
 
-[ext_resource type="Script" uid="uid://1qhv8vn11bra" path="res://scenes/inventory/inventory_item.gd" id="1_738ec"]
+[ext_resource type="Script" uid="uid://1qhv8vn11bra" path="res://scripts/inventory/InventoryItem.gd" id="1_738ec"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_al7tc"]
 load_path = "res://.godot/imported/artifact_slot.png-0062c40695d8c4060d0c32f6c3c26686.ctex"
