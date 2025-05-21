@@ -11,11 +11,11 @@
 			"loot_table": [
 				{
 					"item_id": 22,
-					"drop_chance": 0.05
+					"drop_chance": 0.95
 				},
 				{
 					"item_id": 23,
-					"drop_chance": 0.005
+					"drop_chance": 0.2
 				}
 			]
 		},
