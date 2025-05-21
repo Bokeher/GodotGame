@@ -26,13 +26,23 @@ func update():
 		print("WARNING! Default equipped inventory slot")
 	
 	var texture_path: String = "res://assets/sprites/unknown.png"
-	if slot_type == Enums.InventoryType.ARTIFACT:
-		texture_path = "res://assets/sprites/items/slots/artifact_slot.png"
-	elif slot_type == Enums.InventoryType.CHEST:
-		texture_path = "res://assets/sprites/items/slots/chest_slot.png"
+	if selected_item_id == -1:
+		if slot_type == Enums.InventoryType.ARTIFACT:
+			texture_path = "res://assets/sprites/items/slots/artifact_slot.png"
+		elif slot_type == Enums.InventoryType.CHEST:
+			texture_path = "res://assets/sprites/items/slots/chest_slot.png"
+	else:
+		texture_path = Global.items[selected_item_id - 1].image_path
 	
 	$SlotTexture.texture_normal = load(texture_path)
 
 func change_item(item_id) -> void:
+	# Give back previously equipped item
+	if selected_item_id != -1:
+		Global.inventory[selected_item_id] += 1
+	
 	selected_item_id = item_id
+	Global.inventory[item_id] -= 1
+	
+	$"../../../".update_inventory()
 	update()

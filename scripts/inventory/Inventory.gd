@@ -23,6 +23,8 @@ func update_inventory() -> void:
 			continue
 		
 		var count = Global.inventory[item_id]
+		if count <= 0:
+			continue
 		
 		var item_scene = inventory_item_scene.instantiate()
 		item_scene.set_meta("item_id", item.id)
