@@ -11,3 +11,7 @@ func _on_slot_texture_pressed() -> void:
 	var children = $"../../../ArtifactsPanel/ArtifactSlots".get_children()
 	var equipSlot = children[Global.selected_equip_slot_id - 1]
 	equipSlot.change_item(item_id)
+
+func set_count(count: int) -> void:
+	$Count.visible = count > 1
+	$Count.text = str(count)

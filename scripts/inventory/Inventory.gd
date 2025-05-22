@@ -28,7 +28,7 @@ func update_inventory() -> void:
 		
 		var item_scene = inventory_item_scene.instantiate()
 		item_scene.set_meta("item_id", item.id)
-		item_scene.get_node("Count").text = str(count)
+		item_scene.set_count(count)
 		
 		ItemContainer.add_child(item_scene)
 

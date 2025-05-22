@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ippb0gmlm381"]
+[gd_scene load_steps=2 format=3 uid="uid://ippb0gmlm381"]
 
 [ext_resource type="Script" uid="uid://1qhv8vn11bra" path="res://scripts/inventory/InventoryItem.gd" id="1_738ec"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_al7tc"]
-load_path = "res://.godot/imported/artifact_slot.png-0062c40695d8c4060d0c32f6c3c26686.ctex"
 
 [node name="InventoryItem" type="Control"]
 custom_minimum_size = Vector2(72, 72)
@@ -40,7 +37,6 @@ custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
 offset_right = 72.0
 offset_bottom = 72.0
-texture_normal = SubResource("CompressedTexture2D_al7tc")
 stretch_mode = 3
 
 [node name="Count" type="Label" parent="."]
