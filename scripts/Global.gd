@@ -35,6 +35,9 @@ var selected_equip_slot_id: int = -1
 var inventory: Dictionary = {}
 # Key is id of item, value is amount
 
+# Holds ids of equipped items
+var equipped_items: Array[int] = [22]
+
 var enemies: Array[Enemy] = []
 var stages = []
 var upgrades: Array[Upgrade] = []

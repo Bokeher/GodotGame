@@ -5,6 +5,12 @@ extends Control
 @onready var selected_item_id: int = $".".get_meta("selected_item_id")
 
 func _ready() -> void:
+	if !Global.equipped_items.is_empty():
+		for item_id in Global.equipped_items:
+			if Global.items[item_id].type == slot_type:
+				#TODO: Fix >1 slot here
+				change_item(item_id)
+	
 	update()
 
 func focus() -> void:
@@ -39,10 +45,13 @@ func update():
 func change_item(item_id) -> void:
 	# Give back previously equipped item
 	if selected_item_id != -1:
+		# TODO: potential problems with 'erase()' since it erases first occurance
+		Global.equipped_items.erase(selected_item_id)
 		Global.inventory[selected_item_id] += 1
 	
 	selected_item_id = item_id
 	Global.inventory[item_id] -= 1
+	Global.equipped_items.append(item_id)
 	
-	$"../../../".update_inventory()
+	#$"../../../".update_inventory()
 	update()
