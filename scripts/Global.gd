@@ -91,6 +91,7 @@ func read_savefile() -> void:
 	inventory = data[4]
 	var pet_dict = data[5]
 	var bestiary_dict = data[6]
+	equipped_items = data[7]
 	
 	# Convert dictionaries to objects
 	player_stats = Player.from_dict(player_stats_dict) if player_stats_dict else null
@@ -141,7 +142,8 @@ func save_savefile() -> void:
 		upgrdes_dicts,
 		inventory,
 		pet_dict,
-		bestiary_dict
+		bestiary_dict,
+		equipped_items
 	])
 	
 	file.close()
