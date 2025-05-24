@@ -10,6 +10,9 @@ func _ready() -> void:
 
 func update_inventory() -> void:
 	# Remove all children
+	if !ItemContainer:
+		return
+	
 	for child in ItemContainer.get_children():
 		ItemContainer.remove_child(child)
 	

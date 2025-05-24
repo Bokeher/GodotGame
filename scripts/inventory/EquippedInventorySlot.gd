@@ -5,13 +5,12 @@ extends Control
 @onready var selected_item_id: int = $".".get_meta("selected_item_id")
 
 func _ready() -> void:
-	if !Global.equipped_items.is_empty():
-		for item_id in Global.equipped_items:
-			if Global.items[item_id].type == slot_type:
-				#TODO: Fix >1 slot here
-				change_item(item_id)
-	
 	update()
+	
+	if Global.equipped_items.is_empty():
+		return
+	
+	change_item(Global.equipped_items[slot_id - 1])
 
 func focus() -> void:
 	$Border.color = Color(0.38, 0.38, 0.38)
@@ -43,15 +42,21 @@ func update():
 	$SlotTexture.texture_normal = load(texture_path)
 
 func change_item(item_id) -> void:
+	if Global.inventory.get(item_id, 0) < 1:
+		return
+	
 	# Give back previously equipped item
 	if selected_item_id != -1:
-		# TODO: potential problems with 'erase()' since it erases first occurance
-		Global.equipped_items.erase(selected_item_id)
 		Global.inventory[selected_item_id] += 1
+		var index = Global.equipped_items.find(selected_item_id)
+		Global.equipped_items[index] = -1
+	
+	print(item_id)
+	# Equip item
+	Global.inventory[item_id] -= 1
+	Global.equipped_items[slot_id - 1] = item_id
 	
 	selected_item_id = item_id
-	Global.inventory[item_id] -= 1
-	Global.equipped_items.append(item_id)
 	
-	#$"../../../".update_inventory()
+	$"../../../".update_inventory()
 	update()
