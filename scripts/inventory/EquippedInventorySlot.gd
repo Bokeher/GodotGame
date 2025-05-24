@@ -5,12 +5,13 @@ extends Control
 @onready var selected_item_id: int = $".".get_meta("selected_item_id")
 
 func _ready() -> void:
-	update()
+	update() # Update to show empty slot textures
 	
 	if Global.equipped_items.is_empty():
 		return
 	
-	change_item(Global.equipped_items[slot_id - 1])
+	selected_item_id = Global.equipped_items[slot_id - 1]
+	update()
 
 func focus() -> void:
 	$Border.color = Color(0.38, 0.38, 0.38)
@@ -51,7 +52,6 @@ func change_item(item_id) -> void:
 		var index = Global.equipped_items.find(selected_item_id)
 		Global.equipped_items[index] = -1
 	
-	print(item_id)
 	# Equip item
 	Global.inventory[item_id] -= 1
 	Global.equipped_items[slot_id - 1] = item_id
