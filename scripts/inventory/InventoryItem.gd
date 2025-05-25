@@ -5,7 +5,9 @@ extends Control
 @onready var item: Item = Global.items[item_id - 1]
 
 func _ready() -> void:
+	# If this is empty slot used for unequipping
 	if item_id == -1:
+		# TODO: replace this texture
 		$SlotTexture.texture_normal = load("res://assets/sprites/unknown.png")
 		set_count(0)
 		return
