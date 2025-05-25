@@ -5,6 +5,11 @@ extends Control
 @onready var item: Item = Global.items[item_id - 1]
 
 func _ready() -> void:
+	if item_id == -1:
+		$SlotTexture.texture_normal = load("res://assets/sprites/unknown.png")
+		set_count(0)
+		return
+	
 	$SlotTexture.texture_normal = load(item.image_path)
 
 func _on_slot_texture_pressed() -> void:

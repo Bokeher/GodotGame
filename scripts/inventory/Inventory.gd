@@ -9,12 +9,18 @@ func _ready() -> void:
 	update_inventory()
 
 func update_inventory() -> void:
-	# Remove all children
-	if !ItemContainer:
+	if Global.inventory.is_empty() or !ItemContainer:
 		return
 	
+	# Remove all children
 	for child in ItemContainer.get_children():
 		ItemContainer.remove_child(child)
+	
+	# Add empty slot
+	var empty_item_scene = inventory_item_scene.instantiate()
+	empty_item_scene.set_meta("item_id", -1)
+	ItemContainer.add_child(empty_item_scene)
+	 
 	
 	# Add items
 	for item_id in Global.inventory:

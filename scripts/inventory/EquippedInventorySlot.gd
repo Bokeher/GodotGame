@@ -43,17 +43,17 @@ func update():
 	$SlotTexture.texture_normal = load(texture_path)
 
 func change_item(item_id) -> void:
-	if Global.inventory.get(item_id, 0) < 1:
-		return
-	
-	# Give back previously equipped item
+	# Give back previously equipped item if needed
 	if selected_item_id != -1:
 		Global.inventory[selected_item_id] += 1
 		var index = Global.equipped_items.find(selected_item_id)
 		Global.equipped_items[index] = -1
 	
-	# Equip item
-	Global.inventory[item_id] -= 1
+	# Remove item from equipment unless this is an empty slot used for unequipping
+	if !(item_id == -1 and !Global.inventory.has(item_id)):
+		Global.inventory[item_id] -= 1
+	
+	# Change equipped item on this slot
 	Global.equipped_items[slot_id - 1] = item_id
 	
 	selected_item_id = item_id
