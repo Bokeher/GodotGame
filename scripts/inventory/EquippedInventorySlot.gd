@@ -14,8 +14,8 @@ func _ready() -> void:
 	update()
 
 func focus() -> void:
-	$Border.color = Color(0.38, 0.38, 0.38)
-	$Background.color = Color(0.30, 0.30, 0.30)
+	$Border.color = Color(0.6, 0.6, 0.6)
+	$Background.color = Color(0.3, 0.3, 0.3)
 
 func unfocus() -> void:
 	$Border.color = Color(0.30, 0.30, 0.30)

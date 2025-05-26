@@ -48,8 +48,6 @@ func select_artifact_slot() -> void:
 		Global.selected_equip_slot_id = -1
 		Global.inventory_filter = Enums.InventoryType.NONE
 	
-	#TODO: here handle changing artifacts
-	
 	# Focus / Unfocus if not default value (default value = -1)
 	if Global.selected_equip_slot_id != -1: 
 		children[Global.selected_equip_slot_id - 1].focus()
