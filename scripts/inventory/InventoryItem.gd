@@ -15,7 +15,7 @@ func _ready() -> void:
 	$SlotTexture.texture_normal = load(item.image_path)
 
 func _on_slot_texture_pressed() -> void:
-	var children = $"../../../ArtifactsPanel/ArtifactSlots".get_children()
+	var children = $"../../EquipSlots".get_children()
 	var equipSlot = children[Global.selected_equip_slot_id - 1]
 	equipSlot.change_item(item_id)
 

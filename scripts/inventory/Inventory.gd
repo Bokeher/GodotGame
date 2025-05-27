@@ -1,7 +1,7 @@
 extends Control
 
-@onready var children = $ArtifactsPanel/ArtifactSlots.get_children()
-@onready var ItemContainer = $ArtifactsPanel/ItemContainer
+@onready var children = $EquipSlots.get_children()
+@onready var ItemContainer = $ItemContainer
 var last_selected_artifact_slot_id = -1
 const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
 
@@ -57,7 +57,7 @@ func select_artifact_slot() -> void:
 	last_selected_artifact_slot_id = Global.selected_equip_slot_id
 
 func _on_unequip_all_button_pressed() -> void:
-	for equip_slot in $ArtifactsPanel/ArtifactSlots.get_children():
+	for equip_slot in $EquipSlots.get_children():
 		equip_slot.change_item(-1)
 	
 	update_inventory()

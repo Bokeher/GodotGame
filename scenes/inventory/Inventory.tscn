@@ -12,55 +12,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gluma")
 
-[node name="ArtifactsPanel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 560.0
-offset_bottom = 605.0
-
-[node name="ArtifactSlots" type="HBoxContainer" parent="ArtifactsPanel"]
+[node name="EquipSlots" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 386.0
-offset_bottom = 82.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 396.0
+offset_bottom = 92.0
 
-[node name="EquippedArtifactSlot1" parent="ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
+[node name="ArtifactEquipSlot1" parent="EquipSlots" instance=ExtResource("2_78qb0")]
 layout_mode = 2
 metadata/id = 1
 metadata/slot_type = 1
 
-[node name="EquippedArtifactSlot2" parent="ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
+[node name="ArtifactEquipSlot2" parent="EquipSlots" instance=ExtResource("2_78qb0")]
 layout_mode = 2
 metadata/id = 2
 metadata/slot_type = 1
 
-[node name="EquippedChestSlot" parent="ArtifactsPanel/ArtifactSlots" instance=ExtResource("2_78qb0")]
+[node name="ChestEquipSlot" parent="EquipSlots" instance=ExtResource("2_78qb0")]
 layout_mode = 2
 metadata/id = 3
 metadata/slot_type = 2
 
-[node name="HSeparator" type="HSeparator" parent="ArtifactsPanel"]
+[node name="HSeparator" type="HSeparator" parent="."]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 94.0
-offset_right = 540.0
-offset_bottom = 98.0
+offset_left = 21.0
+offset_top = 104.0
+offset_right = 550.0
+offset_bottom = 108.0
 
-[node name="ItemContainer" type="HBoxContainer" parent="ArtifactsPanel"]
+[node name="ItemContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 110.0
-offset_right = 203.0
-offset_bottom = 150.0
+offset_left = 22.0
+offset_top = 120.0
+offset_right = 213.0
+offset_bottom = 160.0
 
-[node name="UnequipAllButton" type="Button" parent="ArtifactsPanel"]
+[node name="UnequipAllButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 429.0
-offset_top = 25.0
-offset_right = 541.0
-offset_bottom = 71.0
+offset_left = 439.0
+offset_top = 35.0
+offset_right = 551.0
+offset_bottom = 81.0
 text = "Unequip all"
 
-[connection signal="pressed" from="ArtifactsPanel/UnequipAllButton" to="." method="_on_unequip_all_button_pressed"]
+[connection signal="pressed" from="UnequipAllButton" to="." method="_on_unequip_all_button_pressed"]

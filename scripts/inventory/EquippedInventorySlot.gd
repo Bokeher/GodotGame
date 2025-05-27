@@ -24,8 +24,8 @@ func unfocus() -> void:
 func _on_slot_texture_pressed() -> void:
 	Global.inventory_filter = slot_type
 	Global.selected_equip_slot_id = slot_id
-	$"../../..".select_artifact_slot()
-	$"../../..".update_inventory()
+	$"../..".select_artifact_slot()
+	$"../..".update_inventory()
 
 func update():
 	if slot_id == -1 or slot_type == -1:
@@ -58,5 +58,5 @@ func change_item(item_id) -> void:
 	
 	selected_item_id = item_id
 	
-	$"../../../".update_inventory()
+	$"../../".update_inventory()
 	update()
