@@ -55,3 +55,9 @@ func select_artifact_slot() -> void:
 		children[last_selected_artifact_slot_id - 1].unfocus()
 	
 	last_selected_artifact_slot_id = Global.selected_equip_slot_id
+
+func _on_unequip_all_button_pressed() -> void:
+	for equip_slot in $ArtifactsPanel/ArtifactSlots.get_children():
+		equip_slot.change_item(-1)
+	
+	update_inventory()
