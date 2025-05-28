@@ -10,7 +10,7 @@ var zoom_max = 1.5
 const skillNode_scene = preload("res://scenes/skills/SkillNode.tscn")
 
 func _ready() -> void:
-	var gap: int = 0
+	var gap: int = 20
 	for skill in Global.skills:
 		var new_skill = skillNode_scene.instantiate()
 		new_skill.set_meta("id", skill.id)
