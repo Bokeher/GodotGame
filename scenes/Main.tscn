@@ -1,11 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=29 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" uid="uid://dgo0pke6nqqb8" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" uid="uid://ct7xcpextwtga" path="res://scripts/ui/Reset.gd" id="3_or36x"]
 [ext_resource type="Script" uid="uid://cfdw8t5cl1s2e" path="res://scripts/enemy/Enemy.gd" id="5_unadx"]
 [ext_resource type="Texture2D" uid="uid://2nph3u1tlq2w" path="res://assets/sprites/enemies/slimes/green_slime.png" id="6_jbngq"]
 [ext_resource type="Script" uid="uid://borxcol17xgjb" path="res://scripts/enemy/EnemyBody.gd" id="7_8xw8y"]
-[ext_resource type="Script" uid="uid://dkuudjey55yh8" path="res://scripts/enemy/EnemyName.gd" id="8_xasxh"]
 [ext_resource type="Script" uid="uid://bw0lblkr8i24r" path="res://scripts/enemy/EnemyHealthBar.gd" id="10_hvvn2"]
 [ext_resource type="Script" uid="uid://dug0gecpr5ipt" path="res://scripts/upgrades/GoldAmount.gd" id="10_uekgw"]
 [ext_resource type="AudioStream" uid="uid://o88cpjyc0g0h" path="res://assets/sounds/metal_hit3.mp3" id="11_w2boa"]
@@ -106,7 +105,6 @@ offset_bottom = 25.0
 text = "Slime"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("8_xasxh")
 
 [node name="EnemyAttackTimer" type="Label" parent="Enemy"]
 offset_top = 40.0

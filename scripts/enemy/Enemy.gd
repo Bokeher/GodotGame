@@ -5,10 +5,19 @@ var isVisible: bool = true
 func _ready() -> void:
 	if(Global.curr_enemy): 
 		update_enemy()
+	
+	update_enemy_name()
+
+func update_enemy_name() -> void:
+	if(!Global.curr_enemy):
+		$EnemyName.text = ""
+		return
+	
+	$EnemyName.text = str(Global.curr_enemy.name)
 
 func update_enemy() -> void:
 	$EnemyBody.update_enemy_sprite()
-	$EnemyName.update_enemy_name()
+	update_enemy_name()
 	$HealthBar.update_healthBar()
 
 func hide_enemy() -> void:
