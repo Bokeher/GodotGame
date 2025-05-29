@@ -33,10 +33,7 @@ func update():
 	
 	var texture_path: String = "res://assets/sprites/unknown.png"
 	if selected_item_id == -1:
-		if slot_type == Enums.InventoryType.ARTIFACT:
-			texture_path = "res://assets/sprites/items/slots/artifact_slot.png"
-		elif slot_type == Enums.InventoryType.CHEST:
-			texture_path = "res://assets/sprites/items/slots/chest_slot.png"
+		texture_path = Enums.get_inventory_type_texture(slot_type)
 	else:
 		texture_path = Global.items[selected_item_id - 1].image_path
 	
