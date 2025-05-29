@@ -3,12 +3,15 @@ extends Control
 @onready var slot_id: int = $".".get_meta("id")
 @onready var item_id: int = $".".get_meta("item_id")
 @onready var item: Item = Global.items[item_id - 1]
+@onready var EquipSlots: HBoxContainer = $"../../EquipSlots"
 
 func _ready() -> void:
 	# If this is empty slot used for unequipping
 	if item_id == -1:
-		# TODO: replace this texture
-		$SlotTexture.texture_normal = load("res://assets/sprites/unknown.png")
+		var slot_type: int = EquipSlots.get_child(Global.selected_equip_slot_id - 1).get_meta("slot_type")
+		var texture_path: String = Enums.get_inventory_type_texture(slot_type)
+		
+		$SlotTexture.texture_normal = load(texture_path)
 		set_count(0)
 		return
 	
