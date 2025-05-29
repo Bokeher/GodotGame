@@ -9,7 +9,6 @@ func _ready() -> void:
 func update_enemy() -> void:
 	$EnemyBody.update_enemy_sprite()
 	$EnemyName.update_enemy_name()
-	$HealthBar/EnemyHealth.update_enemy_health()
 	$HealthBar.update_healthBar()
 
 func hide_enemy() -> void:

@@ -25,7 +25,7 @@ func _process(delta) -> void:
 	# Update the ProgressBar value
 	$".".value = progress
 	
-	$EnemyHealth.text = str(floor(progress * filling_time * 10) / 10) + "s"
+	$EnemyHealthLabel.text = str(floor(progress * filling_time * 10) / 10) + "s"
 	
 	# Stop updating once the fill is complete
 	if progress >= 1.0:
@@ -47,9 +47,11 @@ func _process(delta) -> void:
 
 func update_healthBar() -> void:
 	if(!Global.curr_enemy):
+		$EnemyHealthLabel.text = ""
 		return
 	
 	$".".value = Global.curr_enemy.health
+	$EnemyHealthLabel.text = str(Global.curr_enemy.health) + " HP"
 
 func set_max_value_healthBar() -> void:
 	$".".max_value = Global.get_enemy(Global.curr_enemy.id).health
