@@ -16,6 +16,7 @@ script = ExtResource("1_t1asw")
 metadata/id = -1
 
 [node name="Border" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
 scale = Vector2(2, 2)
@@ -23,6 +24,7 @@ color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(68, 68)
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 70.0
