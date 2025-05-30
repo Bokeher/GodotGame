@@ -235,13 +235,6 @@ func read_items() -> void:
 	
 	file.close()
 
-func get_class_path(class_type: int) -> String:
-	if class_type < 0 or class_type >= CLASS_PATHS.size(): 
-		push_error("Provided wrong class_type")
-		return ""
-	
-	return CLASS_PATHS[class_type]
-
 func calc_attack_interval() -> float:
 	var base: float = BASE_ATTACK_INTERVAL
 	var mult: float = 1.00
