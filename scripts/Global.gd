@@ -26,6 +26,7 @@ var player_stats: Player = Player.new()
 var curr_bestiary_enemy_id: int = -1
 var selected_class_id: int = Enums.Classes.WARRIOR
 var BASE_ATTACK_INTERVAL: float = 0.5
+var BASE_ATTACK_DAMAGE: int = 1
 
 var attack_interval: float = .5
 
@@ -158,6 +159,8 @@ func _process(delta) -> void:
 	process_calc_timer += delta
 	if process_calc_timer >= PROCESS_CALC_INTERVAL:
 		attack_interval = calc_attack_interval()
+		player_stats.damage = calc_attack_damage()
+		
 		process_calc_timer = 0.0
 	
 	# Auto save 
@@ -246,5 +249,22 @@ func calc_attack_interval() -> float:
 			elif skill.id == 3 and skill.level > 0: # Bloodrage
 				if player_stats.health < 0.4 * player_stats.max_health:
 					mult -= 0.25
+	
+	return base * mult
+
+func calc_attack_damage() -> int:
+	var base: int = BASE_ATTACK_DAMAGE
+	var mult: int = 1
+	
+	for item_id in equipped_items:
+		if item_id == -1: 
+			continue
+		
+		if item_id == 22: # Attack damage 1
+			base += 1
+		elif item_id == 23: # Attack damage 2
+			base += 2
+		elif item_id == 24: # Attack damage 3
+			base += 3
 	
 	return base * mult
