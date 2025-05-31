@@ -253,8 +253,8 @@ func calc_attack_interval() -> float:
 	return base * mult
 
 func calc_attack_damage() -> int:
-	var base: int = BASE_ATTACK_DAMAGE
-	var mult: int = 1
+	var base: float = BASE_ATTACK_DAMAGE
+	var mult: float = 1.00
 	
 	for item_id in equipped_items:
 		if item_id == -1: 
@@ -267,4 +267,10 @@ func calc_attack_damage() -> int:
 		elif item_id == 24: # Attack damage 3
 			base += 3
 	
-	return base * mult
+	if selected_class_id == Enums.Classes.WARRIOR:
+		for skill in skills:
+			if skill.id == 1 and skill.level > 0:
+				mult += 0.5
+	
+	# TODO: Reconsider this floor by using int()
+	return int(base * mult)
