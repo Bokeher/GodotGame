@@ -1,11 +1,17 @@
 extends Button
 
 func _pressed() -> void:
+	# Has to be above all to then reset the unequip items from inventory 
+	for child in $"../MainTabContainer/InventoryPanel/Inventory/EquipSlots".get_children():
+		child.change_item(-1)
+	
 	Global.player_stats = Player.new()
 	Global.read_upgrades()
 	Global.read_skills()
 	Global.inventory = {}
 	Global.bestiary = Bestiary.new()
+	for item in Global.equipped_items:
+		item = -1
 	
 	# Update upgrades
 	var upgradeVBox = $"../MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer"
@@ -21,6 +27,7 @@ func _pressed() -> void:
 	$"../MainTabContainer/BestiaryPanel/Bestiary".update_bestiary()
 	
 	$"../MainTabContainer/InventoryPanel/Inventory".update_inventory()
+	
 	
 	$"../MainTabContainer/SkillsPanel/SkillPointsAmount".update_skill_points()
 	$"../PlayerHealthBar".update_player_health_bar()

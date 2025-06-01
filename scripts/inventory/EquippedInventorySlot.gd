@@ -40,9 +40,13 @@ func update():
 	$SlotTexture.texture_normal = load(texture_path)
 
 func change_item(item_id) -> void:
+	if !Global.inventory.has(item_id) && item_id != -1:
+		print("WARNING! Somehow tried to equip not owned item")
+		return
+	
 	# Give back previously equipped item if needed
 	if selected_item_id != -1:
-		Global.inventory[selected_item_id] += 1
+		Global.inventory[selected_item_id] = Global.inventory.get(selected_item_id, 0) + 1
 		var index = Global.equipped_items.find(selected_item_id)
 		Global.equipped_items[index] = -1
 	
