@@ -2,7 +2,6 @@ extends Control
 
 @onready var children = $EquipSlots.get_children()
 @onready var ItemContainer = $ItemContainer
-var last_selected_artifact_slot_id = -1
 const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
 
 func _ready() -> void:
@@ -43,18 +42,18 @@ func update_inventory() -> void:
 
 func select_artifact_slot() -> void:
 	# Clicked the same slot second time [Deselect action]
-	if last_selected_artifact_slot_id == Global.selected_equip_slot_id:
-		last_selected_artifact_slot_id = Global.selected_equip_slot_id
+	if Global.last_selected_equip_slot_id == Global.selected_equip_slot_id:
+		Global.last_selected_equip_slot_id = Global.selected_equip_slot_id
 		Global.selected_equip_slot_id = -1
 		Global.inventory_filter = Enums.InventoryType.NONE
 	
 	# Focus / Unfocus if not default value (default value = -1)
-	if Global.selected_equip_slot_id != -1: 
+	if Global.selected_equip_slot_id != -1:
 		children[Global.selected_equip_slot_id - 1].focus()
-	if last_selected_artifact_slot_id != -1:
-		children[last_selected_artifact_slot_id - 1].unfocus()
+	if Global.last_selected_equip_slot_id != -1:
+		children[Global.last_selected_equip_slot_id - 1].unfocus()
 	
-	last_selected_artifact_slot_id = Global.selected_equip_slot_id
+	Global.last_selected_equip_slot_id = Global.selected_equip_slot_id
 
 func _on_unequip_all_button_pressed() -> void:
 	for equip_slot in $EquipSlots.get_children():
