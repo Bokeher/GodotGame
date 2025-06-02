@@ -9,51 +9,44 @@ const PATH_SKILLS: String = "res://assets/jsons/skills.json"
 const PATH_ITEMS: String = "res://assets/jsons/items.json"
 const PATH_CLASSES_DIR: String = "res://assets/jsons/classes/"
 
-const CLASS_PATHS: Array = [
-	PATH_CLASSES_DIR + "warrior.json",
-	PATH_CLASSES_DIR + "umbral_reaver.json",
-	PATH_CLASSES_DIR + "lucksworn.json",
-	PATH_CLASSES_DIR + "kensei.json",
-]
-
 # Used to precisely set postion of Popups based on position of MainTabContainer 
-const MAIN_TAB_CONTAINER_POSITION = Vector2i(580, 0)
+const MAIN_TAB_CONTAINER_POSITION: Vector2i = Vector2i(580, 0)
+
+# TODO: Should be in player stats?
+const BASE_ATTACK_INTERVAL: float = 0.5
+const BASE_ATTACK_DAMAGE: int = 1
+
+# Resources [read from json files]
+var stages = []
+var enemies: Array[Enemy] = []
+var upgrades: Array[Upgrade] = []
+var items: Array[Item] = []
+var skills: Array[Skill] = []
 
 # State vars
+var player_stats: Player = Player.new()
+var attack_interval: float = .5 # TODO: This should be in player stats
+var pet: Pet = Pet.new(-1, "", "", "")
+var bestiary: Bestiary = Bestiary.new()
 var curr_enemy: Enemy
 var curr_stage = null
-var player_stats: Player = Player.new()
+# Key is id of item, value is amount
+var inventory: Dictionary = {} 
+# Holds ids of equipped items [Order based on EquippedSlot ids]
+var equipped_items: Array[int] = [23, 22, 0]
+
+# UI tracking states
 var curr_bestiary_enemy_id: int = -1
 var selected_class_id: int = Enums.Classes.WARRIOR
-var BASE_ATTACK_INTERVAL: float = 0.5
-var BASE_ATTACK_DAMAGE: int = 1
-
-var attack_interval: float = .5
-
 var inventory_filter: int = Enums.InventoryType.NONE
 var selected_equip_slot_id: int = -1
 var last_selected_equip_slot_id: int = -1
 
-var inventory: Dictionary = {}
-# Key is id of item, value is amount
-
-# Holds ids of equipped items [Order based on EquippedSlot ids]
-var equipped_items: Array[int] = [23, 22, 0]
-
-var enemies: Array[Enemy] = []
-var stages = []
-var upgrades: Array[Upgrade] = []
-var skills: Array[Skill] = []
-var items: Array[Item] = []
-var pet: Pet = Pet.new(-1, "", "", "")
-var bestiary: Bestiary = Bestiary.new()
-
 # Process timers
-var process_auto_save_timer: float = 0.0
 const PROCESS_AUTO_SAVE_INTERVAL: float = 5.0
-
-var process_calc_timer: float = 0.0
 const PROCESS_CALC_INTERVAL: float = 0.5
+var process_auto_save_timer: float = 0.0
+var process_calc_timer: float = 0.0
 
 func _ready() -> void:
 	# Read all json files
@@ -210,7 +203,7 @@ func read_upgrades() -> void:
 	file.close()
 
 func read_skills() -> void:
-	var PATH = CLASS_PATHS[selected_class_id]
+	var PATH: String = Enums.get_class_texture(selected_class_id)
 	
 	if(!FileAccess.file_exists(PATH)):
 		push_error("Skills file not found")

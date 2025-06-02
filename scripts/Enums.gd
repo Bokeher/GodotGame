@@ -1,10 +1,10 @@
 extends Node
 
 enum Classes {
-	WARRIOR,
-	UMBRAL_REAVER,
-	LUCKSWORN,
-	KENSEI
+	WARRIOR = 0,
+	UMBRAL_REAVER = 1,
+	LUCKSWORN = 2,
+	KENSEI = 3
 }
 
 enum InventoryType {
