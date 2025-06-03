@@ -47,8 +47,7 @@ func change_item(item_id) -> void:
 	# Give back previously equipped item if needed
 	if selected_item_id != -1:
 		Global.inventory[selected_item_id] = Global.inventory.get(selected_item_id, 0) + 1
-		var index = Global.equipped_items.find(selected_item_id)
-		Global.equipped_items[index] = -1
+		Global.equipped_items[Global.last_selected_equip_slot_id - 1] = -1
 	
 	# Remove item from equipment unless this is an empty slot used for unequipping
 	if !(item_id == -1 and !Global.inventory.has(item_id)):
