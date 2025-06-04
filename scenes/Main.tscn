@@ -148,10 +148,10 @@ text = "Searching"
 script = ExtResource("14_nqjfl")
 
 [node name="PlayerHealthBar" type="ProgressBar" parent="."]
-offset_left = 40.0
-offset_top = 420.0
-offset_right = 240.0
-offset_bottom = 450.0
+offset_left = 373.0
+offset_top = 572.0
+offset_right = 573.0
+offset_bottom = 602.0
 show_percentage = false
 script = ExtResource("14_mb0sc")
 
@@ -164,10 +164,10 @@ vertical_alignment = 1
 script = ExtResource("14_0q1kx")
 
 [node name="PlayerXpBar" type="ProgressBar" parent="."]
-offset_left = 40.0
-offset_top = 460.0
-offset_right = 240.0
-offset_bottom = 490.0
+offset_left = 373.0
+offset_top = 611.0
+offset_right = 573.0
+offset_bottom = 641.0
 show_percentage = false
 script = ExtResource("16_4kpbv")
 
