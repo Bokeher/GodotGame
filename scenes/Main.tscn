@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=27 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" uid="uid://dgo0pke6nqqb8" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" uid="uid://ct7xcpextwtga" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -22,8 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://v6m0je28qwp2" path="res://scenes/Upgrade.tscn" id="19_wq6sx"]
 [ext_resource type="PackedScene" uid="uid://bscctmm55ktp5" path="res://scenes/skills/SkillTree.tscn" id="20_mjx3u"]
 [ext_resource type="PackedScene" uid="uid://iohn0aebg218" path="res://scenes/inventory/Inventory.tscn" id="21_0usff"]
-[ext_resource type="Script" uid="uid://l56l3emoiwwg" path="res://scripts/skills/SkillPointsAmount.gd" id="22_nrpqb"]
-[ext_resource type="Script" uid="uid://dlfvmvn6lexmg" path="res://scripts/skills/ResetSkillsButton.gd" id="23_imyjl"]
 [ext_resource type="PackedScene" uid="uid://ivxjfj7k3lt1" path="res://scenes/Pets.tscn" id="26_lyvra"]
 [ext_resource type="PackedScene" uid="uid://bw2cwrtnmxrcv" path="res://scenes/bestiary/Bestiary.tscn" id="28_oy4c8"]
 [ext_resource type="Texture2D" uid="uid://qt1prw712ybr" path="res://assets/sprites/cursors/cursor_warrior.png" id="29_pyqnk"]
@@ -183,7 +181,7 @@ vertical_alignment = 1
 offset_left = 580.0
 offset_right = 1150.0
 offset_bottom = 646.0
-current_tab = 3
+current_tab = 2
 script = ExtResource("18_wedra")
 
 [node name="UpgradesPanel" type="Panel" parent="MainTabContainer"]
@@ -244,42 +242,16 @@ offset_right = -560.0
 offset_bottom = -603.0
 
 [node name="SkillsPanel" type="Panel" parent="MainTabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
-
-[node name="SkillPointsAmount" type="Label" parent="MainTabContainer/SkillsPanel"]
-layout_mode = 0
-offset_left = 15.0
-offset_right = 156.0
-offset_bottom = 50.0
-theme = ExtResource("18_m8vt2")
-text = "Skill points: 0"
-vertical_alignment = 1
-script = ExtResource("22_nrpqb")
-
-[node name="ResetSkillsButton" type="Button" parent="MainTabContainer/SkillsPanel"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -140.0
-offset_top = 5.0
-offset_right = -13.0
-offset_bottom = 44.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 22
-text = "Reset skills"
-script = ExtResource("23_imyjl")
 
 [node name="SkilTree" parent="MainTabContainer/SkillsPanel" instance=ExtResource("20_mjx3u")]
 layout_mode = 2
 offset_left = 10.0
-offset_top = 50.0
 offset_right = 10.0
-offset_bottom = 50.0
 
 [node name="InventoryPanel" type="Panel" parent="MainTabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 

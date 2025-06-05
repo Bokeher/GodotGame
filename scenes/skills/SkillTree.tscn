@@ -1,20 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://bscctmm55ktp5"]
+[gd_scene load_steps=5 format=3 uid="uid://bscctmm55ktp5"]
 
+[ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="1_kdrq7"]
 [ext_resource type="Script" uid="uid://fm1m0fatuqqf" path="res://scripts/skills/SkillTreePanel.gd" id="1_pbg1n"]
+[ext_resource type="Script" uid="uid://l56l3emoiwwg" path="res://scripts/skills/SkillPointsAmount.gd" id="2_7o6gi"]
+[ext_resource type="Script" uid="uid://dlfvmvn6lexmg" path="res://scripts/skills/ResetSkillsButton.gd" id="3_7pw72"]
 
 [node name="SkilTree" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
+[node name="SkillPointsAmount" type="Label" parent="."]
+offset_left = 15.0
+offset_right = 167.0
+offset_bottom = 50.0
+theme = ExtResource("1_kdrq7")
+text = "Skill points: 0"
+vertical_alignment = 1
+script = ExtResource("2_7o6gi")
+
+[node name="ResetSkillsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 7.0
+offset_right = 547.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 22
+text = "Reset skills"
+script = ExtResource("3_7pw72")
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
+offset_top = 53.0
 offset_right = 550.0
-offset_bottom = 560.0
+offset_bottom = 608.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(550, 555)
+size = Vector2i(550, 550)
 render_target_update_mode = 4
 
 [node name="Background" type="ColorRect" parent="SubViewportContainer/SubViewport"]
