@@ -89,7 +89,7 @@ func _pressed() -> void:
 	$"../../MainTabContainer/InventoryPanel/Inventory".update_inventory()
 	$"../../MainTabContainer/BestiaryPanel/Bestiary".update_bestiary()
 	if(leveled_up):
-		$"../../MainTabContainer/SkillsPanel/SkillPointsAmount".update_skill_points()
+		$"../../MainTabContainer/SkillsPanel/SkillTree".update_skill_points()
 	
 
 func deal_damage_to_enemy() -> void:

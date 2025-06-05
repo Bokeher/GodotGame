@@ -245,7 +245,7 @@ offset_bottom = -603.0
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="SkilTree" parent="MainTabContainer/SkillsPanel" instance=ExtResource("20_mjx3u")]
+[node name="SkillTree" parent="MainTabContainer/SkillsPanel" instance=ExtResource("20_mjx3u")]
 layout_mode = 2
 offset_left = 10.0
 offset_right = 10.0

@@ -19,7 +19,7 @@ func _pressed() -> void:
 		upgradeChild.update_upgrade()
 	
 	# Update skills
-	var skillTreePanel = $"../MainTabContainer/SkillsPanel/SkilTree/SubViewportContainer/SubViewport/SkillTreePanel"
+	var skillTreePanel = $"../MainTabContainer/SkillsPanel/SkillTree/SubViewportContainer/SubViewport/SkillTreePanel"
 	for skillNode in skillTreePanel.get_children():
 		skillNode.update_skill()
 	
@@ -29,7 +29,7 @@ func _pressed() -> void:
 	$"../MainTabContainer/InventoryPanel/Inventory".update_inventory()
 	
 	
-	$"../MainTabContainer/SkillsPanel/SkillPointsAmount".update_skill_points()
+	$"../MainTabContainer/SkillsPanel/SkillTree".update_skill_points()
 	$"../PlayerHealthBar".update_player_health_bar()
 	$"../MainTabContainer/UpgradesPanel/GoldAmount".update_gold()
 	$"../MainTabContainer/StatsPanel/Stats".update_stats()
