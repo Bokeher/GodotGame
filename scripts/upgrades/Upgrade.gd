@@ -5,10 +5,10 @@ var upgrade: Upgrade
 func _ready() -> void:
 	var upgrade_id = $".".get_meta("upgrade_id")
 	upgrade = Global.upgrades[upgrade_id - 1]
-	$Background/UpgradeButton.update_cost(upgrade.cost)
+	update_cost(upgrade.cost)
 	
 	$".".set_custom_minimum_size($Background.size)
-	$Background/Level.update_level(upgrade.level, upgrade.max_level)
+	update_level(upgrade.level, upgrade.max_level)
 
 func performUpgrade() -> void:
 	var cost = upgrade.cost
@@ -33,8 +33,8 @@ func performUpgrade() -> void:
 	upgrade.level += 1
 	upgrade.cost = int(upgrade.cost * upgrade.cost_multiplier)
 	
-	$Background/UpgradeButton.update_cost(upgrade.cost)
-	$Background/Level.update_level(upgrade.level, upgrade.max_level)
+	update_cost(upgrade.cost)
+	update_level(upgrade.level, upgrade.max_level)
 	
 	$"../../../GoldAmount".update_gold()
 	$"../../../../StatsPanel/Stats".update_stats()
@@ -53,9 +53,22 @@ func check_buy() -> void:
 func update_upgrade() -> void:
 	upgrade = Global.upgrades[upgrade.id - 1]
 	
-	$Background/Level.update_level(upgrade.level, upgrade.max_level)
+	update_level(upgrade.level, upgrade.max_level)
 	$Background/UpgradeButton.update_cost(upgrade.cost)
 
 func _process(_delta) -> void:
 	check_buy()
+
+func _on_upgrade_button_pressed() -> void:
+	performUpgrade()
+
+func update_level(level: int, max_level: int) -> void:
+	var level_text = "Level " + str(level)
 	
+	if(max_level > 0):
+		level_text += " / " + str(max_level) 
+	
+	$Background/Level.text = level_text
+
+func update_cost(cost: int) -> void:
+	$Background/UpgradeButton.text = str(cost)

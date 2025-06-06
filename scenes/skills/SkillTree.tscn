@@ -10,6 +10,7 @@ anchors_preset = 0
 script = ExtResource("1_7o6gi")
 
 [node name="SkillPointsAmount" type="Label" parent="."]
+layout_mode = 0
 offset_left = 15.0
 offset_right = 167.0
 offset_bottom = 50.0

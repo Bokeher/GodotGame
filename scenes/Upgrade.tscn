@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://v6m0je28qwp2"]
+[gd_scene load_steps=4 format=3 uid="uid://v6m0je28qwp2"]
 
 [ext_resource type="Script" uid="uid://cxsddnoj6lk4n" path="res://scripts/upgrades/Upgrade.gd" id="1_jimq5"]
-[ext_resource type="Script" uid="uid://bbnib6cljgc2y" path="res://scripts/upgrades/UpgradeLevel.gd" id="2_kmbwh"]
-[ext_resource type="Script" uid="uid://bbi5u8rm4l3fg" path="res://scripts/upgrades/UpgradeButton.gd" id="3_j17g4"]
 
 [sub_resource type="FontFile" id="FontFile_16vje"]
 subpixel_positioning = 0
@@ -2087,7 +2085,6 @@ theme_override_fonts/font = SubResource("FontFile_16vje")
 theme_override_font_sizes/font_size = 20
 text = "Level 0"
 horizontal_alignment = 1
-script = ExtResource("2_kmbwh")
 
 [node name="UpgradeButton" type="Button" parent="Background"]
 layout_mode = 0
@@ -2099,10 +2096,11 @@ theme_override_colors/font_color = Color(0.865643, 0.593809, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_yvvp4")
 theme_override_font_sizes/font_size = 25
 text = "Upgrade"
-script = ExtResource("3_j17g4")
 
 [node name="UpgradeId" type="Label" parent="Background"]
 visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[connection signal="pressed" from="Background/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
