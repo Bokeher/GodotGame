@@ -54,7 +54,7 @@ func update_upgrade() -> void:
 	upgrade = Global.upgrades[upgrade.id - 1]
 	
 	update_level(upgrade.level, upgrade.max_level)
-	$Background/UpgradeButton.update_cost(upgrade.cost)
+	update_cost(upgrade.cost)
 
 func _process(_delta) -> void:
 	check_buy()

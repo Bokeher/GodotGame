@@ -21,11 +21,12 @@ func _process(delta) -> void:
 	
 	# Calculate the progress based on elapsed time and the fill duration
 	var progress = elapsed_time / filling_time
+	var time_to_show: float = floor((1.0 - progress) * filling_time * 10.0) / 10.0
 	
 	# Update the ProgressBar value
 	$".".value = progress
 	
-	$EnemyHealthLabel.text = str(floor(progress * filling_time * 10) / 10) + "s"
+	$EnemyHealthLabel.text = str(time_to_show) + "s"
 	
 	# Stop updating once the fill is complete
 	if progress >= 1.0:
