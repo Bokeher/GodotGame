@@ -201,9 +201,9 @@ func read_upgrades() -> void:
 		upgrades.append(Upgrade.from_dict(upgrade_dict))
 	
 	file.close()
-
+	
 func read_skills() -> void:
-	var PATH: String = Enums.get_class_texture(selected_class_id)
+	var PATH: String = Enums.get_class_json_path(selected_class_id)
 	
 	if(!FileAccess.file_exists(PATH)):
 		push_error("Skills file not found")

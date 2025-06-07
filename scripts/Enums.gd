@@ -25,6 +25,17 @@ const INVENTORY_TEXTURES := {
 	InventoryType.CHEST: "res://assets/sprites/items/slots/chest_slot.png"
 }
 
+const CLASSES_DIR_PATH: String = "res://assets/jsons/classes/"
+const CLASS_JSON_PATH := {
+	Classes.WARRIOR: CLASSES_DIR_PATH + "warrior.json",
+	Classes.UMBRAL_REAVER: CLASSES_DIR_PATH + "umbral_reaver.json",
+	Classes.LUCKSWORN: CLASSES_DIR_PATH + "lucksworn.json",
+	Classes.KENSEI: CLASSES_DIR_PATH + "kensei.json",
+}
+
+func get_class_json_path(class_type: int) -> String:
+	return CLASS_JSON_PATH.get(class_type, null)
+
 func get_inventory_type_texture(slot_type: int) -> String:
 	return INVENTORY_TEXTURES.get(slot_type, "res://assets/sprites/unknown.png")
 
