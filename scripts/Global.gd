@@ -12,10 +12,6 @@ const PATH_CLASSES_DIR: String = "res://assets/jsons/classes/"
 # Used to precisely set postion of Popups based on position of MainTabContainer 
 const MAIN_TAB_CONTAINER_POSITION: Vector2i = Vector2i(580, 0)
 
-# TODO: Should be in player stats?
-const BASE_ATTACK_INTERVAL: float = 0.5
-const BASE_ATTACK_DAMAGE: int = 1
-
 # Resources [read from json files]
 var stages = []
 var enemies: Array[Enemy] = []
@@ -25,7 +21,6 @@ var skills: Array[Skill] = []
 
 # State vars
 var player_stats: Player = Player.new()
-var attack_interval: float = .5 # TODO: This should be in player stats
 var pet: Pet = Pet.new(-1, "", "", "")
 var bestiary: Bestiary = Bestiary.new()
 var curr_enemy: Enemy
@@ -66,7 +61,7 @@ func _ready() -> void:
 	if(!curr_enemy):
 		curr_enemy = get_enemy(1)
 	
-	attack_interval = calc_attack_interval()
+	player_stats.attack_interval = calc_attack_interval()
 
 func read_savefile() -> void:
 	if !FileAccess.file_exists(PATH_SAVE):
@@ -152,7 +147,7 @@ func _notification(what) -> void:
 func _process(delta) -> void:
 	process_calc_timer += delta
 	if process_calc_timer >= PROCESS_CALC_INTERVAL:
-		attack_interval = calc_attack_interval()
+		player_stats.attack_interval = calc_attack_interval()
 		player_stats.damage = calc_attack_damage()
 		
 		process_calc_timer = 0.0
@@ -233,7 +228,7 @@ func read_items() -> void:
 	file.close()
 
 func calc_attack_interval() -> float:
-	var base: float = BASE_ATTACK_INTERVAL
+	var base: float = Player.BASE_ATTACK_INTERVAL
 	var mult: float = 1.00
 	
 	if selected_class_id == Enums.Classes.WARRIOR:
@@ -247,7 +242,7 @@ func calc_attack_interval() -> float:
 	return base * mult
 
 func calc_attack_damage() -> int:
-	var base: float = BASE_ATTACK_DAMAGE
+	var base: float = Player.BASE_ATTACK_DAMAGE
 	var mult: float = 1.00
 	
 	for item_id in equipped_items:

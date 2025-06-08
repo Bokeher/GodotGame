@@ -47,7 +47,7 @@ func _pressed() -> void:
 	
 	toggle_custom_cursor(true)
 	is_cursor_rotating = true
-	player_attack_timer.start(Global.attack_interval)
+	player_attack_timer.start(Global.player_stats.attack_interval)
 	
 	# Early return if enemy is not dead
 	if (Global.curr_enemy.health > 0):

@@ -1,10 +1,14 @@
 class_name Player
 
+static var BASE_ATTACK_INTERVAL: float = 0.5
+static var BASE_ATTACK_DAMAGE: int = 1
+
 var max_health: int
 var health: int
 var regen: int
 var regen_time: float
 
+var attack_interval: float # only var that is not saved
 var damage: int
 var crit_chance: float
 var crit_multiplier: float
@@ -35,7 +39,8 @@ func _init(
 	_max_stage_reached: int = 1,
 	_xp: int = 0,
 	_level: int = 1,
-	_skill_points: int = 0
+	_skill_points: int = 0,
+	_attack_interval: float = BASE_ATTACK_INTERVAL,
 ):
 	max_health = _max_health
 	health = _health
@@ -52,6 +57,7 @@ func _init(
 	xp = _xp
 	level = _level
 	skill_points = _skill_points
+	attack_interval = _attack_interval
 
 # Used in saving
 func to_dict() -> Dictionary:
