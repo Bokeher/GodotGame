@@ -16,6 +16,10 @@
 				{
 					"item_id": 23,
 					"drop_chance": 0.2
+				},
+				{
+					"item_id": 25,
+					"drop_chance": 0.99
 				}
 			]
 		},

@@ -167,6 +167,13 @@
 			"name": "Ring of Major Damage",
 			"description": "Increase damage dealt by 3",
 			"image_path": "res://assets/sprites/items/artifacts/damage_ring_3.png"
+		},
+		{
+			"id": 25,
+			"type": 2,
+			"name": "Leather Jacket",
+			"description": "Increase health by 5",
+			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
 }
