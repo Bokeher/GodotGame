@@ -1,7 +1,8 @@
 class_name Player
 
-static var BASE_ATTACK_INTERVAL: float = 0.5
-static var BASE_ATTACK_DAMAGE: int = 1
+const BASE_ATTACK_INTERVAL: float = 0.5
+const BASE_ATTACK_DAMAGE: int = 1
+const BASE_MAX_HEALTH: int = 10
 
 var max_health: int
 var health: int

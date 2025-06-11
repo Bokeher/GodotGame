@@ -149,6 +149,7 @@ func _process(delta) -> void:
 	if process_calc_timer >= PROCESS_CALC_INTERVAL:
 		player_stats.attack_interval = calc_attack_interval()
 		player_stats.damage = calc_attack_damage()
+		player_stats.max_health = calc_max_health()
 		
 		process_calc_timer = 0.0
 	
@@ -263,3 +264,15 @@ func calc_attack_damage() -> int:
 	
 	# TODO: Reconsider this floor by using int()
 	return int(base * mult)
+
+func calc_max_health() -> int:
+	var base: float = Player.BASE_MAX_HEALTH
+	
+	for item_id in equipped_items:
+		if item_id == -1: 
+			continue
+		
+		if item_id == 25: # Leather Jacket
+			base += 10
+	
+	return base
