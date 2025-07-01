@@ -43,6 +43,9 @@ const PROCESS_CALC_INTERVAL: float = 0.5
 var process_auto_save_timer: float = 0.0
 var process_calc_timer: float = 0.0
 
+# Skill specific tracking
+var overkill_damage: int = 0
+
 func _ready() -> void:
 	# Read all json files
 	read_stages()
