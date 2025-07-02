@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://0x6b4dwek88a"]
+[gd_scene load_steps=3 format=3 uid="uid://0x6b4dwek88a"]
 
+[ext_resource type="Script" uid="uid://6xkfets17877" path="res://scenes/bestiary/BestiaryLootItem.gd" id="1_ehp8y"]
 [ext_resource type="Texture2D" uid="uid://c6bbu3bcbvhvn" path="res://assets/sprites/items/slots/artifact_slot.png" id="1_fcj7p"]
 
 [node name="BestiaryLootItem" type="Control"]
@@ -12,9 +13,34 @@ offset_right = -1088.0
 offset_bottom = -584.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ehp8y")
+metadata/item_id = 0
 
-[node name="LootImage" type="TextureRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="LootImage" type="TextureRect" parent="Panel"]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 texture = ExtResource("1_fcj7p")
+
+[node name="Popup" type="PopupPanel" parent="."]
+
+[node name="ItemName" type="Label" parent="Popup"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -46.0
+offset_right = -4.0
+offset_bottom = 46.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
