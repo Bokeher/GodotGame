@@ -28,19 +28,23 @@ offset_bottom = 64.0
 texture = ExtResource("1_fcj7p")
 
 [node name="Popup" type="PopupPanel" parent="."]
+size = Vector2i(208, 100)
 
-[node name="ItemName" type="Label" parent="Popup"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = -46.0
-offset_right = -4.0
-offset_bottom = 46.0
-grow_horizontal = 0
-grow_vertical = 2
+[node name="Panel" type="Panel" parent="Popup"]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 96.0
+
+[node name="ItemName" type="Label" parent="Popup/Panel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 206.0
+offset_bottom = 29.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
 [connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
