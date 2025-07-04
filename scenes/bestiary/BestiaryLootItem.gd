@@ -5,8 +5,10 @@ extends Control
 @onready var pos = $".".get_global_rect().position
 
 func _on_panel_mouse_entered() -> void:
-	$Popup/Panel/ItemName.text = Global.items[item_id - 1].name
-	popup_panel.popup(Rect2i(370, 32, 50, 50))
+	var item = Global.items[item_id - 1]
+	$Popup/Panel/VBoxContainer/ItemName.text = item.name
+	$Popup/Panel/VBoxContainer/Description.text = item.description
+	popup_panel.popup(Rect2i(320, 32, 0, 0))
 
 func _on_panel_mouse_exited() -> void:
 	popup_panel.hide()
