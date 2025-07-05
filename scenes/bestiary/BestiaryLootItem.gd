@@ -8,7 +8,7 @@ func _on_panel_mouse_entered() -> void:
 	var item = Global.items[item_id - 1]
 	$Popup/Panel/VBoxContainer/ItemName.text = item.name
 	$Popup/Panel/VBoxContainer/Description.text = item.description
-	popup_panel.popup(Rect2i(320, 32, 0, 0))
+	popup_panel.popup(Rect2i(315, 31, 0, 0))
 
 func _on_panel_mouse_exited() -> void:
 	popup_panel.hide()
