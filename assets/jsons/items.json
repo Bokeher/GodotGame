@@ -151,35 +151,35 @@
 			"id": 22,
 			"type": 1,
 			"name": "Ring of Minor Damage",
-			"description": "Increase damage dealt by 1",
+			"description": "+1 damage",
 			"image_path": "res://assets/sprites/items/artifacts/damage_ring_1.png"
 		},
 		{
 			"id": 23,
 			"type": 1,
 			"name": "Ring of Damage",
-			"description": "Increase damage dealt by 2",
+			"description": "+2 damage",
 			"image_path": "res://assets/sprites/items/artifacts/damage_ring_2.png"
 		},
 		{
 			"id": 24,
 			"type": 1,
 			"name": "Ring of Major Damage",
-			"description": "Increase damage dealt by 3",
+			"description": "+3 damage",
 			"image_path": "res://assets/sprites/items/artifacts/damage_ring_3.png"
 		},
 		{
 			"id": 25,
 			"type": 2,
 			"name": "Leather Jacket",
-			"description": "Increase health by 10",
+			"description": "+10 health",
 			"image_path": "res://assets/sprites/unknown.png"
 		},
 		{
 			"id": 26,
 			"type": 2,
 			"name": "Hide Armor",
-			"description": "Increase health by 5. Increase crit chance by 5%",
+			"description": "+5 health. \n+5% crit chance",
 			"image_path": "res://assets/sprites/unknown.png"
 		}
 	]
