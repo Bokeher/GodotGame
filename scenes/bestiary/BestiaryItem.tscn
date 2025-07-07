@@ -22,7 +22,7 @@ offset_bottom = 26.0
 text = "Enemy name"
 
 [node name="Drops" type="Node2D" parent="."]
-position = Vector2(171, 11)
+position = Vector2(200, 11)
 
 [node name="DropTable" type="Label" parent="Drops"]
 offset_right = 114.0
@@ -33,9 +33,9 @@ text = "Drops:
 [node name="LootTable" type="GridContainer" parent="Drops"]
 custom_minimum_size = Vector2(32, 32)
 offset_top = 32.0
-offset_right = 128.0
+offset_right = 200.0
 offset_bottom = 128.0
-columns = 3
+columns = 2
 
 [node name="BestiaryLootItem" parent="Drops/LootTable" instance=ExtResource("2_lxawc")]
 layout_mode = 2
