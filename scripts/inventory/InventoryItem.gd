@@ -4,6 +4,7 @@ extends Control
 @onready var item_id: int = $".".get_meta("item_id")
 @onready var item: Item = Global.items[item_id - 1]
 @onready var EquipSlots: HBoxContainer = $"../../EquipSlots"
+@onready var popup = get_node("/root/Game/Popup")
 
 func _ready() -> void:
 	# If this is empty slot used for unequipping
@@ -25,3 +26,14 @@ func _on_slot_texture_pressed() -> void:
 func set_count(count: int) -> void:
 	$Count.visible = count > 1
 	$Count.text = str(count)
+
+func _on_slot_texture_mouse_entered() -> void:
+	if item_id == -1: return
+	
+	popup.popup(item.name, item.description)
+
+
+func _on_slot_texture_mouse_exited() -> void:
+	if item_id == -1: return
+	
+	popup.hide_()

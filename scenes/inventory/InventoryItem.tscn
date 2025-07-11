@@ -49,4 +49,6 @@ theme_override_constants/outline_size = 3
 text = "0"
 horizontal_alignment = 2
 
+[connection signal="mouse_entered" from="SlotTexture" to="." method="_on_slot_texture_mouse_entered"]
+[connection signal="mouse_exited" from="SlotTexture" to="." method="_on_slot_texture_mouse_exited"]
 [connection signal="pressed" from="SlotTexture" to="." method="_on_slot_texture_pressed"]
