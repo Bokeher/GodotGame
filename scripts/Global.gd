@@ -253,11 +253,11 @@ func calc_attack_damage() -> int:
 		if item_id == -1: 
 			continue
 		
-		if item_id == 22: # Attack damage 1
+		if item_id == Enums.ItemIds.RING_OF_MINOR_DAMAGE:
 			base += 1
-		elif item_id == 23: # Attack damage 2
+		elif item_id == Enums.ItemIds.RING_OF_DAMAGE:
 			base += 2
-		elif item_id == 24: # Attack damage 3
+		elif item_id == Enums.ItemIds.RING_OF_MAJOR_DAMAGE:
 			base += 3
 	
 	if selected_class_id == Enums.Classes.WARRIOR:
@@ -269,13 +269,13 @@ func calc_attack_damage() -> int:
 	return int(base * mult)
 
 func calc_max_health() -> int:
-	var base: float = Player.BASE_MAX_HEALTH
+	var base: int = Player.BASE_MAX_HEALTH
 	
 	for item_id in equipped_items:
 		if item_id == -1: 
 			continue
 		
-		if item_id == 25: # Leather Jacket
+		if item_id == Enums.ItemIds.LEATHER_JACKET:
 			base += 10
 	
 	return base

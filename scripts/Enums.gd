@@ -13,6 +13,13 @@ enum InventoryType {
 	CHEST = 2
 }
 
+enum ItemIds {
+	RING_OF_MINOR_DAMAGE = 22,
+	RING_OF_DAMAGE = 23,
+	RING_OF_MAJOR_DAMAGE = 24,
+	LEATHER_JACKET = 25
+}
+
 const UNKNOWN_PNG_PATH: String = "res://assets/sprites/classes/unknown.png"
 
 # Dir paths
