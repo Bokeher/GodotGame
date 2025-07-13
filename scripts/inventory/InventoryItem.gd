@@ -4,7 +4,7 @@ extends Control
 @onready var item_id: int = $".".get_meta("item_id")
 @onready var item: Item = Global.items[item_id - 1]
 @onready var EquipSlots: HBoxContainer = $"../../EquipSlots"
-@onready var popup = get_node("/root/Game/Popup")
+@onready var popup: GlobalPopup = get_node("/root/Game/Popup")
 
 func _ready() -> void:
 	# If this is empty slot used for unequipping

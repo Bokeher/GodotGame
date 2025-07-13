@@ -3,7 +3,7 @@ extends Control
 @onready var slot_id: int = $".".get_meta("id")
 @onready var slot_type: int = $".".get_meta("slot_type")
 @onready var selected_item_id: int = $".".get_meta("selected_item_id")
-@onready var popup = get_node("/root/Game/Popup")
+@onready var popup: GlobalPopup = get_node("/root/Game/Popup")
 
 func _ready() -> void:
 	update() # Update to show empty slot textures
