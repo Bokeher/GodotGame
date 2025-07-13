@@ -18,10 +18,9 @@ func update_skill() -> void:
 func _on_texture_button_mouse_entered() -> void:
 	var description := skill.description + "\n\nLevel " + str(skill.level) + " / " + str(skill.max_level)
 	popup.popup(skill.name, description)
-	SkillPopup.show_skill_popup(skill)
 
 func _on_texture_button_mouse_exited() -> void:
-	SkillPopup.hide_skill_popup()
+	popup.hide_()
 
 func _on_texture_button_pressed() -> void:
 	level_up_skill()
