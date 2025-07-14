@@ -2,7 +2,7 @@ extends Control
 
 @onready var entries: Dictionary = Global.bestiary.enemyEntries
 const bestiary_list_item_scene = preload("res://scenes/bestiary/BestiaryListItem.tscn")
-var old_selected_enemy_id: int = -1
+var old_selected_enemy_id := -1
 
 func _ready() -> void:
 	$BestiaryItem.visible = false
