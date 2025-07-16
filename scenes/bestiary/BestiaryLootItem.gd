@@ -7,7 +7,7 @@ extends Control
 
 func _on_panel_mouse_entered() -> void:
 	if(unknown): 
-		var loot_table = Global.enemies[enemy_id - 1].loot_table
+		var loot_table := Global.enemies[enemy_id - 1].loot_table
 		
 		for loot in loot_table:
 			if item_id == loot["item_id"]:
@@ -17,7 +17,7 @@ func _on_panel_mouse_entered() -> void:
 		
 		return
 	
-	var item = Global.items[item_id - 1]
+	var item := Global.items[item_id - 1]
 	
 	popup.popup(item.name, item.description)
 
