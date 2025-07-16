@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_ehp8y")
 metadata/item_id = 0
 metadata/unknown = false
+metadata/enemy_id = 0
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0

@@ -30,6 +30,7 @@ func update_bestiary_item() -> void:
 		
 		var new_loot_item = loot_item_scene.instantiate()
 		new_loot_item.set_meta("item_id", item_id)
+		new_loot_item.set_meta("enemy_id", enemy.id)
 		
 		var item_image = new_loot_item.get_node("./Panel/LootImage")
 		var image_path = Global.items[item_id - 1].image_path
