@@ -56,9 +56,7 @@ func _pressed() -> void:
 	if Global.selected_class_id == Enums.Classes.WARRIOR:
 		for skill in Global.skills:
 			if skill.id == 2 && skill.level > 0:
-				print(abs(Global.curr_enemy.health))
 				Global.overkill_damage = abs(Global.curr_enemy.health) * skill.level / 2
-				print(Global.overkill_damage)
 	
 	var enemy_id = Global.curr_enemy.id
 	
