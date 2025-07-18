@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://0x6b4dwek88a"]
 
-[ext_resource type="Script" uid="uid://6xkfets17877" path="res://scenes/bestiary/BestiaryLootItem.gd" id="1_ehp8y"]
+[ext_resource type="Script" uid="uid://6xkfets17877" path="res://scripts/bestiary/BestiaryLootItem.gd" id="1_ehp8y"]
 [ext_resource type="Texture2D" uid="uid://c6bbu3bcbvhvn" path="res://assets/sprites/items/slots/artifact_slot.png" id="1_fcj7p"]
 
 [node name="BestiaryLootItem" type="Control"]
