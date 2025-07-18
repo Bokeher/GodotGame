@@ -1,5 +1,7 @@
 extends Control
 
+@onready var popup: GlobalPopup = get_node("/root/Game/Popup")
+
 func set_enemy(enemy_id: int, discovered: bool = true) -> void:
 	$".".set_meta("enemy_id", enemy_id)
 	
@@ -28,3 +30,10 @@ func focus() -> void:
 
 func unfocus() -> void:
 	$Background.color = Color(0.21, 0.21, 0.21)
+
+func _on_item_button_mouse_entered() -> void:
+	var enemy := Global.enemies[$".".get_meta("enemy_id") - 1]
+	popup.popup(enemy.name, "")
+
+func _on_item_button_mouse_exited() -> void:
+	popup.hide_()

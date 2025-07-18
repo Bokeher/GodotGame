@@ -29,4 +29,6 @@ offset_bottom = 64.0
 texture_normal = ExtResource("2_oq1js")
 
 [connection signal="focus_entered" from="ItemButton" to="." method="_on_texture_button_focus_entered"]
+[connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]
+[connection signal="mouse_exited" from="ItemButton" to="." method="_on_item_button_mouse_exited"]
 [connection signal="pressed" from="ItemButton" to="." method="_on_texture_button_pressed"]
