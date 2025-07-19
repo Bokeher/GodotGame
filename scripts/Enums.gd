@@ -20,6 +20,13 @@ enum ItemIds {
 	LEATHER_JACKET = 25
 }
 
+const Colors := {
+	"BG_FOCUS_HOVER": Color(0.30, 0.30, 0.30),
+	"BORDER_FOCUS_HOVER": Color(0.60, 0.60, 0.60),
+	"BG_UNFOCUS_HOVER": Color(0.21, 0.21, 0.21),
+	"BORDER_UNFOCUS_HOVER": Color(0.30, 0.30, 0.30),
+}
+
 const UNKNOWN_PNG_PATH: String = "res://assets/sprites/classes/unknown.png"
 
 # Dir paths

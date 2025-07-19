@@ -26,10 +26,10 @@ func _on_texture_button_focus_entered() -> void:
 	_on_texture_button_pressed()
 
 func focus() -> void:
-	$Background.color = Color(0.30, 0.30, 0.30)
+	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
 
 func unfocus() -> void:
-	$Background.color = Color(0.21, 0.21, 0.21)
+	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
 
 func _on_item_button_mouse_entered() -> void:
 	var enemy := Global.enemies[$".".get_meta("enemy_id") - 1]

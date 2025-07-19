@@ -15,12 +15,12 @@ func _ready() -> void:
 	update()
 
 func focus() -> void:
-	$Border.color = Color(0.6, 0.6, 0.6)
-	$Background.color = Color(0.3, 0.3, 0.3)
+	$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
+	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
 
 func unfocus() -> void:
-	$Border.color = Color(0.30, 0.30, 0.30)
-	$Background.color = Color(0.21, 0.21, 0.21)
+	$Border.color = Enums.Colors["BORDER_UNFOCUS_HOVER"]
+	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
 
 func _on_slot_texture_pressed() -> void:
 	Global.inventory_filter = slot_type
