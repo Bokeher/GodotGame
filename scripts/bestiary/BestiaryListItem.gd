@@ -32,6 +32,10 @@ func unfocus() -> void:
 	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
 
 func _on_item_button_mouse_entered() -> void:
+	var enemy_id: int = $".".get_meta("enemy_id")
+	if !Global.bestiary.enemyEntries.has(enemy_id):
+		return
+	
 	var enemy := Global.enemies[$".".get_meta("enemy_id") - 1]
 	popup.popup(enemy.name, "")
 
