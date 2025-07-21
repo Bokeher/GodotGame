@@ -63,7 +63,13 @@ func change_item(item_id) -> void:
 	update()
 
 func _on_slot_texture_mouse_entered() -> void:
-	var item := Global.items[selected_item_id - 1]
+	var id: int = Global.equipped_items[slot_id - 1]
+	
+	if id == -1:
+		popup.popup("Empty slot", "Press to change")
+		return
+	
+	var item: Item = Global.items[id - 1]
 	popup.popup(item.name, item.description)
 
 func _on_slot_texture_mouse_exited() -> void:
