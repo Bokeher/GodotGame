@@ -34,6 +34,7 @@ func unfocus() -> void:
 func _on_item_button_mouse_entered() -> void:
 	var enemy_id: int = $".".get_meta("enemy_id")
 	if !Global.bestiary.enemyEntries.has(enemy_id):
+		popup.popup("Unknown enemy", "")
 		return
 	
 	var enemy := Global.enemies[$".".get_meta("enemy_id") - 1]
