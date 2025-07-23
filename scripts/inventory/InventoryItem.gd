@@ -28,7 +28,9 @@ func set_count(count: int) -> void:
 	$Count.text = str(count)
 
 func _on_slot_texture_mouse_entered() -> void:
-	if item_id == -1: return
+	if item_id == -1: 
+		popup.popup("Empty slot", "Press here to unequip item")
+		return
 	
 	popup.popup(item.name, item.description)
 
