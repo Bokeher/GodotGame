@@ -1,7 +1,10 @@
 extends Button
 
-const IDLE_STATE = 0
-const SEARCH_STATE = 1
+enum States {
+	IDLE = 0,
+	SEARCH = 1
+}
+
 const STATES_TEXTS = ["Idle", "Searching"]
 var curr_state = 1
 
@@ -25,7 +28,7 @@ func _pressed() -> void:
 	if (
 		!Global.curr_enemy 
 		&& $"../Enemy/HealthBar".value == 0 
-		&& curr_state == SEARCH_STATE
+		&& curr_state == States.SEARCH
 	):
 		$"../Enemy/HealthBar".start_filling()
 	
