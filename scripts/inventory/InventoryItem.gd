@@ -28,6 +28,9 @@ func set_count(count: int) -> void:
 	$Count.text = str(count)
 
 func _on_slot_texture_mouse_entered() -> void:
+	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
+	$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
+	
 	if item_id == -1: 
 		popup.popup("Empty slot", "Press here to unequip item")
 		return
@@ -36,6 +39,9 @@ func _on_slot_texture_mouse_entered() -> void:
 
 
 func _on_slot_texture_mouse_exited() -> void:
+	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
+	$Border.color = Enums.Colors["BORDER_UNFOCUS_HOVER"]
+	
 	if item_id == -1: return
 	
 	popup.hide_()
