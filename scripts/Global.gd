@@ -237,9 +237,9 @@ func calc_attack_interval() -> float:
 	
 	if selected_class_id == Enums.Classes.WARRIOR:
 		for skill in skills:
-			if skill.id == 1 and skill.level > 0: # Heavy Blow
+			if skill.id == Enums.WarriorSkillIds.HEAVY_BLOW and skill.level > 0:
 				base += 0.25
-			elif skill.id == 3 and skill.level > 0: # Bloodrage
+			elif skill.id == Enums.WarriorSkillIds.BERSERK and skill.level > 0:
 				if player_stats.health < 0.4 * player_stats.max_health:
 					mult -= 0.25
 	
@@ -262,7 +262,7 @@ func calc_attack_damage() -> int:
 	
 	if selected_class_id == Enums.Classes.WARRIOR:
 		for skill in skills:
-			if skill.id == 1 and skill.level > 0:
+			if skill.id == Enums.WarriorSkillIds.HEAVY_BLOW and skill.level > 0:
 				mult += 0.5
 	
 	# TODO: Reconsider this floor by using int()

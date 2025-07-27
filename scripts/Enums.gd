@@ -20,6 +20,14 @@ enum ItemIds {
 	LEATHER_JACKET = 25
 }
 
+enum WarriorSkillIds {
+	HEAVY_BLOW = 1,
+	OVERKILL = 2,
+	BERSERK = 3,
+	BLOODRAGE = 4,
+	ADRENALINE = 5
+}
+
 const Colors := {
 	"BG_FOCUS_HOVER": Color(0.30, 0.30, 0.30),
 	"BORDER_FOCUS_HOVER": Color(0.60, 0.60, 0.60),
