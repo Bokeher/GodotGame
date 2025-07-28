@@ -28,6 +28,30 @@ enum WarriorSkillIds {
 	ADRENALINE = 5
 }
 
+enum UmbralReaverSkillIds {
+	POISONED_BLADE = 1,
+	MIRAGE = 2,
+	ECHO_OF_AGONY = 3,
+	AMBUSH = 4,
+	SHADOW_COUNTER = 5
+}
+
+enum LuckswornSkillIds {
+	GAMBLERS_FATE = 1,
+	LUCKY_STRIKE = 2,
+	SECOND_CHANCE = 3,
+	GUARANTEED_WIN = 4,
+	HIGH_ROLLER = 5
+}
+
+enum KenseiSkillIds {
+	SWORDS_PATH = 1,
+	MASTERS_TEMPO = 2,
+	SWORDMASTERS_INSTINCT = 3,
+	FLAWLESS_PRECISION = 4,
+	KENSEIS_BURDEN = 5
+}
+
 const Colors := {
 	"BG_FOCUS_HOVER": Color(0.30, 0.30, 0.30),
 	"BORDER_FOCUS_HOVER": Color(0.60, 0.60, 0.60),
@@ -44,7 +68,7 @@ const CLASSES_DIR_PATH: String = "res://assets/jsons/classes/"
 
 const CLASS_TEXTURES := {
 	Classes.WARRIOR: CLASS_TEXTURES_DIR_PATH + "warrior.png",
-	Classes.UMBRAL_REAVER: CLASS_TEXTURES_DIR_PATH + "umral_reaver.png",
+	Classes.UMBRAL_REAVER: CLASS_TEXTURES_DIR_PATH + "umbral_reaver.png",
 	Classes.LUCKSWORN: CLASS_TEXTURES_DIR_PATH + "lucksworn.png",
 	Classes.KENSEI: CLASS_TEXTURES_DIR_PATH + "kensei.png"
 }
