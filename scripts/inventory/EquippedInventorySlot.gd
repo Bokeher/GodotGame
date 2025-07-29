@@ -63,8 +63,9 @@ func change_item(item_id) -> void:
 	update()
 
 func _on_slot_texture_mouse_entered() -> void:
-	var id: int = Global.equipped_items[slot_id - 1]
+	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
 	
+	var id: int = Global.equipped_items[slot_id - 1]
 	if id == -1:
 		popup.popup("Empty slot", "Press to change")
 		return
@@ -73,4 +74,6 @@ func _on_slot_texture_mouse_entered() -> void:
 	popup.popup(item.name, item.description)
 
 func _on_slot_texture_mouse_exited() -> void:
+	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
+	
 	popup.hide_()
