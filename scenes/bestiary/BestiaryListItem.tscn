@@ -4,28 +4,39 @@
 [ext_resource type="Texture2D" uid="uid://bahyfiwxfgnrh" path="res://assets/sprites/enemies/slimes/blue_slime.png" id="2_oq1js"]
 
 [node name="BestiaryListItem" type="Control"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(68, 68)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1088.0
-offset_bottom = -584.0
+offset_right = -1084.0
+offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fu3nf")
 metadata/enemy_id = -1
 
+[node name="Border" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(68, 68)
+offset_right = 68.0
+offset_bottom = 68.0
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
 [node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 66.0
+offset_bottom = 66.0
 color = Color(0.215902, 0.215902, 0.215902, 1)
 
 [node name="ItemButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 66.0
+offset_bottom = 66.0
 texture_normal = ExtResource("2_oq1js")
 
 [connection signal="focus_entered" from="ItemButton" to="." method="_on_texture_button_focus_entered"]

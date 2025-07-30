@@ -93,7 +93,7 @@ text = "Xp reward: "
 [node name="VSeparator" type="VSeparator" parent="."]
 modulate = Color(0.370364, 0.370364, 0.370364, 1)
 layout_mode = 0
-offset_left = -6.0
+offset_left = -3.0
 offset_top = 8.0
-offset_right = -2.0
+offset_right = 1.0
 offset_bottom = 608.0

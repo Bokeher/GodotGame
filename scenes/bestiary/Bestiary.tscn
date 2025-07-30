@@ -14,10 +14,10 @@ script = ExtResource("1_ff3ro")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 215.0
-offset_bottom = 607.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 218.0
+offset_bottom = 606.0
 
 [node name="BestiaryList" type="GridContainer" parent="ScrollContainer"]
 layout_mode = 2
@@ -28,5 +28,5 @@ layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 220.0
-offset_right = 220.0
+offset_left = 224.0
+offset_right = 224.0
