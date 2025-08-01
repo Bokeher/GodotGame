@@ -26,12 +26,14 @@ func _on_texture_button_focus_entered() -> void:
 	_on_texture_button_pressed()
 
 func focus() -> void:
-	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
+	$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
 
 func unfocus() -> void:
-	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
+	$Border.color = Enums.Colors["BORDER_UNFOCUS_HOVER"]
 
 func _on_item_button_mouse_entered() -> void:
+	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
+	
 	var enemy_id: int = $".".get_meta("enemy_id")
 	if !Global.bestiary.enemyEntries.has(enemy_id):
 		popup.popup("Unknown enemy", "")
@@ -41,4 +43,6 @@ func _on_item_button_mouse_entered() -> void:
 	popup.popup(enemy.name, "")
 
 func _on_item_button_mouse_exited() -> void:
+	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
+	
 	popup.hide_()
