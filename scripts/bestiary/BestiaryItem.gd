@@ -32,7 +32,7 @@ func update_bestiary_item() -> void:
 		new_loot_item.set_meta("item_id", item_id)
 		new_loot_item.set_meta("enemy_id", enemy.id)
 		
-		var item_image = new_loot_item.get_node("./Panel/LootImage")
+		var item_image = new_loot_item.get_node("./LootImage")
 		var image_path = Global.items[item_id - 1].image_path
 		
 		# Change texture to unknown.png when not dropped

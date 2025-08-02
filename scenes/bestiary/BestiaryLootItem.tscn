@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://c6bbu3bcbvhvn" path="res://assets/sprites/items/slots/artifact_slot.png" id="1_fcj7p"]
 
 [node name="BestiaryLootItem" type="Control"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1088.0
-offset_bottom = -584.0
+offset_right = -1082.0
+offset_bottom = -578.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ehp8y")
@@ -18,16 +18,24 @@ metadata/item_id = 0
 metadata/unknown = false
 metadata/enemy_id = 0
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+[node name="Border" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(70, 70)
+offset_right = 70.0
+offset_bottom = 70.0
+color = Color(0.235294, 0.235294, 0.235294, 1)
 
-[node name="LootImage" type="TextureRect" parent="Panel"]
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 67.0
+offset_bottom = 67.0
+color = Color(0.21, 0.21, 0.21, 1)
+
+[node name="LootImage" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 67.0
+offset_bottom = 67.0
 texture = ExtResource("1_fcj7p")
-
-[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
-[connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
