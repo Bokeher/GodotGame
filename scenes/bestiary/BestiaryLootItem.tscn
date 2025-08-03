@@ -20,12 +20,14 @@ metadata/enemy_id = 0
 
 [node name="Border" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
 color = Color(0.235294, 0.235294, 0.235294, 1)
 
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 67.0
@@ -39,3 +41,6 @@ offset_top = 3.0
 offset_right = 67.0
 offset_bottom = 67.0
 texture = ExtResource("1_fcj7p")
+
+[connection signal="mouse_entered" from="LootImage" to="." method="_on_loot_image_mouse_entered"]
+[connection signal="mouse_exited" from="LootImage" to="." method="_on_loot_image_mouse_exited"]

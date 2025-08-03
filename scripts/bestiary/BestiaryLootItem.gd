@@ -5,7 +5,9 @@ extends Control
 @onready var popup: GlobalPopup = get_node("/root/Game/Popup")
 @onready var unknown: bool = $".".get_meta("unknown")
 
-func _on_panel_mouse_entered() -> void:
+func _on_loot_image_mouse_entered() -> void:
+	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
+	
 	if(unknown): 
 		var loot_table := Global.enemies[enemy_id - 1].loot_table
 		
@@ -21,5 +23,8 @@ func _on_panel_mouse_entered() -> void:
 	
 	popup.popup(item.name, item.description)
 
-func _on_panel_mouse_exited() -> void:
+
+func _on_loot_image_mouse_exited() -> void:
+	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
+	
 	popup.hide_()
