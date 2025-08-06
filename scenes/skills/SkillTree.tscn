@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bscctmm55ktp5"]
 
-[ext_resource type="Script" uid="uid://dheng5aukyevm" path="res://scenes/skills/SkillTree.gd" id="1_7o6gi"]
+[ext_resource type="Script" uid="uid://dheng5aukyevm" path="res://scripts/skills/SkillTree.gd" id="1_7o6gi"]
 [ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="1_kdrq7"]
 [ext_resource type="Script" uid="uid://fm1m0fatuqqf" path="res://scripts/skills/SkillTreePanel.gd" id="1_pbg1n"]
 
