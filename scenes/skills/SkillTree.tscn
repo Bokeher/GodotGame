@@ -28,6 +28,7 @@ theme_override_font_sizes/font_size = 22
 text = "Reset skills"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
 layout_mode = 1
 offset_top = 53.0
 offset_right = 550.0
@@ -37,7 +38,7 @@ offset_bottom = 608.0
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(550, 550)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Background" type="ColorRect" parent="SubViewportContainer/SubViewport"]
 offset_right = 550.0
@@ -48,5 +49,15 @@ color = Color(0.215686, 0.215686, 0.215686, 1)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_pbg1n")
+
+[node name="SkillScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 53.0
+offset_right = 550.0
+offset_bottom = 603.0
+
+[node name="SkillTreePanel" type="Panel" parent="SkillScrollContainer"]
+custom_minimum_size = Vector2(550, 600)
+layout_mode = 2
 
 [connection signal="pressed" from="ResetSkillsButton" to="." method="_on_reset_skills_button_pressed"]
