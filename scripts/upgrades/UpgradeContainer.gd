@@ -1,6 +1,6 @@
 extends ScrollContainer
 
-const upgrade_scene = preload("res://scenes/Upgrade.tscn")
+const upgrade_scene = preload("res://scenes/UpgradeTab.tscn")
 
 func _ready() -> void:
 	# remove placeholder upgrades
