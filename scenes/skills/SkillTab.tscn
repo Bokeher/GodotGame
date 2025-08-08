@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bscctmm55ktp5"]
+[gd_scene load_steps=5 format=3 uid="uid://bscctmm55ktp5"]
 
 [ext_resource type="Script" uid="uid://dheng5aukyevm" path="res://scripts/skills/SkillTree.gd" id="1_7o6gi"]
 [ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="1_kdrq7"]
 [ext_resource type="Script" uid="uid://fm1m0fatuqqf" path="res://scripts/skills/SkillTreePanel.gd" id="1_pbg1n"]
+[ext_resource type="PackedScene" uid="uid://wguylvq1tt10" path="res://scenes/skills/SkillNode.tscn" id="4_xaova"]
 
 [node name="SkillTree" type="Control"]
 layout_mode = 3
@@ -59,5 +60,29 @@ offset_bottom = 603.0
 [node name="SkillTreePanel" type="Panel" parent="SkillScrollContainer"]
 custom_minimum_size = Vector2(550, 600)
 layout_mode = 2
+
+[node name="SkillNode" parent="SkillScrollContainer/SkillTreePanel" instance=ExtResource("4_xaova")]
+layout_mode = 1
+offset_left = 33.0
+offset_top = 17.0
+offset_right = -517.0
+offset_bottom = -583.0
+metadata/id = 1
+
+[node name="SkillNode2" parent="SkillScrollContainer/SkillTreePanel" instance=ExtResource("4_xaova")]
+layout_mode = 1
+offset_left = 203.0
+offset_top = 17.0
+offset_right = -347.0
+offset_bottom = -583.0
+metadata/id = 2
+
+[node name="SkillNode3" parent="SkillScrollContainer/SkillTreePanel" instance=ExtResource("4_xaova")]
+layout_mode = 1
+offset_left = 373.0
+offset_top = 17.0
+offset_right = -177.0
+offset_bottom = -583.0
+metadata/id = 3
 
 [connection signal="pressed" from="ResetSkillsButton" to="." method="_on_reset_skills_button_pressed"]

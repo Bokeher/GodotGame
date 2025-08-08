@@ -38,7 +38,7 @@ func level_up_skill() -> void:
 	
 	skill.level += 1
 	Global.player_stats.skill_points -= 1
-	$"../../../..".update_skill_points()
+	$"../../..".update_skill_points()
 	
 	update_level_label()
 
