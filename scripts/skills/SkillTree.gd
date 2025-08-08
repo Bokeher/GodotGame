@@ -4,7 +4,7 @@ func _ready() -> void:
 	update_skill_points()
 
 func update_skill_points() -> void:
-	var skillTreePanel := $"SubViewportContainer/SubViewport/SkillTreePanel"
+	var skillTreePanel := $SkillScrollContainer/SkillTreePanel
 	for skillNode in skillTreePanel.get_children():
 		skillNode.update_skill()
 	
