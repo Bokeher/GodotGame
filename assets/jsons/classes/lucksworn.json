@@ -9,7 +9,8 @@
 			"description": "Deal 20% more damage with each successful hit, but reduce hit chance by 16%.",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
-			"max_level": 1
+			"max_level": 1,
+			"requirement_ids": []
 		},
 		{
 			"id": 2,
@@ -17,7 +18,8 @@
 			"description": "1% chance do deal double damage",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
-			"max_level": 5
+			"max_level": 5,
+			"requirement_ids": []
 		},
 		{
 			"id": 3,
@@ -25,7 +27,8 @@
 			"description": "After missing an attack, you roll the sworn dice. If you get a 6, you get another chance to hit.",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
-			"max_level": 1
+			"max_level": 1,
+			"requirement_ids": [1]
 		},
 		{
 			"id": 4,
@@ -33,7 +36,8 @@
 			"description": "Every 9/8/7/6/5-th hit is guaranteed to hit and deal 25% more damage",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
-			"max_level": 5
+			"max_level": 5,
+			"requirement_ids": [1]
 		},
 		{
 			"id": 5,
@@ -41,7 +45,8 @@
 			"description": "10% to double received loot, but 1% to lose it all",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
-			"max_level": 1
+			"max_level": 1,
+			"requirement_ids": []
 		}
 	]
 }
