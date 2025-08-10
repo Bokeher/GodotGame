@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://o2n5ulu72kfo" path="res://assets/sprites/skills/skill1.png" id="2_yq7fh"]
 
 [node name="SkillNode" type="Control"]
+custom_minimum_size = Vector2(68, 68)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1152.0
-offset_bottom = -648.0
+offset_right = -1084.0
+offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t1asw")
@@ -17,38 +18,37 @@ metadata/id = -1
 
 [node name="Border" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 70.0
-offset_bottom = 70.0
-scale = Vector2(2, 2)
+offset_right = 68.0
+offset_bottom = 68.0
 color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [node name="Background" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(68, 68)
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
-offset_right = 70.0
-offset_bottom = 70.0
-scale = Vector2(2, 2)
+offset_right = 66.0
+offset_bottom = 66.0
 color = Color(0.21, 0.21, 0.21, 1)
 
 [node name="SkillButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 70.0
-offset_bottom = 70.0
-scale = Vector2(2, 2)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 66.0
+offset_bottom = 66.0
 texture_normal = ExtResource("2_yq7fh")
 
 [node name="SkillLevelLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 107.0
-offset_right = 129.0
-offset_bottom = 130.0
+offset_left = 28.0
+offset_top = 45.0
+offset_right = 63.0
+offset_bottom = 65.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
 text = "0 / 5"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [connection signal="mouse_entered" from="SkillButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="SkillButton" to="." method="_on_texture_button_mouse_exited"]

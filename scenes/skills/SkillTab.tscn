@@ -63,26 +63,26 @@ layout_mode = 2
 
 [node name="SkillNode" parent="SkillScrollContainer/SkillTreePanel" instance=ExtResource("4_xaova")]
 layout_mode = 1
-offset_left = 33.0
-offset_top = 17.0
-offset_right = -517.0
-offset_bottom = -583.0
+offset_left = 23.0
+offset_top = 29.0
+offset_right = -459.0
+offset_bottom = -503.0
 metadata/id = 1
 
 [node name="SkillNode2" parent="SkillScrollContainer/SkillTreePanel" instance=ExtResource("4_xaova")]
 layout_mode = 1
-offset_left = 203.0
-offset_top = 17.0
-offset_right = -347.0
-offset_bottom = -583.0
+offset_left = 152.0
+offset_top = 28.0
+offset_right = -330.0
+offset_bottom = -504.0
 metadata/id = 2
 
 [node name="SkillNode3" parent="SkillScrollContainer/SkillTreePanel" instance=ExtResource("4_xaova")]
 layout_mode = 1
-offset_left = 373.0
-offset_top = 17.0
-offset_right = -177.0
-offset_bottom = -583.0
+offset_left = 269.0
+offset_top = 30.0
+offset_right = -213.0
+offset_bottom = -502.0
 metadata/id = 3
 
 [connection signal="pressed" from="ResetSkillsButton" to="." method="_on_reset_skills_button_pressed"]
