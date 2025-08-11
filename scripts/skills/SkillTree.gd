@@ -5,10 +5,29 @@ func _ready() -> void:
 
 func update_skill_points() -> void:
 	var skillTreePanel := $SkillScrollContainer/SkillTreePanel
-	for skillNode in skillTreePanel.get_children():
+	var i := 0
+	for skillNode: SkillNode in skillTreePanel.get_children():
+		skillNode.position = get_vector_from_grid_position(0, i)
 		skillNode.update_skill()
+		
+		i += 1
 	
 	$SkillPointsAmount.text = "Skill points: " + str(Global.player_stats.skill_points)
+
+func get_vector_from_grid_position(x_pos: int, y_pos: int) -> Vector2i:
+	if x_pos > 5:
+		print("WARNING! skill grid x_pos > 5 (skill out of screen)")
+	
+	var left_offset := 16
+	var top_offset := 16
+	var skillNode_width := 68
+	var skillNode_height := 68
+	var skills_offset := 20
+	
+	return Vector2i(
+		left_offset + (skillNode_width + skills_offset) * x_pos,
+		top_offset + (skillNode_height + skills_offset) * y_pos
+	)
 
 func _on_reset_skills_button_pressed() -> void:
 	for skill in Global.skills:

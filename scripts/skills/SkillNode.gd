@@ -1,4 +1,5 @@
 extends Control
+class_name SkillNode
 
 @onready var id: int = $".".get_meta("id")
 @onready var skill := Global.skills[id - 1]
