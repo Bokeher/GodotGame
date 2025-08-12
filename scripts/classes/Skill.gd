@@ -35,8 +35,8 @@ static func from_dict(data: Dictionary) -> Skill:
 	var requirement_ids_float: Array = data.get("requirement_ids", [])
 	
 	var requirement_ids_int: Array[int] = []
-	for id in requirement_ids_float:
-		requirement_ids_int.append(int(id))
+	for requirement_id in requirement_ids_float:
+		requirement_ids_int.append(int(requirement_id))
 	
 	return Skill.new(
 		data.get("id", -1),
