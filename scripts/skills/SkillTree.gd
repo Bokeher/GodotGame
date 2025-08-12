@@ -1,15 +1,20 @@
 extends Control
 
+const skillNode_scene = preload("res://scenes/skills/SkillNode.tscn")
+
 func _ready() -> void:
 	update_skill_points()
 
 func update_skill_points() -> void:
 	var skillTreePanel := $SkillScrollContainer/SkillTreePanel
 	var i := 0
-	for skillNode: SkillNode in skillTreePanel.get_children():
-		skillNode.position = get_vector_from_grid_position(0, i)
-		skillNode.update_skill()
+	
+	for skill: Skill in Global.skills:
+		var new_skillNode := skillNode_scene.instantiate()
+		new_skillNode.set_meta("id", skill.id)
+		new_skillNode.position = get_vector_from_grid_position(0, i)
 		
+		skillTreePanel.add_child(new_skillNode)
 		i += 1
 	
 	$SkillPointsAmount.text = "Skill points: " + str(Global.player_stats.skill_points)
