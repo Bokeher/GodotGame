@@ -2,8 +2,8 @@ extends Control
 
 class_name GlobalPopup
 
-@onready var name_ = $Popup/Panel/VBoxContainer/Name
-@onready var description = $Popup/Panel/VBoxContainer/Description
+@onready var name_ = $Popup/MarginContainer/VBoxContainer/Name
+@onready var description = $Popup/MarginContainer/VBoxContainer/Description
 @onready var popup_panel = $Popup
 
 var show_timer = Timer.new()

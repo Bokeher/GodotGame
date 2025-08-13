@@ -13,34 +13,35 @@ script = ExtResource("1_4c2u4")
 
 [node name="Popup" type="PopupPanel" parent="."]
 auto_translate_mode = 1
-size = Vector2i(258, 208)
+size = Vector2i(308, 208)
+visible = true
 
-[node name="Panel" type="Panel" parent="Popup"]
-custom_minimum_size = Vector2(250, 200)
+[node name="MarginContainer" type="MarginContainer" parent="Popup"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 254.0
+offset_right = 304.0
 offset_bottom = 204.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Popup/Panel"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 245.0
-offset_bottom = 71.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer"]
+custom_minimum_size = Vector2(236, 0)
+layout_mode = 2
 
-[node name="Name" type="Label" parent="Popup/Panel/VBoxContainer"]
+[node name="Name" type="Label" parent="Popup/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="HSeparator" type="HSeparator" parent="Popup/Panel/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Popup/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Description" type="Label" parent="Popup/Panel/VBoxContainer"]
+[node name="Description" type="Label" parent="Popup/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 autowrap_mode = 3
