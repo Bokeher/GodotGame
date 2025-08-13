@@ -42,7 +42,7 @@ static func from_dict(data: Dictionary) -> Skill:
 	for requirement_id in requirement_ids_float:
 		requirement_ids_int.append(int(requirement_id))
 	
-	var grid_position_float: Array = data.get("requirement_ids", [0, 0])
+	var grid_position_float: Array = data.get("grid_position", [0, 0])
 	var grid_position_int: Array[int] = [0, 0]
 	if grid_position_float.size() == 2:
 		grid_position_int = [
