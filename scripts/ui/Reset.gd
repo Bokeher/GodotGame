@@ -19,7 +19,7 @@ func _pressed() -> void:
 		upgradeChild.update_upgrade()
 	
 	# Update skills
-	var skillTreePanel = $"../MainTabContainer/SkillsPanel/SkillTree/SubViewportContainer/SubViewport/SkillTreePanel"
+	var skillTreePanel = $"../MainTabContainer/SkillsPanel/SkillTree/SkillScrollContainer/SkillTreePanel"
 	for skillNode in skillTreePanel.get_children():
 		skillNode.update_skill()
 	
