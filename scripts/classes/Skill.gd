@@ -21,7 +21,6 @@ func _init(_id: int, _name: String, _description: String, _image_path: String, _
 
 # Convert instance to dictionary for saving
 func to_dict() -> Dictionary:
-	print(grid_position)
 	return {
 		"id": id,
 		"name": name,
