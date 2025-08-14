@@ -28,6 +28,10 @@ func popup(popup_name: String, popup_description: String) -> void:
 	pending_name = popup_name
 	pending_description = popup_description
 	
+	$Popup/MarginContainer/VBoxContainer/Description.visible = true
+	if popup_description == "":
+		$Popup/MarginContainer/VBoxContainer/Description.visible = false
+	
 	hide_timer.stop()
 	show_timer.start()
 
