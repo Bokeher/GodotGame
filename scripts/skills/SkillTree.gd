@@ -13,6 +13,17 @@ func update_skill_points() -> void:
 		new_skillNode.set_meta("id", skill.id)
 		new_skillNode.position = get_vector_from_grid_position(skill.grid_position)
 		
+		for id in skill.requirement_ids:
+			var req_skill := Global.skills[id - 1]
+			var middle_offset := Vector2(34, 34)
+			
+			var line = Line2D.new()
+			line.add_point(new_skillNode.position + middle_offset)
+			line.add_point(get_vector_from_grid_position(req_skill.grid_position) + middle_offset)
+			line.width = 2
+			
+			skillTreePanel.add_child(line)
+		
 		skillTreePanel.add_child(new_skillNode)
 	
 	$SkillPointsAmount.text = "Skill points: " + str(Global.player_stats.skill_points)
@@ -30,7 +41,7 @@ func get_vector_from_grid_position(grid_position: Array[int]) -> Vector2:
 	var skillNode_height := 68
 	var skills_offset := 20
 	
-	return Vector2i(
+	return Vector2(
 		left_offset + (skillNode_width + skills_offset) * x_pos,
 		top_offset + (skillNode_height + skills_offset) * y_pos
 	)
