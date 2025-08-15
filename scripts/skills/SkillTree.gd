@@ -17,7 +17,7 @@ func update_skill_points() -> void:
 	
 	$SkillPointsAmount.text = "Skill points: " + str(Global.player_stats.skill_points)
 
-func get_vector_from_grid_position(grid_position: Array[int]) -> Vector2i:
+func get_vector_from_grid_position(grid_position: Array[int]) -> Vector2:
 	var x_pos := grid_position[0]
 	var y_pos := grid_position[1]
 	
