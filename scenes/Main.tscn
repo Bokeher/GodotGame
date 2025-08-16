@@ -276,6 +276,11 @@ metadata/_tab_index = 5
 [node name="Bestiary" parent="MainTabContainer/BestiaryPanel" instance=ExtResource("28_oy4c8")]
 layout_mode = 1
 
+[node name="AchievementsPanel" type="Panel" parent="MainTabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
 [node name="CustomCursor" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("29_pyqnk")
