@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=29 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" uid="uid://dgo0pke6nqqb8" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" uid="uid://ct7xcpextwtga" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://v6m0je28qwp2" path="res://scenes/UpgradeTab.tscn" id="19_wq6sx"]
 [ext_resource type="PackedScene" uid="uid://bscctmm55ktp5" path="res://scenes/skills/SkillTab.tscn" id="20_mjx3u"]
 [ext_resource type="PackedScene" uid="uid://iohn0aebg218" path="res://scenes/inventory/InventoryTab.tscn" id="21_0usff"]
+[ext_resource type="PackedScene" uid="uid://dswlrnok1rmhq" path="res://scenes/AchievementsTab.tscn" id="25_fs0b5"]
 [ext_resource type="PackedScene" uid="uid://cohumsh8to5j8" path="res://scenes/Popup.tscn" id="26_36rkl"]
 [ext_resource type="PackedScene" uid="uid://ivxjfj7k3lt1" path="res://scenes/PetsTab.tscn" id="26_lyvra"]
 [ext_resource type="PackedScene" uid="uid://bw2cwrtnmxrcv" path="res://scenes/bestiary/BestiaryTab.tscn" id="28_oy4c8"]
@@ -281,6 +282,9 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 6
 
+[node name="AchievementsTab" parent="MainTabContainer/AchievementsPanel" instance=ExtResource("25_fs0b5")]
+layout_mode = 1
+
 [node name="CustomCursor" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("29_pyqnk")
@@ -289,6 +293,7 @@ texture = ExtResource("29_pyqnk")
 one_shot = true
 
 [node name="Popup" parent="." instance=ExtResource("26_36rkl")]
+visible = false
 
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]
 [connection signal="timeout" from="PlayerAttackTimer" to="Enemy/EnemyBody" method="_on_player_attack_timer_timeout"]
