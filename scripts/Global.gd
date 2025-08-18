@@ -32,7 +32,7 @@ var equipped_items: Array[int] = [23, 22, 0]
 
 # UI tracking states
 var curr_bestiary_enemy_id: int = -1
-var selected_class_id: int = Enums.Classes.KENSEI
+var selected_class_id: int = Enums.Classes.WARRIOR
 var inventory_filter: int = Enums.InventoryType.NONE
 var selected_equip_slot_id: int = -1
 var last_selected_equip_slot_id: int = -1
@@ -55,7 +55,8 @@ func _ready() -> void:
 	read_savefile()
 	
 	# Read from json when there are no instances of them
-	if(skills.is_empty()): read_skills()
+	#if(skills.is_empty()): 
+	read_skills()
 	if(upgrades.is_empty()): read_upgrades()
 	
 	# Set curr_stage to max reached stage
