@@ -52,6 +52,16 @@
 			"max_level": 1,
 			"requirement_ids": [1],
 			"grid_position": [4, 1]
+		},
+		{
+			"id": 6,
+			"name": "Luckier Strike",
+			"description": "0.1% chance do deal quadruple damage",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 5,
+			"requirement_ids": [2],
+			"grid_position": [1, 2]
 		}
 	]
 }
