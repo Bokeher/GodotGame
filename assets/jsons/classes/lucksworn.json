@@ -11,7 +11,7 @@
 			"level": 0,
 			"max_level": 1,
 			"requirement_ids": [],
-			"grid_position": [0, 0]
+			"grid_position": [2, 0]
 		},
 		{
 			"id": 2,
@@ -20,8 +20,8 @@
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
-			"requirement_ids": [],
-			"grid_position": [0, 1]
+			"requirement_ids": [1],
+			"grid_position": [1, 1]
 		},
 		{
 			"id": 3,
@@ -31,7 +31,7 @@
 			"level": 0,
 			"max_level": 1,
 			"requirement_ids": [1],
-			"grid_position": [0, 2]
+			"grid_position": [2, 1]
 		},
 		{
 			"id": 4,
@@ -41,17 +41,17 @@
 			"level": 0,
 			"max_level": 5,
 			"requirement_ids": [1],
-			"grid_position": [0, 3]
+			"grid_position": [3, 1]
 		},
 		{
 			"id": 5,
 			"name": "High Roller",
-			"description": "10% to double received loot, but 1% to lose it all",
+			"description": "10% to double received loot \n1% to lose loot",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1,
-			"requirement_ids": [],
-			"grid_position": [0, 4]
+			"requirement_ids": [1],
+			"grid_position": [4, 1]
 		}
 	]
 }
