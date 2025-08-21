@@ -5,8 +5,8 @@
 	"skills": [
 		{
 			"id": 1,
-			"name": "Gambler's fate",
-			"description": "Deal 20% more damage with each successful hit, but reduce hit chance by 16%.",
+			"name": "Gambler's Fate",
+			"description": "On attack gain stack. \n20% more damage for each stack. \nLose all stack on missing attack. \n-16% hit chance.",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1,
@@ -16,7 +16,7 @@
 		{
 			"id": 2,
 			"name": "Lucky Strike",
-			"description": "1% chance do deal double damage",
+			"description": "+1% chance do deal double damage",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
@@ -25,10 +25,9 @@
 		},
 		{
 			"id": 3,
-			"name": "Second Chance",
-			"description": "After missing an attack, you roll the sworn dice. If you get a 6, you get another chance to hit.",
+			"name": "Sworn Dice",
+			"description": "After missing an attack, you roll the Sworn Dice. If you get a 6, you don't lose *Gambler's Fate* stacks.",
 			"image_path": "res://assets/sprites/unknown.png",
-			"level": 0,
 			"max_level": 1,
 			"requirement_ids": [1],
 			"grid_position": [2, 1]
@@ -56,12 +55,32 @@
 		{
 			"id": 6,
 			"name": "Luckier Strike",
-			"description": "0.1% chance do deal quadruple damage",
+			"description": "+0.1% chance do deal quadruple damage",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
 			"requirement_ids": [2],
 			"grid_position": [1, 2]
+		},
+		{
+			"id": 7,
+			"name": "Bad Luck",
+			"description": "Getting 5 on Sworn Dice deals half your damage and doesn't increase *Gambler's Fate* stacks",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 1,
+			"requirement_ids": [3],
+			"grid_position": [2, 2]
+		},
+		{
+			"id": 8,
+			"name": "Extreme Luck",
+			"description": "Getting 5 stacks on *Gambler's Fate* doubles your damage",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 1,
+			"requirement_ids": [1],
+			"grid_position": [0, 1]
 		}
 	]
 }
