@@ -8,7 +8,10 @@ func _ready() -> void:
 func update_skill_points() -> void:
 	var skillTreePanel := $SkillScrollContainer/SkillTreePanel
 	
-	for skill: Skill in Global.skills:
+	# Sort skills to prevent node overlapping
+	var sorted_skills: Array[Skill] = get_sorted_skills(Global.skills)
+	
+	for skill: Skill in sorted_skills:
 		var new_skillNode := skillNode_scene.instantiate()
 		new_skillNode.set_meta("id", skill.id)
 		new_skillNode.position = get_vector_from_grid_position(skill.grid_position)
@@ -27,6 +30,17 @@ func update_skill_points() -> void:
 		skillTreePanel.add_child(new_skillNode)
 	
 	$SkillPointsAmount.text = "Skill points: " + str(Global.player_stats.skill_points)
+
+func get_sorted_skills(skills: Array[Skill]) -> Array[Skill]:
+	var sorted: Array[Skill] = skills.duplicate()
+	
+	sorted.sort_custom(func(a, b):
+		if a.grid_position[1] == b.grid_position[1]:
+			return a.grid_position[0] < b.grid_position[0]
+		return a.grid_position[1] < b.grid_position[1]
+	)
+	
+	return sorted
 
 func get_vector_from_grid_position(grid_position: Array[int]) -> Vector2:
 	var x_pos := grid_position[0]
