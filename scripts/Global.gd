@@ -32,7 +32,7 @@ var equipped_items: Array[int] = [23, 22, 0]
 
 # UI tracking states
 var curr_bestiary_enemy_id: int = -1
-var selected_class_id: int = Enums.Classes.LUCKSWORN
+var selected_class_id: int = Enums.Classes.WARRIOR
 var inventory_filter: int = Enums.InventoryType.NONE
 var selected_equip_slot_id: int = -1
 var last_selected_equip_slot_id: int = -1
