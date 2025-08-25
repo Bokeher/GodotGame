@@ -5,8 +5,8 @@
 	"skills": [
 		{
 			"id": 1,
-			"name": "Sword's path",
-			"description": "Do not deal damage on hit. Instead Charge your attack and then deal all damage at once (2s cooldown). Increase damage for 8% with each hit",
+			"name": "Sword's Path",
+			"description": "Do not deal damage on hit. Instead charge your attack and then deal all damage at once (2s cooldown). Increase damage for 10% with each hit (max 5 stacks)",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1,
@@ -16,11 +16,11 @@
 		{
 			"id": 2,
 			"name": "Master's Tempo",
-			"description": "Every 10/8/7/6/4-th hit hits twice for a total of 125% damage",
+			"description": "Every 10/9/8/7/5-th hit hits twice for a total of 125% damage",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
-			"requirement_ids": [],
+			"requirement_ids": [1],
 			"grid_position": [0, 1]
 		},
 		{
@@ -36,22 +36,42 @@
 		{
 			"id": 4,
 			"name": "Flawless Precision",
-			"description": "You cannot crit, but Sword's Path damage is increased by 1/2/2/3/5% for every 10% of your crit chance.",
+			"description": "You cannot crit, but *Sword's Path* damage is increased by 1/2/2/3/5% for every 10% of your crit chance.",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
 			"requirement_ids": [1],
-			"grid_position": [2, 1]
+			"grid_position": [2, 3]
 		},
 		{
 			"id": 5,
-			"name": "Kensei’s Burden",
-			"description": "Increase *Swordmaster's Instinct* threshhold to 175% of enemy health. Increase *Sword's path* damage by 2%. If you deal damage exceeding 100% of the target's health, you die.",
+			"name": "Improved Instinct",
+			"description": "Decrease indicator threshhold by 5%",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
-			"max_level": 1,
+			"max_level": 2,
 			"requirement_ids": [3],
 			"grid_position": [4, 2]
+		},
+		{
+			"id": 6,
+			"name": "Clean Cut",
+			"description": "Gain double loot when killing enemy without *Swordmaster's Instinct*",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 2,
+			"requirement_ids": [3],
+			"grid_position": [5, 2]
+		},
+		{
+			"id": 7,
+			"name": "Patience",
+			"description": "Incrase *Sword Path* max stack by 1",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 2,
+			"requirement_ids": [1],
+			"grid_position": [1, 1]
 		}
 	]
 }
