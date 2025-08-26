@@ -1,6 +1,7 @@
 extends Control
 
 const skillNode_scene = preload("res://scenes/skills/SkillNode.tscn")
+var points_spent: int
 
 func _ready() -> void:
 	update_skill_points()
@@ -8,10 +9,25 @@ func _ready() -> void:
 func update_skill_points() -> void:
 	var skillTreePanel := $SkillScrollContainer/SkillTreePanel
 	
+	for skill in skillTreePanel.get_children():
+		skillTreePanel.remove_child(skill)
+	
+	points_spent = 0
+	
 	# Sort skills to prevent node overlapping
 	var sorted_skills: Array[Skill] = get_sorted_skills(Global.skills)
 	
 	for skill: Skill in sorted_skills:
+		points_spent += skill.level
+		
+		var y = skill.grid_position[1]
+		var target: int = 3 * y # y starts from 0
+		if y == 1:
+			target = 1
+		
+		if points_spent < target:
+			continue
+		
 		var new_skillNode := skillNode_scene.instantiate()
 		new_skillNode.set_meta("id", skill.id)
 		new_skillNode.position = get_vector_from_grid_position(skill.grid_position)
@@ -63,6 +79,7 @@ func get_vector_from_grid_position(grid_position: Array[int]) -> Vector2:
 func _on_reset_skills_button_pressed() -> void:
 	for skill in Global.skills:
 		Global.player_stats.skill_points += skill.level
+		points_spent = 0
 		skill.level = 0
 	
 	update_skill_points()
