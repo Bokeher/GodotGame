@@ -25,7 +25,7 @@ func update_skill_points() -> void:
 		if y == 1:
 			target = 1
 		
-		if points_spent < target:
+		if points_spent < target && !Global.debug_mode:
 			continue
 		
 		var new_skillNode := skillNode_scene.instantiate()

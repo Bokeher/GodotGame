@@ -1,5 +1,7 @@
 extends Node
 
+var debug_mode: bool = true
+
 # File paths
 const PATH_SAVE: String = "user://save"
 const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
