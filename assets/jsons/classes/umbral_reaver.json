@@ -93,5 +93,15 @@
 			"requirement_ids": [7],
 			"grid_position": [3, 2]
 		},
+		{
+			"id": 10,
+			"name": "Precise Counter",
+			"description": "After dodging an attack, your next attack is 2 times more likely to hit critically",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 1,
+			"requirement_ids": [2],
+			"grid_position": [1, 2]
+		}
 	]
 }
