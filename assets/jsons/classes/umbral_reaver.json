@@ -96,7 +96,7 @@
 		{
 			"id": 10,
 			"name": "Precise Counter",
-			"description": "After dodging an attack, your next attack is 2 times more likely to hit critically",
+			"description": "After dodging an attack, your next attack has double chance to hit critically",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1,
