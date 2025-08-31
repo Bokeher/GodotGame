@@ -102,6 +102,46 @@
 			"max_level": 1,
 			"requirement_ids": [2],
 			"grid_position": [1, 2]
+		},
+		{
+			"id": 11,
+			"name": "Insidious Killer",
+			"description": "Double 'damage over time effects' timers (lowers damage per second). Increase total damage done by 'damage over time effects' by 10/20/30%",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 3,
+			"requirement_ids": [6],
+			"grid_position": [2, 4]
+		},
+		{
+			"id": 12,
+			"name": "Shadow",
+			"description": "Increase dodge chance by 5/10/15%. Increase damage taken by 10%",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 3,
+			"requirement_ids": [5, 10],
+			"grid_position": [0, 3]
+		},
+		{
+			"id": 13,
+			"name": "Swift Slash",
+			"description": "Hit twice every attack",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 1,
+			"requirement_ids": [11, 14],
+			"grid_position": [2, 5]
+		},
+		{
+			"id": 14,
+			"name": "DoT Counter",
+			"description": "Apply all your 'damage over time effects' after dodging ",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 1,
+			"requirement_ids": [12],
+			"grid_position": [0, 4]
 		}
 	]
 }
