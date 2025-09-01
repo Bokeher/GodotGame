@@ -142,6 +142,16 @@
 			"max_level": 1,
 			"requirement_ids": [12],
 			"grid_position": [0, 4]
-		}
+		},
+		{
+			"id": 15,
+			"name": "Crit Chance III",
+			"description": "Increase crit chance by 5%",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 1,
+			"requirement_ids": [9],
+			"grid_position": [3, 3]
+		},
 	]
 }
