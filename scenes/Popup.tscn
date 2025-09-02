@@ -41,8 +41,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Description" type="Label" parent="Popup/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(160, 0)
+[node name="Description" type="RichTextLabel" parent="Popup/MarginContainer/VBoxContainer"]
 layout_mode = 2
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
+bbcode_enabled = true
+fit_content = true
