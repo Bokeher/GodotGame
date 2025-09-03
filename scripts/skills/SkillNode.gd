@@ -43,11 +43,11 @@ func get_formatted_description(skill: Skill) -> String:
 		var match = matches[i]
 		var value = match.get_string()
 
-		var color: String = "#D1B200"
+		var color: String = Enums.ColorsHex.SKILL_DESCRIPTION_SUB
 		var formatted_value: String = value
 
 		if i + 1 == skill.level: # if current level
-			color = "#FFD700"
+			color = Enums.ColorsHex.SKILL_DESCRIPTION_MAIN
 			formatted_value = "[b]" + value + "[/b]"
 
 		raw_description = raw_description.substr(0, match.get_start()) \

@@ -59,6 +59,11 @@ const Colors := {
 	"BORDER_UNFOCUS_HOVER": Color(0.30, 0.30, 0.30),
 }
 
+const ColorsHex := {
+	"SKILL_DESCRIPTION_MAIN": "#FFD700",
+	"SKILL_DESCRIPTION_SUB": "#D1B200"
+}
+
 const UNKNOWN_PNG_PATH: String = "res://assets/sprites/classes/unknown.png"
 
 # Dir paths
