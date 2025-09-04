@@ -36,7 +36,7 @@
 		{
 			"id": 4,
 			"name": "Bloodrage",
-			"description": "After killing an enemy, deal 5% / 10% / 15% / 20% / 30% more damage for 10 seconds.",
+			"description": "After killing an enemy, deal 5% / 10% / 15% / 20% / 30% more damage for 10 seconds. This effect does not stack",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
@@ -71,6 +71,16 @@
 			"level": 0,
 			"max_level": 3,
 			"requirement_ids": [6],
+			"grid_position": [2, 2]
+		},
+		{
+			"id": 8,
+			"name": "Mighty blow",
+			"description": "Reduce [b][i]Heavy Blow[/i][/b] attack speed penalty by 5%",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 1,
+			"requirement_ids": [7],
 			"grid_position": [2, 3]
 		}
 	]
