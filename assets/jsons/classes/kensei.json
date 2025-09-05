@@ -26,7 +26,7 @@
 		{
 			"id": 3,
 			"name": "Swordmaster's Instinct",
-			"description": "Display a skull indicator above an enemy when Sword's Path damage exceeds 120% of their health.",
+			"description": "Display a skull indicator above an enemy when [b][i]Sword's Path[/i][/b] damage exceeds 120% of their health.",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1,
@@ -36,7 +36,7 @@
 		{
 			"id": 4,
 			"name": "Flawless Precision",
-			"description": "You cannot crit, but *Sword's Path* damage is increased by 1/2/2/3/5% for every 10% of your crit chance.",
+			"description": "You cannot crit, but [b][i]Sword's Path[/i][/b] damage is increased by 1/2/2/3/5% for every 10% of your crit chance.",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
@@ -56,7 +56,7 @@
 		{
 			"id": 6,
 			"name": "Clean Cut",
-			"description": "Gain double loot when killing enemy without *Swordmaster's Instinct*",
+			"description": "Gain double loot when killing enemy without [b][i]Swordmaster's Instinct[/i][/b]",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 2,
@@ -66,7 +66,7 @@
 		{
 			"id": 7,
 			"name": "Patience",
-			"description": "Incrase *Sword Path* max stacks by 1",
+			"description": "Incrase [b][i]Sword Path[/i][/b] max stacks by 1",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 2,
