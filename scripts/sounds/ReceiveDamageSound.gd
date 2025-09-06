@@ -1,5 +1,4 @@
 extends AudioStreamPlayer
 
 func change_pitch() -> void:
-	var pitch = randf_range(1.5, 2)
-	$".".pitch_scale = pitch
+	pitch_scale = randf_range(1.5, 2)
