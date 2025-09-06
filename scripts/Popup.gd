@@ -10,7 +10,7 @@ var show_timer = Timer.new()
 var hide_timer = Timer.new()
 var pending_name = ""
 var pending_description = ""
-var rect = Rect2i(315, 31, 0, 0)
+var rect = Rect2i(250, 31, 0, 0)
 
 func _ready():
  # Add timers for delayed actions to prevent hiding after showing (happening when elements are really close to each other)

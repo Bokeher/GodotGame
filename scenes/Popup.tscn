@@ -13,13 +13,13 @@ script = ExtResource("1_4c2u4")
 
 [node name="Popup" type="PopupPanel" parent="."]
 auto_translate_mode = 1
-size = Vector2i(308, 208)
+size = Vector2i(374, 208)
 visible = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Popup"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
+offset_right = 370.0
 offset_bottom = 204.0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
@@ -27,7 +27,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer"]
-custom_minimum_size = Vector2(236, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
 [node name="Name" type="Label" parent="Popup/MarginContainer/VBoxContainer"]
