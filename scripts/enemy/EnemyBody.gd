@@ -98,6 +98,27 @@ func _pressed() -> void:
 		$"../../MainTabContainer/SkillsPanel/SkillTree".update_skill_points()
 	
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Kensei_SwordPath"):
+		if Global.selected_class_id != Enums.Classes.KENSEI:
+			return
+		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
+		if sword_path.level > 0:
+			var lines = $"../KenseiLines"
+			# Turn all lines red and play sound
+			for line: Line2D in lines.get_children():
+				line.default_color = Color.RED
+				await get_tree().create_timer(0.03).timeout
+				$"../../HitEnemySound".play_with_random_pitch() # TODO: Change this sound
+			
+			await get_tree().create_timer(0.3).timeout
+			
+			# Remove all lines
+			for line: Line2D in lines.get_children():
+				lines.remove_child(line)
+			# TODO: Add here kensei finisher sound / change other Sword's Path specifics
+	
+
 func is_enemy_hit() -> bool:
 	if Global.selected_class_id == Enums.Classes.KENSEI:
 		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]

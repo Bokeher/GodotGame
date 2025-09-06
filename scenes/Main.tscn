@@ -143,6 +143,7 @@ script = ExtResource("12_imtb5")
 stream = ExtResource("12_bo8ar")
 volume_db = -30.0
 pitch_scale = 4.0
+max_polyphony = 99999
 script = ExtResource("12_xw6xw")
 
 [node name="ActionButton" type="Button" parent="."]
