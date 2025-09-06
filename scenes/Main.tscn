@@ -127,6 +127,12 @@ text = "100 HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="KenseiLines" type="Control" parent="Enemy"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="ReceiveDamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_w2boa")
 volume_db = -66.62

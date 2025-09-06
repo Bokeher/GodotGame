@@ -43,7 +43,8 @@ func _pressed() -> void:
 	if !player_attack_timer.is_stopped():
 		return
 	
-	deal_damage_to_enemy()
+	if is_enemy_hit():
+		deal_damage_to_enemy()
 	
 	toggle_custom_cursor(true)
 	is_cursor_rotating = true
@@ -96,6 +97,48 @@ func _pressed() -> void:
 	if(leveled_up):
 		$"../../MainTabContainer/SkillsPanel/SkillTree".update_skill_points()
 	
+
+func is_enemy_hit() -> bool:
+	if Global.selected_class_id == Enums.Classes.KENSEI:
+		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
+		if sword_path.level > 0:
+			var enemy_pos = $".".position
+			var enemy_size = $".".get_minimum_size()
+			var enemy_scale = $".".scale
+			var enemy_width = enemy_size[0]
+			var enemy_heigth = enemy_size[1]
+			
+			var line = Line2D.new()
+			line.width = 2
+			
+			# FIRST POINT: left wall / top wall
+			var left_top_point: Vector2
+			
+			var left = randi_range(0, 1)
+			if left: # left wall
+				left_top_point = Vector2(0, randi_range(0, enemy_heigth * enemy_scale[0]))
+			else:    # top wall
+				left_top_point = Vector2(randi_range(0, enemy_width * enemy_scale[1]), 0)
+			
+			line.add_point(left_top_point)
+			
+			# SECOND POINT: right wall / bottom wall
+			var right_bot_point: Vector2
+			
+			var right = randi_range(0, 1)
+			if right: # right wall
+				right_bot_point = Vector2(enemy_width * enemy_scale[0], randi_range(0, enemy_heigth * enemy_scale[1]))
+			else:     # bottom wall
+				right_bot_point = Vector2(randi_range(0, enemy_width * enemy_scale[1]), enemy_heigth * enemy_scale[1])
+			
+			line.add_point(right_bot_point)
+			
+			
+			$"../KenseiLines".add_child(line)
+			
+			return false
+	
+	return true
 
 func deal_damage_to_enemy() -> void:
 	var damage = Global.player_stats.damage
