@@ -44,7 +44,15 @@ func _pressed() -> void:
 		return
 	
 	if is_enemy_hit():
-		deal_damage_to_enemy()
+		var damage = Global.player_stats.damage
+		# Check crit
+		if(is_critical_hit()):
+			$"../../HitEnemySound".change_pitch(true)
+			damage *= Global.player_stats.crit_multiplier
+		else:
+			$"../../HitEnemySound".change_pitch()
+		
+		deal_damage_to_enemy(damage)
 	
 	toggle_custom_cursor(true)
 	is_cursor_rotating = true
@@ -113,11 +121,21 @@ func _input(event: InputEvent) -> void:
 			
 			await get_tree().create_timer(0.3).timeout
 			
+			var line_amount = lines.get_children().size()
+			
 			# Remove all lines
 			for line: Line2D in lines.get_children():
 				lines.remove_child(line)
 			# TODO: Add here kensei finisher sound / change other Sword's Path specifics
-	
+			
+			var damage := Global.player_stats.damage
+			var max_stack_amount = 5
+			
+			damage = damage * line_amount * (1 + min(line_amount, max_stack_amount) * 0.1)
+			print(damage)
+			
+			deal_damage_to_enemy(damage)
+		
 
 func is_enemy_hit() -> bool:
 	if Global.selected_class_id == Enums.Classes.KENSEI:
@@ -161,16 +179,7 @@ func is_enemy_hit() -> bool:
 	
 	return true
 
-func deal_damage_to_enemy() -> void:
-	var damage = Global.player_stats.damage
-	
-	# Check crit
-	if(is_critical_hit()):
-		$"../../HitEnemySound".change_pitch(true)
-		damage *= Global.player_stats.crit_multiplier
-	else:
-		$"../../HitEnemySound".change_pitch()
-	
+func deal_damage_to_enemy(damage: int) -> void:
 	# Play damage dealt sound
 	$"../../HitEnemySound".play()
 	
