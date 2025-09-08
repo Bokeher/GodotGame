@@ -58,10 +58,92 @@ func _pressed() -> void:
 	is_cursor_rotating = true
 	player_attack_timer.start(Global.player_stats.attack_interval)
 	
-	# Early return if enemy is not dead
-	if (Global.curr_enemy.health > 0):
-		return
 	
+	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Kensei_SwordPath"):
+		if Global.selected_class_id != Enums.Classes.KENSEI:
+			return
+		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
+		if sword_path.level > 0:
+			var lines = $"../KenseiLines"
+			# Turn all lines red and play sound
+			for line: Line2D in lines.get_children():
+				line.default_color = Color.RED
+				await get_tree().create_timer(0.03).timeout
+				$"../../HitEnemySound".play_with_random_pitch() # TODO: Change this sound
+			
+			await get_tree().create_timer(0.3).timeout
+			
+			var line_amount = lines.get_children().size()
+			
+			# Remove all lines
+			for line: Line2D in lines.get_children():
+				lines.remove_child(line)
+			# TODO: Add here kensei finisher sound / change other Sword's Path specifics
+			
+			var damage := Global.player_stats.damage
+			var max_stack_amount = 5
+			
+			damage = damage * line_amount * (1 + min(line_amount, max_stack_amount) * 0.1)
+			print(damage)
+			
+			deal_damage_to_enemy(damage)
+		
+
+func is_enemy_hit() -> bool:
+	if Global.selected_class_id == Enums.Classes.KENSEI:
+		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
+		if sword_path.level > 0:
+			var enemy_size = $".".get_minimum_size()
+			var enemy_scale = $".".scale
+			var enemy_width = enemy_size[0]
+			var enemy_heigth = enemy_size[1]
+			
+			var line = Line2D.new()
+			line.width = 2
+			
+			# FIRST POINT: left wall / top wall
+			var left_top_point: Vector2
+			
+			var left = randi_range(0, 1)
+			if left: # left wall
+				left_top_point = Vector2(0, randi_range(0, enemy_heigth * enemy_scale[0]))
+			else:    # top wall
+				left_top_point = Vector2(randi_range(0, enemy_width * enemy_scale[1]), 0)
+			
+			line.add_point(left_top_point)
+			
+			# SECOND POINT: right wall / bottom wall
+			var right_bot_point: Vector2
+			
+			var right = randi_range(0, 1)
+			if right: # right wall
+				right_bot_point = Vector2(enemy_width * enemy_scale[0], randi_range(0, enemy_heigth * enemy_scale[1]))
+			else:     # bottom wall
+				right_bot_point = Vector2(randi_range(0, enemy_width * enemy_scale[1]), enemy_heigth * enemy_scale[1])
+			
+			line.add_point(right_bot_point)
+			
+			
+			$"../KenseiLines".add_child(line)
+			
+			return false
+	
+	return true
+
+func deal_damage_to_enemy(damage: int) -> void:
+	$"../../HitEnemySound".play()
+	
+	Global.curr_enemy.health -= damage
+	
+	$"..".update_enemy()
+	
+	if (Global.curr_enemy.health <= 0):
+		handle_enemy_death()
+
+func handle_enemy_death() -> void:
 	if Global.selected_class_id == Enums.Classes.WARRIOR:
 		for skill in Global.skills:
 			if skill.id == Enums.WarriorSkillIds.OVERKILL && skill.level > 0:
@@ -104,87 +186,6 @@ func _pressed() -> void:
 	$"../../MainTabContainer/BestiaryPanel/Bestiary".update_bestiary()
 	if(leveled_up):
 		$"../../MainTabContainer/SkillsPanel/SkillTree".update_skill_points()
-	
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Kensei_SwordPath"):
-		if Global.selected_class_id != Enums.Classes.KENSEI:
-			return
-		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
-		if sword_path.level > 0:
-			var lines = $"../KenseiLines"
-			# Turn all lines red and play sound
-			for line: Line2D in lines.get_children():
-				line.default_color = Color.RED
-				await get_tree().create_timer(0.03).timeout
-				$"../../HitEnemySound".play_with_random_pitch() # TODO: Change this sound
-			
-			await get_tree().create_timer(0.3).timeout
-			
-			var line_amount = lines.get_children().size()
-			
-			# Remove all lines
-			for line: Line2D in lines.get_children():
-				lines.remove_child(line)
-			# TODO: Add here kensei finisher sound / change other Sword's Path specifics
-			
-			var damage := Global.player_stats.damage
-			var max_stack_amount = 5
-			
-			damage = damage * line_amount * (1 + min(line_amount, max_stack_amount) * 0.1)
-			print(damage)
-			
-			deal_damage_to_enemy(damage)
-		
-
-func is_enemy_hit() -> bool:
-	if Global.selected_class_id == Enums.Classes.KENSEI:
-		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
-		if sword_path.level > 0:
-			var enemy_pos = $".".position
-			var enemy_size = $".".get_minimum_size()
-			var enemy_scale = $".".scale
-			var enemy_width = enemy_size[0]
-			var enemy_heigth = enemy_size[1]
-			
-			var line = Line2D.new()
-			line.width = 2
-			
-			# FIRST POINT: left wall / top wall
-			var left_top_point: Vector2
-			
-			var left = randi_range(0, 1)
-			if left: # left wall
-				left_top_point = Vector2(0, randi_range(0, enemy_heigth * enemy_scale[0]))
-			else:    # top wall
-				left_top_point = Vector2(randi_range(0, enemy_width * enemy_scale[1]), 0)
-			
-			line.add_point(left_top_point)
-			
-			# SECOND POINT: right wall / bottom wall
-			var right_bot_point: Vector2
-			
-			var right = randi_range(0, 1)
-			if right: # right wall
-				right_bot_point = Vector2(enemy_width * enemy_scale[0], randi_range(0, enemy_heigth * enemy_scale[1]))
-			else:     # bottom wall
-				right_bot_point = Vector2(randi_range(0, enemy_width * enemy_scale[1]), enemy_heigth * enemy_scale[1])
-			
-			line.add_point(right_bot_point)
-			
-			
-			$"../KenseiLines".add_child(line)
-			
-			return false
-	
-	return true
-
-func deal_damage_to_enemy(damage: int) -> void:
-	# Play damage dealt sound
-	$"../../HitEnemySound".play()
-	
-	Global.curr_enemy.health -= damage
-	$"..".update_enemy()
 
 func update_enemy_sprite() -> void:
 	if(!Global.curr_enemy):
