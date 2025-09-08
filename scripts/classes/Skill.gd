@@ -59,3 +59,33 @@ static func from_dict(data: Dictionary) -> Skill:
 		requirement_ids_int,
 		grid_position_int,
 	)
+
+
+func get_formatted_description() -> String:
+	var raw_description: String = description
+	
+	if not description.contains("%"):
+		return raw_description
+	
+	var regex = RegEx.new()
+	regex.compile(r" \d+%") # " 10% "
+
+	var matches = regex.search_all(raw_description)
+
+	# Lopp backwards to not shift indexes
+	for i in range(matches.size() - 1, -1, -1):
+		var match = matches[i]
+		var value = match.get_string()
+
+		var color: String = Enums.ColorsHex.SKILL_DESCRIPTION_SUB
+		var formatted_value: String = value
+
+		if i + 1 == level: # if current level
+			color = Enums.ColorsHex.SKILL_DESCRIPTION_MAIN
+			formatted_value = "[b]" + value + "[/b]"
+
+		raw_description = raw_description.substr(0, match.get_start()) \
+			+ "[color=" + color + "]" + formatted_value + "[/color]" \
+			+ raw_description.substr(match.get_end())
+	
+	return raw_description

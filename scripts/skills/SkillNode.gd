@@ -21,40 +21,11 @@ func _on_texture_button_mouse_entered() -> void:
 		$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
 	$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
 	
-	var skill_description: String = get_formatted_description(skill)
+	var skill_description: String = skill.get_formatted_description()
 	
 	var description := skill_description + "\n\nLevel " + str(skill.level) + " / " + str(skill.max_level)
 	
 	popup.popup(skill.name, description)
-
-func get_formatted_description(skill: Skill) -> String:
-	var raw_description: String = skill.description
-	
-	if not skill.description.contains("%"):
-		return raw_description
-	
-	var regex = RegEx.new()
-	regex.compile(r" \d+%") # " 10% "
-
-	var matches = regex.search_all(raw_description)
-
-	# Lopp backwards to not shift indexes
-	for i in range(matches.size() - 1, -1, -1):
-		var match = matches[i]
-		var value = match.get_string()
-
-		var color: String = Enums.ColorsHex.SKILL_DESCRIPTION_SUB
-		var formatted_value: String = value
-
-		if i + 1 == skill.level: # if current level
-			color = Enums.ColorsHex.SKILL_DESCRIPTION_MAIN
-			formatted_value = "[b]" + value + "[/b]"
-
-		raw_description = raw_description.substr(0, match.get_start()) \
-			+ "[color=" + color + "]" + formatted_value + "[/color]" \
-			+ raw_description.substr(match.get_end())
-	
-	return raw_description
 
 func _on_texture_button_mouse_exited() -> void:
 	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
