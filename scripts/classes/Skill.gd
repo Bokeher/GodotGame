@@ -68,24 +68,24 @@ func get_formatted_description() -> String:
 		return raw_description
 	
 	var regex = RegEx.new()
-	regex.compile(r" \d+%") # " 10% "
-
-	var matches = regex.search_all(raw_description)
-
-	# Lopp backwards to not shift indexes
-	for i in range(matches.size() - 1, -1, -1):
-		var match = matches[i]
-		var value = match.get_string()
-
-		var color: String = Enums.ColorsHex.SKILL_DESCRIPTION_SUB
-		var formatted_value: String = value
-
-		if i + 1 == level: # if current level
-			color = Enums.ColorsHex.SKILL_DESCRIPTION_MAIN
-			formatted_value = "[b]" + value + "[/b]"
-
-		raw_description = raw_description.substr(0, match.get_start()) \
-			+ "[color=" + color + "]" + formatted_value + "[/color]" \
-			+ raw_description.substr(match.get_end())
+	regex.compile(r"\d+(?:/\d+)+") # 1/2 || 1/2/3 || 1/2/3/4/5 or 1/2/.../9
 	
+	var matches = regex.search_all(raw_description)
+	
+	# Loop for all "1/2/3/4/5" type texts in entire description (loop backwards to not shift indexes)
+	for i in range(matches.size() - 1, -1, -1):
+		var result = matches[i]
+		var values = result.get_string().split("/")
+		
+		var result_text = ""
+		for j in range(values.size()):
+			if j + 1 == level: # if this is current skill level
+				result_text += "[b][color=" + Enums.ColorsHex.SKILL_DESCRIPTION_MAIN + "]" + values[j] + "[/color][/b]"
+			else:
+				result_text += "[color=" + Enums.ColorsHex.SKILL_DESCRIPTION_SUB + "]" + values[j] + "[/color]"
+			
+			if j < values.size() - 1:
+				result_text += "/"
+		
+		raw_description = raw_description.substr(0, result.get_start()) + result_text + raw_description.substr(result.get_end())
 	return raw_description
