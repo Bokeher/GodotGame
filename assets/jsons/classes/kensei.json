@@ -92,6 +92,6 @@
 			"max_level": 3,
 			"requirement_ids": [1],
 			"grid_position": [2, 2]
-		},
+		}
 	]
 }
