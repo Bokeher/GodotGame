@@ -16,7 +16,7 @@
 		{
 			"id": 2,
 			"name": "Lucky Strike",
-			"description": "+1% chance do deal double damage",
+			"description": "1/2/3/4/5% chance do deal double damage",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
@@ -55,7 +55,7 @@
 		{
 			"id": 6,
 			"name": "Luckier Strike",
-			"description": "+0.1% chance do deal quadruple damage",
+			"description": "0.1/0.2/0.3/0.4/0.5% chance do deal quadruple damage",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
@@ -85,7 +85,7 @@
 		{
 			"id": 9,
 			"name": "Hit Chance I",
-			"description": "+0.5% hit chance",
+			"description": "+0.5/1% hit chance",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 2,
@@ -95,7 +95,7 @@
 		{
 			"id": 10,
 			"name": "Hit Chance II",
-			"description": "+0.2% hit chance",
+			"description": "+0.2/0.4/0.6/0.8/1.0% hit chance",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,

@@ -46,7 +46,7 @@
 		{
 			"id": 5,
 			"name": "Improved Instinct",
-			"description": "Decrease indicator threshhold by 5%",
+			"description": "Decrease indicator threshhold by 5/10%",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 2,
@@ -66,7 +66,7 @@
 		{
 			"id": 7,
 			"name": "Patience",
-			"description": "Incrase [b][i]Sword's Path[/i][/b] max stacks by 1",
+			"description": "Incrase [b][i]Sword's Path[/i][/b] max stacks by 1/2",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 2,
@@ -76,7 +76,7 @@
 		{
 			"id": 8,
 			"name": "Dulled Instinct",
-			"description": "Increase indicator threshhold by 5%",
+			"description": "Increase indicator threshhold by 5/10%",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 2,
