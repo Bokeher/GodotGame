@@ -62,22 +62,25 @@ static func from_dict(data: Dictionary) -> Skill:
 
 
 func get_formatted_description() -> String:
-	var raw_description: String = description
+	var formatted_description: String = description
 	
-	if not description.contains("%"):
-		return raw_description
+	formatted_description = format_skill_levels(formatted_description)
+	formatted_description = format_percentage_values(formatted_description)
 	
-	var regex = RegEx.new()
-	regex.compile(r"\d+(?:/\d+)+") # 1/2 || 1/2/3 || 1/2/3/4/5 or 1/2/.../9
+	return formatted_description
+
+func format_skill_levels(text: String) -> String:
+	var regex := RegEx.new()
+	regex.compile(r"\d+(?:/\d+)+") # 1/2 || 1/2/3 || 1/2/3/4/5 || 1/2/.../9
 	
-	var matches = regex.search_all(raw_description)
+	var matches := regex.search_all(text)
 	
-	# Loop for all "1/2/3/4/5" type texts in entire description (loop backwards to not shift indexes)
+	# Loop backwards to not shift indexes
 	for i in range(matches.size() - 1, -1, -1):
-		var result = matches[i]
-		var values = result.get_string().split("/")
+		var result := matches[i]
+		var values := result.get_string().split("/")
 		
-		var result_text = ""
+		var result_text := ""
 		for j in range(values.size()):
 			if j + 1 == level: # if this is current skill level
 				result_text += "[b][color=" + Enums.ColorsHex.SKILL_DESCRIPTION_MAIN + "]" + values[j] + "[/color][/b]"
@@ -87,5 +90,17 @@ func get_formatted_description() -> String:
 			if j < values.size() - 1:
 				result_text += "/"
 		
-		raw_description = raw_description.substr(0, result.get_start()) + result_text + raw_description.substr(result.get_end())
-	return raw_description
+		text = text.substr(0, result.get_start()) + result_text + text.substr(result.get_end())
+	
+	return text
+
+func format_percentage_values(text: String) -> String:
+	var regex := RegEx.new()
+	regex.compile(r"\d+%")
+	
+	var matches := regex.search_all(text)
+	for i in range(matches.size() - 1, -1, -1):
+		var result := matches[i]
+		text = text.substr(0, result.get_start()) + "[color=#6495ED]" + result.get_string() + "[/color]" + text.substr(result.get_end())
+	
+	return text
