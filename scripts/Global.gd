@@ -46,6 +46,10 @@ var process_auto_save_timer: float = 0.0
 var process_calc_timer: float = 0.0
 
 # Skill specific tracking
+# KENSEI
+var swords_path_max_stacks: int = 5
+
+# WARRIOR
 var overkill_damage: int = 0
 
 func _ready() -> void:
