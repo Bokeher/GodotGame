@@ -75,7 +75,7 @@
 		},
 		{
 			"id": 8,
-			"name": "Mighty blow",
+			"name": "Mighty Blow",
 			"description": "Reduce [b][i]Heavy Blow[/i][/b] attack speed penalty by 5%",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
