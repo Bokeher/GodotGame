@@ -84,10 +84,14 @@ func _input(event: InputEvent) -> void:
 			# TODO: Add here kensei finisher sound / change other Sword's Path specifics
 			
 			var damage := Global.player_stats.damage
-			var patience := Global.skills[Enums.KenseiSkillIds.PATIENCE - 1]
-			var max_stack_amount = Global.swords_path_max_stacks + patience.level
 			
-			var stack_multiplier = 1 + (min(line_amount, max_stack_amount) * 0.1)
+			var patience := Global.skills[Enums.KenseiSkillIds.PATIENCE - 1]
+			var max_stack_amount: int = Global.swords_path_base_max_stacks + patience.level
+			
+			var sharp_edge := Global.skills[Enums.KenseiSkillIds.SHARP_EDGE - 1]
+			var per_stack_multiplier: float = Global.swords_path_base_damage_multiplier + Global.sharp_edge_values[sharp_edge.level]
+			
+			var stack_multiplier = 1 + (min(line_amount, max_stack_amount) * per_stack_multiplier)
 			
 			damage = damage * line_amount * stack_multiplier
 			
