@@ -58,44 +58,55 @@ func _pressed() -> void:
 	is_cursor_rotating = true
 	player_attack_timer.start(Global.player_stats.attack_interval)
 	
-	
-	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Kensei_SwordPath"):
 		if Global.selected_class_id != Enums.Classes.KENSEI:
 			return
+		
+		if !Global.curr_enemy:
+			return
+		
+		var swords_path_timer: Timer = $"../../KenseiSpecific/SwordsPathTimer"
+		if !swords_path_timer.is_stopped():
+			return
+		
+		swords_path_timer.start()
+		
 		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
-		if sword_path.level > 0:
-			var lines = $"../KenseiLines"
-			# Turn all lines red and play sound
-			for line: Line2D in lines.get_children():
-				line.default_color = Color.RED
-				await get_tree().create_timer(0.03).timeout
-				$"../../HitEnemySound".play_with_random_pitch() # TODO: Change this sound
-			
-			await get_tree().create_timer(0.3).timeout
-			
-			var line_amount = lines.get_children().size()
-			
-			# Remove all lines
-			for line: Line2D in lines.get_children():
-				lines.remove_child(line)
-			# TODO: Add here kensei finisher sound / change other Sword's Path specifics
-			
-			var damage := Global.player_stats.damage
-			
-			var patience := Global.skills[Enums.KenseiSkillIds.PATIENCE - 1]
-			var max_stack_amount: int = Global.swords_path_base_max_stacks + patience.level
-			
-			var sharp_edge := Global.skills[Enums.KenseiSkillIds.SHARP_EDGE - 1]
-			var per_stack_multiplier: float = Global.swords_path_base_damage_multiplier + Global.sharp_edge_values[sharp_edge.level]
-			
-			var stack_multiplier = 1 + (min(line_amount, max_stack_amount) * per_stack_multiplier)
-			
-			damage = damage * line_amount * stack_multiplier
-			
-			deal_damage_to_enemy(damage)
+		if sword_path.level == 0:
+			return
+		
+		var lines = $"../KenseiLines"
+		
+		# Turn all lines red and play sound
+		for line: Line2D in lines.get_children():
+			line.default_color = Color.RED
+			await get_tree().create_timer(0.03).timeout
+			$"../../HitEnemySound".play_with_random_pitch() # TODO: Change this sound
+		
+		await get_tree().create_timer(0.3).timeout
+		
+		var line_amount = lines.get_children().size()
+		
+		# Remove all lines
+		for line: Line2D in lines.get_children():
+			lines.remove_child(line)
+		# TODO: Add here kensei finisher sound / change other Sword's Path specifics
+		
+		var damage := Global.player_stats.damage
+		
+		var patience := Global.skills[Enums.KenseiSkillIds.PATIENCE - 1]
+		var max_stack_amount: int = Global.swords_path_base_max_stacks + patience.level
+		
+		var sharp_edge := Global.skills[Enums.KenseiSkillIds.SHARP_EDGE - 1]
+		var per_stack_multiplier: float = Global.swords_path_base_damage_multiplier + Global.sharp_edge_values[sharp_edge.level]
+		
+		var stack_multiplier = 1 + (min(line_amount, max_stack_amount) * per_stack_multiplier)
+		
+		damage = damage * line_amount * stack_multiplier
+		
+		deal_damage_to_enemy(damage)
 		
 
 func is_enemy_hit() -> bool:
@@ -140,6 +151,9 @@ func is_enemy_hit() -> bool:
 	return true
 
 func deal_damage_to_enemy(damage: int) -> void:
+	if !Global.curr_enemy:
+		return
+	
 	$"../../HitEnemySound".play()
 	
 	Global.curr_enemy.health -= damage

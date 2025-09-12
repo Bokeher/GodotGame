@@ -49,6 +49,7 @@ var process_calc_timer: float = 0.0
 # KENSEI
 var swords_path_base_max_stacks: int = 5
 var swords_path_base_damage_multiplier: float = 0.1
+var swords_path_base_cooldown: float = 2.0
 var sharp_edge_values = [0, 0.01, 0.03, 0.05]
 
 # WARRIOR
