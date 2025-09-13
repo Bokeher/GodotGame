@@ -67,6 +67,10 @@ func _input(event: InputEvent) -> void:
 		if !Global.curr_enemy:
 			return
 		
+		var lines = $"../KenseiLines"
+		if lines.get_children().size() == 0:
+			return
+		
 		var swords_path_timer: Timer = $"../../KenseiSpecific/SwordsPathTimer"
 		if !swords_path_timer.is_stopped():
 			return
@@ -76,8 +80,6 @@ func _input(event: InputEvent) -> void:
 		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
 		if sword_path.level == 0:
 			return
-		
-		var lines = $"../KenseiLines"
 		
 		# Turn all lines red and play sound
 		for line: Line2D in lines.get_children():
