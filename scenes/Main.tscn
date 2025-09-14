@@ -309,5 +309,13 @@ visible = false
 one_shot = true
 script = ExtResource("28_ma7h6")
 
+[node name="SwordsmasterInstinctSkull" type="ColorRect" parent="KenseiSpecific"]
+visible = false
+offset_left = 120.0
+offset_top = 83.0
+offset_right = 160.0
+offset_bottom = 123.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]
 [connection signal="timeout" from="PlayerAttackTimer" to="Enemy/EnemyBody" method="_on_player_attack_timer_timeout"]

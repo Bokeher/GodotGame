@@ -147,8 +147,16 @@ func is_enemy_hit() -> bool:
 			
 			line.add_point(right_bot_point)
 			
-			
 			$"../KenseiLines".add_child(line)
+			
+			if Global.skills[Enums.KenseiSkillIds.SWORDMASTERS_INSTINCT - 1].level == 0:
+				return false
+			
+			var show_skull: bool = false
+			var enemy_hp: int = Global.curr_enemy.health
+			if enemy_hp * Global.swordsmaster_instinct_threshold <= get_swords_path_damage():
+				show_skull = true
+			$"../../KenseiSpecific/SwordsmasterInstinctSkull".visible = show_skull
 			
 			return false
 	
