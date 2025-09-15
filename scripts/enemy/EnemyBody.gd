@@ -154,7 +154,7 @@ func is_enemy_hit() -> bool:
 			
 			var show_skull: bool = false
 			var enemy_hp: int = Global.curr_enemy.health
-			if enemy_hp * Global.swordsmaster_instinct_threshold <= get_swords_path_damage():
+			if enemy_hp * Global.get_instinct_threshold() <= get_swords_path_damage():
 				show_skull = true
 			$"../../KenseiSpecific/SwordsmasterInstinctSkull".visible = show_skull
 			
