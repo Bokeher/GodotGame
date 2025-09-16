@@ -104,10 +104,10 @@ func get_swords_path_damage() -> int:
 	var base_damage := Global.player_stats.damage
 	
 	var patience := Global.skills[Enums.KenseiSkillIds.PATIENCE - 1]
-	var max_stack_amount: int = Global.swords_path_base_max_stacks + patience.level
+	var max_stack_amount: int = Global.kensei_class.swords_path_base_max_stacks + patience.level
 	
 	var sharp_edge := Global.skills[Enums.KenseiSkillIds.SHARP_EDGE - 1]
-	var per_stack_multiplier: float = Global.swords_path_base_damage_multiplier + Global.sharp_edge_values[sharp_edge.level]
+	var per_stack_multiplier: float = Global.kensei_class.swords_path_base_damage_multiplier + Global.kensei_class.sharp_edge_values[sharp_edge.level]
 	
 	var stack_multiplier = 1 + (min(line_amount, max_stack_amount) * per_stack_multiplier)
 	
@@ -154,7 +154,7 @@ func is_enemy_hit() -> bool:
 			
 			var show_skull: bool = false
 			var enemy_hp: int = Global.curr_enemy.health
-			if enemy_hp * Global.get_instinct_threshold() <= get_swords_path_damage():
+			if enemy_hp * Global.kensei_class.get_instinct_threshold() <= get_swords_path_damage():
 				show_skull = true
 			$"../../KenseiSpecific/SwordsmasterInstinctSkull".visible = show_skull
 			
