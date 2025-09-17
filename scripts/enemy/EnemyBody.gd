@@ -204,6 +204,7 @@ func handle_enemy_death() -> void:
 	
 	# Make enemy disapear
 	Global.curr_enemy = null
+	$"../../KenseiSpecific/SwordsmasterInstinctSkull".visible = false
 	$"..".hide_enemy()
 	
 	# Start filling bar to show progress of finding new enemy
