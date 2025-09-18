@@ -47,7 +47,7 @@ var process_calc_timer: float = 0.0
 
 # Skill specific tracking
 # KENSEI
-var kensei_class = KenseiClass.new()
+var kensei_class := KenseiClass.new()
 
 
 # WARRIOR

@@ -1,5 +1,9 @@
 class_name KenseiClass
 
+# stores current values
+var swords_path_lines_amount: int = 0
+
+# static values
 var swords_path_base_max_stacks: int = 5
 var swords_path_base_damage_multiplier: float = 0.1
 var swords_path_base_cooldown: float = 2.0

@@ -95,18 +95,19 @@ func _input(event: InputEvent) -> void:
 		for line: Line2D in lines.get_children():
 			lines.remove_child(line)
 		# TODO: Add here kensei finisher sound / change other Sword's Path specifics
+		Global.kensei_class.swords_path_lines_amount = 0
 		
 		deal_damage_to_enemy(damage)
 		
 
 func get_swords_path_damage() -> int:
-	var line_amount = $"../KenseiLines".get_children().size()
-	var base_damage := Global.player_stats.damage
+	var line_amount: int = Global.kensei_class.swords_path_lines_amount
+	var base_damage: int = Global.player_stats.damage
 	
-	var patience := Global.skills[Enums.KenseiSkillIds.PATIENCE - 1]
+	var patience: Skill = Global.skills[Enums.KenseiSkillIds.PATIENCE - 1]
 	var max_stack_amount: int = Global.kensei_class.swords_path_base_max_stacks + patience.level
 	
-	var sharp_edge := Global.skills[Enums.KenseiSkillIds.SHARP_EDGE - 1]
+	var sharp_edge: Skill = Global.skills[Enums.KenseiSkillIds.SHARP_EDGE - 1]
 	var per_stack_multiplier: float = Global.kensei_class.swords_path_base_damage_multiplier + Global.kensei_class.sharp_edge_values[sharp_edge.level]
 	
 	var stack_multiplier = 1 + (min(line_amount, max_stack_amount) * per_stack_multiplier)
@@ -147,6 +148,7 @@ func is_enemy_hit() -> bool:
 			
 			line.add_point(right_bot_point)
 			
+			Global.kensei_class.swords_path_lines_amount += 1
 			$"../KenseiLines".add_child(line)
 			
 			if Global.skills[Enums.KenseiSkillIds.SWORDMASTERS_INSTINCT - 1].level == 0:
