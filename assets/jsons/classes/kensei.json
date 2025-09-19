@@ -16,7 +16,7 @@
 		{
 			"id": 2,
 			"name": "Master's Tempo",
-			"description": "Every 10/9/8/7/5-th hit hits twice for a total of 125% damage",
+			"description": "Every 10/9/8/7/5-th hit hits twice",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,

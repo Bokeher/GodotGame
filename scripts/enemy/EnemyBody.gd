@@ -151,10 +151,18 @@ func is_enemy_hit() -> bool:
 			Global.kensei_class.swords_path_lines_amount += 1
 			$"../KenseiLines".add_child(line)
 			
+			# MASTER'S TEMPO
+			var masters_tempo: Skill = Global.skills[Enums.KenseiSkillIds.MASTERS_TEMPO - 1]
+			var reached_max_stacks: bool = Global.kensei_class.increase_masters_tempo(masters_tempo.level)
+			if reached_max_stacks:
+				is_enemy_hit()
+			
+			# SWORDMASTER'S INSTINCT
 			if Global.skills[Enums.KenseiSkillIds.SWORDMASTERS_INSTINCT - 1].level == 0:
 				return false
 			
 			var show_skull: bool = false
+			
 			var enemy_hp: int = Global.curr_enemy.health
 			if enemy_hp * Global.kensei_class.get_instinct_threshold() <= get_swords_path_damage():
 				show_skull = true
