@@ -92,6 +92,16 @@
 			"max_level": 3,
 			"requirement_ids": [1],
 			"grid_position": [2, 2]
-		}
+		},
+		{
+			"id": 10,
+			"name": "Improved Tempo",
+			"description": "You have 50% chance to do triple attack instead with [b][i]Master's Tempo[/i][/b]",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 2,
+			"requirement_ids": [2],
+			"grid_position": [0, 2]
+		},
 	]
 }
