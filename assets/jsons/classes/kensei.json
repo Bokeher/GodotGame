@@ -96,12 +96,12 @@
 		{
 			"id": 10,
 			"name": "Improved Tempo",
-			"description": "You have 50% chance to do triple attack instead with [b][i]Master's Tempo[/i][/b]",
+			"description": "You have 25/50/100% chance to do triple attack instead with [b][i]Master's Tempo[/i][/b]",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
-			"max_level": 2,
+			"max_level": 3,
 			"requirement_ids": [2],
-			"grid_position": [0, 2]
+			"grid_position": [0, 3]
 		},
 	]
 }

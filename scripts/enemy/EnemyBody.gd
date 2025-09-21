@@ -156,6 +156,10 @@ func is_enemy_hit() -> bool:
 			var reached_max_stacks: bool = Global.kensei_class.increase_masters_tempo(masters_tempo.level)
 			if reached_max_stacks:
 				is_enemy_hit()
+				
+				var improved_tempo: Skill = Global.skills[Enums.KenseiSkillIds.IMPROVED_TEMPO - 1]
+				if Global.kensei_class.process_improved_tempo(improved_tempo.level):
+					is_enemy_hit()
 			
 			# SWORDMASTER'S INSTINCT
 			if Global.skills[Enums.KenseiSkillIds.SWORDMASTERS_INSTINCT - 1].level == 0:

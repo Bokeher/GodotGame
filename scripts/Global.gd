@@ -49,7 +49,6 @@ var process_calc_timer: float = 0.0
 # KENSEI
 var kensei_class := KenseiClass.new()
 
-
 # WARRIOR
 var overkill_damage: int = 0
 
