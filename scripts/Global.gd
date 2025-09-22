@@ -81,8 +81,17 @@ func read_savefile() -> void:
 	
 	# Read data from file
 	var file = FileAccess.open(PATH_SAVE, FileAccess.READ)
+	
+	if file == null:
+		print("ERROR: Failed to load savefile since file is null")
+		return
+	
 	var data = file.get_var()
 	file.close()
+	
+	if data == null:
+		print("ERROR: Failed to load savefile since data is null")
+		return
 	
 	# Get dictionaries from file
 	var player_stats_dict = data[0]
