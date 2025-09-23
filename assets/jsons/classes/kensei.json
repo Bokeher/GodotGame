@@ -96,12 +96,22 @@
 		{
 			"id": 10,
 			"name": "Improved Tempo",
-			"description": "You have 25/50/100% chance to do triple attack instead with [b][i]Master's Tempo[/i][/b]",
+			"description": "25/50/100% chance for [b][i]Master's Tempo[/i][/b] to trigger a triple attack instead",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 3,
 			"requirement_ids": [2],
 			"grid_position": [0, 3]
 		},
+		{
+			"id": 11,
+			"name": "Exquisit Tempo",
+			"description": "[b][i]Master's Tempo[/i][/b] now activates every 3rd hit",
+			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
+			"max_level": 1,
+			"requirement_ids": [10],
+			"grid_position": [0, 4]
+		}
 	]
 }
