@@ -37,7 +37,16 @@ func _on_texture_button_pressed() -> void:
 	level_up_skill()
 
 func level_up_skill() -> void:
-	if(skill.level >= skill.max_level || Global.player_stats.skill_points <= 0):
+	# 0 skill points
+	if Global.player_stats.skill_points <= 0:
+		return
+	
+	# Max level
+	if skill.level >= skill.max_level :
+		return
+	
+	if !meets_skill_requirements(skill):
+		# TODO: Add popup here about skill requirements and also show in skill description when reqs are not met
 		return
 	
 	skill.level += 1
@@ -45,6 +54,17 @@ func level_up_skill() -> void:
 	$"../../..".update_skill_points()
 	
 	update_level_label()
+
+func meets_skill_requirements(skill: Skill) -> bool:
+	var required_ids: Array[int] = skill.requirement_ids
+	
+	for required_id in required_ids:
+		var required_skill: Skill = Global.skills[required_id - 1]
+		
+		if required_skill.level < required_skill.max_level:
+			return false
+	
+	return true
 
 func update_level_label() -> void:
 	$SkillLevelLabel.text = str(skill.level) + " / " + str(skill.max_level)
