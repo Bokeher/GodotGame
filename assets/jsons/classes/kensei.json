@@ -6,7 +6,7 @@
 		{
 			"id": 1,
 			"name": "Sword's Path",
-			"description": "Do not deal damage on hit. \n\nInstead charge your attack and then deal all damage at once (2s cooldown). \n\nIncrease damage for 10% with each hit (max 5 stacks)",
+			"description": "Do not deal damage on hit. Can't perform critical attacks \n\nInstead charge your attack and then deal all damage at once (2s cooldown). \n\nIncrease damage for 10% with each hit (max 5 stacks)",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1,
@@ -36,7 +36,7 @@
 		{
 			"id": 4,
 			"name": "Flawless Precision",
-			"description": "You cannot crit, but [b][i]Sword's Path[/i][/b] damage is increased by 1/2/2/3/5% for every 10% of your crit chance.",
+			"description": "[b][i]Sword's Path[/i][/b] damage is increased by 1/2/2/3/5% for every 10% of your crit chance.",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 5,
