@@ -55,8 +55,8 @@ func level_up_skill() -> void:
 	
 	update_level_label()
 
-func meets_skill_requirements(skill: Skill) -> bool:
-	var required_ids: Array[int] = skill.requirement_ids
+func meets_skill_requirements(skill_: Skill) -> bool:
+	var required_ids: Array[int] = skill_.requirement_ids
 	
 	for required_id in required_ids:
 		var required_skill: Skill = Global.skills[required_id - 1]
