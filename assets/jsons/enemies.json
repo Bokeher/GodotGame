@@ -52,6 +52,16 @@
 					"drop_chance": 0.03
 				}
 			]
+		},
+		{
+			"id": 4,
+			"name": "Boneman",
+			"health": 10,
+			"gold_reward": 10,
+			"image_path": "res://assets/sprites/enemies/boneman.png",
+			"damage": 4,
+			"xp_reward": 10,
+			"loot_table": []
 		}
 	]
 }
