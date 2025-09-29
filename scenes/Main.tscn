@@ -89,13 +89,13 @@ text = "Reset"
 script = ExtResource("3_or36x")
 
 [node name="Enemy" type="Node2D" parent="."]
-position = Vector2(40, 50)
+position = Vector2(40, 62)
 script = ExtResource("5_unadx")
 
 [node name="EnemyBody" type="TextureButton" parent="Enemy"]
-offset_top = 24.0
+offset_top = 45.0
 offset_right = 64.0
-offset_bottom = 88.0
+offset_bottom = 109.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("6_jbngq")
 script = ExtResource("7_8xw8y")
@@ -108,21 +108,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EnemyAttackTimer" type="Label" parent="Enemy"]
-offset_top = 40.0
+offset_top = 24.0
 offset_right = 200.0
-offset_bottom = 65.0
+offset_bottom = 49.0
 horizontal_alignment = 1
 
 [node name="HealthBar" type="ProgressBar" parent="Enemy"]
-offset_top = 220.0
-offset_right = 200.0
-offset_bottom = 250.0
+offset_top = 241.0
+offset_right = 192.0
+offset_bottom = 271.0
 show_percentage = false
 script = ExtResource("10_hvvn2")
 
 [node name="EnemyHealthLabel" type="Label" parent="Enemy/HealthBar"]
 layout_mode = 0
-offset_right = 200.0
+offset_right = 192.0
 offset_bottom = 30.0
 text = "100 HP"
 horizontal_alignment = 1
@@ -131,8 +131,8 @@ vertical_alignment = 1
 [node name="KenseiLines" type="Control" parent="Enemy"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 45.0
+offset_bottom = 45.0
 
 [node name="ReceiveDamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_w2boa")
@@ -149,9 +149,9 @@ script = ExtResource("12_xw6xw")
 
 [node name="ActionButton" type="Button" parent="."]
 offset_left = 80.0
-offset_top = 319.0
+offset_top = 340.0
 offset_right = 206.0
-offset_bottom = 377.0
+offset_bottom = 398.0
 text = "Searching"
 script = ExtResource("14_nqjfl")
 
