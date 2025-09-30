@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=32 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" uid="uid://dgo0pke6nqqb8" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" uid="uid://ct7xcpextwtga" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://ivxjfj7k3lt1" path="res://scenes/PetsTab.tscn" id="26_lyvra"]
 [ext_resource type="Script" uid="uid://cpkq7hm5vknaa" path="res://scripts/SwordsPathTimer.gd" id="28_ma7h6"]
 [ext_resource type="PackedScene" uid="uid://bw2cwrtnmxrcv" path="res://scenes/bestiary/BestiaryTab.tscn" id="28_oy4c8"]
+[ext_resource type="AudioStream" uid="uid://byxawy1ehasmx" path="res://assets/sounds/kensei_swordsPath_finisherAttack.mp3" id="29_e2s0e"]
+[ext_resource type="AudioStream" uid="uid://c5p6h77ana5fp" path="res://assets/sounds/kensei_attackSound.mp3" id="29_gsxep"]
 [ext_resource type="Texture2D" uid="uid://qt1prw712ybr" path="res://assets/sprites/cursors/cursor_warrior.png" id="29_pyqnk"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
@@ -316,6 +318,16 @@ offset_top = 83.0
 offset_right = 160.0
 offset_bottom = 123.0
 color = Color(0, 0, 0, 1)
+
+[node name="SwordsPathHitSound" type="AudioStreamPlayer" parent="KenseiSpecific"]
+stream = ExtResource("29_gsxep")
+volume_db = -20.0
+max_polyphony = 1000
+
+[node name="SwordsPathFinisherAttack" type="AudioStreamPlayer" parent="KenseiSpecific"]
+stream = ExtResource("29_e2s0e")
+volume_db = -10.0
+max_polyphony = 1000
 
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]
 [connection signal="timeout" from="PlayerAttackTimer" to="Enemy/EnemyBody" method="_on_player_attack_timer_timeout"]
