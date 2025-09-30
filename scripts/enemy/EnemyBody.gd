@@ -81,11 +81,12 @@ func _input(event: InputEvent) -> void:
 		if sword_path.level == 0:
 			return
 		
+		$"../../KenseiSpecific/SwordsPathFinisherAttack".reset_pitch()
 		# Turn all lines red and play sound
 		for line: Line2D in lines.get_children():
 			line.default_color = Color.RED
 			await get_tree().create_timer(0.05).timeout
-			$"../../KenseiSpecific/SwordsPathFinisherAttack".play()
+			$"../../KenseiSpecific/SwordsPathFinisherAttack".play_with_increased_pitch()
 		
 		await get_tree().create_timer(0.3).timeout # wait 0.3 seconds
 		
@@ -152,7 +153,7 @@ func is_enemy_hit() -> bool:
 			$"../KenseiLines".add_child(line)
 			
 			# PLAY HIT SOUND
-			$"../../KenseiSpecific/SwordsPathHitSound".play()
+			$"../../KenseiSpecific/SwordsPathHitSound".play_with_random_pitch()
 			
 			# MASTER'S TEMPO
 			var masters_tempo: Skill = Global.skills[Enums.KenseiSkillIds.MASTERS_TEMPO - 1]
