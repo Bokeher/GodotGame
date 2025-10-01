@@ -6,19 +6,19 @@
 			"enemies": [
 				{
 					"enemy_id": 1,
-					"spawn_chance": 0.25
+					"spawn_chance": 0.50
 				},
 				{
 					"enemy_id": 2,
-					"spawn_chance": 0.25
+					"spawn_chance": 0.48
 				},
 				{
 					"enemy_id": 3,
-					"spawn_chance": 0.25
+					"spawn_chance": 0.01
 				},
 				{
 					"enemy_id": 4,
-					"spawn_chance": 0.25
+					"spawn_chance": 0.01
 				}
 			]
 		},

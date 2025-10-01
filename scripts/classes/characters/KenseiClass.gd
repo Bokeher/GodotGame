@@ -34,8 +34,13 @@ func increase_masters_tempo(masters_tempo_level: int) -> bool:
 	if masters_tempo_level == 0:
 		return false
 	
+	var stacks_to_proc: int = masters_tempo_values[masters_tempo_level]
+	var exquisit_tempo: Skill = Global.skills[Enums.KenseiSkillIds.EXQUISIT_TEMPO - 1]
+	if exquisit_tempo.level == 1:
+		stacks_to_proc = 3
+	
 	# Increase by 1 and reset if on max stack
-	masters_tempo_curr_stack_amount = wrapi(masters_tempo_curr_stack_amount + 1, 0, masters_tempo_values[masters_tempo_level])
+	masters_tempo_curr_stack_amount = wrapi(masters_tempo_curr_stack_amount + 1, 0, stacks_to_proc)
 	
 	return masters_tempo_curr_stack_amount == 0
 

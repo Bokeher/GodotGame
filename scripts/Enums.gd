@@ -72,7 +72,8 @@ enum KenseiSkillIds {
 	PATIENCE = 7,
 	DULLED_INSTINCT = 8,
 	SHARP_EDGE = 9,
-	IMPROVED_TEMPO = 10
+	IMPROVED_TEMPO = 10,
+	EXQUISIT_TEMPO = 11
 }
 
 const Colors := {
