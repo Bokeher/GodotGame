@@ -42,5 +42,13 @@ offset_right = 67.0
 offset_bottom = 67.0
 texture = ExtResource("1_fcj7p")
 
+[node name="DropChance" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 44.0
+offset_right = 67.0
+offset_bottom = 67.0
+horizontal_alignment = 2
+
 [connection signal="mouse_entered" from="LootImage" to="." method="_on_loot_image_mouse_entered"]
 [connection signal="mouse_exited" from="LootImage" to="." method="_on_loot_image_mouse_exited"]
