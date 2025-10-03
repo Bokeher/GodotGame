@@ -10,6 +10,13 @@ extends Control
 func _ready() -> void:
 	$DropChance.text = drop_chance_text
 	
+	var image_path = Global.items[item_id - 1].image_path
+	
+	if(!Global.hasItemDroppedFromEnemy(item_id, enemy_id)):
+		$".".set_meta("unknown", true)
+		image_path = "res://assets/sprites/unknown.png"
+	
+	$LootImage.texture = load(image_path)
 
 func _on_loot_image_mouse_entered() -> void:
 	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]

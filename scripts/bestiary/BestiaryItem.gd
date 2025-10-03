@@ -17,9 +17,6 @@ func update_bestiary_item() -> void:
 	$EnemyStats/XpReward.text = "Xp reward: " + str(enemy.xp_reward)
 	$EnemyStats/GoldReward.text = "Gold reward: " + str(enemy.gold_reward)
 	
-	# Dictionary<id: int, has_dropped: bool>
-	var drops: Dictionary = bestiary_entry.items_dropped
-	
 	# Empty loot table
 	for child in $Drops/LootTable.get_children():
 		$Drops/LootTable.remove_child(child)
@@ -31,16 +28,6 @@ func update_bestiary_item() -> void:
 		var new_loot_item = loot_item_scene.instantiate()
 		new_loot_item.set_meta("item_id", item_id)
 		new_loot_item.set_meta("enemy_id", enemy.id)
-		
-		var item_image = new_loot_item.get_node("./LootImage")
-		var image_path = Global.items[item_id - 1].image_path
-		
-		# Change texture to unknown.png when not dropped
-		if(!drops.has(item_id)):
-			new_loot_item.set_meta("unknown", true)
-			image_path = "res://assets/sprites/unknown.png"
-		
-		item_image.texture = load(image_path)
 		
 		$Drops/LootTable.add_child(new_loot_item)
 		
