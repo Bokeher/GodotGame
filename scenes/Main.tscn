@@ -328,9 +328,9 @@ script = ExtResource("32_dg70y")
 
 [node name="SwordsmasterInstinctSkull" type="TextureRect" parent="KenseiSpecific"]
 visible = false
-offset_left = 108.0
+offset_left = 104.0
 offset_top = 70.0
-offset_right = 172.0
+offset_right = 168.0
 offset_bottom = 134.0
 texture = ExtResource("33_pnhog")
 
