@@ -7,8 +7,7 @@ extends Control
 @onready var popup: GlobalPopup = get_node("/root/Game/Popup")
 
 func _ready() -> void:
-	# If this is empty slot used for unequipping
-	if item_id == -1:
+	if item_id == Enums.UNEQUIP_INVENTORY_SLOT_ID:
 		var slot_type: int = EquipSlots.get_child(Global.selected_equip_slot_id - 1).get_meta("slot_type")
 		var texture_path: String = Enums.get_inventory_type_texture(slot_type)
 		
@@ -31,7 +30,7 @@ func _on_slot_texture_mouse_entered() -> void:
 	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
 	$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
 	
-	if item_id == -1: 
+	if item_id == Enums.UNEQUIP_INVENTORY_SLOT_ID:
 		popup.popup("Empty slot", "Press here to unequip item")
 		return
 	

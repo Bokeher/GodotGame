@@ -1,5 +1,7 @@
 extends Node
 
+const UNEQUIP_INVENTORY_SLOT_ID: int = -1
+
 enum Classes {
 	WARRIOR = 0,
 	UMBRAL_REAVER = 1,
