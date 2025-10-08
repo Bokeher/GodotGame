@@ -281,9 +281,13 @@ func calc_attack_damage() -> int:
 	
 	if selected_class_id == Enums.Classes.WARRIOR:
 		for skill in skills:
-			if skill.id == Enums.WarriorSkillIds.HEAVY_BLOW and skill.level > 0:
+			if skill.level == 0:
+				continue
+			
+			if skill.id == Enums.WarriorSkillIds.HEAVY_BLOW:
 				mult += 0.5
-			if skill.id == Enums.WarriorSkillIds.ADRENALINE and skill.level > 0:
+			if skill.id == Enums.WarriorSkillIds.ADRENALINE:
+				#TODO: Decide if this should be additive or multiplicitive
 				mult *= warrior_class.get_adrenaline_damage_multiplier()
 	
 	# TODO: Reconsider this floor by using int()
