@@ -57,7 +57,6 @@ func _pressed() -> void:
 	toggle_custom_cursor(true)
 	is_cursor_rotating = true
 	player_attack_timer.start(Global.player_stats.attack_interval)
-	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Kensei_SwordPath"):
@@ -193,6 +192,9 @@ func deal_damage_to_enemy(damage: int) -> void:
 	$"../../HitEnemySound".play()
 	
 	Global.curr_enemy.health -= damage
+	
+	# WARRIOR SKILL: ADRENALINE
+	Global.warrior_class.adrenalineStacks = 0
 	
 	$"..".update_enemy()
 	

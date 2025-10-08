@@ -36,6 +36,9 @@ func _process(delta) -> void:
 		Global.player_stats.health -= Global.curr_enemy.damage
 		$"..".update_player_health_bar()
 		
+		# WARRIOR SKILL: ADRENALINE
+		Global.warrior_class.add_adrenaline_stack()
+		
 		# Play sound
 		$"../../ReceiveDamageSound".change_pitch()
 		$"../../ReceiveDamageSound".play()

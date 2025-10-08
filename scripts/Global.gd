@@ -34,7 +34,7 @@ var equipped_items: Array[int] = [23, 22, 0]
 
 # UI tracking states
 var curr_bestiary_enemy_id: int = -1
-var selected_class_id: int = Enums.Classes.KENSEI
+var selected_class_id: int = Enums.Classes.WARRIOR
 var inventory_filter: int = Enums.InventoryType.NONE
 var selected_equip_slot_id: int = -1
 var last_selected_equip_slot_id: int = -1
@@ -49,7 +49,9 @@ var process_calc_timer: float = 0.0
 # KENSEI
 var kensei_class := KenseiClass.new()
 
+
 # WARRIOR
+var warrior_class := WarriorClass.new()
 var overkill_damage: int = 0
 
 func _ready() -> void:
@@ -281,6 +283,8 @@ func calc_attack_damage() -> int:
 		for skill in skills:
 			if skill.id == Enums.WarriorSkillIds.HEAVY_BLOW and skill.level > 0:
 				mult += 0.5
+			if skill.id == Enums.WarriorSkillIds.ADRENALINE and skill.level > 0:
+				mult *= warrior_class.get_adrenaline_damage_multiplier()
 	
 	# TODO: Reconsider this floor by using int()
 	return int(base * mult)
