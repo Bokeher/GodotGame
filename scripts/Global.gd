@@ -174,6 +174,10 @@ func _process(delta) -> void:
 		player_stats.max_health = calc_max_health()
 		
 		process_calc_timer = 0.0
+		
+		var stats := get_node("/root/Game/MainTabContainer/StatsPanel/Stats")
+		if stats:
+			stats.update_stats()
 	
 	# Auto save 
 	process_auto_save_timer += delta
