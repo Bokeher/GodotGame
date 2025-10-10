@@ -32,12 +32,24 @@ func _process(delta) -> void:
 			attack_time_passed = 0
 			return
 		
+		var damage_received: int = Global.curr_enemy.damage
+		
+		# WARRIOR SKILL: DIAMOND SKIN
+		if Global.selected_class_id == Enums.Classes.WARRIOR:
+			damage_received -= Global.warrior_class.get_diamondskin_damage_reduction(damage_received)
+		
+		# WARRIOR SKILL: IRON SKIN
+		if Global.selected_class_id == Enums.Classes.WARRIOR:
+			damage_received -= Global.warrior_class.get_ironskin_damage_reduction()
+		
 		# Receive damage
-		Global.player_stats.health -= Global.curr_enemy.damage
+		# TODO: prevent healing from receiving negative damage / add skill to allow this
+		Global.player_stats.health -= damage_received
 		$"..".update_player_health_bar()
 		
 		# WARRIOR SKILL: ADRENALINE
-		Global.warrior_class.add_adrenaline_stack()
+		if Global.selected_class_id == Enums.Classes.WARRIOR:
+			Global.warrior_class.add_adrenaline_stack()
 		
 		# Play sound
 		$"../../ReceiveDamageSound".change_pitch()
