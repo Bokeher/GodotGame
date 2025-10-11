@@ -1,9 +1,15 @@
 class_name WarriorClass
 
+const HEAVY_BLOW_BASE_DAMAGE_INCREASE: float = 0.5
+const HEAVY_BLOW_BASE_ATTACK_SPEED_PENALTY: float = 0.25
+
 var adrenalineStacks: int = 0
-var ADRENALINE_DAMAGE_INCREASE_PER_LEVEL: float = 0.25
+const ADRENALINE_DAMAGE_INCREASE_PER_LEVEL: float = 0.25
+
 var ironskin_value: int = 1
 var diamondskin_values: Array[float] = [0, 0.05, 0.05, 0.10]
+
+const MIGHTY_BLOW_PENALTY_REDUCE: float = 0.05
 
 func add_adrenaline_stack() -> void:
 	var adrenaline: Skill = Global.skills[Enums.WarriorSkillIds.ADRENALINE - 1]
@@ -12,6 +18,23 @@ func add_adrenaline_stack() -> void:
 		return
 	
 	adrenalineStacks += 1
+
+## Returns penalty multiplier. Penalty is >1 because its interval_time so higher value means lower attack speed
+func get_heavy_blow_attack_speed_penalty_multiplier() -> float:
+	var heavy_blow: Skill = Global.skills[Enums.WarriorSkillIds.HEAVY_BLOW - 1]
+	
+	if heavy_blow.level == 0:
+		return 1
+	
+	var mighty_blow: Skill = Global.skills[Enums.WarriorSkillIds.MIGHTY_BLOW - 1]
+	
+	if mighty_blow.level == 0:
+		return 1 + HEAVY_BLOW_BASE_ATTACK_SPEED_PENALTY
+	
+	return 1 + HEAVY_BLOW_BASE_ATTACK_SPEED_PENALTY - MIGHTY_BLOW_PENALTY_REDUCE
+
+func get_heavy_blow_attack_damage_multipier() -> float:
+	return 1 + HEAVY_BLOW_BASE_DAMAGE_INCREASE
 
 ## Returns damage amount reduced by *Iron Skin*
 func get_ironskin_damage_reduction() -> int:
