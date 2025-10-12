@@ -11,6 +11,8 @@ var diamondskin_values: Array[float] = [0, 0.05, 0.05, 0.10]
 
 const MIGHTY_BLOW_PENALTY_REDUCE: float = 0.05
 
+const BERSERK_ATTACK_SPEED_VALUE: float = 0.25
+
 func add_adrenaline_stack() -> void:
 	var adrenaline: Skill = Global.skills[Enums.WarriorSkillIds.ADRENALINE - 1]
 	
@@ -18,6 +20,9 @@ func add_adrenaline_stack() -> void:
 		return
 	
 	adrenalineStacks += 1
+
+func get_berserk_attack_speed_bonus() -> float:
+	return BERSERK_ATTACK_SPEED_VALUE
 
 ## Returns penalty multiplier. Penalty is >1 because its interval_time so higher value means lower attack speed
 func get_heavy_blow_attack_speed_penalty_multiplier() -> float:
