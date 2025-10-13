@@ -43,8 +43,7 @@ func _process(delta) -> void:
 			damage_received -= Global.warrior_class.get_ironskin_damage_reduction()
 		
 		# Receive damage
-		# TODO: prevent healing from receiving negative damage / add skill to allow this
-		Global.player_stats.health -= damage_received
+		Global.player_stats.receive_damage(damage_received)
 		$"..".update_player_health_bar()
 		
 		# WARRIOR SKILL: ADRENALINE
