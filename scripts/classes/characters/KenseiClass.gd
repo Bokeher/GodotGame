@@ -17,17 +17,15 @@ var dulled_instinct_base_value: float = 0.05
 
 var masters_tempo_values: Array[int] = [0, 10, 9, 8, 7, 5]
 
+var improved_tempo_values: Array[int] = [0, 1, 2, 4]
+
 ## Return true if this skill should work, else false (25/50/100% chance to true based on skill level)
 func process_improved_tempo(skill_level: int) -> bool:
 	if skill_level == 0: return false
 	
 	var random: int = randi_range(1, 4) # 1-4
 	
-	return random <= get_improved_tempo_value(skill_level) # 1-4 < 1/2/4
-
-## Use bit shift to get these values 1 -> 1, 2 -> 2, 3 -> 4
-func get_improved_tempo_value(i: int) -> int:
-	return 1 << (i - 1)
+	return random <= improved_tempo_values[skill_level] # 1-4 < 1/2/4
 
 ## Return true on stack reset else false
 func increase_masters_tempo(masters_tempo_level: int) -> bool:
