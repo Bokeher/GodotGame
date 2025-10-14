@@ -126,5 +126,5 @@ func add_xp(amount: int) -> bool:
 	
 	return leveled_up
 
-func receive_damage(damage: int) -> void:
-	health -= max(0, damage)
+func receive_damage(damage_: int) -> void:
+	health -= max(0, damage_)
