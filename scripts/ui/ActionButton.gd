@@ -5,8 +5,8 @@ enum States {
 	SEARCH = 1
 }
 
-const STATES_TEXTS = ["Idle", "Searching"]
-var curr_state = 1
+const STATES_TEXTS: Array[String] = ["Idle", "Searching"]
+var curr_state: int = 1
 
 func _pressed() -> void:
 	flip()
@@ -14,20 +14,19 @@ func _pressed() -> void:
 	# Reset regen timer to prevent instaheal on stopping search
 	$"../PlayerHealthBar/PlayerHealth".regen_time_passed = 0.7
 	
-	# run away option - if there's an enemy and state is idle 
-	if(curr_state == 0 && Global.curr_enemy):
+	# Run away option
+	if(curr_state == States.IDLE && Global.curr_enemy):
 		$"../Enemy/HealthBar".value = 0
 		Global.curr_enemy = null
 		
+		# TODO: create methods for removing enemy and finding and seperate enemy healthbar and finding bar
 		$"../Enemy".hide_enemy()
 		$"../Enemy".update_enemy()
 	
-	# If no enemy
-	# AND loading bar is at 0% (this allows resuming search instead of starting from 0) 
-	# AND state is searching
+	# Search option
 	if (
-		!Global.curr_enemy 
-		&& $"../Enemy/HealthBar".value == 0 
+		!Global.curr_enemy
+		&& $"../Enemy/HealthBar".value == 0 # allows resuming search instead of starting from 0) 
 		&& curr_state == States.SEARCH
 	):
 		$"../Enemy/HealthBar".start_filling()
