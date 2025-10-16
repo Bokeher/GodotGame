@@ -40,19 +40,24 @@ func update_inventory() -> void:
 		
 		ItemContainer.add_child(item_scene)
 
-func select_artifact_slot() -> void:
-	# Clicked the same slot second time [Deselect action]
-	if Global.last_selected_equip_slot_id == Global.selected_equip_slot_id:
-		Global.last_selected_equip_slot_id = Global.selected_equip_slot_id
+func select_slot() -> void:
+	var current_slot := Global.selected_equip_slot_id
+	var last_slot := Global.last_selected_equip_slot_id
+	
+	# If the same slot is clicked again → deselect it
+	if current_slot == last_slot:
 		Global.selected_equip_slot_id = -1
 		Global.inventory_filter = Enums.InventoryType.NONE
+	else:
+		# Unfocus the previously selected slot (if valid)
+		if last_slot != -1:
+			children[last_slot - 1].unfocus()
+		
+		# Focus the newly selected slot (if valid)
+		if current_slot != -1:
+			children[current_slot - 1].focus()
 	
-	# Focus / Unfocus if not default value (default value = -1)
-	if Global.selected_equip_slot_id != -1:
-		children[Global.selected_equip_slot_id - 1].focus()
-	if Global.last_selected_equip_slot_id != -1:
-		children[Global.last_selected_equip_slot_id - 1].unfocus()
-	
+	# Update last selected slot
 	Global.last_selected_equip_slot_id = Global.selected_equip_slot_id
 
 func _on_unequip_all_button_pressed() -> void:
