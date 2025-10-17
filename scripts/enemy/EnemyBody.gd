@@ -169,7 +169,6 @@ func is_enemy_hit() -> bool:
 					Global.kensei_class.masters_tempo_curr_stack_amount -= 1
 				
 			
-			
 			# SWORDMASTER'S INSTINCT
 			if Global.skills[Enums.KenseiSkillIds.SWORDMASTERS_INSTINCT - 1].level == 0:
 				return false
@@ -203,9 +202,7 @@ func deal_damage_to_enemy(damage: int) -> void:
 
 func handle_enemy_death() -> void:
 	if Global.selected_class_id == Enums.Classes.WARRIOR:
-		for skill in Global.skills:
-			if skill.id == Enums.WarriorSkillIds.OVERKILL && skill.level > 0:
-				Global.overkill_damage = abs(Global.curr_enemy.health) * skill.level / 2
+		Global.warrior_class.increase_overkill_damage(abs(Global.curr_enemy.health))
 	
 	var enemy_id = Global.curr_enemy.id
 	

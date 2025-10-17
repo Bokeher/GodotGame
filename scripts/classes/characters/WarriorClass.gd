@@ -13,6 +13,21 @@ const MIGHTY_BLOW_PENALTY_REDUCE: float = 0.05
 
 const BERSERK_ATTACK_SPEED_VALUE: float = 0.25
 
+var curr_overkill_damage: int = 0
+const OVERKILL_VALUES: Array[float] = [0, 0.25, 0.50, 0.75, 1.00, 1.50]
+
+func increase_overkill_damage(overkill_difference: int) -> void:
+	if overkill_difference <= 0:
+		return
+	
+	var overkill: Skill = Global.skills[Enums.WarriorSkillIds.OVERKILL - 1]
+	if overkill.level == 0:
+		return
+	
+	var damage_mult: float = OVERKILL_VALUES[overkill.level]
+	
+	curr_overkill_damage += round(float(overkill_difference) * damage_mult)
+
 func add_adrenaline_stack() -> void:
 	var adrenaline: Skill = Global.skills[Enums.WarriorSkillIds.ADRENALINE - 1]
 	
