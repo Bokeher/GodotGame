@@ -185,7 +185,7 @@ func is_enemy_hit() -> bool:
 	return true
 
 func deal_damage_to_enemy(damage: int) -> void:
-	if !Global.curr_enemy:
+	if !Global.curr_enemy or damage <= 0:
 		return
 	
 	$"../../HitEnemySound".play()
