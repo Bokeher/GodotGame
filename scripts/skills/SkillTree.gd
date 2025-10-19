@@ -1,6 +1,6 @@
 extends Control
 
-const skillNode_scene = preload("res://scenes/skills/SkillNode.tscn")
+const skillNode_scene := preload("res://scenes/skills/SkillNode.tscn")
 var points_spent: int
 
 func _ready() -> void:
@@ -20,12 +20,12 @@ func update_skill_points() -> void:
 	for skill: Skill in sorted_skills:
 		points_spent += skill.level
 		
-		var y = skill.grid_position[1]
-		var target: int = 3 * y # y starts from 0
+		var y: int = skill.grid_position[1]
+		var skill_points_needed: int = 3 * y # y starts from 0
 		if y == 1:
-			target = 1
+			skill_points_needed = 1
 		
-		if points_spent < target && !Global.debug_mode:
+		if points_spent < skill_points_needed && !Global.debug_mode:
 			continue
 		
 		var new_skillNode := skillNode_scene.instantiate()
@@ -36,7 +36,7 @@ func update_skill_points() -> void:
 			var req_skill := Global.skills[id - 1]
 			var middle_offset := Vector2(34, 34)
 			
-			var line = Line2D.new()
+			var line := Line2D.new()
 			line.add_point(new_skillNode.position + middle_offset)
 			line.add_point(get_vector_from_grid_position(req_skill.grid_position) + middle_offset)
 			line.width = 2
