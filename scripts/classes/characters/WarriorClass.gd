@@ -1,20 +1,30 @@
 class_name WarriorClass
 
+# HEAVY BLOW
 const HEAVY_BLOW_BASE_DAMAGE_INCREASE: float = 0.5
 const HEAVY_BLOW_BASE_ATTACK_SPEED_PENALTY: float = 0.25
 
+# ADRENALINE
 var adrenalineStacks: int = 0
 const ADRENALINE_DAMAGE_INCREASE_PER_LEVEL: float = 0.25
 
-var ironskin_value: int = 1
-var diamondskin_values: Array[float] = [0, 0.05, 0.05, 0.10]
+# IRONSKIN, DIAMONDSKIN
+const IRONSKIN_VALUE: int = 1
+const DIAMONDSKIN_VALUES: Array[float] = [0, 0.05, 0.05, 0.10]
 
+# MIGHTY BLOW
 const MIGHTY_BLOW_PENALTY_REDUCE: float = 0.05
 
+# BERSERK
 const BERSERK_ATTACK_SPEED_VALUE: float = 0.25
 
+# OVERKILL
 var curr_overkill_damage: int = 0
 const OVERKILL_VALUES: Array[float] = [0, 0.25, 0.50, 0.75, 1.00, 1.50]
+
+# BLOODLUST
+const BLOODLUST_VALUES: Array[float] = [0.05, 0.10, 0.15, 0.20, 0.30]
+const BLOODLUST_BUFF_DURATION_SECS: int = 10
 
 func increase_overkill_damage(overkill_difference: int) -> void:
 	if overkill_difference <= 0:
@@ -62,7 +72,7 @@ func get_ironskin_damage_reduction() -> int:
 	if iron_skin.level == 0:
 		return 0
 	
-	return ironskin_value
+	return IRONSKIN_VALUE
 
 ## Returns damage amount reduced by *Diamond Skin*
 func get_diamondskin_damage_reduction(damage: int) -> int:
@@ -70,7 +80,7 @@ func get_diamondskin_damage_reduction(damage: int) -> int:
 	if diamond_skin.level == 0:
 		return 0
 	
-	var value: float = diamondskin_values[diamond_skin.level]
+	var value: float = DIAMONDSKIN_VALUES[diamond_skin.level]
 	
 	# Always round up
 	var damage_reduce: int = ceil(float(damage) * value)
