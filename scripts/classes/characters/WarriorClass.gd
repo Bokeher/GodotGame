@@ -23,8 +23,17 @@ var curr_overkill_damage: int = 0
 const OVERKILL_VALUES: Array[float] = [0, 0.25, 0.50, 0.75, 1.00, 1.50]
 
 # BLOODLUST
-const BLOODLUST_VALUES: Array[float] = [0.05, 0.10, 0.15, 0.20, 0.30]
-const BLOODLUST_BUFF_DURATION_SECS: int = 10
+const BLOODRAGE_VALUES: Array[float] = [0, 0.05, 0.10, 0.15, 0.20, 0.30]
+const BLOODRAGE_BUFF_DURATION_SECS: int = 10
+var bloodrage_is_active: bool = false
+
+func get_bloodrage_damage_mult() -> float:
+	var bloodrage: Skill = Global.skills[Enums.WarriorSkillIds.BLOODRAGE - 1]
+	
+	if bloodrage.level == 0:
+		return 1
+	
+	return 1 + BLOODRAGE_VALUES[bloodrage.level]
 
 func increase_overkill_damage(overkill_difference: int) -> void:
 	if overkill_difference <= 0:

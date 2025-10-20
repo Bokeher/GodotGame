@@ -203,6 +203,7 @@ func deal_damage_to_enemy(damage: int) -> void:
 func handle_enemy_death() -> void:
 	if Global.selected_class_id == Enums.Classes.WARRIOR:
 		Global.warrior_class.increase_overkill_damage(abs(Global.curr_enemy.health))
+		$"../../WarriorSpecific/BloodrageTimer".start_timer()
 	
 	var enemy_id = Global.curr_enemy.id
 	

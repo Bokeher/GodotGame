@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=36 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" uid="uid://dgo0pke6nqqb8" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" uid="uid://ct7xcpextwtga" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://clr4d6x1nj7cx" path="res://scripts/sounds/SwordsPathHitSound.gd" id="30_v0vrg"]
 [ext_resource type="Script" uid="uid://2qxao52u4fjf" path="res://scripts/sounds/SwordsPathFinisherAttack.gd" id="32_dg70y"]
 [ext_resource type="Texture2D" uid="uid://gcsfd4cxvmwc" path="res://assets/sprites/skills/kensei/skull_indicator.png" id="33_pnhog"]
+[ext_resource type="Script" uid="uid://c855vsej3u0r7" path="res://scripts/BloodrageTimer.gd" id="34_2c4at"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -334,5 +335,12 @@ offset_right = 168.0
 offset_bottom = 134.0
 texture = ExtResource("33_pnhog")
 
+[node name="WarriorSpecific" type="Node" parent="."]
+
+[node name="BloodrageTimer" type="Timer" parent="WarriorSpecific"]
+one_shot = true
+script = ExtResource("34_2c4at")
+
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]
 [connection signal="timeout" from="PlayerAttackTimer" to="Enemy/EnemyBody" method="_on_player_attack_timer_timeout"]
+[connection signal="timeout" from="WarriorSpecific/BloodrageTimer" to="WarriorSpecific/BloodrageTimer" method="_on_timeout"]
