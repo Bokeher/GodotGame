@@ -34,7 +34,7 @@ var equipped_items: Array[int] = [23, 22, 0]
 
 # UI tracking states
 var curr_bestiary_enemy_id: int = -1
-var selected_class_id: int = Enums.Classes.WARRIOR
+var selected_class_id: int = Enums.Classes.LUCKSWORN
 var inventory_filter: int = Enums.InventoryType.NONE
 var selected_equip_slot_id: int = -1
 var last_selected_equip_slot_id: int = -1
@@ -46,11 +46,9 @@ var process_auto_save_timer: float = 0.0
 var process_calc_timer: float = 0.0
 
 # Skill specific tracking
-# KENSEI
 var kensei_class := KenseiClass.new()
-
-# WARRIOR
 var warrior_class := WarriorClass.new()
+var lucksworn_class := LuckswornClass.new()
 
 func _ready() -> void:
 	# Read all json files
@@ -288,6 +286,7 @@ func calc_attack_damage() -> int:
 			base += 3
 	
 	if selected_class_id == Enums.Classes.WARRIOR:
+		# rewrite this with Global.skills[] instead of checking all skills
 		for skill in skills:
 			if skill.level == 0:
 				continue
@@ -299,8 +298,15 @@ func calc_attack_damage() -> int:
 				mult *= warrior_class.get_adrenaline_damage_multiplier()
 			elif skill.id == Enums.WarriorSkillIds.BLOODRAGE and warrior_class.bloodrage_is_active:
 				mult *= warrior_class.get_bloodrage_damage_mult()
-				
-	
+	elif selected_class_id == Enums.Classes.LUCKSWORN:
+		for skill in skills:
+			if skill.level == 0:
+				continue
+			
+			if skill.id == Enums.LuckswornSkillIds.GAMBLERS_FATE:
+				mult *= lucksworn_class.get_gamblers_fate_damage_multiplier()
+		
+		
 	# TODO: Reconsider this floor by using int()
 	return int(base * mult)
 

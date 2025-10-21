@@ -181,7 +181,22 @@ func is_enemy_hit() -> bool:
 			$"../../KenseiSpecific/SwordsmasterInstinctSkull".visible = show_skull
 			
 			return false
-	
+	elif Global.selected_class_id == Enums.Classes.LUCKSWORN:
+		var gamblers_fate: Skill = Global.skills[Enums.LuckswornSkillIds.GAMBLERS_FATE - 1]
+		
+		if gamblers_fate.level == 0:
+			return true
+		
+		var hit_chance: float = Global.lucksworn_class.get_gamblers_fate_hit_chance_multiplier()
+		
+		if randf() < hit_chance:
+			# success
+			Global.lucksworn_class.increase_gamblers_fate()
+			return true
+		
+		Global.lucksworn_class.reset_gamblers_fate()
+		return false 
+		
 	return true
 
 func deal_damage_to_enemy(damage: int) -> void:
