@@ -187,6 +187,13 @@ func is_enemy_hit() -> bool:
 		if gamblers_fate.level == 0:
 			return true
 		
+		# GUARANTEED WIN
+		var guaranteed_win: Skill = Global.skills[Enums.LuckswornSkillIds.GUARANTEED_WIN - 1]
+		if guaranteed_win.level > 0:
+			var should_hit: bool = Global.lucksworn_class.increase_guaranteed_win()
+			if should_hit:
+				return true
+		
 		var hit_chance: float = Global.lucksworn_class.get_gamblers_fate_hit_chance_multiplier()
 		
 		if randf() < hit_chance:
