@@ -14,6 +14,27 @@ const GUARANTEED_WIN_HIT_REQUIREMENTS_VALUES: Array[int] = [0, 9, 8, 7, 6, 5]
 const GUARANTEED_WIN_DAMAGE_INCREASE: float = 0.25
 var curr_guarateed_win_stacks: int = 0
 
+# LUCKY STRIKE
+const LUCKY_STRIKE_CHANCE_VALUES: Array[float] = [0, 0.01, 0.02, 0.03, 0.04, 0.05]
+const LUCKY_STRIKE_DAMAGE_MULTIPLIER: float = 2.0
+var lucky_strike_active: bool = false
+
+func get_lucky_strike_damage_multiplier() -> float:
+	return LUCKY_STRIKE_DAMAGE_MULTIPLIER
+
+func roll_lucky_strike() -> void:
+	var lucky_strike: Skill = Global.skills[Enums.LuckswornSkillIds.LUCKY_STRIKE - 1]
+	
+	if lucky_strike.level == 0:
+		return
+	
+	var chance: float = LUCKY_STRIKE_CHANCE_VALUES[lucky_strike.level]
+	
+	lucky_strike_active = randf() <= chance
+
+func check_lucky_strike() -> bool:
+	return lucky_strike_active
+
 func get_guaranteed_win_damage_mult() -> float:
 	return 1 + GUARANTEED_WIN_DAMAGE_INCREASE
 

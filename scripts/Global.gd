@@ -311,7 +311,10 @@ func calc_attack_damage() -> int:
 			elif skill.id == Enums.LuckswornSkillIds.GUARANTEED_WIN:
 				if lucksworn_class.should_guaranteed_win_proc():
 					mult *= lucksworn_class.get_guaranteed_win_damage_mult()
-		
+			elif skill.id == Enums.LuckswornSkillIds.LUCKY_STRIKE:
+				if lucksworn_class.check_lucky_strike():
+					mult *= lucksworn_class.get_lucky_strike_damage_multiplier()
+			
 	# TODO: Reconsider this floor by using int()
 	return int(base * mult)
 
