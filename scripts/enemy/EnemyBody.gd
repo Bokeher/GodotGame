@@ -188,7 +188,10 @@ func is_enemy_hit() -> bool:
 			return true
 		
 		# LUCKY STRIKE
-		Global.lucksworn_class.roll_lucky_strike()
+		#Global.lucksworn_class.roll_lucky_strike()
+		
+		# LUCKIER STRIKE
+		Global.lucksworn_class.roll_luckier_strike()
 		
 		# GUARANTEED WIN
 		var guaranteed_win: Skill = Global.skills[Enums.LuckswornSkillIds.GUARANTEED_WIN - 1]

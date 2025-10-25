@@ -19,6 +19,27 @@ const LUCKY_STRIKE_CHANCE_VALUES: Array[float] = [0, 0.01, 0.02, 0.03, 0.04, 0.0
 const LUCKY_STRIKE_DAMAGE_MULTIPLIER: float = 2.0
 var lucky_strike_active: bool = false
 
+# LUCKIER STRIKE
+const LUCKIER_STRIKE_CHANCE_VALUES: Array[float] = [0, 0.001, 0.002, 0.003, 0.004, 0.005]
+const LUCKIER_STRIKE_DAMAGE_MULTIPLIER: float = 4.0
+var luckier_strike_active: bool = false
+
+func get_luckier_strike_damage_multiplier() -> float:
+	return LUCKIER_STRIKE_DAMAGE_MULTIPLIER
+
+func roll_luckier_strike() -> void:
+	var luckier_strike: Skill = Global.skills[Enums.LuckswornSkillIds.LUCKIER_STRIKE - 1]
+	
+	if luckier_strike.level == 0:
+		return
+	
+	var chance: float = LUCKIER_STRIKE_CHANCE_VALUES[luckier_strike.level]
+	
+	luckier_strike_active = randf() <= chance
+
+func check_luckier_strike() -> bool:
+	return luckier_strike_active
+
 func get_lucky_strike_damage_multiplier() -> float:
 	return LUCKY_STRIKE_DAMAGE_MULTIPLIER
 
