@@ -318,8 +318,8 @@ func calc_attack_damage() -> int:
 				if lucksworn_class.check_luckier_strike():
 					mult *= lucksworn_class.get_luckier_strike_damage_multiplier()
 			
-	# TODO: Reconsider this floor by using int()
-	return int(base * mult)
+	
+	return floor(base * mult)
 
 func calc_max_health() -> int:
 	var base: int = Player.BASE_MAX_HEALTH
