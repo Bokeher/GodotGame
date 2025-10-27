@@ -202,7 +202,7 @@ func is_enemy_hit() -> bool:
 		
 		var hit_chance: float = Global.lucksworn_class.get_gamblers_fate_hit_chance_multiplier()
 		
-		if randf() < hit_chance:
+		if randf() < hit_chance || Global.lucksworn_class.check_sworn_dice_save_throw():
 			# success
 			Global.lucksworn_class.increase_gamblers_fate()
 			return true

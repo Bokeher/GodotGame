@@ -24,6 +24,17 @@ const LUCKIER_STRIKE_CHANCE_VALUES: Array[float] = [0, 0.001, 0.002, 0.003, 0.00
 const LUCKIER_STRIKE_DAMAGE_MULTIPLIER: float = 4.0
 var luckier_strike_active: bool = false
 
+# SWORN DICE
+const SWORN_DICE_CHANCE: float = 0.1667
+
+func check_sworn_dice_save_throw() -> bool:
+	var sworn_dice: Skill = Global.skills[Enums.LuckswornSkillIds.SWORN_DICE - 1]
+	
+	if sworn_dice.level == 0:
+		return false
+	
+	return randf() <= SWORN_DICE_CHANCE
+
 func get_luckier_strike_damage_multiplier() -> float:
 	return LUCKIER_STRIKE_DAMAGE_MULTIPLIER
 
