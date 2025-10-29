@@ -28,6 +28,29 @@ var luckier_strike_active: bool = false
 var sworn_dice_dice_value: int = 0
 const SWORN_DICE_NUMBER: int = 6
 
+# BAD LUCK
+var BAD_LUCK_DICE_NUMBER: int = 5
+const BAD_LUCK_DAMAGE_DECREASE: float = 0.5
+var bad_luck_active: bool = false
+
+func check_bad_luck() -> bool:
+	return bad_luck_active
+
+func set_bad_luck(enemy_hit: bool = false) -> void:
+	var bad_luck: Skill = Global.skills[Enums.LuckswornSkillIds.BAD_LUCK - 1]
+	
+	if bad_luck.level == 0:
+		bad_luck_active = false
+		return
+	
+	if !enemy_hit:
+		bad_luck_active = sworn_dice_dice_value == BAD_LUCK_DICE_NUMBER
+	else:
+		bad_luck_active = false
+
+func get_bad_luck_damage_multiplier() -> float:
+	return 1 - BAD_LUCK_DAMAGE_DECREASE
+
 func roll_sworn_dice() -> void:
 	var sworn_dice: Skill = Global.skills[Enums.LuckswornSkillIds.SWORN_DICE - 1]
 	
@@ -35,6 +58,7 @@ func roll_sworn_dice() -> void:
 		return
 	
 	sworn_dice_dice_value = randi_range(1, 6)
+	print("Sworn dice: " + str(sworn_dice_dice_value))
 
 func check_sworn_dice_save_throw() -> bool:
 	return sworn_dice_dice_value == SWORN_DICE_NUMBER

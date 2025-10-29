@@ -206,9 +206,17 @@ func is_enemy_hit() -> bool:
 		if not enemy_is_hit:
 			Global.lucksworn_class.roll_sworn_dice()
 		
-		if enemy_is_hit or Global.lucksworn_class.check_sworn_dice_save_throw():
+		Global.lucksworn_class.set_bad_luck(enemy_is_hit)
+		
+		var lucksworn_save: bool = Global.lucksworn_class.check_sworn_dice_save_throw()
+		var bad_luck_save: bool = Global.lucksworn_class.check_bad_luck()
+		print(bad_luck_save)
+		
+		if enemy_is_hit or lucksworn_save or bad_luck_save:
 			# success
-			Global.lucksworn_class.increase_gamblers_fate()
+			if !bad_luck_save:
+				Global.lucksworn_class.increase_gamblers_fate()
+			
 			return true
 		
 		Global.lucksworn_class.reset_gamblers_fate()

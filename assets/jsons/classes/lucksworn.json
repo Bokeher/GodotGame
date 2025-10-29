@@ -65,7 +65,7 @@
 		{
 			"id": 7,
 			"name": "Bad Luck",
-			"description": "Getting 5 on Sworn Dice deals half your damage and doesn't increase *Gambler's Fate* stacks",
+			"description": "Getting 5 on Sworn Dice prevents attack miss and makes your next attack deal half damage",
 			"image_path": "res://assets/sprites/unknown.png",
 			"level": 0,
 			"max_level": 1,
