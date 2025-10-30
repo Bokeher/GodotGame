@@ -200,7 +200,7 @@ func is_enemy_hit() -> bool:
 			if should_hit:
 				return true
 		
-		var hit_chance: float = Global.lucksworn_class.get_gamblers_fate_hit_chance_multiplier()
+		var hit_chance: float = Global.lucksworn_class.get_hit_chance()
 		var enemy_is_hit: bool = randf() < hit_chance
 		
 		if not enemy_is_hit:

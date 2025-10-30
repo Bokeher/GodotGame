@@ -25,13 +25,28 @@ const LUCKIER_STRIKE_DAMAGE_MULTIPLIER: float = 4.0
 var luckier_strike_active: bool = false
 
 # SWORN DICE
+const SWORN_DICE_DICE_NUMBER: int = 6
 var sworn_dice_dice_value: int = 0
-const SWORN_DICE_NUMBER: int = 6
 
 # BAD LUCK
 var BAD_LUCK_DICE_NUMBER: int = 5
 const BAD_LUCK_DAMAGE_DECREASE: float = 0.5
 var bad_luck_active: bool = false
+
+# HIT CHANCE I
+var HIT_CHANCE_1_VALUES: Array[float] = [0, 0.005, 0.01]
+
+func get_hit_chance() -> float:
+	var base: float = get_gamblers_fate_hit_chance_multiplier()
+	
+	base += get_hit_chance_1_bonus()
+	
+	return base
+
+func get_hit_chance_1_bonus() -> float:
+	var hit_chance_1: Skill = Global.skills[Enums.LuckswornSkillIds.HIT_CHANCE_I - 1]
+	
+	return HIT_CHANCE_1_VALUES[hit_chance_1.level]
 
 func check_bad_luck() -> bool:
 	return bad_luck_active
@@ -61,7 +76,7 @@ func roll_sworn_dice() -> void:
 	print("Sworn dice: " + str(sworn_dice_dice_value))
 
 func check_sworn_dice_save_throw() -> bool:
-	return sworn_dice_dice_value == SWORN_DICE_NUMBER
+	return sworn_dice_dice_value == SWORN_DICE_DICE_NUMBER
 
 func get_luckier_strike_damage_multiplier() -> float:
 	return LUCKIER_STRIKE_DAMAGE_MULTIPLIER
@@ -124,6 +139,11 @@ func increase_gamblers_fate() -> void:
 	curr_gamblers_fate_stacks += 1
 
 func get_gamblers_fate_hit_chance_multiplier() -> float:
+	var gamblers_fate: Skill = Global.skills[Enums.LuckswornSkillIds.GAMBLERS_FATE - 1]
+	
+	if gamblers_fate.level == 0:
+		return 1
+	
 	return 1 - GAMBLERS_FATE_HIT_CHANCE_PENALTY
 
 func reset_gamblers_fate() -> void:
