@@ -28,11 +28,12 @@ func process_improved_tempo(skill_level: int) -> bool:
 	return random <= improved_tempo_values[skill_level] # 1-4 < 1/2/4
 
 ## Return true on stack reset else false
-func increase_masters_tempo(masters_tempo_level: int) -> bool:
-	if masters_tempo_level == 0:
+func increase_masters_tempo() -> bool:
+	var masters_tempo: Skill = Global.skills[Enums.KenseiSkillIds.MASTERS_TEMPO - 1]
+	if masters_tempo.level == 0:
 		return false
 	
-	var stacks_to_proc: int = masters_tempo_values[masters_tempo_level]
+	var stacks_to_proc: int = masters_tempo_values[masters_tempo.level]
 	var exquisit_tempo: Skill = Global.skills[Enums.KenseiSkillIds.EXQUISIT_TEMPO - 1]
 	if exquisit_tempo.level == 1:
 		stacks_to_proc = 3
