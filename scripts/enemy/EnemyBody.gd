@@ -115,114 +115,123 @@ func get_swords_path_damage() -> int:
 	return base_damage * line_amount * stack_multiplier
 
 func is_enemy_hit() -> bool:
+	var should_hit: bool = true
 	if Global.selected_class_id == Enums.Classes.KENSEI:
-		var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
-		if sword_path.level > 0:
-			var enemy_size = $".".get_minimum_size()
-			var enemy_scale = $".".scale
-			var enemy_width = enemy_size[0]
-			var enemy_heigth = enemy_size[1]
-			
-			var line = Line2D.new()
-			line.width = 2
-			
-			# FIRST POINT: left wall / top wall
-			var left_top_point: Vector2
-			
-			var left = randi_range(0, 1)
-			if left: # left wall
-				left_top_point = Vector2(0, randi_range(0, enemy_heigth * enemy_scale[0]))
-			else:    # top wall
-				left_top_point = Vector2(randi_range(0, enemy_width * enemy_scale[1]), 0)
-			
-			line.add_point(left_top_point)
-			
-			# SECOND POINT: right wall / bottom wall
-			var right_bot_point: Vector2
-			
-			var right = randi_range(0, 1)
-			if right: # right wall
-				right_bot_point = Vector2(enemy_width * enemy_scale[0], randi_range(0, enemy_heigth * enemy_scale[1]))
-			else:     # bottom wall
-				right_bot_point = Vector2(randi_range(0, enemy_width * enemy_scale[1]), enemy_heigth * enemy_scale[1])
-			
-			line.add_point(right_bot_point)
-			
-			Global.kensei_class.swords_path_lines_amount += 1
-			$"../KenseiLines".add_child(line)
-			
-			# PLAY HIT SOUND
-			$"../../KenseiSpecific/SwordsPathHitSound".play_with_random_pitch()
-			
-			# MASTER'S TEMPO
-			var masters_tempo: Skill = Global.skills[Enums.KenseiSkillIds.MASTERS_TEMPO - 1]
-			var reached_max_stacks: bool = Global.kensei_class.increase_masters_tempo(masters_tempo.level)
-			if reached_max_stacks:
-				is_enemy_hit()
-				# Decrease stack amount to prevent increase on another is_enemy_hit()
-				Global.kensei_class.masters_tempo_curr_stack_amount -= 1
-				
-				var improved_tempo: Skill = Global.skills[Enums.KenseiSkillIds.IMPROVED_TEMPO - 1]
-				if Global.kensei_class.process_improved_tempo(improved_tempo.level):
-					is_enemy_hit()
-					# Decrease stack amount to prevent increase on another is_enemy_hit()
-					Global.kensei_class.masters_tempo_curr_stack_amount -= 1
-				
-			
-			# SWORDMASTER'S INSTINCT
-			if Global.skills[Enums.KenseiSkillIds.SWORDMASTERS_INSTINCT - 1].level == 0:
-				return false
-			
-			var show_skull: bool = false
-			
-			var enemy_hp: int = Global.curr_enemy.health
-			if enemy_hp * Global.kensei_class.get_instinct_threshold() <= get_swords_path_damage():
-				show_skull = true
-			$"../../KenseiSpecific/SwordsmasterInstinctSkull".visible = show_skull
-			
-			return false
+		should_hit = handle_kensei_skills()
 	elif Global.selected_class_id == Enums.Classes.LUCKSWORN:
-		var gamblers_fate: Skill = Global.skills[Enums.LuckswornSkillIds.GAMBLERS_FATE - 1]
+		should_hit = handle_lucksworn_skills()
+	return should_hit
+
+func handle_kensei_skills() -> bool:
+	var sword_path = Global.skills[Enums.KenseiSkillIds.SWORDS_PATH - 1]
+	if sword_path.level == 0:
+		return true
+	
+	var enemy_size: Vector2 = $".".get_minimum_size()
+	var enemy_scale: Vector2 = $".".scale
+	var enemy_width: float = enemy_size[0]
+	var enemy_heigth: float = enemy_size[1]
+	
+	var line := Line2D.new()
+	line.width = 2
+	
+	# FIRST POINT: left wall / top wall
+	var left_top_point: Vector2
+	
+	var left := randi_range(0, 1)
+	if left: # left wall
+		var random_point := randi_range(0, int(enemy_heigth * enemy_scale[0]))
+		left_top_point = Vector2(0, random_point)
+	else:    # top wall
+		var random_point := randi_range(0, int(enemy_width * enemy_scale[1]))
+		left_top_point = Vector2(random_point, 0)
+	
+	line.add_point(left_top_point)
+	
+	# SECOND POINT: right wall / bottom wall
+	var right_bot_point: Vector2
+	
+	var right := randi_range(0, 1)
+	if right: # right wall
+		var random_point := randi_range(0, int(enemy_heigth * enemy_scale[1]))
+		right_bot_point = Vector2(enemy_width * enemy_scale[0], random_point)
+	else:     # bottom wall
+		var random_point := randi_range(0, int(enemy_width * enemy_scale[1]))
+		right_bot_point = Vector2(random_point, enemy_heigth * enemy_scale[1])
+	
+	line.add_point(right_bot_point)
+	
+	Global.kensei_class.swords_path_lines_amount += 1
+	$"../KenseiLines".add_child(line)
+	
+	# PLAY HIT SOUND
+	$"../../KenseiSpecific/SwordsPathHitSound".play_with_random_pitch()
+	
+	# MASTER'S TEMPO
+	var reached_max_stacks: bool = Global.kensei_class.increase_masters_tempo()
+	if reached_max_stacks:
+		is_enemy_hit()
+		# Decrease stack amount to prevent increase on another is_enemy_hit()
+		Global.kensei_class.masters_tempo_curr_stack_amount -= 1
 		
-		if gamblers_fate.level == 0:
+		var improved_tempo: Skill = Global.skills[Enums.KenseiSkillIds.IMPROVED_TEMPO - 1]
+		if Global.kensei_class.process_improved_tempo(improved_tempo.level):
+			is_enemy_hit()
+			# Decrease stack amount to prevent increase on another is_enemy_hit()
+			Global.kensei_class.masters_tempo_curr_stack_amount -= 1
+		
+	
+	# SWORDMASTER'S INSTINCT
+	if Global.skills[Enums.KenseiSkillIds.SWORDMASTERS_INSTINCT - 1].level == 0:
+		return false
+	
+	var show_skull: bool = false
+	
+	var enemy_hp: int = Global.curr_enemy.health
+	if enemy_hp * Global.kensei_class.get_instinct_threshold() <= get_swords_path_damage():
+		show_skull = true
+	$"../../KenseiSpecific/SwordsmasterInstinctSkull".visible = show_skull
+	
+	return false
+
+func handle_lucksworn_skills() -> bool:
+	var gamblers_fate: Skill = Global.skills[Enums.LuckswornSkillIds.GAMBLERS_FATE - 1]
+	
+	if gamblers_fate.level == 0:
+		return true
+	
+	# LUCKY STRIKE
+	Global.lucksworn_class.roll_lucky_strike()
+	
+	# LUCKIER STRIKE
+	Global.lucksworn_class.roll_luckier_strike()
+	
+	# GUARANTEED WIN
+	var guaranteed_win: Skill = Global.skills[Enums.LuckswornSkillIds.GUARANTEED_WIN - 1]
+	if guaranteed_win.level > 0:
+		var should_hit: bool = Global.lucksworn_class.increase_guaranteed_win()
+		if should_hit:
 			return true
+	
+	var hit_chance: float = Global.lucksworn_class.get_hit_chance()
+	var enemy_is_hit: bool = randf() < hit_chance
+	
+	if not enemy_is_hit:
+		Global.lucksworn_class.roll_sworn_dice()
+	
+	Global.lucksworn_class.set_bad_luck(enemy_is_hit)
+	
+	var lucksworn_save: bool = Global.lucksworn_class.check_sworn_dice_save_throw()
+	var bad_luck_save: bool = Global.lucksworn_class.check_bad_luck()
+	
+	if enemy_is_hit or lucksworn_save or bad_luck_save:
+		if !bad_luck_save:
+			Global.lucksworn_class.increase_gamblers_fate()
 		
-		# LUCKY STRIKE
-		Global.lucksworn_class.roll_lucky_strike()
-		
-		# LUCKIER STRIKE
-		Global.lucksworn_class.roll_luckier_strike()
-		
-		# GUARANTEED WIN
-		var guaranteed_win: Skill = Global.skills[Enums.LuckswornSkillIds.GUARANTEED_WIN - 1]
-		if guaranteed_win.level > 0:
-			var should_hit: bool = Global.lucksworn_class.increase_guaranteed_win()
-			if should_hit:
-				return true
-		
-		var hit_chance: float = Global.lucksworn_class.get_hit_chance()
-		var enemy_is_hit: bool = randf() < hit_chance
-		
-		if not enemy_is_hit:
-			Global.lucksworn_class.roll_sworn_dice()
-		
-		Global.lucksworn_class.set_bad_luck(enemy_is_hit)
-		
-		var lucksworn_save: bool = Global.lucksworn_class.check_sworn_dice_save_throw()
-		var bad_luck_save: bool = Global.lucksworn_class.check_bad_luck()
-		print(bad_luck_save)
-		
-		if enemy_is_hit or lucksworn_save or bad_luck_save:
-			# success
-			if !bad_luck_save:
-				Global.lucksworn_class.increase_gamblers_fate()
-			
-			return true
-		
-		Global.lucksworn_class.reset_gamblers_fate()
-		return false 
-		
-	return true
+		return true
+	
+	Global.lucksworn_class.reset_gamblers_fate()
+	return false 
 
 func deal_damage_to_enemy(damage: int) -> void:
 	if !Global.curr_enemy or damage <= 0:
