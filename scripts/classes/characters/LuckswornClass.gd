@@ -37,11 +37,11 @@ var bad_luck_active: bool = false
 var HIT_CHANCE_1_VALUES: Array[float] = [0, 0.005, 0.01]
 
 func get_hit_chance() -> float:
-	var base: float = get_gamblers_fate_hit_chance_multiplier()
+	var chance: float = get_gamblers_fate_hit_chance_multiplier()
 	
-	base += get_hit_chance_1_bonus()
+	chance += get_hit_chance_1_bonus()
 	
-	return base
+	return chance
 
 func get_hit_chance_1_bonus() -> float:
 	var hit_chance_1: Skill = Global.skills[Enums.LuckswornSkillIds.HIT_CHANCE_I - 1]
