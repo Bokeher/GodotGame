@@ -303,23 +303,32 @@ func calc_attack_damage() -> int:
 			if skill.level == 0:
 				continue
 			
-			if skill.id == Enums.LuckswornSkillIds.GAMBLERS_FATE:
-				mult *= lucksworn_class.get_gamblers_fate_damage_multiplier()
-			elif skill.id == Enums.LuckswornSkillIds.EXTREME_LUCK:
-				if lucksworn_class.check_extreme_luck():
-					mult *= lucksworn_class.get_extreme_luck_damage_multiplier()
-			elif skill.id == Enums.LuckswornSkillIds.GUARANTEED_WIN:
-				if lucksworn_class.should_guaranteed_win_proc():
-					mult *= lucksworn_class.get_guaranteed_win_damage_mult()
-			elif skill.id == Enums.LuckswornSkillIds.LUCKY_STRIKE:
-				if lucksworn_class.check_lucky_strike():
-					mult *= lucksworn_class.get_lucky_strike_damage_multiplier()
-			elif skill.id == Enums.LuckswornSkillIds.LUCKIER_STRIKE:
-				if lucksworn_class.check_luckier_strike():
-					mult *= lucksworn_class.get_luckier_strike_damage_multiplier()
-			elif skill.id == Enums.LuckswornSkillIds.BAD_LUCK:
-				if lucksworn_class.check_bad_luck():
-					mult *= lucksworn_class.get_bad_luck_damage_multiplier()
+			match skill.id:
+				Enums.LuckswornSkillIds.GAMBLERS_FATE:
+					mult *= lucksworn_class.get_gamblers_fate_damage_multiplier()
+					
+				Enums.LuckswornSkillIds.EXTREME_LUCK:
+					if lucksworn_class.check_extreme_luck():
+						mult *= lucksworn_class.get_extreme_luck_damage_multiplier()
+					
+				Enums.LuckswornSkillIds.GUARANTEED_WIN:
+					if lucksworn_class.should_guaranteed_win_proc():
+						mult *= lucksworn_class.get_guaranteed_win_damage_mult()
+					
+				Enums.LuckswornSkillIds.LUCKY_STRIKE:
+					if lucksworn_class.check_lucky_strike():
+						mult *= lucksworn_class.get_lucky_strike_damage_multiplier()
+					
+				Enums.LuckswornSkillIds.LUCKIER_STRIKE:
+					if lucksworn_class.check_luckier_strike():
+						mult *= lucksworn_class.get_luckier_strike_damage_multiplier()
+						
+				Enums.LuckswornSkillIds.BAD_LUCK:
+					if lucksworn_class.check_bad_luck():
+						mult *= lucksworn_class.get_bad_luck_damage_multiplier()
+						
+				_:
+					pass
 	
 	return floor(base * mult)
 
