@@ -28,6 +28,7 @@
 			"name": "Sworn Dice",
 			"description": "After missing an attack, you roll the Sworn Dice. If you get a 6, you don't miss attack.",
 			"image_path": "res://assets/sprites/unknown.png",
+			"level": 0,
 			"max_level": 1,
 			"requirement_ids": [1],
 			"grid_position": [2, 1]
