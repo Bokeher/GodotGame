@@ -82,7 +82,11 @@ func roll_sworn_dice() -> void:
 		return
 	
 	sworn_dice_dice_value = randi_range(1, 6)
-	print("Sworn dice: " + str(sworn_dice_dice_value))
+	
+	var dice_node: AnimatedSprite2D = Global.get_node("/root/Game/LuckswornSpecific/LuckswornDice")
+	
+	dice_node.visible = true
+	dice_node.frame = sworn_dice_dice_value - 1
 
 func check_sworn_dice_save_throw() -> bool:
 	return sworn_dice_dice_value == SWORN_DICE_DICE_NUMBER

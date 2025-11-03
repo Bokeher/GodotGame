@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=43 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" uid="uid://dgo0pke6nqqb8" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" uid="uid://ct7xcpextwtga" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -34,6 +34,12 @@
 [ext_resource type="Script" uid="uid://2qxao52u4fjf" path="res://scripts/sounds/SwordsPathFinisherAttack.gd" id="32_dg70y"]
 [ext_resource type="Texture2D" uid="uid://gcsfd4cxvmwc" path="res://assets/sprites/skills/kensei/skull_indicator.png" id="33_pnhog"]
 [ext_resource type="Script" uid="uid://c855vsej3u0r7" path="res://scripts/BloodrageTimer.gd" id="34_2c4at"]
+[ext_resource type="Texture2D" uid="uid://cysqsnmywqviu" path="res://assets/sprites/skills/lucksworn/lucksworn_1.png" id="35_8cp6k"]
+[ext_resource type="Texture2D" uid="uid://bk0wcnwr72owv" path="res://assets/sprites/skills/lucksworn/lucksworn_2.png" id="36_8b871"]
+[ext_resource type="Texture2D" uid="uid://c8brwfjl7gm78" path="res://assets/sprites/skills/lucksworn/lucksworn_3.png" id="37_pdwbg"]
+[ext_resource type="Texture2D" uid="uid://cgaxunri7i7k4" path="res://assets/sprites/skills/lucksworn/lucksworn_4.png" id="38_5grtr"]
+[ext_resource type="Texture2D" uid="uid://f7cb6pf7t38d" path="res://assets/sprites/skills/lucksworn/lucksworn_5.png" id="39_vua0o"]
+[ext_resource type="Texture2D" uid="uid://bnt8vsk1cebgc" path="res://assets/sprites/skills/lucksworn/lucksworn_6.png" id="40_t70y2"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -72,6 +78,32 @@ cache/0/25/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/25/0/kerning_overrides/40/0 = Vector2(0, 0)
 cache/0/25/0/kerning_overrides/20/0 = Vector2(0, 0)
 cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8gny2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_8cp6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_8b871")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_pdwbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_5grtr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_vua0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_t70y2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Game" type="Node2D"]
 
@@ -300,6 +332,7 @@ metadata/_tab_index = 6
 layout_mode = 1
 
 [node name="CustomCursor" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(2, 2)
 texture = ExtResource("29_pyqnk")
 
@@ -340,6 +373,14 @@ texture = ExtResource("33_pnhog")
 [node name="BloodrageTimer" type="Timer" parent="WarriorSpecific"]
 one_shot = true
 script = ExtResource("34_2c4at")
+
+[node name="LuckswornSpecific" type="Node" parent="."]
+
+[node name="LuckswornDice" type="AnimatedSprite2D" parent="LuckswornSpecific"]
+position = Vector2(500, 65)
+sprite_frames = SubResource("SpriteFrames_8gny2")
+frame_progress = 0.887496
+speed_scale = 4.0
 
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]
 [connection signal="timeout" from="PlayerAttackTimer" to="Enemy/EnemyBody" method="_on_player_attack_timer_timeout"]
