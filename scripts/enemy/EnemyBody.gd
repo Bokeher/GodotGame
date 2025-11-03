@@ -200,7 +200,7 @@ func handle_lucksworn_skills() -> bool:
 	if gamblers_fate.level == 0:
 		return true
 	
-	$"../../LuckswornSpecific/LuckswornDice".visible = false
+	$"../../LuckswornSpecific/SwornDice".visible = false
 	
 	# LUCKY STRIKE
 	Global.lucksworn_class.roll_lucky_strike()

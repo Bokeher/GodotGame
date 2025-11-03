@@ -34,12 +34,12 @@
 [ext_resource type="Script" uid="uid://2qxao52u4fjf" path="res://scripts/sounds/SwordsPathFinisherAttack.gd" id="32_dg70y"]
 [ext_resource type="Texture2D" uid="uid://gcsfd4cxvmwc" path="res://assets/sprites/skills/kensei/skull_indicator.png" id="33_pnhog"]
 [ext_resource type="Script" uid="uid://c855vsej3u0r7" path="res://scripts/BloodrageTimer.gd" id="34_2c4at"]
-[ext_resource type="Texture2D" uid="uid://cysqsnmywqviu" path="res://assets/sprites/skills/lucksworn/lucksworn_1.png" id="35_8cp6k"]
-[ext_resource type="Texture2D" uid="uid://bk0wcnwr72owv" path="res://assets/sprites/skills/lucksworn/lucksworn_2.png" id="36_8b871"]
-[ext_resource type="Texture2D" uid="uid://c8brwfjl7gm78" path="res://assets/sprites/skills/lucksworn/lucksworn_3.png" id="37_pdwbg"]
-[ext_resource type="Texture2D" uid="uid://cgaxunri7i7k4" path="res://assets/sprites/skills/lucksworn/lucksworn_4.png" id="38_5grtr"]
-[ext_resource type="Texture2D" uid="uid://f7cb6pf7t38d" path="res://assets/sprites/skills/lucksworn/lucksworn_5.png" id="39_vua0o"]
-[ext_resource type="Texture2D" uid="uid://bnt8vsk1cebgc" path="res://assets/sprites/skills/lucksworn/lucksworn_6.png" id="40_t70y2"]
+[ext_resource type="Texture2D" uid="uid://cysqsnmywqviu" path="res://assets/sprites/skills/lucksworn/sworn_dice_1.png" id="35_8cp6k"]
+[ext_resource type="Texture2D" uid="uid://bk0wcnwr72owv" path="res://assets/sprites/skills/lucksworn/sworn_dice_2.png" id="36_8b871"]
+[ext_resource type="Texture2D" uid="uid://c8brwfjl7gm78" path="res://assets/sprites/skills/lucksworn/sworn_dice_3.png" id="37_pdwbg"]
+[ext_resource type="Texture2D" uid="uid://cgaxunri7i7k4" path="res://assets/sprites/skills/lucksworn/sworn_dice_4.png" id="38_5grtr"]
+[ext_resource type="Texture2D" uid="uid://f7cb6pf7t38d" path="res://assets/sprites/skills/lucksworn/sworn_dice_5.png" id="39_vua0o"]
+[ext_resource type="Texture2D" uid="uid://bnt8vsk1cebgc" path="res://assets/sprites/skills/lucksworn/sworn_dice_6.png" id="40_t70y2"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -376,10 +376,11 @@ script = ExtResource("34_2c4at")
 
 [node name="LuckswornSpecific" type="Node" parent="."]
 
-[node name="LuckswornDice" type="AnimatedSprite2D" parent="LuckswornSpecific"]
+[node name="SwornDice" type="AnimatedSprite2D" parent="LuckswornSpecific"]
+visible = false
 position = Vector2(500, 65)
 sprite_frames = SubResource("SpriteFrames_8gny2")
-frame_progress = 0.887496
+frame_progress = 0.418151
 speed_scale = 4.0
 
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]

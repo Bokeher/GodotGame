@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cysqsnmywqviu"
-path="res://.godot/imported/lucksworn_1.png-8efc4260f903ad6b327fb9a4169c6e62.ctex"
+uid="uid://bnt8vsk1cebgc"
+path="res://.godot/imported/sworn_dice_6.png-bf2ffdf562db3494de70afba9b87f255.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/skills/lucksworn/lucksworn_1.png"
-dest_files=["res://.godot/imported/lucksworn_1.png-8efc4260f903ad6b327fb9a4169c6e62.ctex"]
+source_file="res://assets/sprites/skills/lucksworn/sworn_dice_6.png"
+dest_files=["res://.godot/imported/sworn_dice_6.png-bf2ffdf562db3494de70afba9b87f255.ctex"]
 
 [params]
 
