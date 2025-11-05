@@ -377,6 +377,7 @@ script = ExtResource("34_2c4at")
 [node name="LuckswornSpecific" type="Node" parent="."]
 
 [node name="SwornDice" type="AnimatedSprite2D" parent="LuckswornSpecific"]
+visible = false
 position = Vector2(138, 193)
 sprite_frames = SubResource("SpriteFrames_8gny2")
 frame_progress = 0.418151

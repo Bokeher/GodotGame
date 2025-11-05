@@ -87,6 +87,10 @@ func roll_sworn_dice() -> void:
 	
 	dice_node.visible = true
 	dice_node.frame = sworn_dice_dice_value - 1
+	
+	# Hide after 0.5s
+	await Global.get_tree().create_timer(0.50).timeout
+	dice_node.visible = false
 
 func check_sworn_dice_save_throw() -> bool:
 	return sworn_dice_dice_value == SWORN_DICE_DICE_NUMBER
