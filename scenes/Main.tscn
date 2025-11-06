@@ -383,14 +383,14 @@ sprite_frames = SubResource("SpriteFrames_8gny2")
 frame_progress = 0.418151
 speed_scale = 4.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="StatusBar" type="ColorRect" parent="."]
 offset_left = 515.0
 offset_top = 30.0
 offset_right = 575.0
 offset_bottom = 645.0
 color = Color(0.133333, 0.137255, 0.137255, 1)
 
-[node name="StatusBar" type="VBoxContainer" parent="ColorRect"]
+[node name="VBox" type="VBoxContainer" parent="StatusBar"]
 offset_right = 60.0
 offset_bottom = 615.0
 
