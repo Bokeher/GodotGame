@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://davpy40s44ese"]
 
 [node name="StatusEffect" type="Control"]
+custom_minimum_size = Vector2(68, 68)
 layout_mode = 3
 anchor_right = 0.059
 anchor_bottom = 0.105
