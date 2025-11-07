@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=44 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" uid="uid://dgo0pke6nqqb8" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" uid="uid://ct7xcpextwtga" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://cgaxunri7i7k4" path="res://assets/sprites/skills/lucksworn/sworn_dice_4.png" id="38_5grtr"]
 [ext_resource type="Texture2D" uid="uid://f7cb6pf7t38d" path="res://assets/sprites/skills/lucksworn/sworn_dice_5.png" id="39_vua0o"]
 [ext_resource type="Texture2D" uid="uid://bnt8vsk1cebgc" path="res://assets/sprites/skills/lucksworn/sworn_dice_6.png" id="40_t70y2"]
+[ext_resource type="PackedScene" uid="uid://davpy40s44ese" path="res://scenes/StatusEffect.tscn" id="41_8b871"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -384,15 +385,21 @@ frame_progress = 0.418151
 speed_scale = 4.0
 
 [node name="StatusBar" type="ColorRect" parent="."]
-offset_left = 515.0
-offset_top = 30.0
-offset_right = 575.0
-offset_bottom = 645.0
+offset_left = 502.0
+offset_top = 31.0
+offset_right = 574.0
+offset_bottom = 646.0
 color = Color(0.133333, 0.137255, 0.137255, 1)
 
 [node name="VBox" type="VBoxContainer" parent="StatusBar"]
-offset_right = 60.0
-offset_bottom = 615.0
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 617.0
+
+[node name="StatusEffect" parent="StatusBar/VBox" instance=ExtResource("41_8b871")]
+layout_mode = 2
 
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]
 [connection signal="timeout" from="PlayerAttackTimer" to="Enemy/EnemyBody" method="_on_player_attack_timer_timeout"]
