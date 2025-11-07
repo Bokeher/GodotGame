@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://davpy40s44ese"]
+
+[node name="StatusEffect" type="Control"]
+layout_mode = 3
+anchor_right = 0.059
+anchor_bottom = 0.105
+offset_right = 0.0319977
+offset_bottom = -0.0400009
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 68.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="Image" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 66.0
+offset_bottom = 66.0
