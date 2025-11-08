@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://davpy40s44ese"]
+[gd_scene load_steps=2 format=3 uid="uid://davpy40s44ese"]
+
+[ext_resource type="Script" uid="uid://c1bfp1s5xi30f" path="res://scripts/StatusEffect.gd" id="1_r1l03"]
 
 [node name="StatusEffect" type="Control"]
 custom_minimum_size = Vector2(68, 68)
@@ -9,6 +11,8 @@ offset_right = 0.0319977
 offset_bottom = -0.0400009
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r1l03")
+metadata/status_id = 0
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -22,3 +26,5 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 66.0
 offset_bottom = 66.0
+
+[node name="Timer" type="Timer" parent="."]
