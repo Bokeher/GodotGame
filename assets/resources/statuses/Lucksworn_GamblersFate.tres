@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://c53y3w07jgtnt"]
+
+[ext_resource type="Script" uid="uid://bpho0kgwg52fx" path="res://scripts/classes/StatusEffect.gd" id="1_gpuwi"]
+
+[resource]
+script = ExtResource("1_gpuwi")
+id = 1
+name = "Gambler's Fate"
+description = "{v1} stacks increase damage by {v2}"
+duration = -1.0
+img_path = "res://assets/sprites/unknown.png"
+metadata/_custom_type_script = "uid://bpho0kgwg52fx"
