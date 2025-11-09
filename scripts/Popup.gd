@@ -2,15 +2,15 @@ extends Control
 
 class_name GlobalPopup
 
-@onready var name_ = $Popup/MarginContainer/VBoxContainer/Name
-@onready var description = $Popup/MarginContainer/VBoxContainer/Description
-@onready var popup_panel = $Popup
+@onready var name_ := $Popup/MarginContainer/VBoxContainer/Name
+@onready var description := $Popup/MarginContainer/VBoxContainer/Description
+@onready var popup_panel := $Popup
 
-var show_timer = Timer.new()
-var hide_timer = Timer.new()
-var pending_name = ""
-var pending_description = ""
-var rect = Rect2i(250, 31, 0, 0)
+var show_timer := Timer.new()
+var hide_timer := Timer.new()
+var pending_name := ""
+var pending_description := ""
+var rect: Rect2i
 
 func _ready():
  # Add timers for delayed actions to prevent hiding after showing (happening when elements are really close to each other)
@@ -24,7 +24,8 @@ func _ready():
 	hide_timer.wait_time = 0.1
 	hide_timer.timeout.connect(_hide_popup)
 
-func popup(popup_name: String, popup_description: String) -> void:
+func popup(popup_name: String, popup_description: String, new_rect: Rect2i = Rect2i(250, 31, 0, 0)) -> void:
+	self.rect = new_rect
 	pending_name = popup_name
 	pending_description = popup_description
 	
