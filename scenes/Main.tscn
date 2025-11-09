@@ -401,9 +401,6 @@ offset_bottom = 617.0
 [node name="StatusEffect" parent="StatusBar/VBox" instance=ExtResource("41_8b871")]
 layout_mode = 2
 
-[node name="StatusEffect2" parent="StatusBar/VBox" instance=ExtResource("41_8b871")]
-layout_mode = 2
-
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]
 [connection signal="timeout" from="PlayerAttackTimer" to="Enemy/EnemyBody" method="_on_player_attack_timer_timeout"]
 [connection signal="timeout" from="WarriorSpecific/BloodrageTimer" to="WarriorSpecific/BloodrageTimer" method="_on_timeout"]
