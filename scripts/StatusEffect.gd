@@ -1,4 +1,5 @@
 extends Control
+class_name StatusNode
 
 @onready var status: StatusEffect = $".".get_meta("status")
 @onready var popup: GlobalPopup = get_node("/root/Game/Popup")
@@ -13,7 +14,11 @@ func _ready() -> void:
 		$Timer.start()
 
 func _on_timer_timeout() -> void:
-	pass
+	if status.stacks > 1:
+		status.stacks -= 1
+		return
+	
+	get_parent().remove_status(status.id)
 
 func _on_background_mouse_entered() -> void:
 	popup.popup(status.name, status.description, popupRect2i)

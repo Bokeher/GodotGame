@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=45 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" uid="uid://dgo0pke6nqqb8" path="res://scripts/ui/BiomeInfo.gd" id="2_lrkbd"]
 [ext_resource type="Script" uid="uid://ct7xcpextwtga" path="res://scripts/ui/Reset.gd" id="3_or36x"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://f7cb6pf7t38d" path="res://assets/sprites/skills/lucksworn/sworn_dice_5.png" id="39_vua0o"]
 [ext_resource type="Texture2D" uid="uid://bnt8vsk1cebgc" path="res://assets/sprites/skills/lucksworn/sworn_dice_6.png" id="40_t70y2"]
 [ext_resource type="PackedScene" uid="uid://davpy40s44ese" path="res://scenes/StatusEffect.tscn" id="41_8b871"]
+[ext_resource type="Script" uid="uid://b244r376llchn" path="res://scripts/StatusBarVBox.gd" id="41_pdwbg"]
 
 [sub_resource type="FontFile" id="FontFile_p7eyw"]
 cache/0/16/0/ascent = 0.0
@@ -397,6 +398,7 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 72.0
 offset_bottom = 617.0
+script = ExtResource("41_pdwbg")
 
 [node name="StatusEffect" parent="StatusBar/VBox" instance=ExtResource("41_8b871")]
 layout_mode = 2
