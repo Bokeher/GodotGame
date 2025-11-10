@@ -16,6 +16,7 @@ func update_bestiary() -> void:
 func load_bestiary_list() -> void:
 	for child in $ScrollContainer/BestiaryList.get_children():
 		$ScrollContainer/BestiaryList.remove_child(child)
+		child.queue_free()
 	
 	for enemy_id in entries:
 		var new_list_item = bestiary_list_item_scene.instantiate()

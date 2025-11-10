@@ -7,6 +7,7 @@ func _ready() -> void:
 	var children = $VBoxContainer.get_children()
 	for child in children:
 		$VBoxContainer.remove_child(child)
+		child.queue_free()
 	
 	for upgrade in Global.upgrades:
 		var new_upgrade = upgrade_scene.instantiate()

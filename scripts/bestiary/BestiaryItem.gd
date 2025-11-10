@@ -20,6 +20,7 @@ func update_bestiary_item() -> void:
 	# Empty loot table
 	for child in $Drops/LootTable.get_children():
 		$Drops/LootTable.remove_child(child)
+		child.queue_free()
 	
 	# Add drops
 	for loot_table_item in enemy.loot_table:

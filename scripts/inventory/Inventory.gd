@@ -11,6 +11,7 @@ func update_inventory() -> void:
 	# Remove all children
 	for child in ItemContainer.get_children():
 		ItemContainer.remove_child(child)
+		child.queue_free()
 	
 	# Prevent items from being added
 	if Global.inventory.is_empty() or !ItemContainer or Global.selected_equip_slot_id == -1:

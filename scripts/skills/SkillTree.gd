@@ -11,6 +11,7 @@ func update_skill_points() -> void:
 	
 	for skill in skillTreePanel.get_children():
 		skillTreePanel.remove_child(skill)
+		skill.queue_free()
 	
 	points_spent = 0
 	

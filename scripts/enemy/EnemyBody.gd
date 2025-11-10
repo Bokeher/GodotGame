@@ -94,6 +94,7 @@ func _input(event: InputEvent) -> void:
 		# Remove all lines
 		for line: Line2D in lines.get_children():
 			lines.remove_child(line)
+			line.queue_free()
 		# TODO: Add here kensei finisher sound / change other Sword's Path specifics
 		Global.kensei_class.swords_path_lines_amount = 0
 		
