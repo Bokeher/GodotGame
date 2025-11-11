@@ -9,4 +9,5 @@ name = "Gambler's Fate"
 description = "{v1} stacks increase damage by {v2}"
 duration = -1.0
 img_path = "res://assets/sprites/unknown.png"
+stacks = 1
 metadata/_custom_type_script = "uid://bpho0kgwg52fx"
