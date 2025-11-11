@@ -13,12 +13,18 @@ func _ready() -> void:
 		
 		$Timer.start()
 
-func _on_timer_timeout() -> void:
+func increase_stack() -> void:
+	status.stacks += 1
+
+func decrease_stack() -> void:
 	if status.stacks > 1:
 		status.stacks -= 1
 		return
 	
 	get_parent().remove_status(status.id)
+
+func _on_timer_timeout() -> void:
+	decrease_stack()
 
 func _on_background_mouse_entered() -> void:
 	popup.popup(status.name, status.description, popupRect2i)
