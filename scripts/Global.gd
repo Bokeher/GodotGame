@@ -10,6 +10,8 @@ const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 const PATH_SKILLS: String = "res://assets/jsons/skills.json"
 const PATH_ITEMS: String = "res://assets/jsons/items.json"
 const PATH_CLASSES_DIR: String = "res://assets/jsons/classes/"
+const PATH_RESOURCES: String = "res://assets/resources/"
+const PATH_RESOURCES_STATUSES: String = PATH_RESOURCES + "statuses/"
 
 # Used to precisely set postion of Popups based on position of MainTabContainer 
 const MAIN_TAB_CONTAINER_POSITION: Vector2i = Vector2i(580, 0)
@@ -20,6 +22,7 @@ var enemies: Array[Enemy] = []
 var upgrades: Array[Upgrade] = []
 var items: Array[Item] = []
 var skills: Array[Skill] = []
+var statuses: Array[StatusEffect] = []
 
 # State vars
 var player_stats: Player = Player.new()
@@ -55,6 +58,7 @@ func _ready() -> void:
 	read_stages()
 	read_enemies()
 	read_items()
+	read_statuses()
 	
 	read_savefile()
 	
@@ -71,6 +75,11 @@ func _ready() -> void:
 		curr_enemy = get_enemy(1)
 	
 	player_stats.attack_interval = calc_attack_interval()
+
+func read_statuses() -> void:
+	for res in load_resources_from_folder(PATH_RESOURCES_STATUSES):
+		if res is StatusEffect:
+			statuses.append(res)
 
 func read_savefile() -> void:
 	if !FileAccess.file_exists(PATH_SAVE):
@@ -352,3 +361,26 @@ func hasItemDroppedFromEnemy(_item_id: int, _enemy_id: int) -> bool:
 	var drops: Dictionary = bestiary_entry.items_dropped
 	
 	return drops.has(_item_id)
+
+func load_resources_from_folder(path: String) -> Array:
+	var resources: Array = []
+	var dir := DirAccess.open(path)
+	
+	if dir == null:
+		push_error("Cant open dir: %s" % path)
+		return resources
+	
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+
+	while file_name != "":
+		if not dir.current_is_dir():
+			if file_name.ends_with(".tres") or file_name.ends_with(".res"):
+				var res_path = path.path_join(file_name)
+				var res = load(res_path)
+				if res:
+					resources.append(res)
+		file_name = dir.get_next()
+	
+	dir.list_dir_end()
+	return resources
