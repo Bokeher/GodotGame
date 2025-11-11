@@ -22,7 +22,7 @@ var enemies: Array[Enemy] = []
 var upgrades: Array[Upgrade] = []
 var items: Array[Item] = []
 var skills: Array[Skill] = []
-var statuses: Array[StatusEffect] = []
+var statuses: Dictionary = {}
 
 # State vars
 var player_stats: Player = Player.new()
@@ -77,9 +77,13 @@ func _ready() -> void:
 	player_stats.attack_interval = calc_attack_interval()
 
 func read_statuses() -> void:
+	statuses.clear()
 	for res in load_resources_from_folder(PATH_RESOURCES_STATUSES):
 		if res is StatusEffect:
-			statuses.append(res)
+			statuses[res.id] = res
+
+func get_status(id: int) -> StatusEffect:
+	return statuses.get(id)
 
 func read_savefile() -> void:
 	if !FileAccess.file_exists(PATH_SAVE):
