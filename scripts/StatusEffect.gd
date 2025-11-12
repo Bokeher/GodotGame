@@ -13,12 +13,20 @@ func _ready() -> void:
 		
 		$Timer.start()
 
+func update_stack_count() -> void:
+	$Background/Image/StackCount.text = ""
+	if status.stacks > 1:
+		$Background/Image/StackCount.text = str(status.stacks)
+	
+
 func increase_stack() -> void:
 	status.stacks += 1
+	update_stack_count()
 
 func decrease_stack() -> void:
 	if status.stacks > 1:
 		status.stacks -= 1
+		update_stack_count()
 		return
 	
 	get_parent().remove_status(status.id)
