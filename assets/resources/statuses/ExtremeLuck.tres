@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://cusuysbhwdi1f"]
+
+[ext_resource type="Script" uid="uid://bpho0kgwg52fx" path="res://scripts/classes/StatusEffect.gd" id="1_wt2no"]
+
+[resource]
+script = ExtResource("1_wt2no")
+id = 2
+name = "Extreme Luck"
+description = "Double your damage"
+duration = -1.0
+img_path = "res://assets/sprites/unknown.png"
+stacks = 1
+metadata/_custom_type_script = "uid://bpho0kgwg52fx"

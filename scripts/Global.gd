@@ -58,6 +58,8 @@ func _ready() -> void:
 	read_stages()
 	read_enemies()
 	read_items()
+	
+	# Read resources
 	read_statuses()
 	
 	read_savefile()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://davpy40s44ese"]
 
 [ext_resource type="Script" uid="uid://c1bfp1s5xi30f" path="res://scripts/StatusEffect.gd" id="1_r1l03"]
-[ext_resource type="Resource" uid="uid://c53y3w07jgtnt" path="res://assets/resources/statuses/Lucksworn_GamblersFate.tres" id="2_6oncj"]
+[ext_resource type="Resource" uid="uid://c53y3w07jgtnt" path="res://assets/resources/statuses/GamblersFate.tres" id="2_6oncj"]
 
 [node name="StatusEffect" type="Control"]
 custom_minimum_size = Vector2(68, 68)
