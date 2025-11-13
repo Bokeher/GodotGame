@@ -6,7 +6,7 @@
 script = ExtResource("1_wt2no")
 id = 2
 name = "Extreme Luck"
-description = "Double your damage"
+description = "Deal double damage"
 duration = -1.0
 img_path = "res://assets/sprites/unknown.png"
 stacks = 1
