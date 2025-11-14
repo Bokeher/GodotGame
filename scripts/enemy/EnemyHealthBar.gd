@@ -1,7 +1,7 @@
 extends ProgressBar
 
-var filling_time = 0
-var elapsed_time = 0.0
+var filling_time: int = 0
+var elapsed_time: float = 0.0
 
 func _ready() -> void:
 	# Dont fill healthbar (used to show progress of finding new enemies) 
@@ -20,7 +20,7 @@ func _process(delta) -> void:
 	elapsed_time += delta
 	
 	# Calculate the progress based on elapsed time and the fill duration
-	var progress = elapsed_time / filling_time
+	var progress: float = elapsed_time / filling_time
 	var time_to_show: float = floor((1.0 - progress) * filling_time * 10.0) / 10.0
 	
 	# Update the ProgressBar value
