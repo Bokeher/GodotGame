@@ -2,7 +2,7 @@ class_name SaveManager
 
 const PATH_SAVE: String = "user://save"
 
-func read_savefile() -> void:
+func read() -> void:
 	if !FileAccess.file_exists(PATH_SAVE):
 		push_error("Savefile not found")
 		return
@@ -44,7 +44,7 @@ func read_savefile() -> void:
 		Global.upgrades.append(Upgrade.from_dict(upgrades_dict))
 	
 
-func save_savefile() -> void:
+func save() -> void:
 	# Convert objects to dictionaries
 	var player_stats_dict
 	if(Global.player_stats):
@@ -58,9 +58,9 @@ func save_savefile() -> void:
 	for skill in Global.skills:
 		skills_dicts.append(skill.to_dict())
 	
-	var upgrdes_dicts = []
+	var upgrades_dicts = []
 	for upgrade in Global.upgrades:
-		upgrdes_dicts.append(upgrade.to_dict())
+		upgrades_dicts.append(upgrade.to_dict())
 	
 	var pet_dict = null
 	if(Global.pet):
@@ -77,7 +77,7 @@ func save_savefile() -> void:
 		player_stats_dict,
 		curr_enemy_dict,
 		skills_dicts,
-		upgrdes_dicts,
+		upgrades_dicts,
 		Global.inventory,
 		pet_dict,
 		bestiary_dict,

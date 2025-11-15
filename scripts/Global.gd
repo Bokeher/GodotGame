@@ -64,7 +64,7 @@ func _ready() -> void:
 	# Read resources
 	read_statuses()
 	
-	saveManager.read_savefile()
+	saveManager.read()
 	
 	# Read from json when there are no instances of them
 	#if(skills.is_empty()): 
@@ -92,7 +92,7 @@ func get_status(id: int) -> StatusEffect:
 # Save on exit
 func _notification(what) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		saveManager.save_savefile()
+		saveManager.save()
 
 func _process(delta) -> void:
 	process_calc_timer += delta
@@ -110,7 +110,7 @@ func _process(delta) -> void:
 	# Auto save 
 	process_auto_save_timer += delta
 	if process_auto_save_timer >= PROCESS_AUTO_SAVE_INTERVAL:
-		saveManager.save_savefile()
+		saveManager.save()
 		process_auto_save_timer = 0.0
 
 func read_enemies() -> void:
