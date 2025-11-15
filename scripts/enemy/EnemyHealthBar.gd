@@ -1,6 +1,6 @@
 extends ProgressBar
 
-var filling_time: int = 0
+var filling_time: float = 0
 var elapsed_time: float = 0.0
 
 func _ready() -> void:
