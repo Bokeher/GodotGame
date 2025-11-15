@@ -53,6 +53,8 @@ var kensei_class := KenseiClass.new()
 var warrior_class := WarriorClass.new()
 var lucksworn_class := LuckswornClass.new()
 
+var saveManager: SaveManager = SaveManager.new()
+
 func _ready() -> void:
 	# Read all json files
 	read_stages()
@@ -62,7 +64,7 @@ func _ready() -> void:
 	# Read resources
 	read_statuses()
 	
-	read_savefile()
+	saveManager.read_savefile()
 	
 	# Read from json when there are no instances of them
 	#if(skills.is_empty()): 
@@ -87,95 +89,10 @@ func read_statuses() -> void:
 func get_status(id: int) -> StatusEffect:
 	return statuses.get(id)
 
-func read_savefile() -> void:
-	if !FileAccess.file_exists(PATH_SAVE):
-		push_error("Savefile not found")
-		return
-	
-	# Read data from file
-	var file = FileAccess.open(PATH_SAVE, FileAccess.READ)
-	
-	if file == null:
-		print("ERROR: Failed to load savefile since file is null")
-		return
-	
-	var data = file.get_var()
-	file.close()
-	
-	if data == null:
-		print("ERROR: Failed to load savefile since data is null")
-		return
-	
-	# Get dictionaries from file
-	var player_stats_dict = data[0]
-	var curr_enemy_dict = data[1]
-	var skills_dicts = data[2]
-	var upgrades_dicts = data[3]
-	inventory = data[4]
-	var pet_dict = data[5]
-	var bestiary_dict = data[6]
-	equipped_items = data[7]
-	
-	# Convert dictionaries to objects
-	player_stats = Player.from_dict(player_stats_dict) if player_stats_dict else null
-	curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
-	pet = Pet.from_dict(pet_dict) if pet_dict else null
-	bestiary = Bestiary.from_dict(bestiary_dict) if bestiary_dict else Bestiary.new()
-	
-	for skills_dict in skills_dicts:
-		skills.append(Skill.from_dict(skills_dict))
-	
-	for upgrades_dict in upgrades_dicts:
-		upgrades.append(Upgrade.from_dict(upgrades_dict))
-	
-
-func save_savefile() -> void:
-	# Convert objects to dictionaries
-	var player_stats_dict = null
-	if(player_stats):
-		player_stats_dict = player_stats.to_dict()
-	
-	var curr_enemy_dict = null
-	if(curr_enemy):
-		curr_enemy_dict = curr_enemy.to_dict()
-	
-	var skills_dicts = []
-	for skill in skills:
-		skills_dicts.append(skill.to_dict())
-	
-	var upgrdes_dicts = []
-	for upgrade in upgrades:
-		upgrdes_dicts.append(upgrade.to_dict())
-	
-	var pet_dict = null
-	if(pet):
-		pet_dict = pet.to_dict()
-	
-	var bestiary_dict = null
-	if(bestiary):
-		bestiary_dict = bestiary.to_dict()
-	
-	# Save dictionaries
-	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
-	
-	file.store_var([
-		player_stats_dict,
-		curr_enemy_dict,
-		skills_dicts,
-		upgrdes_dicts,
-		inventory,
-		pet_dict,
-		bestiary_dict,
-		equipped_items
-	])
-	
-	file.close()
-	print("Saved")
-
 # Save on exit
 func _notification(what) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		save_savefile()
+		saveManager.save_savefile()
 
 func _process(delta) -> void:
 	process_calc_timer += delta
@@ -193,7 +110,7 @@ func _process(delta) -> void:
 	# Auto save 
 	process_auto_save_timer += delta
 	if process_auto_save_timer >= PROCESS_AUTO_SAVE_INTERVAL:
-		save_savefile()
+		saveManager.save_savefile()
 		process_auto_save_timer = 0.0
 
 func read_enemies() -> void:

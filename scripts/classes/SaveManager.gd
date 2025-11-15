@@ -1,0 +1,88 @@
+class_name SaveManager
+
+const PATH_SAVE: String = "user://save"
+
+func read_savefile() -> void:
+	if !FileAccess.file_exists(PATH_SAVE):
+		push_error("Savefile not found")
+		return
+	
+	# Read data from file
+	var file = FileAccess.open(PATH_SAVE, FileAccess.READ)
+	
+	if file == null:
+		print("ERROR: Failed to load savefile since file is null")
+		return
+	
+	var data = file.get_var()
+	file.close()
+	
+	if data == null:
+		print("ERROR: Failed to load savefile since data is null")
+		return
+	
+	# Get dictionaries from file
+	var player_stats_dict = data[0]
+	var curr_enemy_dict = data[1]
+	var skills_dicts = data[2]
+	var upgrades_dicts = data[3]
+	Global.inventory = data[4]
+	var pet_dict = data[5]
+	var bestiary_dict = data[6]
+	Global.equipped_items = data[7]
+	
+	# Convert dictionaries to objects
+	Global.player_stats = Player.from_dict(player_stats_dict) if player_stats_dict else null
+	Global.curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
+	Global.pet = Pet.from_dict(pet_dict) if pet_dict else null
+	Global.bestiary = Bestiary.from_dict(bestiary_dict) if bestiary_dict else Bestiary.new()
+	
+	for skills_dict in skills_dicts:
+		Global.skills.append(Skill.from_dict(skills_dict))
+	
+	for upgrades_dict in upgrades_dicts:
+		Global.upgrades.append(Upgrade.from_dict(upgrades_dict))
+	
+
+func save_savefile() -> void:
+	# Convert objects to dictionaries
+	var player_stats_dict
+	if(Global.player_stats):
+		player_stats_dict = Global.player_stats.to_dict()
+	
+	var curr_enemy_dict
+	if(Global.curr_enemy):
+		curr_enemy_dict = Global.curr_enemy.to_dict()
+	
+	var skills_dicts = []
+	for skill in Global.skills:
+		skills_dicts.append(skill.to_dict())
+	
+	var upgrdes_dicts = []
+	for upgrade in Global.upgrades:
+		upgrdes_dicts.append(upgrade.to_dict())
+	
+	var pet_dict = null
+	if(Global.pet):
+		pet_dict = Global.pet.to_dict()
+	
+	var bestiary_dict = null
+	if(Global.bestiary):
+		bestiary_dict = Global.bestiary.to_dict()
+	
+	# Save dictionaries
+	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
+	
+	file.store_var([
+		player_stats_dict,
+		curr_enemy_dict,
+		skills_dicts,
+		upgrdes_dicts,
+		Global.inventory,
+		pet_dict,
+		bestiary_dict,
+		Global.equipped_items
+	])
+	
+	file.close()
+	print("Saved")
