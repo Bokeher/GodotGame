@@ -2,17 +2,6 @@ extends Node
 
 var debug_mode: bool = true
 
-# File paths
-const PATH_SAVE: String = "user://save"
-const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
-const PATH_STAGES: String = "res://assets/jsons/stages.json"
-const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
-const PATH_SKILLS: String = "res://assets/jsons/skills.json"
-const PATH_ITEMS: String = "res://assets/jsons/items.json"
-const PATH_CLASSES_DIR: String = "res://assets/jsons/classes/"
-const PATH_RESOURCES: String = "res://assets/resources/"
-const PATH_RESOURCES_STATUSES: String = PATH_RESOURCES + "statuses/"
-
 # Used to precisely set postion of Popups based on position of MainTabContainer 
 const MAIN_TAB_CONTAINER_POSITION: Vector2i = Vector2i(580, 0)
 
@@ -54,23 +43,24 @@ var warrior_class := WarriorClass.new()
 var lucksworn_class := LuckswornClass.new()
 
 var saveManager: SaveManager = SaveManager.new()
+var dataReader: DataReader = DataReader.new()
 
 func _ready() -> void:
 	# Read all json files
-	read_stages()
-	read_enemies()
-	read_items()
+	dataReader.read_stages()
+	dataReader.read_enemies()
+	dataReader.read_items()
 	
 	# Read resources
-	read_statuses()
+	dataReader.read_statuses()
 	
 	saveManager.read()
 	
 	# Read from json when there are no instances of them
 	#if(skills.is_empty()): 
-	read_skills()
+	dataReader.read_skills()
 	if(upgrades.is_empty()): 
-		read_upgrades()
+		dataReader.read_upgrades()
 	
 	# Set curr_stage to max reached stage
 	curr_stage = stages[player_stats.max_stage_reached - 1]
@@ -79,12 +69,6 @@ func _ready() -> void:
 		curr_enemy = get_enemy(1)
 	
 	player_stats.attack_interval = calc_attack_interval()
-
-func read_statuses() -> void:
-	statuses.clear()
-	for res in load_resources_from_folder(PATH_RESOURCES_STATUSES):
-		if res is StatusEffect:
-			statuses[res.id] = res
 
 func get_status(id: int) -> StatusEffect:
 	return statuses.get(id)
@@ -113,74 +97,8 @@ func _process(delta) -> void:
 		saveManager.save()
 		process_auto_save_timer = 0.0
 
-func read_enemies() -> void:
-	if(!FileAccess.file_exists(PATH_ENEMIES)):
-		push_error("Enemies file not found")
-		return
-	
-	var file = FileAccess.open(PATH_ENEMIES, FileAccess.READ)
-	var enemy_dicts = JSON.parse_string(file.get_as_text()).enemies
-	
-	for enemy_dict in enemy_dicts:
-		enemies.append(Enemy.from_dict(enemy_dict))
-	
-	file.close()
-
 func get_enemy(id: int) -> Enemy:
 	return enemies[id - 1].duplicate()
-
-func read_stages() -> void:
-	if(!FileAccess.file_exists(PATH_STAGES)):
-		push_error("Stages file not found")
-		return
-	
-	var file = FileAccess.open(PATH_STAGES, FileAccess.READ)
-	stages = JSON.parse_string(file.get_as_text()).stages
-	file.close()
-
-func read_upgrades() -> void:
-	if(!FileAccess.file_exists(PATH_UPGRADES)):
-		push_error("Upgrades file not found")
-		return
-		
-	var file = FileAccess.open(PATH_UPGRADES, FileAccess.READ)
-	var upgrade_dicts = JSON.parse_string(file.get_as_text()).upgrades
-	
-	upgrades = []
-	for upgrade_dict in upgrade_dicts:
-		upgrades.append(Upgrade.from_dict(upgrade_dict))
-	
-	file.close()
-	
-func read_skills() -> void:
-	var PATH: String = Enums.get_class_json_path(selected_class_id)
-	
-	if(!FileAccess.file_exists(PATH)):
-		push_error("Skills file not found")
-		return
-		
-	var file = FileAccess.open(PATH, FileAccess.READ)
-	var skill_dicts = JSON.parse_string(file.get_as_text()).skills
-	
-	skills = []
-	for skill_dict in skill_dicts:
-		skills.append(Skill.from_dict(skill_dict))
-	
-	file.close()
-
-func read_items() -> void:
-	if(!FileAccess.file_exists(PATH_ITEMS)):
-		push_error("Items file not found")
-		return
-		
-	var file = FileAccess.open(PATH_ITEMS, FileAccess.READ)
-	var items_dicts = JSON.parse_string(file.get_as_text()).items
-	
-	items = []
-	for items_dict in items_dicts:
-		items.append(Item.from_dict(items_dict))
-	
-	file.close()
 
 func calc_attack_interval() -> float:
 	var base: float = Player.BASE_ATTACK_INTERVAL
@@ -284,26 +202,3 @@ func hasItemDroppedFromEnemy(_item_id: int, _enemy_id: int) -> bool:
 	var drops: Dictionary = bestiary_entry.items_dropped
 	
 	return drops.has(_item_id)
-
-func load_resources_from_folder(path: String) -> Array:
-	var resources: Array = []
-	var dir := DirAccess.open(path)
-	
-	if dir == null:
-		push_error("Cant open dir: %s" % path)
-		return resources
-	
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-
-	while file_name != "":
-		if not dir.current_is_dir():
-			if file_name.ends_with(".tres") or file_name.ends_with(".res"):
-				var res_path = path.path_join(file_name)
-				var res = load(res_path)
-				if res:
-					resources.append(res)
-		file_name = dir.get_next()
-	
-	dir.list_dir_end()
-	return resources
