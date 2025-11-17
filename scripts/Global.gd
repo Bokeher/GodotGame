@@ -22,7 +22,7 @@ var curr_stage = null
 # Key is id of item, value is amount
 var inventory: Dictionary = {} 
 # Holds ids of equipped items [Order based on EquippedSlot ids]
-var equipped_items: Array[int] = [0, 0, 0]
+var equipped_items: Array[int] = [-1, -1, -1]
 
 # UI tracking states
 var curr_bestiary_enemy_id: int = -1
