@@ -5,8 +5,8 @@ var name: String
 var skin_name: String
 var image_path: String
 # TODO: add pet skills
-
-func _init(_id: int, _name: String, _skin_name: String, _image_path: String):
+#-1, "", "", ""
+func _init(_id: int = -1, _name: String = "", _skin_name: String = "", _image_path: String = ""):
 	id = _id
 	name = _name
 	skin_name = _skin_name

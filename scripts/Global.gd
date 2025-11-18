@@ -15,7 +15,7 @@ var statuses: Dictionary = {}
 
 # State vars
 var player_stats: Player = Player.new()
-var pet: Pet = Pet.new(-1, "", "", "")
+var pet: Pet = Pet.new()
 var bestiary: Bestiary = Bestiary.new()
 var curr_enemy: Enemy
 var curr_stage = null
