@@ -14,6 +14,15 @@ func get_entry(enemy_id: int) -> BestiaryEntry:
 	
 	return enemyEntries[enemy_id]
 
+func hasItemDroppedFromEnemy(item_id: int, enemy_id: int) -> bool:
+	var bestiary_entry: BestiaryEntry = get_entry(enemy_id)
+	if bestiary_entry == null:
+		return false
+	
+	var drops: Dictionary = bestiary_entry.items_dropped
+	
+	return drops.has(item_id)
+
 # Bestiary contains BestiaryEntry objects 
 # so these objects have to be converted to dictionary (used in saving)
 func to_dict() -> Dictionary:

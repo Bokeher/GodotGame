@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 	var image_path = Global.items[item_id - 1].image_path
 	
-	if(!Global.hasItemDroppedFromEnemy(item_id, enemy_id)):
+	if(!Global.bestiary.hasItemDroppedFromEnemy(item_id, enemy_id)):
 		$".".set_meta("unknown", true)
 		image_path = "res://assets/sprites/unknown.png"
 	

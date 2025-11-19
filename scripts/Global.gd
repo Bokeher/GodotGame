@@ -193,12 +193,3 @@ func calc_max_health() -> int:
 			base += 10
 	
 	return base
-
-func hasItemDroppedFromEnemy(_item_id: int, _enemy_id: int) -> bool:
-	var bestiary_entry: BestiaryEntry = Global.bestiary.get_entry(_enemy_id)
-	if bestiary_entry == null:
-		return false
-	
-	var drops: Dictionary = bestiary_entry.items_dropped
-	
-	return drops.has(_item_id)
