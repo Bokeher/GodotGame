@@ -11,7 +11,7 @@ func remove_status(status_id: int) -> void:
 			child.queue_free()
 
 func add_status(status_id: int) -> void:
-	var status: StatusEffect = Global.get_status(status_id)
+	var status: StatusEffect = StatusEffect.get_status(status_id)
 	
 	var new_status_scene := status_effect_scene.instantiate()
 	new_status_scene.status = status

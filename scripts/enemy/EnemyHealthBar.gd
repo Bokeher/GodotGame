@@ -59,7 +59,7 @@ func update_healthBar() -> void:
 	$EnemyHealthLabel.text = str(Global.curr_enemy.health) + " HP"
 
 func set_max_value_healthBar() -> void:
-	$".".max_value = Global.get_enemy(Global.curr_enemy.id).health
+	$".".max_value = Enemy.get_enemy(Global.curr_enemy.id).health
 
 func start_filling() -> void:
 	$".".value = 0

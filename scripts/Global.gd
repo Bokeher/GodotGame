@@ -66,12 +66,9 @@ func _ready() -> void:
 	curr_stage = stages[player_stats.max_stage_reached - 1]
 	
 	if(!curr_enemy):
-		curr_enemy = get_enemy(1)
+		curr_enemy = Enemy.get_enemy(1)
 	
 	player_stats.attack_interval = calc_attack_interval()
-
-func get_status(id: int) -> StatusEffect:
-	return statuses.get(id)
 
 # Save on exit
 func _notification(what) -> void:
@@ -96,9 +93,6 @@ func _process(delta) -> void:
 	if process_auto_save_timer >= PROCESS_AUTO_SAVE_INTERVAL:
 		saveManager.save()
 		process_auto_save_timer = 0.0
-
-func get_enemy(id: int) -> Enemy:
-	return enemies[id - 1].duplicate()
 
 func calc_attack_interval() -> float:
 	var base: float = Player.BASE_ATTACK_INTERVAL
