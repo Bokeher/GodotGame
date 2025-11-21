@@ -64,7 +64,7 @@ func set_max_value_healthBar() -> void:
 func start_filling() -> void:
 	$".".value = 0
 	elapsed_time = 0
-	filling_time = Global.player_stats.calc_respawn_time()
+	filling_time = Global.player.calc_respawn_time()
 	
 	# Start filling
 	set_process(true)

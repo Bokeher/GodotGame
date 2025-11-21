@@ -44,11 +44,11 @@ func _pressed() -> void:
 		return
 	
 	if is_enemy_hit():
-		var damage = Global.player_stats.damage
+		var damage = Global.player.damage
 		# Check crit
 		if(is_critical_hit()):
 			$"../../HitEnemySound".change_pitch(true)
-			damage *= Global.player_stats.crit_multiplier
+			damage *= Global.player.crit_multiplier
 		else:
 			$"../../HitEnemySound".change_pitch()
 		
@@ -56,7 +56,7 @@ func _pressed() -> void:
 	
 	toggle_custom_cursor(true)
 	is_cursor_rotating = true
-	player_attack_timer.start(Global.player_stats.attack_interval)
+	player_attack_timer.start(Global.player.attack_interval)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Kensei_SwordPath"):
@@ -103,7 +103,7 @@ func _input(event: InputEvent) -> void:
 
 func get_swords_path_damage() -> int:
 	var line_amount: int = Global.kensei_class.swords_path_lines_amount
-	var base_damage: int = Global.player_stats.damage
+	var base_damage: int = Global.player.damage
 	
 	var patience: Skill = Global.skills[Enums.KenseiSkillIds.PATIENCE - 1]
 	var max_stack_amount: int = Global.kensei_class.swords_path_base_max_stacks + patience.level
@@ -269,8 +269,8 @@ func handle_enemy_death() -> void:
 	$"../../PlayerHealthBar/PlayerHealth".regen_time_passed = 0
 	
 	# Give rewards for defeating enemy
-	Global.player_stats.gold += Global.curr_enemy.gold_reward
-	var leveled_up: bool = Global.player_stats.add_xp(Global.curr_enemy.xp_reward)
+	Global.player.gold += Global.curr_enemy.gold_reward
+	var leveled_up: bool = Global.player.add_xp(Global.curr_enemy.xp_reward)
 	
 	# Drop items
 	var dropped_item_ids = Global.curr_enemy.get_loot()
@@ -304,7 +304,7 @@ func update_enemy_sprite() -> void:
 	$".".texture_normal = load(Global.curr_enemy.image_path)
 
 func is_critical_hit() -> bool:
-	return randf() <= Global.player_stats.crit_chance
+	return randf() <= Global.player.crit_chance
 
 func is_cursor_pointing_at_enemy() -> bool:
 	var enemy_pos = $"..".position + $".".position

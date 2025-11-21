@@ -5,9 +5,9 @@ func _ready() -> void:
 
 func update_xp_bar() -> void:
 	var need_xp = 100 # TODO: replace this hardcoded value
-	var curr_xp = Global.player_stats.xp
+	var curr_xp = Global.player.xp
 	
-	$PlayerXpProgressLabel.text = str(Global.player_stats.xp) + " / " + str(need_xp)
+	$PlayerXpProgressLabel.text = str(Global.player.xp) + " / " + str(need_xp)
 	
 	$".".max_value = need_xp
 	$".".value = curr_xp

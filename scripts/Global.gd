@@ -14,7 +14,7 @@ var skills: Array[Skill] = []
 var statuses: Dictionary = {}
 
 # State vars
-var player_stats: Player = Player.new()
+var player: Player = Player.new()
 var pet: Pet = Pet.new()
 var bestiary: Bestiary = Bestiary.new()
 var curr_enemy: Enemy
@@ -63,12 +63,12 @@ func _ready() -> void:
 		dataReader.read_upgrades()
 	
 	# Set curr_stage to max reached stage
-	curr_stage = stages[player_stats.max_stage_reached - 1]
+	curr_stage = stages[player.max_stage_reached - 1]
 	
 	if(!curr_enemy):
 		curr_enemy = Enemy.get_enemy(1)
 	
-	player_stats.attack_interval = Player.calc_attack_interval()
+	player.attack_interval = Player.calc_attack_interval()
 
 # Save on exit
 func _notification(what) -> void:
@@ -78,9 +78,9 @@ func _notification(what) -> void:
 func _process(delta) -> void:
 	process_calc_timer += delta
 	if process_calc_timer >= PROCESS_CALC_INTERVAL:
-		player_stats.attack_interval = Player.calc_attack_interval()
-		player_stats.damage = Player.calc_attack_damage()
-		player_stats.max_health = Player.calc_max_health()
+		player.attack_interval = Player.calc_attack_interval()
+		player.damage = Player.calc_attack_damage()
+		player.max_health = Player.calc_max_health()
 		
 		process_calc_timer = 0.0
 		

@@ -32,7 +32,7 @@ func read() -> void:
 	Global.equipped_items = data[7]
 	
 	# Convert dictionaries to objects
-	Global.player_stats = Player.from_dict(player_stats_dict) if player_stats_dict else null
+	Global.player = Player.from_dict(player_stats_dict) if player_stats_dict else null
 	Global.curr_enemy = Enemy.from_dict(curr_enemy_dict) if curr_enemy_dict else null
 	Global.pet = Pet.from_dict(pet_dict) if pet_dict else null
 	Global.bestiary = Bestiary.from_dict(bestiary_dict) if bestiary_dict else Bestiary.new()
@@ -47,8 +47,8 @@ func read() -> void:
 func save() -> void:
 	# Convert objects to dictionaries
 	var player_stats_dict
-	if(Global.player_stats):
-		player_stats_dict = Global.player_stats.to_dict()
+	if(Global.player):
+		player_stats_dict = Global.player.to_dict()
 	
 	var curr_enemy_dict
 	if(Global.curr_enemy):

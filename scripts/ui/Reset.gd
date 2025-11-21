@@ -5,7 +5,7 @@ func _pressed() -> void:
 	for child in $"../MainTabContainer/InventoryPanel/Inventory/EquipSlots".get_children():
 		child.change_item(-1)
 	
-	Global.player_stats = Player.new()
+	Global.player = Player.new()
 	Global.read_upgrades()
 	Global.read_skills()
 	Global.inventory = {}

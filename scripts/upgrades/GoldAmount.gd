@@ -4,4 +4,4 @@ func _ready() -> void:
 	update_gold()
 
 func update_gold() -> void:
-	$".".text = str(Global.player_stats.gold) + " Gold"
+	$".".text = str(Global.player.gold) + " Gold"

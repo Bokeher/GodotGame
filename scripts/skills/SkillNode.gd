@@ -38,7 +38,7 @@ func _on_texture_button_pressed() -> void:
 
 func level_up_skill() -> void:
 	# 0 skill points
-	if Global.player_stats.skill_points <= 0:
+	if Global.player.skill_points <= 0:
 		return
 	
 	# Max level
@@ -50,7 +50,7 @@ func level_up_skill() -> void:
 		return
 	
 	skill.level += 1
-	Global.player_stats.skill_points -= 1
+	Global.player.skill_points -= 1
 	$"../../..".update_skill_points()
 	
 	update_level_label()

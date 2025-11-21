@@ -16,19 +16,19 @@ func performUpgrade() -> void:
 	# dont need to check anything here since this interaction is only 
 	# available when button is active
 	
-	Global.player_stats.gold -= cost
+	Global.player.gold -= cost
 	
 	var id = upgrade.id
 	if(id == 1):
-		Global.player_stats.damage += upgrade.value
+		Global.player.damage += upgrade.value
 	elif(id == 2):
-		Global.player_stats.crit_chance += (float(upgrade.value) / 100)
+		Global.player.crit_chance += (float(upgrade.value) / 100)
 	elif(id == 3):
-		Global.player_stats.speed += upgrade.value
+		Global.player.speed += upgrade.value
 	elif(id == 4):
-		Global.player_stats.wisdom += upgrade.value
+		Global.player.wisdom += upgrade.value
 	elif(id == 5):
-		Global.player_stats.luck += upgrade.value
+		Global.player.luck += upgrade.value
 	
 	upgrade.level += 1
 	upgrade.cost = int(upgrade.cost * upgrade.cost_multiplier)
@@ -44,7 +44,7 @@ func check_buy() -> void:
 		$Background/UpgradeButton.disabled = true
 		return
 	
-	if(Global.player_stats.gold < upgrade.cost):
+	if(Global.player.gold < upgrade.cost):
 		$Background/UpgradeButton.disabled = true
 	else:
 		$Background/UpgradeButton.disabled = false

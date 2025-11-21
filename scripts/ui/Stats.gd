@@ -14,13 +14,13 @@ func _ready() -> void:
 	update_stats()
 
 func update_stats() -> void:
-	var damage := Global.player_stats.damage
-	var crit := Global.player_stats.calc_crit_chance()
-	var respawn_time := Global.player_stats.calc_respawn_time()
-	var gold_mult := Global.player_stats.calc_gold_mult()
-	var xp_mult := Global.player_stats.calc_xp_mult()
-	var xp := Global.player_stats.xp
-	var level := Global.player_stats.level
+	var damage := Global.player.damage
+	var crit := Global.player.calc_crit_chance()
+	var respawn_time := Global.player.calc_respawn_time()
+	var gold_mult := Global.player.calc_gold_mult()
+	var xp_mult := Global.player.calc_xp_mult()
+	var xp := Global.player.xp
+	var level := Global.player.level
 	
 	update_stat_text("Damage", damage)
 	update_stat_text("CritChance", crit, "%")

@@ -142,7 +142,7 @@ static func calc_attack_interval() -> float:
 				# this increases base because higher base value means lower attack speed
 				base *= Global.warrior_class.get_heavy_blow_attack_speed_penalty_multiplier()
 			elif skill.id == Enums.WarriorSkillIds.BERSERK:
-				if Global.player_stats.health <= 0.4 * Global.player_stats.max_health:
+				if Global.player.health <= 0.4 * Global.player.max_health:
 					#TODO: decide if all skills should provide multiplicitve or additive bonuses
 					# Substracting because lower value means higher attack speed 
 					mult -= Global.warrior_class.get_berserk_attack_speed_bonus()

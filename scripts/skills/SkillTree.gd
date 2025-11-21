@@ -46,7 +46,7 @@ func update_skill_points() -> void:
 		
 		skillTreePanel.add_child(new_skillNode)
 	
-	$SkillPointsAmount.text = "Skill points: " + str(Global.player_stats.skill_points)
+	$SkillPointsAmount.text = "Skill points: " + str(Global.player.skill_points)
 
 func get_sorted_skills(skills: Array[Skill]) -> Array[Skill]:
 	var sorted: Array[Skill] = skills.duplicate()
@@ -79,7 +79,7 @@ func get_vector_from_grid_position(grid_position: Array[int]) -> Vector2:
 
 func _on_reset_skills_button_pressed() -> void:
 	for skill in Global.skills:
-		Global.player_stats.skill_points += skill.level
+		Global.player.skill_points += skill.level
 		points_spent = 0
 		skill.level = 0
 	
