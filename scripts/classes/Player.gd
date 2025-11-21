@@ -128,3 +128,97 @@ func add_xp(amount: int) -> bool:
 
 func receive_damage(damage_: int) -> void:
 	health -= max(0, damage_)
+
+static func calc_attack_interval() -> float:
+	var base: float = Player.BASE_ATTACK_INTERVAL
+	var mult: float = 1.00
+	
+	if Global.selected_class_id == Enums.Classes.WARRIOR:
+		for skill in Global.skills:
+			if skill.level == 0:
+				continue
+			
+			if skill.id == Enums.WarriorSkillIds.HEAVY_BLOW:
+				# this increases base because higher base value means lower attack speed
+				base *= Global.warrior_class.get_heavy_blow_attack_speed_penalty_multiplier()
+			elif skill.id == Enums.WarriorSkillIds.BERSERK:
+				if Global.player_stats.health <= 0.4 * Global.player_stats.max_health:
+					#TODO: decide if all skills should provide multiplicitve or additive bonuses
+					# Substracting because lower value means higher attack speed 
+					mult -= Global.warrior_class.get_berserk_attack_speed_bonus()
+	
+	return base * mult
+
+static func calc_attack_damage() -> int:
+	var base: float = Player.BASE_ATTACK_DAMAGE
+	var mult: float = 1.00
+	
+	for item_id in Global.equipped_items:
+		if item_id == -1: 
+			continue
+		
+		if item_id == Enums.ItemIds.RING_OF_MINOR_DAMAGE:
+			base += 1
+		elif item_id == Enums.ItemIds.RING_OF_DAMAGE:
+			base += 2
+		elif item_id == Enums.ItemIds.RING_OF_MAJOR_DAMAGE:
+			base += 3
+	
+	if Global.selected_class_id == Enums.Classes.WARRIOR:
+		# rewrite this with Global.skills[] instead of checking all skills
+		for skill in Global.skills:
+			if skill.level == 0:
+				continue
+			
+			if skill.id == Enums.WarriorSkillIds.HEAVY_BLOW:
+				mult *= Global.warrior_class.get_heavy_blow_attack_damage_multipier()
+			elif skill.id == Enums.WarriorSkillIds.ADRENALINE:
+				#TODO: Decide if this should be additive or multiplicitive
+				mult *= Global.warrior_class.get_adrenaline_damage_multiplier()
+			elif skill.id == Enums.WarriorSkillIds.BLOODRAGE and Global.warrior_class.bloodrage_is_active:
+				mult *= Global.warrior_class.get_bloodrage_damage_mult()
+	elif Global.selected_class_id == Enums.Classes.LUCKSWORN:
+		for skill in Global.skills:
+			if skill.level == 0:
+				continue
+			
+			match skill.id:
+				Enums.LuckswornSkillIds.GAMBLERS_FATE:
+					mult *= Global.lucksworn_class.get_gamblers_fate_damage_multiplier()
+					
+				Enums.LuckswornSkillIds.EXTREME_LUCK:
+					if Global.lucksworn_class.check_extreme_luck():
+						mult *= Global.lucksworn_class.get_extreme_luck_damage_multiplier()
+					
+				Enums.LuckswornSkillIds.GUARANTEED_WIN:
+					if Global.lucksworn_class.should_guaranteed_win_proc():
+						mult *= Global.lucksworn_class.get_guaranteed_win_damage_mult()
+					
+				Enums.LuckswornSkillIds.LUCKY_STRIKE:
+					if Global.lucksworn_class.check_lucky_strike():
+						mult *= Global.lucksworn_class.get_lucky_strike_damage_multiplier()
+					
+				Enums.LuckswornSkillIds.LUCKIER_STRIKE:
+					if Global.lucksworn_class.check_luckier_strike():
+						mult *= Global.lucksworn_class.get_luckier_strike_damage_multiplier()
+						
+				Enums.LuckswornSkillIds.BAD_LUCK:
+					if Global.lucksworn_class.check_bad_luck():
+						mult *= Global.lucksworn_class.get_bad_luck_damage_multiplier()
+						
+				_:
+					pass
+	
+	return floor(base * mult)
+
+static func calc_max_health() -> int:
+	var base: int = Player.BASE_MAX_HEALTH
+	
+	for item_id in Global.equipped_items:
+		if item_id == -1: 
+			continue
+		
+		if item_id == Enums.ItemIds.LEATHER_JACKET:
+			base += 10
+	
+	return base

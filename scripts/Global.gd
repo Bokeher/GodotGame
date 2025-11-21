@@ -68,7 +68,7 @@ func _ready() -> void:
 	if(!curr_enemy):
 		curr_enemy = Enemy.get_enemy(1)
 	
-	player_stats.attack_interval = calc_attack_interval()
+	player_stats.attack_interval = Player.calc_attack_interval()
 
 # Save on exit
 func _notification(what) -> void:
@@ -78,9 +78,9 @@ func _notification(what) -> void:
 func _process(delta) -> void:
 	process_calc_timer += delta
 	if process_calc_timer >= PROCESS_CALC_INTERVAL:
-		player_stats.attack_interval = calc_attack_interval()
-		player_stats.damage = calc_attack_damage()
-		player_stats.max_health = calc_max_health()
+		player_stats.attack_interval = Player.calc_attack_interval()
+		player_stats.damage = Player.calc_attack_damage()
+		player_stats.max_health = Player.calc_max_health()
 		
 		process_calc_timer = 0.0
 		
@@ -93,97 +93,3 @@ func _process(delta) -> void:
 	if process_auto_save_timer >= PROCESS_AUTO_SAVE_INTERVAL:
 		saveManager.save()
 		process_auto_save_timer = 0.0
-
-func calc_attack_interval() -> float:
-	var base: float = Player.BASE_ATTACK_INTERVAL
-	var mult: float = 1.00
-	
-	if selected_class_id == Enums.Classes.WARRIOR:
-		for skill in skills:
-			if skill.level == 0:
-				continue
-			
-			if skill.id == Enums.WarriorSkillIds.HEAVY_BLOW:
-				# this increases base because higher base value means lower attack speed
-				base *= warrior_class.get_heavy_blow_attack_speed_penalty_multiplier()
-			elif skill.id == Enums.WarriorSkillIds.BERSERK:
-				if player_stats.health <= 0.4 * player_stats.max_health:
-					#TODO: decide if all skills should provide multiplicitve or additive bonuses
-					# Substracting because lower value means higher attack speed 
-					mult -= warrior_class.get_berserk_attack_speed_bonus()
-	
-	return base * mult
-
-func calc_attack_damage() -> int:
-	var base: float = Player.BASE_ATTACK_DAMAGE
-	var mult: float = 1.00
-	
-	for item_id in equipped_items:
-		if item_id == -1: 
-			continue
-		
-		if item_id == Enums.ItemIds.RING_OF_MINOR_DAMAGE:
-			base += 1
-		elif item_id == Enums.ItemIds.RING_OF_DAMAGE:
-			base += 2
-		elif item_id == Enums.ItemIds.RING_OF_MAJOR_DAMAGE:
-			base += 3
-	
-	if selected_class_id == Enums.Classes.WARRIOR:
-		# rewrite this with Global.skills[] instead of checking all skills
-		for skill in skills:
-			if skill.level == 0:
-				continue
-			
-			if skill.id == Enums.WarriorSkillIds.HEAVY_BLOW:
-				mult *= warrior_class.get_heavy_blow_attack_damage_multipier()
-			elif skill.id == Enums.WarriorSkillIds.ADRENALINE:
-				#TODO: Decide if this should be additive or multiplicitive
-				mult *= warrior_class.get_adrenaline_damage_multiplier()
-			elif skill.id == Enums.WarriorSkillIds.BLOODRAGE and warrior_class.bloodrage_is_active:
-				mult *= warrior_class.get_bloodrage_damage_mult()
-	elif selected_class_id == Enums.Classes.LUCKSWORN:
-		for skill in skills:
-			if skill.level == 0:
-				continue
-			
-			match skill.id:
-				Enums.LuckswornSkillIds.GAMBLERS_FATE:
-					mult *= lucksworn_class.get_gamblers_fate_damage_multiplier()
-					
-				Enums.LuckswornSkillIds.EXTREME_LUCK:
-					if lucksworn_class.check_extreme_luck():
-						mult *= lucksworn_class.get_extreme_luck_damage_multiplier()
-					
-				Enums.LuckswornSkillIds.GUARANTEED_WIN:
-					if lucksworn_class.should_guaranteed_win_proc():
-						mult *= lucksworn_class.get_guaranteed_win_damage_mult()
-					
-				Enums.LuckswornSkillIds.LUCKY_STRIKE:
-					if lucksworn_class.check_lucky_strike():
-						mult *= lucksworn_class.get_lucky_strike_damage_multiplier()
-					
-				Enums.LuckswornSkillIds.LUCKIER_STRIKE:
-					if lucksworn_class.check_luckier_strike():
-						mult *= lucksworn_class.get_luckier_strike_damage_multiplier()
-						
-				Enums.LuckswornSkillIds.BAD_LUCK:
-					if lucksworn_class.check_bad_luck():
-						mult *= lucksworn_class.get_bad_luck_damage_multiplier()
-						
-				_:
-					pass
-	
-	return floor(base * mult)
-
-func calc_max_health() -> int:
-	var base: int = Player.BASE_MAX_HEALTH
-	
-	for item_id in equipped_items:
-		if item_id == -1: 
-			continue
-		
-		if item_id == Enums.ItemIds.LEATHER_JACKET:
-			base += 10
-	
-	return base
