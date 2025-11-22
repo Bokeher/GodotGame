@@ -391,8 +391,9 @@ offset_top = 31.0
 offset_right = 574.0
 offset_bottom = 646.0
 color = Color(0.133333, 0.137255, 0.137255, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="VBox" type="VBoxContainer" parent="StatusBar"]
+[node name="StatusBarVBox" type="VBoxContainer" parent="StatusBar"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -400,7 +401,7 @@ offset_right = 72.0
 offset_bottom = 617.0
 script = ExtResource("41_pdwbg")
 
-[node name="StatusEffect" parent="StatusBar/VBox" instance=ExtResource("41_8b871")]
+[node name="StatusEffect" parent="StatusBar/StatusBarVBox" instance=ExtResource("41_8b871")]
 layout_mode = 2
 
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]
