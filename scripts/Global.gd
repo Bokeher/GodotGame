@@ -11,7 +11,7 @@ var enemies: Array[Enemy] = []
 var upgrades: Array[Upgrade] = []
 var items: Array[Item] = []
 var skills: Array[Skill] = []
-var statuses: Dictionary = {}
+var statuses: Dictionary = {} # id -> Status
 
 # State vars
 var player: Player = Player.new()
@@ -19,8 +19,7 @@ var pet: Pet = Pet.new()
 var bestiary: Bestiary = Bestiary.new()
 var curr_enemy: Enemy
 var curr_stage = null
-# Key is id of item, value is amount
-var inventory: Dictionary = {} 
+var inventory: Dictionary = {} # id -> item_amount
 # Holds ids of equipped items [Order based on EquippedSlot ids]
 var equipped_items: Array[int] = [-1, -1, -1]
 
@@ -46,17 +45,14 @@ var saveManager: SaveManager = SaveManager.new()
 var dataReader: DataReader = DataReader.new()
 
 func _ready() -> void:
-	# Read all json files
 	dataReader.read_stages()
 	dataReader.read_enemies()
 	dataReader.read_items()
-	
-	# Read resources
 	dataReader.read_statuses()
 	
 	saveManager.read()
 	
-	# Read from json when there are no instances of them
+	# Read when there are no instances of them
 	#if(skills.is_empty()): 
 	dataReader.read_skills()
 	if(upgrades.is_empty()): 
@@ -76,6 +72,13 @@ func _notification(what) -> void:
 		saveManager.save()
 
 func _process(delta) -> void:
+	# update stats every 'PROCESS_CALC_INTERVAL'
+	process_calculations(delta)
+	
+	# autosave every 'PROCESS_AUTO_SAVE_INTERVAL'
+	process_autosave(delta)
+
+func process_calculations(delta) -> void:
 	process_calc_timer += delta
 	if process_calc_timer >= PROCESS_CALC_INTERVAL:
 		player.attack_interval = Player.calc_attack_interval()
@@ -87,8 +90,8 @@ func _process(delta) -> void:
 		var stats := get_node("/root/Game/MainTabContainer/StatsPanel/Stats")
 		if stats:
 			stats.update_stats()
-	
-	# Auto save 
+
+func process_autosave(delta) -> void:
 	process_auto_save_timer += delta
 	if process_auto_save_timer >= PROCESS_AUTO_SAVE_INTERVAL:
 		saveManager.save()
