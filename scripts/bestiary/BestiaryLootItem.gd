@@ -10,7 +10,7 @@ extends Control
 func _ready() -> void:
 	$DropChance.text = drop_chance_text
 	
-	var image_path = Global.items[item_id - 1].image_path
+	var image_path := Global.items[item_id - 1].image_path
 	
 	if(!Global.bestiary.hasItemDroppedFromEnemy(item_id, enemy_id)):
 		$".".set_meta("unknown", true)

@@ -14,16 +14,16 @@ func _pressed() -> void:
 		item = -1
 	
 	# Update upgrades
-	var upgradeVBox = $"../MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer"
+	var upgradeVBox := $"../MainTabContainer/UpgradesPanel/UpgradeContainer/VBoxContainer"
 	for upgradeChild in upgradeVBox.get_children():
 		upgradeChild.update_upgrade()
 	
 	# Update skills
-	var skillTreePanel = $"../MainTabContainer/SkillsPanel/SkillTree/SkillScrollContainer/SkillTreePanel"
+	var skillTreePanel := $"../MainTabContainer/SkillsPanel/SkillTree/SkillScrollContainer/SkillTreePanel"
 	for skillNode in skillTreePanel.get_children():
 		skillNode.update_skill()
 	
-	# Upodate bestiary
+	# Update bestiary
 	$"../MainTabContainer/BestiaryPanel/Bestiary".update_bestiary()
 	
 	$"../MainTabContainer/InventoryPanel/Inventory".update_inventory()

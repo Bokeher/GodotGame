@@ -47,7 +47,7 @@ func get_instinct_threshold() -> float:
 	var improved_instinct: Skill = Global.skills[Enums.KenseiSkillIds.IMPROVED_INSTINCT - 1]
 	var dulled_instinct: Skill = Global.skills[Enums.KenseiSkillIds.DULLED_INSTINCT - 1]
 	
-	var decrease_threshold = improved_instinct.level * improved_instinct_base_value
-	var increase_threshold = dulled_instinct.level * dulled_instinct_base_value
+	var decrease_threshold := improved_instinct.level * improved_instinct_base_value
+	var increase_threshold := dulled_instinct.level * dulled_instinct_base_value
 	
 	return swordsmaster_instinct_base_threshold - decrease_threshold + increase_threshold

@@ -1,7 +1,7 @@
 extends Control
 
 @onready var entries: Dictionary = Global.bestiary.enemyEntries
-const bestiary_list_item_scene = preload("res://scenes/bestiary/BestiaryListItem.tscn")
+const bestiary_list_item_scene := preload("res://scenes/bestiary/BestiaryListItem.tscn")
 var old_selected_enemy_id := -1
 
 func _ready() -> void:
@@ -19,20 +19,20 @@ func load_bestiary_list() -> void:
 		child.queue_free()
 	
 	for enemy_id in entries:
-		var new_list_item = bestiary_list_item_scene.instantiate()
+		var new_list_item := bestiary_list_item_scene.instantiate()
 		new_list_item.set_enemy(enemy_id)
 		
 		$ScrollContainer/BestiaryList.add_child(new_list_item)
 	
 	for enemy in Global.enemies:
 		if !entries.has(enemy.id):
-			var new_list_item = bestiary_list_item_scene.instantiate()
+			var new_list_item := bestiary_list_item_scene.instantiate()
 			new_list_item.set_enemy(enemy.id, false)
 			
 			$ScrollContainer/BestiaryList.add_child(new_list_item)
 
 func update_selected_bestiary() -> void:
-	var children = $ScrollContainer/BestiaryList.get_children()
+	var children := $ScrollContainer/BestiaryList.get_children()
 	if children.is_empty() || Global.curr_bestiary_enemy_id == -1:
 		return
 	
@@ -41,7 +41,7 @@ func update_selected_bestiary() -> void:
 		Global.curr_bestiary_enemy_id = -1
 	
 	for child in children:
-		var id = child.get_meta("enemy_id")
+		var id: int = child.get_meta("enemy_id")
 		if id == Global.curr_bestiary_enemy_id:
 			child.focus()
 		elif id == old_selected_enemy_id:

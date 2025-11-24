@@ -8,7 +8,7 @@ func read() -> void:
 		return
 	
 	# Read data from file
-	var file = FileAccess.open(PATH_SAVE, FileAccess.READ)
+	var file := FileAccess.open(PATH_SAVE, FileAccess.READ)
 	
 	if file == null:
 		print("ERROR: Failed to load savefile since file is null")
