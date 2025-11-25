@@ -73,6 +73,9 @@ func set_bad_luck(enemy_hit: bool = false) -> void:
 		bad_luck_active = false
 
 func get_bad_luck_damage_multiplier() -> float:
+	if !check_bad_luck():
+		return 1
+	
 	return 1 - BAD_LUCK_DAMAGE_DECREASE
 
 func roll_sworn_dice() -> void:
@@ -96,6 +99,9 @@ func check_sworn_dice_save_throw() -> bool:
 	return sworn_dice_dice_value == SWORN_DICE_DICE_NUMBER
 
 func get_luckier_strike_damage_multiplier() -> float:
+	if !check_luckier_strike():
+		return 1
+	
 	return LUCKIER_STRIKE_DAMAGE_MULTIPLIER
 
 func roll_luckier_strike() -> void:
@@ -112,6 +118,9 @@ func check_luckier_strike() -> bool:
 	return luckier_strike_active
 
 func get_lucky_strike_damage_multiplier() -> float:
+	if !check_lucky_strike():
+		return 1
+	
 	return LUCKY_STRIKE_DAMAGE_MULTIPLIER
 
 func roll_lucky_strike() -> void:
@@ -128,6 +137,9 @@ func check_lucky_strike() -> bool:
 	return lucky_strike_active
 
 func get_guaranteed_win_damage_mult() -> float:
+	if !should_guaranteed_win_proc():
+		return 1
+	
 	return 1 + GUARANTEED_WIN_DAMAGE_INCREASE
 
 func should_guaranteed_win_proc() -> bool:
@@ -150,6 +162,9 @@ func check_extreme_luck() -> bool:
 	return curr_gamblers_fate_stacks >= EXTREME_LUCK_STACK_REQUIREMENT
 
 func get_extreme_luck_damage_multiplier() -> float:
+	if !check_extreme_luck():
+		return 1
+	
 	return EXTREME_LUCK_DAMAGE_MULTIPLIER
 
 func increase_gamblers_fate() -> void:

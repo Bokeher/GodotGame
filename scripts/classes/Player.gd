@@ -185,27 +185,16 @@ static func calc_attack_damage() -> int:
 			match skill.id:
 				Enums.LuckswornSkillIds.GAMBLERS_FATE:
 					mult *= Global.lucksworn_class.get_gamblers_fate_damage_multiplier()
-					
 				Enums.LuckswornSkillIds.EXTREME_LUCK:
-					if Global.lucksworn_class.check_extreme_luck():
-						mult *= Global.lucksworn_class.get_extreme_luck_damage_multiplier()
-					
+					mult *= Global.lucksworn_class.get_extreme_luck_damage_multiplier()
 				Enums.LuckswornSkillIds.GUARANTEED_WIN:
-					if Global.lucksworn_class.should_guaranteed_win_proc():
-						mult *= Global.lucksworn_class.get_guaranteed_win_damage_mult()
-					
+					mult *= Global.lucksworn_class.get_guaranteed_win_damage_mult()
 				Enums.LuckswornSkillIds.LUCKY_STRIKE:
-					if Global.lucksworn_class.check_lucky_strike():
-						mult *= Global.lucksworn_class.get_lucky_strike_damage_multiplier()
-					
+					mult *= Global.lucksworn_class.get_lucky_strike_damage_multiplier()
 				Enums.LuckswornSkillIds.LUCKIER_STRIKE:
-					if Global.lucksworn_class.check_luckier_strike():
-						mult *= Global.lucksworn_class.get_luckier_strike_damage_multiplier()
-						
+					mult *= Global.lucksworn_class.get_luckier_strike_damage_multiplier()
 				Enums.LuckswornSkillIds.BAD_LUCK:
-					if Global.lucksworn_class.check_bad_luck():
-						mult *= Global.lucksworn_class.get_bad_luck_damage_multiplier()
-						
+					mult *= Global.lucksworn_class.get_bad_luck_damage_multiplier()
 				_:
 					pass
 	
