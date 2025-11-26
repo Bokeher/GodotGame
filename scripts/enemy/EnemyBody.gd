@@ -96,20 +96,20 @@ func _input(event: InputEvent) -> void:
 			lines.remove_child(line)
 			line.queue_free()
 		# TODO: Add here kensei finisher sound / change other Sword's Path specifics
-		Global.kensei_class.swords_path_lines_amount = 0
+		Global.kensei_class.swords_path_lines_count = 0
 		
 		deal_damage_to_enemy(damage)
 		
 
 func get_swords_path_damage() -> int:
-	var line_amount: int = Global.kensei_class.swords_path_lines_amount
+	var line_amount: int = Global.kensei_class.swords_path_lines_count
 	var base_damage: int = Global.player.damage
 	
 	var patience: Skill = Global.skills[Enums.KenseiSkillIds.PATIENCE - 1]
-	var max_stack_amount: int = Global.kensei_class.swords_path_base_max_stacks + patience.level
+	var max_stack_amount: int = Global.kensei_class.SWORDS_PATH_BASE_MAX_STACKS + patience.level
 	
 	var sharp_edge: Skill = Global.skills[Enums.KenseiSkillIds.SHARP_EDGE - 1]
-	var per_stack_multiplier: float = Global.kensei_class.swords_path_base_damage_multiplier + Global.kensei_class.sharp_edge_values[sharp_edge.level]
+	var per_stack_multiplier: float = Global.kensei_class.SWORDS_PATH_BASE_DAMAGE_MULTIPLIER + Global.kensei_class.SHARP_EDGE_VALUES[sharp_edge.level]
 	
 	var stack_multiplier = 1 + (min(line_amount, max_stack_amount) * per_stack_multiplier)
 	
@@ -162,7 +162,7 @@ func handle_kensei_skills() -> bool:
 	
 	line.add_point(right_bot_point)
 	
-	Global.kensei_class.swords_path_lines_amount += 1
+	Global.kensei_class.swords_path_lines_count += 1
 	$"../KenseiLines".add_child(line)
 	
 	# PLAY HIT SOUND
@@ -173,13 +173,13 @@ func handle_kensei_skills() -> bool:
 	if reached_max_stacks:
 		is_enemy_hit()
 		# Decrease stack amount to prevent increase on another is_enemy_hit()
-		Global.kensei_class.masters_tempo_curr_stack_amount -= 1
+		Global.kensei_class.masters_tempo_stack_count -= 1
 		
 		var improved_tempo: Skill = Global.skills[Enums.KenseiSkillIds.IMPROVED_TEMPO - 1]
 		if Global.kensei_class.process_improved_tempo(improved_tempo.level):
 			is_enemy_hit()
 			# Decrease stack amount to prevent increase on another is_enemy_hit()
-			Global.kensei_class.masters_tempo_curr_stack_amount -= 1
+			Global.kensei_class.masters_tempo_stack_count -= 1
 		
 	
 	# SWORDMASTER'S INSTINCT
@@ -225,7 +225,7 @@ func handle_lucksworn_skills() -> bool:
 	Global.lucksworn_class.set_bad_luck(enemy_is_hit)
 	
 	var lucksworn_save: bool = Global.lucksworn_class.check_sworn_dice_save_throw()
-	var bad_luck_save: bool = Global.lucksworn_class.check_bad_luck()
+	var bad_luck_save: bool = Global.lucksworn_class.is_bad_luck_active()
 	
 	if enemy_is_hit or lucksworn_save or bad_luck_save:
 		if !bad_luck_save:
@@ -245,7 +245,7 @@ func deal_damage_to_enemy(damage: int) -> void:
 	Global.curr_enemy.health -= damage
 	
 	# WARRIOR SKILL: ADRENALINE
-	Global.warrior_class.adrenalineStacks = 0
+	Global.warrior_class.adrenaline_stacks = 0
 	
 	$"..".update_enemy()
 	

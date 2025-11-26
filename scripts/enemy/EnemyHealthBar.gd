@@ -47,8 +47,8 @@ func _process(delta) -> void:
 		set_process(false)
 		
 		await get_tree().create_timer(0.10).timeout
-		$"../EnemyBody".deal_damage_to_enemy(Global.warrior_class.curr_overkill_damage)
-		Global.warrior_class.curr_overkill_damage = 0
+		$"../EnemyBody".deal_damage_to_enemy(Global.warrior_class.overkill_damage)
+		Global.warrior_class.overkill_damage = 0
 
 func update_healthBar() -> void:
 	if(!Global.curr_enemy):

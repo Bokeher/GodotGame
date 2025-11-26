@@ -175,7 +175,7 @@ static func calc_attack_damage() -> int:
 			elif skill.id == Enums.WarriorSkillIds.ADRENALINE:
 				#TODO: Decide if this should be additive or multiplicitive
 				mult *= Global.warrior_class.get_adrenaline_damage_multiplier()
-			elif skill.id == Enums.WarriorSkillIds.BLOODRAGE and Global.warrior_class.bloodrage_is_active:
+			elif skill.id == Enums.WarriorSkillIds.BLOODRAGE and Global.warrior_class.bloodrage_active:
 				mult *= Global.warrior_class.get_bloodrage_damage_mult()
 	elif Global.selected_class_id == Enums.Classes.LUCKSWORN:
 		for skill in Global.skills:

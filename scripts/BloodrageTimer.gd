@@ -10,7 +10,7 @@ func start_timer() -> void:
 		return
 	
 	$".".start()
-	Global.warrior_class.bloodrage_is_active = true
+	Global.warrior_class.bloodrage_active = true
 
 func _on_timeout() -> void:
-	Global.warrior_class.bloodrage_is_active = false
+	Global.warrior_class.bloodrage_active = false

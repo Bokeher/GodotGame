@@ -5,7 +5,7 @@ const HEAVY_BLOW_BASE_DAMAGE_INCREASE: float = 0.5
 const HEAVY_BLOW_BASE_ATTACK_SPEED_PENALTY: float = 0.25
 
 # ADRENALINE
-var adrenalineStacks: int = 0
+var adrenaline_stacks: int = 0
 const ADRENALINE_DAMAGE_INCREASE_PER_LEVEL: float = 0.25
 
 # IRONSKIN, DIAMONDSKIN
@@ -19,13 +19,13 @@ const MIGHTY_BLOW_PENALTY_REDUCE: float = 0.05
 const BERSERK_ATTACK_SPEED_VALUE: float = 0.25
 
 # OVERKILL
-var curr_overkill_damage: int = 0
+var overkill_damage: int = 0
 const OVERKILL_VALUES: Array[float] = [0, 0.25, 0.50, 0.75, 1.00, 1.50]
 
 # BLOODLUST
 const BLOODRAGE_VALUES: Array[float] = [0, 0.05, 0.10, 0.15, 0.20, 0.30]
 const BLOODRAGE_BUFF_DURATION_SECS: int = 10
-var bloodrage_is_active: bool = false
+var bloodrage_active: bool = false
 
 func get_bloodrage_damage_mult() -> float:
 	var bloodrage: Skill = Global.skills[Enums.WarriorSkillIds.BLOODRAGE - 1]
@@ -45,7 +45,7 @@ func increase_overkill_damage(overkill_difference: int) -> void:
 	
 	var damage_mult: float = OVERKILL_VALUES[overkill.level]
 	
-	curr_overkill_damage += round(float(overkill_difference) * damage_mult)
+	overkill_damage += round(float(overkill_difference) * damage_mult)
 
 func add_adrenaline_stack() -> void:
 	var adrenaline: Skill = Global.skills[Enums.WarriorSkillIds.ADRENALINE - 1]
@@ -53,7 +53,7 @@ func add_adrenaline_stack() -> void:
 	if adrenaline.level == 0:
 		return
 	
-	adrenalineStacks += 1
+	adrenaline_stacks += 1
 
 func get_berserk_attack_speed_bonus() -> float:
 	return BERSERK_ATTACK_SPEED_VALUE
@@ -104,4 +104,4 @@ func get_adrenaline_damage_multiplier() -> float:
 	
 	var bonus_multiplier: float = (adrenaline.level * ADRENALINE_DAMAGE_INCREASE_PER_LEVEL)
 	
-	return 1 + bonus_multiplier * adrenalineStacks
+	return 1 + bonus_multiplier * adrenaline_stacks

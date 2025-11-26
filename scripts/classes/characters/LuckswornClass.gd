@@ -13,6 +13,7 @@ const EXTREME_LUCK_DAMAGE_MULTIPLIER: float = 2.0
 const GUARANTEED_WIN_HIT_REQUIREMENTS_VALUES: Array[int] = [0, 9, 8, 7, 6, 5]
 const GUARANTEED_WIN_DAMAGE_INCREASE: float = 0.25
 var curr_guarateed_win_stacks: int = 0
+var guaranteed_win_active: bool = false
 
 # LUCKY STRIKE
 const LUCKY_STRIKE_CHANCE_VALUES: Array[float] = [0, 0.01, 0.02, 0.03, 0.04, 0.05]
@@ -57,7 +58,7 @@ func get_hit_chance_1_bonus() -> float:
 	
 	return HIT_CHANCE_1_VALUES[hit_chance_1.level]
 
-func check_bad_luck() -> bool:
+func is_bad_luck_active() -> bool:
 	return bad_luck_active
 
 func set_bad_luck(enemy_hit: bool = false) -> void:
@@ -73,7 +74,7 @@ func set_bad_luck(enemy_hit: bool = false) -> void:
 		bad_luck_active = false
 
 func get_bad_luck_damage_multiplier() -> float:
-	if !check_bad_luck():
+	if !is_bad_luck_active():
 		return 1
 	
 	return 1 - BAD_LUCK_DAMAGE_DECREASE
@@ -99,7 +100,7 @@ func check_sworn_dice_save_throw() -> bool:
 	return sworn_dice_dice_value == SWORN_DICE_DICE_NUMBER
 
 func get_luckier_strike_damage_multiplier() -> float:
-	if !check_luckier_strike():
+	if !is_luckier_strike_active():
 		return 1
 	
 	return LUCKIER_STRIKE_DAMAGE_MULTIPLIER
@@ -114,11 +115,11 @@ func roll_luckier_strike() -> void:
 	
 	luckier_strike_active = randf() <= chance
 
-func check_luckier_strike() -> bool:
+func is_luckier_strike_active() -> bool:
 	return luckier_strike_active
 
 func get_lucky_strike_damage_multiplier() -> float:
-	if !check_lucky_strike():
+	if !is_lucky_strike_active():
 		return 1
 	
 	return LUCKY_STRIKE_DAMAGE_MULTIPLIER
@@ -133,19 +134,19 @@ func roll_lucky_strike() -> void:
 	
 	lucky_strike_active = randf() <= chance
 
-func check_lucky_strike() -> bool:
+func is_lucky_strike_active() -> bool:
 	return lucky_strike_active
 
 func get_guaranteed_win_damage_mult() -> float:
-	if !should_guaranteed_win_proc():
+	if !is_guaranteed_win_active():
 		return 1
 	
 	return 1 + GUARANTEED_WIN_DAMAGE_INCREASE
 
-func should_guaranteed_win_proc() -> bool:
-	return curr_guarateed_win_stacks == 0
+func is_guaranteed_win_active() -> bool:
+	return guaranteed_win_active
 
-## Return true on stack reset else false
+## Return true on stack reset (proc) else false
 func increase_guaranteed_win() -> bool:
 	var guaranteed_win_level = Global.skills[Enums.LuckswornSkillIds.GUARANTEED_WIN - 1].level
 	if guaranteed_win_level == 0:
@@ -156,13 +157,15 @@ func increase_guaranteed_win() -> bool:
 	# Increase by 1 and reset if on max stack
 	curr_guarateed_win_stacks = wrapi(curr_guarateed_win_stacks + 1, 0, stacks_to_proc)
 	
-	return curr_guarateed_win_stacks == 0
+	guaranteed_win_active = curr_guarateed_win_stacks == 0
+	
+	return guaranteed_win_active
 
-func check_extreme_luck() -> bool:
+func is_extreme_luck_active() -> bool:
 	return curr_gamblers_fate_stacks >= EXTREME_LUCK_STACK_REQUIREMENT
 
 func get_extreme_luck_damage_multiplier() -> float:
-	if !check_extreme_luck():
+	if !is_extreme_luck_active():
 		return 1
 	
 	return EXTREME_LUCK_DAMAGE_MULTIPLIER
