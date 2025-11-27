@@ -22,3 +22,14 @@ func add_status(status_id: int) -> void:
 	new_status_scene.status = status
 	
 	add_child(new_status_scene)
+
+func update_statuses_view() -> void:
+	remove_all_statuses()
+	
+	for status_id: int in Global.statuses:
+		add_status(status_id)
+
+func remove_all_statuses() -> void:
+	for status: StatusNode in get_children():
+		remove_child(status)
+		status.queue_free()

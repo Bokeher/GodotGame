@@ -23,7 +23,6 @@ func read_enemies() -> void:
 	
 	file.close()
 
-
 func read_stages() -> void:
 	if(!FileAccess.file_exists(PATH_STAGES)):
 		push_error("Stages file not found")
