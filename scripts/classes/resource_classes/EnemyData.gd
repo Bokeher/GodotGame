@@ -13,4 +13,4 @@ class_name EnemyData
 @export_category("Rewards")
 @export var gold_reward: int
 @export var xp_reward: int
-@export var loot_table: Array = []
+@export var loot_table: Array[LootEntry] = []
