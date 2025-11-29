@@ -7,4 +7,4 @@ enum ItemType { RING }
 @export var name: String
 @export var type: ItemType
 @export var description: String
-@export var image_path: String
+@export var image: Texture2D
