@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://boa18bpmb0lpb"]
+
+[ext_resource type="Script" uid="uid://cv4x5sa1ly2jo" path="res://scripts/classes/resource_classes/LootEntry.gd" id="1_kre3w"]
+[ext_resource type="Script" uid="uid://c7tgf7xdvj2fb" path="res://scripts/classes/resource_classes/EnemyData.gd" id="1_m4od0"]
+[ext_resource type="Resource" uid="uid://ku7ca1h1dsqm" path="res://assets/resources/items/DamageRing1.tres" id="2_5u3on"]
+
+[sub_resource type="Resource" id="Resource_5u3on"]
+script = ExtResource("1_kre3w")
+item = ExtResource("2_5u3on")
+drop_chance = 0.9
+metadata/_custom_type_script = "uid://cv4x5sa1ly2jo"
+
+[resource]
+script = ExtResource("1_m4od0")
+id = 1
+name = "Green Slime"
+image_path = "res://assets/sprites/enemies/slimes/green_slime.png"
+damage = 1
+health = 3
+gold_reward = 100
+xp_reward = 99
+loot_table = Array[ExtResource("1_kre3w")]([SubResource("Resource_5u3on")])
+metadata/_custom_type_script = "uid://c7tgf7xdvj2fb"

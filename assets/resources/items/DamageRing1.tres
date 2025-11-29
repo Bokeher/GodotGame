@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ku7ca1h1dsqm"]
+
+[ext_resource type="Script" uid="uid://csvqfii14cwyh" path="res://scripts/classes/resource_classes/ItemData.gd" id="1_h3akj"]
+[ext_resource type="Texture2D" uid="uid://qndn4qbjj1be" path="res://assets/sprites/items/artifacts/damage_ring_1.png" id="1_u71ai"]
+
+[resource]
+script = ExtResource("1_h3akj")
+id = 1
+name = "Ring of Damage I"
+type = 0
+description = "+1 damage"
+image = ExtResource("1_u71ai")
+metadata/_custom_type_script = "uid://csvqfii14cwyh"
