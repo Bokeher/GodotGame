@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+EnemyDatabase="*res://scripts/classes/databases/EnemyDatabase.gd"
 Global="*res://scripts/Global.gd"
 Enums="*res://scripts/Enums.gd"
 
