@@ -173,7 +173,7 @@
 			"type": 2,
 			"name": "Leather Jacket",
 			"description": "+10 health",
-			"image_path": "res://assets/sprites/items/chests/leather_jacket.png"
+			"image_path": "res://assets/sprites/items/chests/leather_vest.png"
 		},
 		{
 			"id": 26,

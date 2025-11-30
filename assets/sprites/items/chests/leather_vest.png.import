@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy8whtmtpb5rq"
-path="res://.godot/imported/leather_jacket.png-8c0499848c99843cf0283a52a5a61001.ctex"
+path="res://.godot/imported/leather_vest.png-57d2a8d11df4d1f42a772a2238529091.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/chests/leather_jacket.png"
-dest_files=["res://.godot/imported/leather_jacket.png-8c0499848c99843cf0283a52a5a61001.ctex"]
+source_file="res://assets/sprites/items/chests/leather_vest.png"
+dest_files=["res://.godot/imported/leather_vest.png-57d2a8d11df4d1f42a772a2238529091.ctex"]
 
 [params]
 
