@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://bx8hyklphu2bn"]
+
+[ext_resource type="Texture2D" uid="uid://bnak2378gaqwc" path="res://assets/sprites/enemies/slimes/golden_slime.png" id="1_ftyxg"]
+[ext_resource type="Script" uid="uid://cv4x5sa1ly2jo" path="res://scripts/classes/resource_classes/LootEntry.gd" id="2_3e7yt"]
+[ext_resource type="Script" uid="uid://c7tgf7xdvj2fb" path="res://scripts/classes/resource_classes/EnemyData.gd" id="4_46poc"]
+
+[resource]
+script = ExtResource("4_46poc")
+id = 3
+name = "Golden Slime"
+texture = ExtResource("1_ftyxg")
+damage = 1
+health = 30
+gold_reward = 10
+xp_reward = 5
+loot_table = Array[ExtResource("2_3e7yt")]([])
+metadata/_custom_type_script = "uid://c7tgf7xdvj2fb"
