@@ -1,8 +1,22 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://bx8hyklphu2bn"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://bx8hyklphu2bn"]
 
 [ext_resource type="Texture2D" uid="uid://bnak2378gaqwc" path="res://assets/sprites/enemies/slimes/golden_slime.png" id="1_ftyxg"]
 [ext_resource type="Script" uid="uid://cv4x5sa1ly2jo" path="res://scripts/classes/resource_classes/LootEntry.gd" id="2_3e7yt"]
+[ext_resource type="Resource" uid="uid://bcvga26fbk0ew" path="res://assets/resources/items/ring/DamageRing2.tres" id="2_lwje8"]
+[ext_resource type="Resource" uid="uid://deuw6ynntth1l" path="res://assets/resources/items/ring/DamageRing3.tres" id="3_46poc"]
 [ext_resource type="Script" uid="uid://c7tgf7xdvj2fb" path="res://scripts/classes/resource_classes/EnemyData.gd" id="4_46poc"]
+
+[sub_resource type="Resource" id="Resource_i14qj"]
+script = ExtResource("2_3e7yt")
+item = ExtResource("2_lwje8")
+drop_chance = 0.05
+metadata/_custom_type_script = "uid://cv4x5sa1ly2jo"
+
+[sub_resource type="Resource" id="Resource_qutcb"]
+script = ExtResource("2_3e7yt")
+item = ExtResource("3_46poc")
+drop_chance = 0.01
+metadata/_custom_type_script = "uid://cv4x5sa1ly2jo"
 
 [resource]
 script = ExtResource("4_46poc")
@@ -13,5 +27,5 @@ damage = 1
 health = 30
 gold_reward = 10
 xp_reward = 5
-loot_table = Array[ExtResource("2_3e7yt")]([])
+loot_table = Array[ExtResource("2_3e7yt")]([SubResource("Resource_i14qj"), SubResource("Resource_qutcb")])
 metadata/_custom_type_script = "uid://c7tgf7xdvj2fb"
