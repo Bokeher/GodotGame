@@ -4,7 +4,7 @@ class_name EnemyData
 @export_category("Info")
 @export var id: int
 @export var name: String
-@export var image_path: String
+@export var texture: Texture2D
 
 @export_category("Stats")
 @export var damage: int
