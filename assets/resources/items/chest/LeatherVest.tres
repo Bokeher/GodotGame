@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_wu1qb")
-id = 2
+id = 4
 name = "Leather Vest"
 type = 1
 description = "+2 health"
