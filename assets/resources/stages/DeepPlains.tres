@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="StageData" load_steps=9 format=3 uid="uid://dxmwswwa4t7vn"]
+
+[ext_resource type="Script" uid="uid://c3edrp8verj5x" path="res://scripts/classes/resource_classes/StageData.gd" id="1_tjdcf"]
+[ext_resource type="Script" uid="uid://byjmur18oln3d" path="res://scripts/classes/resource_classes/SpawnEntry.gd" id="2_cwugh"]
+[ext_resource type="Resource" uid="uid://boa18bpmb0lpb" path="res://assets/resources/enemies/GreenSlime.tres" id="3_ysvwb"]
+[ext_resource type="Resource" uid="uid://b4wbmmkr54udb" path="res://assets/resources/enemies/BlueSlime.tres" id="4_jx6i1"]
+[ext_resource type="Resource" uid="uid://bx8hyklphu2bn" path="res://assets/resources/enemies/GoldenSlime.tres" id="5_2bkuu"]
+
+[sub_resource type="Resource" id="Resource_n8knp"]
+script = ExtResource("2_cwugh")
+enemy = ExtResource("3_ysvwb")
+spawn_chance = 0.2
+metadata/_custom_type_script = "uid://byjmur18oln3d"
+
+[sub_resource type="Resource" id="Resource_nexue"]
+script = ExtResource("2_cwugh")
+enemy = ExtResource("4_jx6i1")
+spawn_chance = 0.78
+metadata/_custom_type_script = "uid://byjmur18oln3d"
+
+[sub_resource type="Resource" id="Resource_mwk34"]
+script = ExtResource("2_cwugh")
+enemy = ExtResource("5_2bkuu")
+spawn_chance = 0.02
+metadata/_custom_type_script = "uid://byjmur18oln3d"
+
+[resource]
+script = ExtResource("1_tjdcf")
+id = 2
+name = "Deep Plains"
+spawn_entries = Array[ExtResource("2_cwugh")]([SubResource("Resource_n8knp"), SubResource("Resource_nexue"), SubResource("Resource_mwk34")])
+metadata/_custom_type_script = "uid://c3edrp8verj5x"

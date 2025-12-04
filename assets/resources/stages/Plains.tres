@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StageData" load_steps=3 format=3 uid="uid://bwvwb3vsmpo88"]
+
+[ext_resource type="Script" uid="uid://c3edrp8verj5x" path="res://scripts/classes/resource_classes/StageData.gd" id="1_u6ubo"]
+[ext_resource type="Script" uid="uid://byjmur18oln3d" path="res://scripts/classes/resource_classes/SpawnEntry.gd" id="2_ktugn"]
+
+[resource]
+script = ExtResource("1_u6ubo")
+id = 0
+name = "Plains"
+spawn_entries = Array[ExtResource("2_ktugn")]([])
+metadata/_custom_type_script = "uid://c3edrp8verj5x"
