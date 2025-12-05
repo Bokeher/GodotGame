@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_u6ubo")
-id = 0
+id = 1
 name = "Plains"
 spawn_entries = Array[ExtResource("2_ktugn")]([])
 metadata/_custom_type_script = "uid://c3edrp8verj5x"
