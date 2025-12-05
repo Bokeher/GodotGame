@@ -2,3 +2,22 @@ extends Object
 class_name StageInstance
 
 @export var stage_data: StageData
+
+func set_stage(stage_id: int) -> void:
+	stage_data = StageDatabase.get_by_id(stage_id)
+
+func get_next_enemy() -> EnemyData:
+	var cumulitive: float = 0
+	var roll: float = randf()
+	
+	for spawn_entry in stage_data.spawn_entries:
+		cumulitive += spawn_entry.spawn_chance
+		
+		if cumulitive >= roll:
+			return spawn_entry.enemy
+	
+	print("Failed to get next enemy")
+	return null
+
+func get_stage_name() -> String:
+	return stage_data.name
