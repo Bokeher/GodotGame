@@ -7,4 +7,4 @@ func _init() -> void:
 	_data_type = "Enemy"
 
 func get_by_id(id: int) -> EnemyData:
-	return super(id)
+	return super.get_by_id(id)

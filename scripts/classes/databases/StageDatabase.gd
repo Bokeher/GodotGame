@@ -7,4 +7,4 @@ func _init() -> void:
 	_data_type = "Stage"
 
 func get_by_id(id: int) -> StageData:
-	return super(id)
+	return super.get_by_id(id)
