@@ -1,18 +1,10 @@
-extends Node
+extends GenericDatabase
 #class_name EnemyDatabase 
 # THIS IS AUTOLOAD
 
-var _enemies: Dictionary = {}
-const _ENEMY_DIR_PATH = "res://assets/resources/enemies/"
+func _init() -> void:
+	_dir_path = "res://assets/resources/enemies/"
+	_data_type = "Enemy"
 
-func _ready() -> void:
-	read()
-
-func read() -> void:
-	_enemies = ResourceLoaderHelper.load_folder_to_dict(_ENEMY_DIR_PATH)
-
-func get_enemy(id: int) -> EnemyData:
-	return _enemies.get(id, null)
-
-func get_all_enemies() -> Dictionary:
-	return _enemies
+func get_by_id(id: int) -> EnemyData:
+	return super(id)
