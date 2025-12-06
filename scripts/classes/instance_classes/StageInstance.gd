@@ -3,6 +3,9 @@ class_name StageInstance
 
 @export var stage_data: StageData
 
+func _init() -> void:
+	set_stage(Global.player.max_stage_reached)
+
 func set_stage(stage_id: int) -> void:
 	stage_data = StageDatabase.get_by_id(stage_id)
 
