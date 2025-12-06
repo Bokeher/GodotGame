@@ -3,13 +3,15 @@ extends Node
 # AUTOLOAD
 
 var stage: StageInstance
-@onready var stage_node: StageNode = get_node("/root/Game/StageNode")
 
-signal stage_changed(stage)
+signal stage_changed(stage: StageInstance)
 
 func _ready() -> void:
 	stage = StageInstance.new()
+
+func change_stage(stage_id: int) -> void:
+	if stage.stage_data.id == stage_id:
+		return
 	
-	stage_changed.connect(stage_node.on_stage_changed)
-	
+	stage.set_stage(stage_id)
 	stage_changed.emit(stage)
