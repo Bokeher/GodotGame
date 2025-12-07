@@ -5,6 +5,8 @@ extends Node
 var stage: StageInstance
 
 signal stage_changed(stage: StageInstance)
+signal enemy_death(enemy: EnemyInstance)
+signal player_death(player: PlayerInstance)
 
 func _ready() -> void:
 	stage = StageInstance.new()
