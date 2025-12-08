@@ -15,7 +15,7 @@ func _ready() -> void:
 		set_count(0)
 		return
 	
-	$SlotTexture.texture_normal = item.image
+	$SlotTexture.texture_normal = item.texture
 
 func _on_slot_texture_pressed() -> void:
 	var children = $"../../EquipSlots".get_children()

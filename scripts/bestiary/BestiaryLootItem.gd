@@ -12,7 +12,7 @@ extends Control
 func _ready() -> void:
 	$DropChance.text = drop_chance_text
 	
-	var texture: Texture2D = item.image
+	var texture: Texture2D = item.texture
 	
 	if(!Global.bestiary.hasItemDroppedFromEnemy(item_id, enemy_id)):
 		$".".set_meta("unknown", true)
