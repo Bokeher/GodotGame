@@ -14,7 +14,7 @@ offset_bottom = -578.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ehp8y")
-metadata/item_id = 0
+metadata/item_id = 1
 metadata/unknown = false
 metadata/enemy_id = 0
 

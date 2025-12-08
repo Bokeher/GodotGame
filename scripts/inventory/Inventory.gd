@@ -24,7 +24,7 @@ func update_inventory() -> void:
 	
 	# Add items
 	for item_id in Global.inventory:
-		var item = Global.items[item_id - 1]
+		var item: ItemData = ItemDatabase.get_by_id(item_id)
 		var type = item.type
 		
 		# Skip this iteration if item type is different than filter

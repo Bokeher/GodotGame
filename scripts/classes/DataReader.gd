@@ -5,7 +5,6 @@ const PATH_ENEMIES: String = "res://assets/jsons/enemies.json"
 const PATH_STAGES: String = "res://assets/jsons/stages.json"
 const PATH_UPGRADES: String = "res://assets/jsons/upgrades.json"
 const PATH_SKILLS: String = "res://assets/jsons/skills.json"
-const PATH_ITEMS: String = "res://assets/jsons/items.json"
 const PATH_CLASSES_DIR: String = "res://assets/jsons/classes/"
 const PATH_RESOURCES: String = "res://assets/resources/"
 const PATH_RESOURCES_STATUSES: String = PATH_RESOURCES + "statuses/"
@@ -59,20 +58,6 @@ func read_skills() -> void:
 	Global.skills = []
 	for skill_dict in skill_dicts:
 		Global.skills.append(Skill.from_dict(skill_dict))
-	
-	file.close()
-
-func read_items() -> void:
-	if(!FileAccess.file_exists(PATH_ITEMS)):
-		push_error("Items file not found")
-		return
-		
-	var file = FileAccess.open(PATH_ITEMS, FileAccess.READ)
-	var items_dicts = JSON.parse_string(file.get_as_text()).items
-	
-	Global.items = []
-	for items_dict in items_dicts:
-		Global.items.append(Item.from_dict(items_dict))
 	
 	file.close()
 

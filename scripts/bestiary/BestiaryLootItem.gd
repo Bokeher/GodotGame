@@ -7,26 +7,25 @@ extends Control
 @onready var drop_chance: float = get_drop_chance()
 @onready var drop_chance_text: String = get_drop_chance_text()
 
+@onready var item: ItemData = ItemDatabase.get_by_id(item_id)
+
 func _ready() -> void:
 	$DropChance.text = drop_chance_text
 	
-	var image_path := Global.items[item_id - 1].image_path
+	var texture: Texture2D = item.image
 	
 	if(!Global.bestiary.hasItemDroppedFromEnemy(item_id, enemy_id)):
 		$".".set_meta("unknown", true)
-		image_path = "res://assets/sprites/unknown.png"
+		texture = load("res://assets/sprites/unknown.png")
 	
-	$LootImage.texture = load(image_path)
+	$LootImage.texture = texture
 
 func _on_loot_image_mouse_entered() -> void:
 	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
 	
 	if(unknown):
 		popup.popup("Unknown item", "Drop chance: " + drop_chance_text)
-		
 		return
-	
-	var item := Global.items[item_id - 1]
 	
 	popup.popup(item.name, item.description)
 

@@ -9,7 +9,6 @@ const MAIN_TAB_CONTAINER_POSITION: Vector2i = Vector2i(580, 0)
 var stages = []
 var enemies: Array[Enemy] = []
 var upgrades: Array[Upgrade] = []
-var items: Array[Item] = []
 var skills: Array[Skill] = []
 var statuses: Dictionary = {} # id -> Status
 
@@ -47,10 +46,9 @@ var dataReader: DataReader = DataReader.new()
 func _ready() -> void:
 	dataReader.read_stages()
 	dataReader.read_enemies()
-	dataReader.read_items()
 	dataReader.read_statuses()
 	
-	saveManager.read()
+	#saveManager.read()
 	
 	# Read when there are no instances of them
 	#if(skills.is_empty()): 
