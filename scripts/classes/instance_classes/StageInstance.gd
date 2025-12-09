@@ -3,11 +3,8 @@ class_name StageInstance
 
 @export var stage_data: StageData
 
-func _init() -> void:
-	set_stage(Global.player.max_stage_reached)
-
-func set_stage(stage_id: int) -> void:
-	stage_data = StageDatabase.get_by_id(stage_id)
+func _init(stage_data: StageData) -> void:
+	self.stage_data = stage_data
 
 func get_next_enemy() -> EnemyData:
 	var cumulitive: float = 0
