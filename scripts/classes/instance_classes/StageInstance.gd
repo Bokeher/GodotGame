@@ -3,8 +3,8 @@ class_name StageInstance
 
 @export var stage_data: StageData
 
-func _init(stage_data: StageData) -> void:
-	self.stage_data = stage_data
+func _init(stage_data_: StageData) -> void:
+	stage_data = stage_data_
 
 func get_next_enemy() -> EnemyData:
 	var cumulitive: float = 0

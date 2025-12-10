@@ -7,8 +7,8 @@ class_name EnemyInstance
 signal hit(damage: int)
 signal died(enemy: EnemyInstance)
 
-func _init(enemy_data: EnemyData) -> void:
-	self.enemy_data = enemy_data
+func _init(enemy_data_: EnemyData) -> void:
+	enemy_data = enemy_data_
 	health = enemy_data.health
 
 func deal_damage(damage: int) -> void:
