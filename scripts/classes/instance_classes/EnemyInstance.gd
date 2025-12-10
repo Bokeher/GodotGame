@@ -21,3 +21,12 @@ func deal_damage(damage: int) -> void:
 
 func die() -> void:
 	died.emit(self)
+
+func get_dropped_loot() -> Array[ItemData]:
+	var drops: Array[ItemData] = []
+	
+	for entry: LootEntry in enemy_data.loot_table:
+		if randf() <= entry.drop_chance:
+			drops.append(entry.item)
+	
+	return drops
