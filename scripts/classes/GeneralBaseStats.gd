@@ -1,5 +1,5 @@
 extends Resource
-class_name PlayerData
+class_name GeneralBaseStats
 
 @export var base_max_health: int = 10
 @export var base_defense: int = 0

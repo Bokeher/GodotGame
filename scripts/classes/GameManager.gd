@@ -17,7 +17,8 @@ func _ready() -> void:
 	
 	stage = StageInstance.new(max_stage_reached)
 	enemy = spawn_enemy(stage.get_next_enemy())
-	player = PlayerInstance.new()
+	player = PlayerInstance.new(GeneralBaseStats.new())
+	
 
 func change_stage(stage_id: int) -> void:
 	if stage.stage_data.id == stage_id:
