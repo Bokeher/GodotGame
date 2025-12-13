@@ -40,7 +40,6 @@ func load_base_stats() -> void:
 	attack_interval = base_stats.base_attack_interval
 	crit_chance = base_stats.base_crit_chance
 	crit_damage_multiplier = base_stats.base_crit_damage_multiplier
-	attack_interval = base_stats.base_attack_interval
 	
 	gold = 0
 	
