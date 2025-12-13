@@ -17,7 +17,7 @@ class_name PlayerInstance
 @export var attack_interval: float
 
 @export_category("Inventory")
-#var inventory: Inventory
+var inventory: Inventory
 @export var gold: int
 
 @export_category("Progress")
@@ -47,3 +47,5 @@ func load_base_stats() -> void:
 	xp = 0
 	max_stage_reached = 1
 	skill_points = 0
+	
+	inventory = Inventory.new()
