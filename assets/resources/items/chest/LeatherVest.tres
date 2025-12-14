@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://70w0fj25lik8"]
 
 [ext_resource type="Texture2D" uid="uid://dy8whtmtpb5rq" path="res://assets/sprites/items/chests/leather_vest.png" id="1_7d5o8"]
-[ext_resource type="Script" uid="uid://csvqfii14cwyh" path="res://scripts/classes/resource_classes/ItemData.gd" id="1_wu1qb"]
+[ext_resource type="Script" uid="uid://csvqfii14cwyh" path="res://scripts/model/resource_classes/ItemData.gd" id="1_wu1qb"]
 
 [resource]
 script = ExtResource("1_wu1qb")

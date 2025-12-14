@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3 uid="uid://boa18bpmb0lpb"]
 
-[ext_resource type="Script" uid="uid://cv4x5sa1ly2jo" path="res://scripts/classes/resource_classes/LootEntry.gd" id="1_kre3w"]
-[ext_resource type="Script" uid="uid://c7tgf7xdvj2fb" path="res://scripts/classes/resource_classes/EnemyData.gd" id="1_m4od0"]
+[ext_resource type="Script" uid="uid://cv4x5sa1ly2jo" path="res://scripts/model/resource_classes/LootEntry.gd" id="1_kre3w"]
+[ext_resource type="Script" uid="uid://c7tgf7xdvj2fb" path="res://scripts/model/resource_classes/EnemyData.gd" id="1_m4od0"]
 [ext_resource type="Texture2D" uid="uid://2nph3u1tlq2w" path="res://assets/sprites/enemies/slimes/green_slime.png" id="1_waf2u"]
 [ext_resource type="Resource" uid="uid://ku7ca1h1dsqm" path="res://assets/resources/items/ring/DamageRing1.tres" id="2_5u3on"]
 

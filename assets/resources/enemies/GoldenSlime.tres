@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://bx8hyklphu2bn"]
 
 [ext_resource type="Texture2D" uid="uid://bnak2378gaqwc" path="res://assets/sprites/enemies/slimes/golden_slime.png" id="1_ftyxg"]
-[ext_resource type="Script" uid="uid://cv4x5sa1ly2jo" path="res://scripts/classes/resource_classes/LootEntry.gd" id="2_3e7yt"]
+[ext_resource type="Script" uid="uid://cv4x5sa1ly2jo" path="res://scripts/model/resource_classes/LootEntry.gd" id="2_3e7yt"]
 [ext_resource type="Resource" uid="uid://bcvga26fbk0ew" path="res://assets/resources/items/ring/DamageRing2.tres" id="2_lwje8"]
 [ext_resource type="Resource" uid="uid://deuw6ynntth1l" path="res://assets/resources/items/ring/DamageRing3.tres" id="3_46poc"]
-[ext_resource type="Script" uid="uid://c7tgf7xdvj2fb" path="res://scripts/classes/resource_classes/EnemyData.gd" id="4_46poc"]
+[ext_resource type="Script" uid="uid://c7tgf7xdvj2fb" path="res://scripts/model/resource_classes/EnemyData.gd" id="4_46poc"]
 
 [sub_resource type="Resource" id="Resource_i14qj"]
 script = ExtResource("2_3e7yt")

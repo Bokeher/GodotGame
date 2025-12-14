@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bcvga26fbk0ew"]
 
 [ext_resource type="Texture2D" uid="uid://bddg82pdpky5o" path="res://assets/sprites/items/artifacts/damage_ring_2.png" id="1_fxn4u"]
-[ext_resource type="Script" uid="uid://csvqfii14cwyh" path="res://scripts/classes/resource_classes/ItemData.gd" id="2_sbkf7"]
+[ext_resource type="Script" uid="uid://csvqfii14cwyh" path="res://scripts/model/resource_classes/ItemData.gd" id="2_sbkf7"]
 
 [resource]
 script = ExtResource("2_sbkf7")

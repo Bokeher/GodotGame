@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StageData" load_steps=9 format=3 uid="uid://dxmwswwa4t7vn"]
 
-[ext_resource type="Script" uid="uid://c3edrp8verj5x" path="res://scripts/classes/resource_classes/StageData.gd" id="1_tjdcf"]
-[ext_resource type="Script" uid="uid://byjmur18oln3d" path="res://scripts/classes/resource_classes/SpawnEntry.gd" id="2_cwugh"]
+[ext_resource type="Script" uid="uid://c3edrp8verj5x" path="res://scripts/model/resource_classes/StageData.gd" id="1_tjdcf"]
+[ext_resource type="Script" uid="uid://byjmur18oln3d" path="res://scripts/model/resource_classes/SpawnEntry.gd" id="2_cwugh"]
 [ext_resource type="Resource" uid="uid://boa18bpmb0lpb" path="res://assets/resources/enemies/GreenSlime.tres" id="3_ysvwb"]
 [ext_resource type="Resource" uid="uid://b4wbmmkr54udb" path="res://assets/resources/enemies/BlueSlime.tres" id="4_jx6i1"]
 [ext_resource type="Resource" uid="uid://bx8hyklphu2bn" path="res://assets/resources/enemies/GoldenSlime.tres" id="5_2bkuu"]

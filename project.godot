@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ItemDatabase="*res://scripts/classes/databases/ItemDatabase.gd"
-EnemyDatabase="*res://scripts/classes/databases/EnemyDatabase.gd"
-StageDatabase="*res://scripts/classes/databases/StageDatabase.gd"
-GameManager="*res://scripts/classes/GameManager.gd"
+ItemDatabase="*res://scripts/model/databases/ItemDatabase.gd"
+EnemyDatabase="*res://scripts/model/databases/EnemyDatabase.gd"
+StageDatabase="*res://scripts/model/databases/StageDatabase.gd"
+GameManager="*res://scripts/model/logic/GameManager.gd"
 Global="*res://scripts/Global.gd"
 Enums="*res://scripts/Enums.gd"
 
