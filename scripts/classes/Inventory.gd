@@ -3,6 +3,7 @@ class_name Inventory
 
 # <id, amount>
 var items: Dictionary = {}
+var equipment: Equipment = Equipment.new()
 
 func add_item(itemData: ItemData) -> void:
 	items[itemData.id] = items.get(itemData.id, 0) + 1
