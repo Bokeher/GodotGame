@@ -8,6 +8,10 @@ var equipment: Equipment = Equipment.new()
 func add_item(itemData: ItemData) -> void:
 	items[itemData.id] = items.get(itemData.id, 0) + 1
 
+func add_items(items: Array[ItemData]) -> void:
+	for item in items:
+		add_item(item)
+
 func remove_item(itemData: ItemData) -> void:
 	if not items.has(itemData.id):
 		print("WARNING! Item not found in inventory")

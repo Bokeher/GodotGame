@@ -49,3 +49,9 @@ func load_base_stats() -> void:
 	skill_points = 0
 	
 	inventory = Inventory.new()
+
+func add_gold(amount: int) -> void:
+	gold += amount
+
+func add_xp(amount: int) -> void:
+	xp += amount
