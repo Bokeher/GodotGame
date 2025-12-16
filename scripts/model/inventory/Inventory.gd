@@ -8,8 +8,8 @@ var equipment: Equipment = Equipment.new()
 func add_item(itemData: ItemData) -> void:
 	items[itemData.id] = items.get(itemData.id, 0) + 1
 
-func add_items(items: Array[ItemData]) -> void:
-	for item in items:
+func add_items(items_: Array[ItemData]) -> void:
+	for item in items_:
 		add_item(item)
 
 func remove_item(itemData: ItemData) -> void:
