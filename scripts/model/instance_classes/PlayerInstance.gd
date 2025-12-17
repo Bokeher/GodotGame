@@ -14,7 +14,6 @@ class_name PlayerInstance
 @export var attack_speed_interval: float
 @export var crit_chance: float
 @export var crit_damage_multiplier: float
-@export var attack_interval: float
 
 @export_category("Inventory")
 var inventory: Inventory
@@ -37,7 +36,7 @@ func load_base_stats() -> void:
 	health_regen = base_stats.base_health_regen
 	
 	damage = base_stats.base_attack_damage
-	attack_interval = base_stats.base_attack_interval
+	attack_speed_interval = base_stats.base_attack_interval
 	crit_chance = base_stats.base_crit_chance
 	crit_damage_multiplier = base_stats.base_crit_damage_multiplier
 	
