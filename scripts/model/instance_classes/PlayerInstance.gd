@@ -54,3 +54,6 @@ func add_gold(amount: int) -> void:
 
 func add_xp(amount: int) -> void:
 	xp += amount
+
+func receive_damage(amount: int) -> void:
+	health = max(health - amount, 0)
