@@ -25,9 +25,13 @@ var inventory: Inventory
 @export var max_stage_reached: int
 @export var skill_points: int
 
+var base_xp_amount: int = 100
+var on_level_up_xp_multiplier: float = 0.2
+
 func _init(base_stats_: GeneralBaseStats) -> void:
 	base_stats = base_stats_
-	load_base_stats()
+	if base_stats:
+		load_base_stats()
 
 func load_base_stats() -> void:
 	max_health = base_stats.base_max_health
@@ -52,8 +56,18 @@ func load_base_stats() -> void:
 func add_gold(amount: int) -> void:
 	gold += amount
 
+func calc_xp_needed(level_: int) -> int:
+	return int(pow(1.0 + on_level_up_xp_multiplier, level_) * base_xp_amount)
+
 func add_xp(amount: int) -> void:
 	xp += amount
+
+	while xp >= calc_xp_needed(level):
+		xp -= calc_xp_needed(level)
+		level_up()
+
+func level_up() -> void:
+	level += 1
 
 func receive_damage(amount: int) -> void:
 	health = max(health - amount, 0)
