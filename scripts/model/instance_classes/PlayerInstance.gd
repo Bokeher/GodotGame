@@ -28,6 +28,8 @@ var inventory: Inventory
 var base_xp_amount: int = 100
 var on_level_up_xp_multiplier: float = 0.2
 
+signal stats_changed
+
 func _init(base_stats_: GeneralBaseStats) -> void:
 	base_stats = base_stats_
 	if base_stats:
@@ -52,6 +54,8 @@ func load_base_stats() -> void:
 	skill_points = 0
 	
 	inventory = Inventory.new()
+	
+	stats_changed.emit()
 
 func add_gold(amount: int) -> void:
 	gold += amount
@@ -68,6 +72,7 @@ func add_xp(amount: int) -> void:
 
 func level_up() -> void:
 	level += 1
+	stats_changed.emit()
 
 func receive_damage(amount: int) -> void:
 	health = max(health - amount, 0)
