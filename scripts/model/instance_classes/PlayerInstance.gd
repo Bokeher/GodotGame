@@ -66,18 +66,28 @@ func calc_xp_needed(level_: int) -> int:
 	return int(pow(1.0 + on_level_up_xp_multiplier, (level_ - 1)) * base_xp_amount)
 
 func add_xp(amount: int) -> void:
+	if amount <= 0:
+		return
+	
 	xp += amount
 	
 	while xp >= calc_xp_needed(level):
 		xp -= calc_xp_needed(level)
 		level_up()
+	
+	xp_changed.emit()
 
 func level_up() -> void:
 	level += 1
 	stats_changed.emit()
 
 func receive_damage(amount: int) -> void:
+	if amount <= 0:
+		return
+	
 	health = max(health - amount, 0)
+	
+	hp_changed.emit()
 
 func get_hp_str() -> String:
 	return "%d / %d" % [health, max_health]
