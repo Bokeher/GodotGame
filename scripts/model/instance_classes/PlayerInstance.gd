@@ -29,6 +29,8 @@ var base_xp_amount: int = 100
 var on_level_up_xp_multiplier: float = 0.2
 
 signal stats_changed
+signal hp_changed
+signal xp_changed
 
 func _init(base_stats_: GeneralBaseStats) -> void:
 	base_stats = base_stats_
@@ -61,11 +63,11 @@ func add_gold(amount: int) -> void:
 	gold += amount
 
 func calc_xp_needed(level_: int) -> int:
-	return int(pow(1.0 + on_level_up_xp_multiplier, level_) * base_xp_amount)
+	return int(pow(1.0 + on_level_up_xp_multiplier, (level_ - 1)) * base_xp_amount)
 
 func add_xp(amount: int) -> void:
 	xp += amount
-
+	
 	while xp >= calc_xp_needed(level):
 		xp -= calc_xp_needed(level)
 		level_up()
@@ -76,3 +78,9 @@ func level_up() -> void:
 
 func receive_damage(amount: int) -> void:
 	health = max(health - amount, 0)
+
+func get_hp_str() -> String:
+	return "%d / %d" % [health, max_health]
+
+func get_xp_str() -> String:
+	return "%d / %d" % [xp, calc_xp_needed(level)]
