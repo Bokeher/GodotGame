@@ -14,7 +14,7 @@ class_name PlayerInstance
 @export var crit_damage_multiplier: float
 
 @export_category("Inventory")
-var inventory: Inventory
+@export var inventory: Inventory
 @export var gold: int
 
 @export_category("Progress")
