@@ -1,11 +1,9 @@
-extends Resource
+extends UnitInstance
 class_name PlayerInstance
 
 @export var base_stats: GeneralBaseStats
 
 @export_category("Defensive")
-@export var max_health: int
-@export var health: int
 @export var defense: int
 @export var health_regen: float
 
@@ -29,7 +27,6 @@ var base_xp_amount: int = 100
 var on_level_up_xp_multiplier: float = 0.2
 
 signal stats_changed
-signal hp_changed
 signal xp_changed
 
 func _init(base_stats_: GeneralBaseStats) -> void:
@@ -80,14 +77,6 @@ func add_xp(amount: int) -> void:
 func level_up() -> void:
 	level += 1
 	stats_changed.emit()
-
-func receive_damage(amount: int) -> void:
-	if amount <= 0:
-		return
-	
-	health = max(health - amount, 0)
-	
-	hp_changed.emit()
 
 func get_hp_str() -> String:
 	return "%d / %d" % [health, max_health]
