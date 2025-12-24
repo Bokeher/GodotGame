@@ -4,7 +4,7 @@ class_name UnitInstance
 @export var health: int
 @export var max_health: int
 
-signal health_changed(current, max)
+signal health_changed()
 signal died(instance)
 
 func receive_damage(amount: int) -> void:
@@ -16,3 +16,6 @@ func receive_damage(amount: int) -> void:
 	
 	if health == 0:
 		died.emit(self)
+
+func get_hp_str() -> String:
+	return "%d / %d HP" % [health, max_health]

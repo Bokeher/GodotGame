@@ -15,6 +15,7 @@ func on_stats_changed() -> void:
 	$PlayerHealthBar.max_value = player.max_health
 
 func on_health_changed() -> void:
+	$PlayerHealthBar.max_value = player.max_health
 	$PlayerHealthBar.value = player.health
 	$PlayerHealthBar/PlayerHealth.text = player.get_hp_str()
 

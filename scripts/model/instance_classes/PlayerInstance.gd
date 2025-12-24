@@ -78,8 +78,5 @@ func level_up() -> void:
 	level += 1
 	stats_changed.emit()
 
-func get_hp_str() -> String:
-	return "%d / %d" % [health, max_health]
-
 func get_xp_str() -> String:
 	return "%d / %d" % [xp, calc_xp_needed(level)]
