@@ -12,7 +12,7 @@ func receive_damage(amount: int) -> void:
 		return
 	
 	health = max(health - amount, 0)
-	health_changed.emit(health, max_health)
+	health_changed.emit()
 	
 	if health == 0:
 		died.emit(self)
