@@ -5,6 +5,7 @@ extends Node
 var stage: StageInstance
 var enemy: EnemyInstance
 var player: PlayerInstance
+var combat_manager: CombatManager
 
 signal stage_changed(stage: StageInstance)
 signal player_death(player: PlayerInstance)
@@ -18,7 +19,7 @@ func _ready() -> void:
 	stage = StageInstance.new(max_stage_reached)
 	enemy = spawn_enemy(stage.get_next_enemy())
 	player = PlayerInstance.new(GeneralBaseStats.new())
-	
+	combat_manager = CombatManager.new()
 
 func change_stage(stage_id: int) -> void:
 	if stage.stage_data.id == stage_id:
