@@ -26,3 +26,8 @@ func update_health_ui() -> void:
 
 func on_health_changed() -> void:
 	update_health_ui()
+
+func _on_enemy_body_pressed() -> void:
+	GameManager.combat_manager.deal_damage(
+		GameManager.player, GameManager.enemy
+	)

@@ -403,6 +403,7 @@ script = ExtResource("41_pdwbg")
 [node name="StatusEffect" parent="StatusBar/StatusBarVBox" instance=ExtResource("41_8b871")]
 layout_mode = 2
 
+[connection signal="pressed" from="Enemy/EnemyBody" to="Enemy" method="_on_enemy_body_pressed"]
 [connection signal="tab_changed" from="MainTabContainer" to="MainTabContainer" method="_on_tab_changed"]
 [connection signal="timeout" from="PlayerAttackTimer" to="Enemy/EnemyBody" method="_on_player_attack_timer_timeout"]
 [connection signal="timeout" from="WarriorSpecific/BloodrageTimer" to="WarriorSpecific/BloodrageTimer" method="_on_timeout"]
