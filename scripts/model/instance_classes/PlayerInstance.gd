@@ -34,6 +34,14 @@ func _init(base_stats_: GeneralBaseStats) -> void:
 	if base_stats:
 		load_base_stats()
 
+func get_attack_damage() -> int:
+	var is_crit: bool = randf() < crit_chance
+	
+	if is_crit:
+		return int(damage * crit_damage_multiplier)
+	
+	return damage
+
 func load_base_stats() -> void:
 	max_health = base_stats.base_max_health
 	health = max_health
