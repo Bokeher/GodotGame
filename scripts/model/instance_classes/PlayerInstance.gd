@@ -57,6 +57,9 @@ func can_attack() -> bool:
 func start_attack_cooldown() -> void:
 	attack_timer.start()
 
+func get_damage_reduction(incoming_damage: int) -> int:
+	return max(incoming_damage - defense, 1)
+
 func get_attack_damage() -> int:
 	var is_crit: bool = randf() < crit_chance
 	

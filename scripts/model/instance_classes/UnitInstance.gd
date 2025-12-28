@@ -17,7 +17,7 @@ func receive_damage(amount: int) -> void:
 	if health == 0:
 		died.emit(self)
 
-func get_damage_reduction(incoming_damage: int) -> int:
+func get_damage_reduction(_incoming_damage: int) -> int:
 	return 0
 
 # ABSTRACT METHOD

@@ -8,6 +8,9 @@ func _init(enemy_data_: EnemyData) -> void:
 	health = enemy_data.health
 	max_health = enemy_data.health
 
+func get_damage_reduction(incoming_damage: int) -> int:
+	return max(incoming_damage - enemy_data.defense, 1)
+
 func get_dropped_loot() -> Array[ItemData]:
 	var drops: Array[ItemData] = []
 	
