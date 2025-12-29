@@ -18,6 +18,7 @@ name = "Green Slime"
 texture = ExtResource("1_waf2u")
 damage = 1
 health = 5
+defense = 0
 gold_reward = 1
 xp_reward = 1
 loot_table = Array[ExtResource("1_kre3w")]([SubResource("Resource_5u3on")])

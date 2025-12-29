@@ -25,6 +25,7 @@ name = "Golden Slime"
 texture = ExtResource("1_ftyxg")
 damage = 1
 health = 30
+defense = 0
 gold_reward = 10
 xp_reward = 5
 loot_table = Array[ExtResource("2_3e7yt")]([SubResource("Resource_i14qj"), SubResource("Resource_qutcb")])

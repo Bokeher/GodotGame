@@ -9,6 +9,7 @@ class_name EnemyData
 @export_category("Stats")
 @export var damage: int
 @export var health: int
+@export var defense: int
 
 @export_category("Rewards")
 @export var gold_reward: int
