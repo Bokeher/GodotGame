@@ -38,14 +38,6 @@ text = "Crit chance: -100%"
 layout_mode = 2
 text = "Respawn time: -100s"
 
-[node name="GoldMultiplier" type="Label" parent="ColorRect/StatsContainer"]
-layout_mode = 2
-text = "Gold multiplier: -100%"
-
-[node name="XpMultiplier" type="Label" parent="ColorRect/StatsContainer"]
-layout_mode = 2
-text = "Xp multiplier -100%"
-
 [node name="XpAmount" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
 text = "XP: -1/100"

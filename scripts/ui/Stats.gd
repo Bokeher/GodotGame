@@ -4,30 +4,28 @@ var stats_texts := {
 	"Damage": "Damage",
 	"CritChance": "Crit chance",
 	"RespawnTime": "Time to find enemy",
-	"GoldMultiplier": "Gold multiplier",
-	"XpMultiplier": "XP multiplier",
 	"XpAmount": "XP",
 	"Level": "Level"
 }
 
 func _ready() -> void:
+	GameManager.player.stats_changed.connect(update_stats)
+	
 	update_stats()
 
 func update_stats() -> void:
-	var damage := Global.player.damage
-	var crit := Global.player.calc_crit_chance()
-	var respawn_time := Global.player.calc_respawn_time()
-	var gold_mult := Global.player.calc_gold_mult()
-	var xp_mult := Global.player.calc_xp_mult()
-	var xp := Global.player.xp
-	var level := Global.player.level
+	var player: PlayerInstance = GameManager.player
+	
+	var damage := player.damage
+	var crit := player.crit_chance
+	var xp := player.xp
+	var level := player.level
+	var xp_needed := player.calc_xp_needed(level)
 	
 	update_stat_text("Damage", damage)
 	update_stat_text("CritChance", crit, "%")
-	update_stat_text("RespawnTime", respawn_time, "s")
-	update_stat_text("GoldMultiplier", gold_mult, "%")
-	update_stat_text("XpMultiplier", xp_mult, "%")
-	update_stat_text("XpAmount", xp, " / 100") #TODO: remove this hardcoded text
+	update_stat_text("RespawnTime", "1", "s")
+	update_stat_text("XpAmount", xp, " / " + str(xp_needed))
 	update_stat_text("Level", level)
 
 func update_stat_text(stat_name: String, value: Variant, suffix: String = "") -> void:
