@@ -3,6 +3,9 @@ class_name EnemyInstance
 
 @export var enemy_data: EnemyData
 
+func sync() -> void:
+	health_changed.emit()
+
 func _init(enemy_data_: EnemyData) -> void:
 	enemy_data = enemy_data_
 	health = enemy_data.health

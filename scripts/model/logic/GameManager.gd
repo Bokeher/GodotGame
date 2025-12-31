@@ -21,6 +21,9 @@ func _ready() -> void:
 	player = PlayerInstance.new(GeneralBaseStats.new())
 	combat_manager = CombatManager.new()
 
+func sync() -> void:
+	stage_changed.emit(stage)
+
 func change_stage(stage_id: int) -> void:
 	if stage.stage_data.id == stage_id:
 		return

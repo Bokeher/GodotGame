@@ -38,6 +38,11 @@ func _init(base_stats_: GeneralBaseStats) -> void:
 	
 	attack_timer = build_attack_timer()
 
+func sync() -> void:
+	stats_changed.emit()
+	health_changed.emit()
+	xp_changed.emit()
+
 func build_attack_timer() -> Timer:
 	var timer = Timer.new()
 	
