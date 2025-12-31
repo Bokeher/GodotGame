@@ -4,8 +4,9 @@ extends Node2D
 
 func _ready() -> void:
 	GameManager.enemy_changed.connect(on_enemy_changed)
+	enemy.health_changed.connect(update_health_ui)
 	
-	on_enemy_changed(GameManager.enemy)
+	enemy.sync()
 
 func on_enemy_changed(new_enemy: EnemyInstance):
 	if enemy:

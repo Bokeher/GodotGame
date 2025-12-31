@@ -11,7 +11,7 @@ var stats_texts := {
 func _ready() -> void:
 	GameManager.player.stats_changed.connect(update_stats)
 	
-	update_stats()
+	GameManager.player.sync()
 
 func update_stats() -> void:
 	var player: PlayerInstance = GameManager.player

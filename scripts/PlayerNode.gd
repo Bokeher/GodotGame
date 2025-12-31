@@ -7,9 +7,7 @@ func _ready() -> void:
 	player.xp_changed.connect(on_xp_changed)
 	player.health_changed.connect(on_health_changed)
 	
-	on_stats_changed()
-	on_health_changed()
-	on_xp_changed()
+	player.sync()
 
 func on_stats_changed() -> void:
 	$PlayerHealthBar.max_value = player.max_health
