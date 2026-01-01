@@ -7,6 +7,9 @@ var enemy: EnemyInstance
 var player: PlayerInstance
 var combat_manager: CombatManager
 
+@export var enemy_respawn_delay: float = 1.0
+var respawn_timer: Timer
+
 signal stage_changed(stage: StageInstance)
 signal player_death(player: PlayerInstance)
 
@@ -20,6 +23,19 @@ func _ready() -> void:
 	enemy = spawn_enemy(stage.get_next_enemy())
 	player = PlayerInstance.new(GeneralBaseStats.new())
 	combat_manager = CombatManager.new()
+	
+	respawn_timer = build_respawn_timer()
+
+func build_respawn_timer() -> Timer:
+	var timer = Timer.new()
+	timer.one_shot = true
+	timer.timeout.connect(_on_respawn_timeout)
+	add_child(timer)
+	return timer
+
+func _on_respawn_timeout() -> void:
+	enemy = spawn_enemy(stage.get_next_enemy())
+	enemy_changed.emit(enemy)
 
 func sync() -> void:
 	stage_changed.emit(stage)
@@ -49,6 +65,10 @@ func _on_enemy_died(dead_enemy: EnemyInstance) -> void:
 	player.add_gold(dead_enemy.enemy_data.gold_reward)
 	player.add_xp(dead_enemy.enemy_data.xp_reward)
 	
-	print("enemy died " + dead_enemy.enemy_data.name)
 	enemy_death.emit(dead_enemy)
+	enemy = null
+	
+	enemy_changed.emit(enemy)
+	
+	respawn_timer.start(enemy_respawn_delay)
 	
