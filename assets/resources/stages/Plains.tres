@@ -1,18 +1,25 @@
-[gd_resource type="Resource" script_class="StageData" load_steps=5 format=3 uid="uid://bwvwb3vsmpo88"]
+[gd_resource type="Resource" script_class="StageData" load_steps=7 format=3 uid="uid://bwvwb3vsmpo88"]
 
 [ext_resource type="Script" uid="uid://c3edrp8verj5x" path="res://scripts/model/resource_classes/StageData.gd" id="1_u6ubo"]
 [ext_resource type="Script" uid="uid://byjmur18oln3d" path="res://scripts/model/resource_classes/SpawnEntry.gd" id="2_ktugn"]
 [ext_resource type="Resource" uid="uid://boa18bpmb0lpb" path="res://assets/resources/enemies/GreenSlime.tres" id="3_ktugn"]
+[ext_resource type="Resource" uid="uid://b4wbmmkr54udb" path="res://assets/resources/enemies/BlueSlime.tres" id="4_u5w6c"]
 
 [sub_resource type="Resource" id="Resource_u5w6c"]
 script = ExtResource("2_ktugn")
 enemy = ExtResource("3_ktugn")
-spawn_chance = 1.0
+spawn_chance = 0.9
+metadata/_custom_type_script = "uid://byjmur18oln3d"
+
+[sub_resource type="Resource" id="Resource_xefl3"]
+script = ExtResource("2_ktugn")
+enemy = ExtResource("4_u5w6c")
+spawn_chance = 0.1
 metadata/_custom_type_script = "uid://byjmur18oln3d"
 
 [resource]
 script = ExtResource("1_u6ubo")
 id = 1
 name = "Plains"
-spawn_entries = Array[ExtResource("2_ktugn")]([SubResource("Resource_u5w6c")])
+spawn_entries = Array[ExtResource("2_ktugn")]([SubResource("Resource_u5w6c"), SubResource("Resource_xefl3")])
 metadata/_custom_type_script = "uid://c3edrp8verj5x"
