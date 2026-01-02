@@ -11,10 +11,10 @@ var combat_manager: CombatManager
 var respawn_timer: Timer
 
 signal stage_changed(stage: StageInstance)
-signal player_death(player: PlayerInstance)
+signal enemy_changed(enemy: EnemyInstance)
 
 signal enemy_death(enemy: EnemyInstance)
-signal enemy_changed(enemy: EnemyInstance)
+signal player_death(player: PlayerInstance)
 
 func _ready() -> void:
 	var max_stage_reached: StageData = StageDatabase.get_by_id(Global.player.max_stage_reached)
@@ -37,8 +37,11 @@ func _on_respawn_timeout() -> void:
 	enemy = spawn_enemy(stage.get_next_enemy())
 	enemy_changed.emit(enemy)
 
-func sync() -> void:
+func sync_stage() -> void:
 	stage_changed.emit(stage)
+
+func sync_enemy() -> void:
+	enemy_changed.emit(enemy)
 
 func change_stage(stage_id: int) -> void:
 	if stage.stage_data.id == stage_id:

@@ -6,6 +6,7 @@ func _ready() -> void:
 	GameManager.enemy_changed.connect(on_enemy_changed)
 	enemy.health_changed.connect(update_health_ui)
 	
+	GameManager.sync_enemy()
 	enemy.sync()
 
 func on_enemy_changed(new_enemy: EnemyInstance):
