@@ -6,8 +6,6 @@ func _ready() -> void:
 	GameManager.enemy_changed.connect(on_enemy_changed)
 	GameManager.respawn_progress.connect(on_respawn_progress)
 	GameManager.sync_enemy()
-	enemy.sync()
-	
 
 func on_respawn_progress(value: float, max: float) -> void:
 	$ProgressBar.max_value = max

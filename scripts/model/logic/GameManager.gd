@@ -53,6 +53,7 @@ func sync_stage() -> void:
 
 func sync_enemy() -> void:
 	enemy_changed.emit(enemy)
+	enemy.sync()
 
 func change_stage(stage_id: int) -> void:
 	if stage.stage_data.id == stage_id:
