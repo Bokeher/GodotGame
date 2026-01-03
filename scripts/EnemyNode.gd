@@ -6,8 +6,15 @@ func _ready() -> void:
 	GameManager.enemy_changed.connect(on_enemy_changed)
 	enemy.health_changed.connect(update_enemy_health_ui)
 	
+	GameManager.respawn_progress.connect(on_respawn_progress)
+	
 	GameManager.sync_enemy()
 	enemy.sync()
+	
+
+func on_respawn_progress(value: float, max: float) -> void:
+	$ProgressBar.max_value = max
+	$ProgressBar.value = value
 
 func on_enemy_changed(new_enemy: EnemyInstance):
 	if enemy:
@@ -18,6 +25,8 @@ func on_enemy_changed(new_enemy: EnemyInstance):
 	
 	if enemy:
 		enemy.health_changed.connect(on_health_changed)
+	
+	$ProgressBar.visible = (enemy == null)
 	
 	update_enemy_ui()
 	update_enemy_health_ui()

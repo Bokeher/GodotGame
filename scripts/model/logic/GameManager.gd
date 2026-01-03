@@ -10,6 +10,8 @@ var combat_manager: CombatManager
 @export var enemy_respawn_delay: float = 1.0
 var respawn_timer: Timer
 
+signal respawn_progress(value: float, max: float)
+
 signal stage_changed(stage: StageInstance)
 signal enemy_changed(enemy: EnemyInstance)
 
@@ -25,6 +27,15 @@ func _ready() -> void:
 	combat_manager = CombatManager.new()
 	
 	respawn_timer = build_respawn_timer()
+
+func _process(delta: float) -> void:
+	if respawn_timer.is_stopped():
+		return
+	
+	respawn_progress.emit(
+		respawn_timer.wait_time - respawn_timer.time_left,
+		respawn_timer.wait_time
+	)
 
 func build_respawn_timer() -> Timer:
 	var timer = Timer.new()

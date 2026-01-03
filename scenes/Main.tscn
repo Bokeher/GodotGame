@@ -205,6 +205,14 @@ anchors_preset = 0
 offset_top = 45.0
 offset_bottom = 45.0
 
+[node name="RespawnTimer" type="Timer" parent="Enemy"]
+
+[node name="ProgressBar" type="ProgressBar" parent="Enemy"]
+visible = false
+offset_top = 241.0
+offset_right = 192.0
+offset_bottom = 271.0
+
 [node name="ReceiveDamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_w2boa")
 volume_db = -66.62
