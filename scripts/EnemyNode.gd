@@ -4,10 +4,7 @@ extends Node2D
 
 func _ready() -> void:
 	GameManager.enemy_changed.connect(on_enemy_changed)
-	enemy.health_changed.connect(update_enemy_health_ui)
-	
 	GameManager.respawn_progress.connect(on_respawn_progress)
-	
 	GameManager.sync_enemy()
 	enemy.sync()
 	
