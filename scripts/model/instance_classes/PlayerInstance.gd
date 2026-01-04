@@ -115,6 +115,7 @@ func add_xp(amount: int) -> void:
 
 func level_up() -> void:
 	level += 1
+	skill_points += 1
 	stats_changed.emit()
 
 func get_xp_str() -> String:
