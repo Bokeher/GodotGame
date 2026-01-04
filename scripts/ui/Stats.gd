@@ -4,6 +4,7 @@ var stats_texts := {
 	"Damage": "Damage",
 	"CritChance": "Crit chance",
 	"RespawnTime": "Time to find enemy",
+	"GoldAmount": "Gold",
 	"XpAmount": "XP",
 	"Level": "Level"
 }
@@ -18,12 +19,14 @@ func update_stats() -> void:
 	
 	var damage := player.damage
 	var crit := player.crit_chance
+	var gold := player.gold
 	var xp := player.xp
 	var level := player.level
 	var xp_needed := player.calc_xp_needed(level)
 	
 	update_stat_text("Damage", damage)
 	update_stat_text("CritChance", crit, "%")
+	update_stat_text("GoldAmount", gold)
 	update_stat_text("RespawnTime", "1", "s")
 	update_stat_text("XpAmount", xp, " / " + str(xp_needed))
 	update_stat_text("Level", level)

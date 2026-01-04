@@ -38,6 +38,10 @@ text = "Crit chance: -100%"
 layout_mode = 2
 text = "Respawn time: -100s"
 
+[node name="GoldAmount" type="Label" parent="ColorRect/StatsContainer"]
+layout_mode = 2
+text = "Damage: -1"
+
 [node name="XpAmount" type="Label" parent="ColorRect/StatsContainer"]
 layout_mode = 2
 text = "XP: -1/100"
