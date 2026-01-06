@@ -161,6 +161,14 @@ text = "0 / 100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PlayerAttackCooldown" type="ProgressBar" parent="Player"]
+offset_left = 285.0
+offset_top = 538.0
+offset_right = 485.0
+offset_bottom = 565.0
+max_value = 1.0
+show_percentage = false
+
 [node name="Enemy" type="Node2D" parent="."]
 position = Vector2(40, 62)
 script = ExtResource("4_cobve")
