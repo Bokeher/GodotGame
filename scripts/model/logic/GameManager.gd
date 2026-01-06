@@ -9,6 +9,7 @@ var combat_manager: CombatManager
 
 @export var enemy_respawn_delay: float = 1.0
 var respawn_timer: Timer
+var player_attack_timer: Timer
 
 signal respawn_progress(value: float, max: float)
 
@@ -21,9 +22,12 @@ signal player_death(player: PlayerInstance)
 func _ready() -> void:
 	var max_stage_reached: StageData = StageDatabase.get_by_id(Global.player.max_stage_reached)
 	
+	player_attack_timer = Timer.new()
+	add_child(player_attack_timer)
+	
 	stage = StageInstance.new(max_stage_reached)
 	enemy = spawn_enemy(stage.get_next_enemy())
-	player = PlayerInstance.new(GeneralBaseStats.new())
+	player = PlayerInstance.new(GeneralBaseStats.new(), player_attack_timer)
 	combat_manager = CombatManager.new()
 	
 	respawn_timer = build_respawn_timer()

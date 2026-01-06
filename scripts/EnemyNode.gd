@@ -51,6 +51,11 @@ func _on_enemy_body_pressed() -> void:
 	if enemy == null:
 		return
 	
+	if !GameManager.player.can_attack():
+		return
+	
 	GameManager.combat_manager.deal_damage(
 		GameManager.player, GameManager.enemy
 	)
+	
+	GameManager.player.start_attack_cooldown()

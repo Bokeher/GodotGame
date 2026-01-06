@@ -31,21 +31,19 @@ var attack_timer: Timer
 signal stats_changed
 signal xp_changed
 
-func _init(base_stats_: GeneralBaseStats) -> void:
+func _init(base_stats_: GeneralBaseStats, player_attack_timer: Timer) -> void:
 	base_stats = base_stats_
 	if base_stats:
 		load_base_stats()
 	
-	attack_timer = build_attack_timer()
+	attack_timer = build_attack_timer(player_attack_timer)
 
 func sync() -> void:
 	stats_changed.emit()
 	health_changed.emit()
 	xp_changed.emit()
 
-func build_attack_timer() -> Timer:
-	var timer = Timer.new()
-	
+func build_attack_timer(timer: Timer) -> Timer:
 	timer.wait_time = attack_speed_interval
 	timer.one_shot = true
 	timer.autostart = false
