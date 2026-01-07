@@ -32,7 +32,7 @@ func _ready() -> void:
 	
 	respawn_timer = build_respawn_timer()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if respawn_timer.is_stopped():
 		return
 	

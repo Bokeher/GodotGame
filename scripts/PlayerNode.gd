@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 	player.sync()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$PlayerAttackCooldown.value = GameManager.player.attack_timer.time_left / GameManager.player.attack_timer.wait_time
 
 func on_stats_changed() -> void:
