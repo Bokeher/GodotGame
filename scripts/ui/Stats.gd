@@ -22,7 +22,7 @@ func update_stats() -> void:
 	var gold := player.gold
 	var xp := player.xp
 	var level := player.level
-	var xp_needed := player.calc_xp_needed(level)
+	var xp_needed := player.xp_needed
 	
 	update_stat_text("Damage", damage)
 	update_stat_text("CritChance", crit, "%")

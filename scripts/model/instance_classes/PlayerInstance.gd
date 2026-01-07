@@ -25,6 +25,7 @@ class_name PlayerInstance
 
 var base_xp_amount: int = 100
 var on_level_up_xp_multiplier: float = 0.2
+var xp_needed: int = base_xp_amount
 
 var attack_timer: Timer
 
@@ -52,7 +53,7 @@ func build_attack_timer(timer: Timer) -> Timer:
 	return timer
 
 func on_attack_cooldown_finished() -> void:
-	print("finshed")
+	pass
 
 func can_attack() -> bool:
 	return attack_timer.is_stopped()
@@ -105,8 +106,8 @@ func add_xp(amount: int) -> void:
 	
 	xp += amount
 	
-	while xp >= calc_xp_needed(level):
-		xp -= calc_xp_needed(level)
+	while xp >= xp_needed:
+		xp -= xp_needed
 		level_up()
 	
 	xp_changed.emit()
@@ -114,7 +115,10 @@ func add_xp(amount: int) -> void:
 func level_up() -> void:
 	level += 1
 	skill_points += 1
+	
+	xp_needed = calc_xp_needed(level)
+	
 	stats_changed.emit()
 
 func get_xp_str() -> String:
-	return "%d / %d" % [xp, calc_xp_needed(level)]
+	return "%d / %d" % [xp, xp_needed]
