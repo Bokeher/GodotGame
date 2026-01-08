@@ -169,6 +169,12 @@ offset_bottom = 565.0
 max_value = 1.0
 show_percentage = false
 
+[node name="ReceiveDamageSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("11_w2boa")
+volume_db = -66.62
+pitch_scale = 2.0
+script = ExtResource("12_imtb5")
+
 [node name="Enemy" type="Node2D" parent="."]
 position = Vector2(40, 62)
 script = ExtResource("4_cobve")
@@ -221,13 +227,7 @@ offset_top = 241.0
 offset_right = 192.0
 offset_bottom = 271.0
 
-[node name="ReceiveDamageSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_w2boa")
-volume_db = -66.62
-pitch_scale = 2.0
-script = ExtResource("12_imtb5")
-
-[node name="HitEnemySound" type="AudioStreamPlayer" parent="."]
+[node name="HitEnemySound" type="AudioStreamPlayer" parent="Enemy"]
 stream = ExtResource("12_bo8ar")
 volume_db = -30.0
 pitch_scale = 4.0

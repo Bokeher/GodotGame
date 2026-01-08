@@ -40,6 +40,9 @@ func update_enemy_health_ui() -> void:
 		$HealthBar/EnemyHealthLabel.text = ""
 		return
 	
+	if $HealthBar.value > enemy.health:
+		$HitEnemySound.play_with_random_pitch()
+	
 	$HealthBar.max_value = enemy.max_health
 	$HealthBar.value = enemy.health
 	$HealthBar/EnemyHealthLabel.text = enemy.get_hp_str()

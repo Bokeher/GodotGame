@@ -16,6 +16,9 @@ func on_stats_changed() -> void:
 	$PlayerHealthBar.max_value = player.max_health
 
 func on_health_changed() -> void:
+	if $PlayerHealthBar.value > player.health:
+		$ReceiveDamageSound.play_with_random_pitch()
+	
 	$PlayerHealthBar.max_value = player.max_health
 	$PlayerHealthBar.value = player.health
 	$PlayerHealthBar/PlayerHealth.text = player.get_hp_str()
