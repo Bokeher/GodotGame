@@ -9,7 +9,7 @@ func _init(enemy_data_: EnemyData) -> void:
 	max_health = enemy_data.health
 
 func sync() -> void:
-	health_changed.emit()
+	health_changed.emit(0, max_health)
 
 func get_damage_reduction(incoming_damage: int) -> int:
 	return max(incoming_damage - enemy_data.defense, 1)

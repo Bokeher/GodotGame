@@ -41,7 +41,7 @@ func _init(base_stats_: GeneralBaseStats, player_attack_timer: Timer) -> void:
 
 func sync() -> void:
 	stats_changed.emit()
-	health_changed.emit()
+	health_changed.emit(0, max_health)
 	xp_changed.emit()
 
 func build_attack_timer(timer: Timer) -> Timer:

@@ -6,21 +6,21 @@ func _ready() -> void:
 	player.stats_changed.connect(on_stats_changed)
 	player.xp_changed.connect(on_xp_changed)
 	player.health_changed.connect(on_health_changed)
+	player.damaged.connect(on_damaged)
 	
 	player.sync()
 
 func _process(_delta: float) -> void:
 	$PlayerAttackCooldown.value = GameManager.player.attack_timer.time_left / GameManager.player.attack_timer.wait_time
 
+func on_damaged(_amount: int) -> void:
+	$ReceiveDamageSound.play()
+
 func on_stats_changed() -> void:
 	$PlayerHealthBar.max_value = player.max_health
 
-func on_health_changed() -> void:
-	if $PlayerHealthBar.value > player.health:
-		$ReceiveDamageSound.play_with_random_pitch()
-	
-	$PlayerHealthBar.max_value = player.max_health
-	$PlayerHealthBar.value = player.health
+func on_health_changed(_old_health: int, new_health: int) -> void:
+	$PlayerHealthBar.value = new_health
 	$PlayerHealthBar/PlayerHealth.text = player.get_hp_str()
 
 func on_xp_changed() -> void:
