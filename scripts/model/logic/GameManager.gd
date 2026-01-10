@@ -5,7 +5,7 @@ extends Node
 var stage: StageInstance
 var enemy: EnemyInstance
 var player: PlayerInstance
-var combat_manager: CombatManager
+var damage_resolver: DamageResolver
 
 @export var enemy_respawn_delay: float = 1.0
 var respawn_timer: Timer
@@ -28,7 +28,7 @@ func _ready() -> void:
 	stage = StageInstance.new(max_stage_reached)
 	enemy = spawn_enemy(stage.get_next_enemy())
 	player = PlayerInstance.new(GeneralBaseStats.new(), player_attack_timer)
-	combat_manager = CombatManager.new()
+	damage_resolver = DamageResolver.new()
 	
 	respawn_timer = build_respawn_timer()
 

@@ -1,5 +1,5 @@
 extends Node
-class_name CombatManager
+class_name DamageResolver
 
 func deal_damage(source: UnitInstance, target: UnitInstance):
 	var damage: int = source.get_attack_damage()
