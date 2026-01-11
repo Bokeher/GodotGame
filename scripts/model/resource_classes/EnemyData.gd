@@ -10,6 +10,7 @@ class_name EnemyData
 @export var damage: int
 @export var health: int
 @export var defense: int
+@export var attack_interval: float
 
 @export_category("Rewards")
 @export var gold_reward: int
