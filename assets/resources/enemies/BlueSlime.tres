@@ -19,6 +19,7 @@ texture = ExtResource("1_fmmfi")
 damage = 2
 health = 10
 defense = 0
+attack_interval = 1.0
 gold_reward = 3
 xp_reward = 2
 loot_table = Array[ExtResource("1_kg77w")]([SubResource("Resource_2pxdt")])
