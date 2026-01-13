@@ -235,10 +235,10 @@ max_polyphony = 99999
 script = ExtResource("12_xw6xw")
 
 [node name="ActionButton" type="Button" parent="."]
-offset_left = 80.0
-offset_top = 340.0
-offset_right = 206.0
-offset_bottom = 398.0
+offset_left = 73.0
+offset_top = 339.0
+offset_right = 199.0
+offset_bottom = 397.0
 text = "Searching"
 script = ExtResource("14_nqjfl")
 
