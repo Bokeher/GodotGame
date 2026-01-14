@@ -9,5 +9,5 @@ id = 1
 name = "Ring of Damage I"
 type = 0
 description = "+1 damage"
-image = ExtResource("1_u71ai")
+texture = ExtResource("1_u71ai")
 metadata/_custom_type_script = "uid://csvqfii14cwyh"

@@ -9,5 +9,5 @@ id = 4
 name = "Leather Vest"
 type = 1
 description = "+2 health"
-image = ExtResource("1_7d5o8")
+texture = ExtResource("1_7d5o8")
 metadata/_custom_type_script = "uid://csvqfii14cwyh"
