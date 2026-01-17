@@ -27,39 +27,18 @@ var base_xp_amount: int = 100
 var on_level_up_xp_multiplier: float = 0.2
 var xp_needed: int = base_xp_amount
 
-var attack_timer: Timer
-
 signal stats_changed
 signal xp_changed
 
-func _init(base_stats_: GeneralBaseStats, player_attack_timer: Timer) -> void:
+func _init(base_stats_: GeneralBaseStats) -> void:
 	base_stats = base_stats_
 	if base_stats:
 		load_base_stats()
-	
-	attack_timer = build_attack_timer(player_attack_timer)
 
 func sync() -> void:
 	stats_changed.emit()
 	health_changed.emit(0, max_health)
 	xp_changed.emit()
-
-func build_attack_timer(timer: Timer) -> Timer:
-	timer.wait_time = attack_speed_interval
-	timer.one_shot = true
-	timer.autostart = false
-	timer.timeout.connect(on_attack_cooldown_finished)
-	
-	return timer
-
-func on_attack_cooldown_finished() -> void:
-	pass
-
-func can_attack() -> bool:
-	return attack_timer.is_stopped()
-
-func start_attack_cooldown() -> void:
-	attack_timer.start()
 
 func get_damage_reduction(incoming_damage: int) -> int:
 	return max(incoming_damage - defense, 1)
