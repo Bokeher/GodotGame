@@ -5,11 +5,11 @@ extends Node
 var stage: StageInstance
 var enemy: EnemyInstance
 var player: PlayerInstance
+var combat_controller: CombatController
 var damage_resolver: DamageResolver
 
 @export var enemy_respawn_delay: float = 1.0
 var respawn_timer: Timer
-var player_attack_timer: Timer
 
 signal respawn_progress(value: float, max: float)
 
@@ -22,13 +22,15 @@ signal player_death(player: PlayerInstance)
 func _ready() -> void:
 	var max_stage_reached: StageData = StageDatabase.get_by_id(Global.player.max_stage_reached)
 	
-	player_attack_timer = Timer.new()
-	add_child(player_attack_timer)
-	
 	stage = StageInstance.new(max_stage_reached)
 	enemy = spawn_enemy(stage.get_next_enemy())
-	player = PlayerInstance.new(GeneralBaseStats.new(), player_attack_timer)
+	player = PlayerInstance.new(GeneralBaseStats.new(), null)
+	
 	damage_resolver = DamageResolver.new()
+	
+	combat_controller = CombatController.new()
+	add_child(combat_controller)
+	combat_controller.setup(player, enemy, damage_resolver)
 	
 	respawn_timer = build_respawn_timer()
 
@@ -77,9 +79,14 @@ func spawn_enemy(enemyData: EnemyData) -> EnemyInstance:
 	
 	enemy_.died.connect(_on_enemy_died)
 	
+	if combat_controller != null and damage_resolver != null and player != null:
+		combat_controller.setup(player, enemy, damage_resolver)
+	
 	return enemy_
 
 func _on_enemy_died(dead_enemy: EnemyInstance) -> void:
+	combat_controller.on_unit_died()
+	
 	player.inventory.add_items(dead_enemy.get_dropped_loot())
 	player.add_gold(dead_enemy.enemy_data.gold_reward)
 	player.add_xp(dead_enemy.enemy_data.xp_reward)
@@ -90,4 +97,7 @@ func _on_enemy_died(dead_enemy: EnemyInstance) -> void:
 	enemy_changed.emit(enemy)
 	
 	respawn_timer.start(enemy_respawn_delay)
-	
+
+func _on_player_died(dead_player: PlayerInstance) -> void:
+	combat_controller.on_unit_died()
+	player_death.emit(dead_player)
