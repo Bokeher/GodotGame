@@ -24,7 +24,7 @@ func _ready() -> void:
 	
 	stage = StageInstance.new(max_stage_reached)
 	enemy = spawn_enemy(stage.get_next_enemy())
-	player = PlayerInstance.new(GeneralBaseStats.new(), null)
+	player = PlayerInstance.new(GeneralBaseStats.new())
 	
 	damage_resolver = DamageResolver.new()
 	

@@ -8,8 +8,8 @@ func _ready() -> void:
 	GameManager.sync_enemy()
 
 func on_respawn_progress(value: float, max_value: float) -> void:
-	$ProgressBar.max_value = max_value
-	$ProgressBar.value = value
+	$EnemyRespawnBar.max_value = max_value
+	$EnemyRespawnBar.value = value
 
 func on_enemy_changed(new_enemy: EnemyInstance):
 	if enemy:
@@ -24,7 +24,7 @@ func on_enemy_changed(new_enemy: EnemyInstance):
 		enemy.damaged.connect(on_damaged)
 		enemy.health_changed.connect(on_health_changed)
 	
-	$ProgressBar.visible = (enemy == null)
+	$EnemyRespawnBar.visible = (enemy == null)
 	
 	update_enemy_ui()
 	if enemy == null:
@@ -60,11 +60,6 @@ func _on_enemy_body_pressed() -> void:
 	if enemy == null:
 		return
 	
-	if !GameManager.player.can_attack():
-		return
-	
-	GameManager.combat_manager.deal_damage(
+	GameManager.damage_resolver.deal_damage(
 		GameManager.player, GameManager.enemy
 	)
-	
-	GameManager.player.start_attack_cooldown()
