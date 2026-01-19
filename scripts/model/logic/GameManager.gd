@@ -79,7 +79,7 @@ func spawn_enemy(enemyData: EnemyData) -> EnemyInstance:
 	
 	enemy_.died.connect(_on_enemy_died)
 	
-	if combat_controller != null and damage_resolver != null and player != null:
+	if combat_controller != null and damage_resolver != null and player != null and enemy != null:
 		combat_controller.setup(player, enemy, damage_resolver)
 	
 	return enemy_
