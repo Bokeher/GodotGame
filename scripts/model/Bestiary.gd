@@ -1,8 +1,8 @@
 class_name Bestiary
 
-var enemyEntries: Dictionary = {} # <enemy_id: int, entry: BestiaryEntry>
+var enemyEntries: Dictionary[int, BestiaryEntry] = {} # <enemy_id, entry>
 
-func _init(entries: Dictionary = {}):
+func _init(entries: Dictionary[int, BestiaryEntry] = {}):
 	enemyEntries = entries
 
 func set_entry(enemy_id: int, entry: BestiaryEntry) -> BestiaryEntry:
@@ -19,7 +19,7 @@ func hasItemDroppedFromEnemy(item_id: int, enemy_id: int) -> bool:
 	if bestiary_entry == null:
 		return false
 	
-	var drops: Dictionary = bestiary_entry.items_dropped
+	var drops: Dictionary[int, bool] = bestiary_entry.items_dropped
 	
 	return drops.has(item_id)
 
