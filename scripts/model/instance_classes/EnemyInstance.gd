@@ -11,6 +11,9 @@ func _init(enemy_data_: EnemyData) -> void:
 func sync() -> void:
 	health_changed.emit(0, max_health)
 
+func get_attack_damage() -> int:
+	return enemy_data.damage
+
 func get_damage_reduction(incoming_damage: int) -> int:
 	return max(incoming_damage - enemy_data.defense, 1)
 
