@@ -9,43 +9,63 @@ var target: UnitInstance
 var damage_resolver: DamageResolver
 
 var timer: Timer
-var enabled: bool = false
+var auto_enabled := false
 
 func _ready() -> void:
 	timer = Timer.new()
-	timer.one_shot = false
+	timer.one_shot = true
 	add_child(timer)
-	
-	timer.timeout.connect(on_timeout)
+	timer.timeout.connect(_on_cooldown_finished)
 	update_timer()
 
-func setup(source_: UnitInstance, target_: UnitInstance, damage_resolver_: DamageResolver) -> void:
+func setup(
+	source_: UnitInstance,
+	damage_resolver_: DamageResolver,
+	base_interval_: float = -1.0
+) -> void:
 	source = source_
-	target = target_
 	damage_resolver = damage_resolver_
+	if base_interval_ > 0:
+		base_interval = base_interval_
+	update_timer()
 
-func start() -> void:
-	if !can_attack():
+func try_attack(target_: UnitInstance) -> bool:
+	if not can_attack(target_) or not timer.is_stopped():
+		return false
+	
+	target = target_
+	_execute_attack()
+	return true
+
+func start_auto(target_: UnitInstance) -> void:
+	target = target_
+	if not can_attack(target):
 		return
 	
-	enabled = true
+	auto_enabled = true
+	if timer.is_stopped():
+		_execute_attack()
+
+func stop_auto() -> void:
+	auto_enabled = false
+	timer.stop()
+
+func _execute_attack() -> void:
+	damage_resolver.deal_damage(source, target)
 	timer.start()
 
-func on_timeout() -> void:
-	if !enabled or !can_attack():
-		stop()
-		return
-	
-	damage_resolver.deal_damage(source, target)
+func _on_cooldown_finished() -> void:
+	if auto_enabled and can_attack(target):
+		_execute_attack()
 
 func update_timer() -> void:
 	if timer:
 		timer.wait_time = base_interval / multiplier
 
-func stop() -> void:
-	enabled = false
-	timer.stop()
-
-func can_attack() -> bool:
-	return source != null and target != null and source.health > 0 and target.health > 0
-	
+func can_attack(target_: UnitInstance) -> bool:
+	return (
+		source != null
+		and target_ != null
+		and source.health > 0
+		and target_.health > 0
+	)

@@ -26,16 +26,5 @@ func setup(player_: PlayerInstance, enemy_: EnemyInstance, damage_resolver_) -> 
 	player_attack.base_interval = player.attack_speed_interval
 	enemy_attack.base_interval = enemy.enemy_data.attack_interval
 	
-	player_attack.setup(player, enemy, damage_resolver)
-	enemy_attack.setup(enemy, player, damage_resolver)
-
-func start_combat() -> void:
-	player_attack.start()
-	enemy_attack.start()
-
-func stop_combat() -> void:
-	player_attack.stop()
-	enemy_attack.stop()
-
-func on_unit_died() -> void:
-	stop_combat()
+	player_attack.setup(player, damage_resolver)
+	enemy_attack.setup(enemy, damage_resolver)
