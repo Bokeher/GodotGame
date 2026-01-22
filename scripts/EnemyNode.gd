@@ -60,6 +60,5 @@ func _on_enemy_body_pressed() -> void:
 	if enemy == null:
 		return
 	
-	GameManager.damage_resolver.deal_damage(
-		GameManager.player, GameManager.enemy
-	)
+	GameManager.combat_controller.player_attack.try_attack(enemy)
+	GameManager.combat_controller.enemy_attack.start_auto(GameManager.player)
