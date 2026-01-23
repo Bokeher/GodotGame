@@ -30,9 +30,10 @@ func _ready() -> void:
 	
 	combat_controller = CombatController.new()
 	add_child(combat_controller)
-	combat_controller.setup(player, enemy, damage_resolver)
 	
 	respawn_timer = build_respawn_timer()
+	
+	setup_combat()
 
 func _process(_delta: float) -> void:
 	if respawn_timer.is_stopped():
@@ -53,6 +54,7 @@ func build_respawn_timer() -> Timer:
 func _on_respawn_timeout() -> void:
 	enemy = spawn_enemy(stage.get_next_enemy())
 	enemy_changed.emit(enemy)
+	setup_combat()
 
 func sync_stage() -> void:
 	stage_changed.emit(stage)
@@ -71,16 +73,24 @@ func change_stage(stage_id: int) -> void:
 	stage = StageInstance.new(StageDatabase.get_by_id(stage_id))
 	enemy = spawn_enemy(stage.get_next_enemy())
 	
+	if combat_controller != null and damage_resolver != null and player != null:
+		combat_controller.setup(player, enemy, damage_resolver)
+	
 	stage_changed.emit(stage)
 	enemy_changed.emit(enemy)
+	
+	setup_combat()
+
+func setup_combat():
+	if combat_controller == null or player == null or enemy == null:
+		return
+	
+	combat_controller.setup(player, enemy, damage_resolver)
 
 func spawn_enemy(enemyData: EnemyData) -> EnemyInstance:
 	var enemy_ := EnemyInstance.new(enemyData)
 	
 	enemy_.died.connect(_on_enemy_died)
-	
-	if combat_controller != null and damage_resolver != null and player != null and enemy != null:
-		combat_controller.setup(player, enemy, damage_resolver)
 	
 	return enemy_
 
