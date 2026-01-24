@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ops8w8ltn4i7"]
+[gd_scene load_steps=40 format=3 uid="uid://ops8w8ltn4i7"]
 
 [ext_resource type="Script" uid="uid://dts8grg0rnss1" path="res://scripts/StageNode.gd" id="1_5grtr"]
 [ext_resource type="Script" uid="uid://mbs38r6rpuxf" path="res://scripts/PlayerNode.gd" id="3_8cp6k"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://ctdpc5l7if2ln" path="res://scripts/sounds/ReceiveDamageSound.gd" id="12_imtb5"]
 [ext_resource type="Script" uid="uid://ti3c0en16wqo" path="res://scripts/sounds/HitEnemySound.gd" id="12_xw6xw"]
 [ext_resource type="PackedScene" uid="uid://6tj5xq667lxc" path="res://scenes/StatsTab.tscn" id="14_664kw"]
-[ext_resource type="Script" uid="uid://bc86yxsmnufr5" path="res://scripts/ui/ActionButton.gd" id="14_nqjfl"]
 [ext_resource type="Theme" uid="uid://dsrp5vijk0d8j" path="res://assets/themes/TabHeaderLabel.tres" id="18_m8vt2"]
 [ext_resource type="Script" uid="uid://bphf88vlpfc32" path="res://scripts/ui/MainTabContainer.gd" id="18_wedra"]
 [ext_resource type="Script" uid="uid://byvey1fbdvtta" path="res://scripts/upgrades/UpgradeContainer.gd" id="19_w4tlj"]
@@ -233,14 +232,6 @@ volume_db = -30.0
 pitch_scale = 4.0
 max_polyphony = 99999
 script = ExtResource("12_xw6xw")
-
-[node name="ActionButton" type="Button" parent="."]
-offset_left = 75.0
-offset_top = 345.0
-offset_right = 201.0
-offset_bottom = 403.0
-text = "Searching"
-script = ExtResource("14_nqjfl")
 
 [node name="MainTabContainer" type="TabContainer" parent="."]
 offset_left = 580.0
