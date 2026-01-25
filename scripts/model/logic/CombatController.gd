@@ -8,6 +8,10 @@ var player: PlayerInstance
 var enemy: EnemyInstance
 var damage_resolver: DamageResolver
 
+signal combat_started
+signal combat_ended
+var in_combat: bool = false
+
 var player_attack: AttackController
 var enemy_attack: AttackController
 
@@ -17,6 +21,32 @@ func _ready() -> void:
 	
 	enemy_attack = AttackController.new()
 	add_child(enemy_attack)
+
+func start_combat() -> void:
+	if in_combat:
+		return
+	
+	in_combat = true
+	combat_started.emit()
+	
+	enemy_attack.start_auto(player)
+
+func end_combat() -> void:
+	if not in_combat:
+		return
+	
+	in_combat = false
+	combat_ended.emit()
+	
+	enemy_attack.stop_auto()
+
+func force_reset() -> void:
+	in_combat = false
+	
+	enemy_attack.stop_auto()
+	
+	player_attack.target = null
+	enemy_attack.target = null
 
 func setup(player_: PlayerInstance, enemy_: EnemyInstance, damage_resolver_) -> void:
 	player = player_

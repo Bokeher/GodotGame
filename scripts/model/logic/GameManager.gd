@@ -85,6 +85,7 @@ func setup_combat():
 	if combat_controller == null or player == null or enemy == null:
 		return
 	
+	combat_controller.force_reset()
 	combat_controller.setup(player, enemy, damage_resolver)
 
 func spawn_enemy(enemyData: EnemyData) -> EnemyInstance:
@@ -95,6 +96,8 @@ func spawn_enemy(enemyData: EnemyData) -> EnemyInstance:
 	return enemy_
 
 func _on_enemy_died(dead_enemy: EnemyInstance) -> void:
+	combat_controller.end_combat()
+	
 	player.inventory.add_items(dead_enemy.get_dropped_loot())
 	player.add_gold(dead_enemy.enemy_data.gold_reward)
 	player.add_xp(dead_enemy.enemy_data.xp_reward)
