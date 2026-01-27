@@ -63,14 +63,23 @@ func sync_enemy() -> void:
 	enemy_changed.emit(enemy)
 	enemy.sync()
 
+func change_to_next_stage() -> void:
+	change_stage(stage.stage_data.id + 1)
+
+func change_to_prev_stage() -> void:
+	change_stage(stage.stage_data.id - 1)
+
 func change_stage(stage_id: int) -> void:
 	if stage.stage_data.id == stage_id:
 		return
 	
-	if enemy:
-		enemy.queue_free()
+	var new_stage: StageData = StageDatabase.get_by_id(stage_id)
 	
-	stage = StageInstance.new(StageDatabase.get_by_id(stage_id))
+	if new_stage == null:
+		print("New stage is null")
+		return
+	
+	stage = StageInstance.new(new_stage)
 	enemy = spawn_enemy(stage.get_next_enemy())
 	
 	if combat_controller != null and damage_resolver != null and player != null:
