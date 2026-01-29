@@ -29,6 +29,7 @@ func start_combat() -> void:
 	in_combat = true
 	combat_started.emit()
 	
+	GameManager.regen_timer.stop()
 	enemy_attack.start_auto(player)
 
 func end_combat() -> void:
@@ -38,6 +39,7 @@ func end_combat() -> void:
 	in_combat = false
 	combat_ended.emit()
 	
+	GameManager.regen_timer.start(GameManager.regen_proc_delay)
 	enemy_attack.stop_auto()
 
 func force_reset() -> void:

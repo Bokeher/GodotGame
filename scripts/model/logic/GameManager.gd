@@ -11,6 +11,9 @@ var damage_resolver: DamageResolver
 @export var enemy_respawn_delay: float = 1.0
 var respawn_timer: Timer
 
+@export var regen_proc_delay: float = 1.0
+var regen_timer: Timer
+
 signal respawn_progress(value: float, max: float)
 
 signal stage_changed(stage: StageInstance)
@@ -32,6 +35,7 @@ func _ready() -> void:
 	add_child(combat_controller)
 	
 	respawn_timer = build_respawn_timer()
+	regen_timer = build_regen_timer()
 	
 	setup_combat()
 
@@ -43,6 +47,17 @@ func _process(_delta: float) -> void:
 		respawn_timer.wait_time - respawn_timer.time_left,
 		respawn_timer.wait_time
 	)
+
+func build_regen_timer() -> Timer:
+	var timer = Timer.new()
+	timer.one_shot = false
+	timer.timeout.connect(_on_regen_timeout)
+	add_child(timer)
+	return timer
+
+func _on_regen_timeout() -> void:
+	player.heal_damage(player.health_regen)
+	print(player.health_regen)
 
 func build_respawn_timer() -> Timer:
 	var timer = Timer.new()
