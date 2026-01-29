@@ -6,6 +6,7 @@ class_name UnitInstance
 
 signal health_changed(old_value: int, new_value: int)
 signal damaged(amount: int)
+signal healed(amount: int)
 signal died(instance: UnitInstance)
 
 func receive_damage(amount: int) -> void:
@@ -21,6 +22,17 @@ func receive_damage(amount: int) -> void:
 	
 	if health == 0:
 		died.emit(self)
+
+func heal_damage(amount: int) -> void:
+	if amount <= 0 or health <= 0:
+		return
+	
+	var old_health := health
+	health = min(health + amount, max_health)
+	
+	if health > old_health:
+		healed.emit(health - old_health)
+		health_changed.emit(old_health, health)
 
 func get_damage_reduction(_incoming_damage: int) -> int:
 	return 0
