@@ -56,8 +56,7 @@ func build_regen_timer() -> Timer:
 	return timer
 
 func _on_regen_timeout() -> void:
-	player.heal_damage(player.health_regen)
-	print(player.health_regen)
+	player.heal_damage(int(player.health_regen))
 
 func build_respawn_timer() -> Timer:
 	var timer = Timer.new()
