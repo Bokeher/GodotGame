@@ -8,7 +8,13 @@ func _ready() -> void:
 	player.health_changed.connect(on_health_changed)
 	player.damaged.connect(on_damaged)
 	
+	GameManager.combat_controller.player_attack.attack_cooldown_progress.connect(_update_player_cooldown_bar)
+	
 	player.sync()
+
+func _update_player_cooldown_bar(value_: float, max: float) -> void:
+	$PlayerAttackCooldown.max_value = max
+	$PlayerAttackCooldown.value = value_
 
 func on_damaged(_amount: int) -> void:
 	$ReceiveDamageSound.play()

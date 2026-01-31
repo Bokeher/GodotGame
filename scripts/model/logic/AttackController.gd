@@ -7,6 +7,7 @@ var multiplier: float = 1.0
 var source: UnitInstance
 var target: UnitInstance
 var damage_resolver: DamageResolver
+signal attack_cooldown_progress(value: float, max: float)
 
 var timer: Timer
 var auto_enabled := false
@@ -17,6 +18,12 @@ func _ready() -> void:
 	add_child(timer)
 	timer.timeout.connect(_on_cooldown_finished)
 	update_timer()
+
+func _process(delta: float) -> void:
+	if timer.is_stopped():
+		return
+	
+	attack_cooldown_progress.emit(timer.wait_time - timer.time_left, timer.wait_time)
 
 func setup(
 	source_: UnitInstance,
