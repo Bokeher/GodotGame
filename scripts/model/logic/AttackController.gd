@@ -64,6 +64,8 @@ func _execute_attack() -> void:
 func _on_cooldown_finished() -> void:
 	if auto_enabled and can_attack(target):
 		_execute_attack()
+	
+	attack_cooldown_progress.emit(timer.wait_time - timer.time_left, timer.wait_time)
 
 func update_timer() -> void:
 	if timer:
