@@ -19,7 +19,7 @@ func _ready() -> void:
 	timer.timeout.connect(_on_cooldown_finished)
 	update_timer()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if timer.is_stopped():
 		return
 	

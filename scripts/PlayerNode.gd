@@ -12,8 +12,8 @@ func _ready() -> void:
 	
 	player.sync()
 
-func _update_player_cooldown_bar(value_: float, max: float) -> void:
-	$PlayerAttackCooldown.max_value = max
+func _update_player_cooldown_bar(value_: float, max_: float) -> void:
+	$PlayerAttackCooldown.max_value = max_
 	$PlayerAttackCooldown.value = value_
 
 func on_damaged(_amount: int) -> void:
