@@ -25,6 +25,7 @@ func on_enemy_changed(new_enemy: EnemyInstance):
 		enemy.health_changed.connect(on_health_changed)
 	
 	$EnemyRespawnBar.visible = (enemy == null)
+	$HealthBar.visible = (enemy != null)
 	
 	update_enemy_ui()
 	if enemy == null:

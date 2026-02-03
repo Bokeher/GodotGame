@@ -94,10 +94,10 @@ func change_stage(stage_id: int) -> void:
 		return
 	
 	stage = StageInstance.new(new_stage)
-	enemy = spawn_enemy(stage.get_next_enemy())
+	enemy = null
+	respawn_timer.start(enemy_respawn_delay)
 	
-	if combat_controller != null and damage_resolver != null and player != null:
-		combat_controller.setup(player, enemy, damage_resolver)
+	combat_controller.end_combat()
 	
 	stage_changed.emit(stage)
 	enemy_changed.emit(enemy)
