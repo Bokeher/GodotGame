@@ -1,12 +1,18 @@
 extends Resource
 class_name Inventory
 
+signal item_added(item_data: ItemData, delta: int, total: int)
+signal item_removed(item_data: ItemData, delta: int, total: int)
+signal inventory_changed
+
 # <id, amount>
 var items: Dictionary[int, int] = {}
 var equipment: Equipment = Equipment.new()
 
 func add_item(itemData: ItemData) -> void:
 	items[itemData.id] = items.get(itemData.id, 0) + 1
+	item_added.emit(itemData, items[itemData.id])
+	inventory_changed.emit()
 
 func add_items(items_: Array[ItemData]) -> void:
 	for item in items_:
@@ -26,3 +32,5 @@ func remove_item(itemData: ItemData) -> void:
 	if items[itemData.id] == 0:
 		items.erase(itemData.id)
 	
+	item_removed.emit(itemData, items[itemData.id])
+	inventory_changed.emit()
