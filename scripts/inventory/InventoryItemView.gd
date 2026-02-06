@@ -15,4 +15,8 @@ func setup(item_: ItemData, count_: int) -> void:
 	$SlotTexture.texture_normal = item.texture
 	$Count.visible = count > 1
 	$Count.text = str(count)
-	
+
+func update_count(count_: int) -> void:
+	count = count_
+	$Count.visible = count > 1
+	$Count.text = str(count)

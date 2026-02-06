@@ -11,7 +11,7 @@ var equipment: Equipment = Equipment.new()
 
 func add_item(itemData: ItemData) -> void:
 	items[itemData.id] = items.get(itemData.id, 0) + 1
-	item_added.emit(itemData, items[itemData.id])
+	item_added.emit(itemData, 1, items[itemData.id])
 	inventory_changed.emit()
 
 func add_items(items_: Array[ItemData]) -> void:

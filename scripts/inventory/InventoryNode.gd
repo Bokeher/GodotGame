@@ -4,10 +4,31 @@ extends Control
 const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
 
 func _ready() -> void:
-	inventory.inventory_changed.connect(_on_inventory_changed)
+	inventory.item_added.connect(_on_item_added)
+	inventory.item_removed.connect(_on_item_removed)
 	_build_inventory_ui()
 
-func _on_inventory_changed() -> void:
+func _on_item_added(item_data: ItemData, _delta: int, total: int) -> void:
+	_update_item_view(item_data, total)
+
+func _on_item_removed(item_data: ItemData, _delta: int, total: int) -> void:
+	_update_item_view(item_data, total)
+
+func _update_item_view(item_data: ItemData, total: int) -> void:
+	for inventory_item_view: InventoryItemView in $ItemContainer.get_children():
+		if inventory_item_view.item.id == item_data.id:
+			if total <= 0:
+				inventory_item_view.queue_free()
+			else:
+				inventory_item_view.update_count(total)
+			
+			return
+	
+	if total > 0:
+		_create_inventory_slot(item_data, total)
+		return
+	
+	print("INFO | Item not found => rebuilding entire inventory")
 	_build_inventory_ui()
 
 func _build_inventory_ui() -> void:
@@ -22,7 +43,7 @@ func _build_inventory_ui() -> void:
 		_create_inventory_slot(item, count)
 
 func _clear_ui() -> void:
-	for inventory_item_view in $ItemContainer.get_children():
+	for inventory_item_view: InventoryItemView in $ItemContainer.get_children():
 		$ItemContainer.remove_child(inventory_item_view)
 
 func _create_inventory_slot(item: ItemData, count: int) -> void:
