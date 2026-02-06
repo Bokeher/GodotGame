@@ -13,7 +13,7 @@ func _on_inventory_changed() -> void:
 func _build_inventory_ui() -> void:
 	_clear_ui()
 	
-	for item_id: int in inventory.items:
+	for item_id: int in inventory.get_sorted():
 		var count = inventory.items[item_id]
 		if count <= 0:
 			continue

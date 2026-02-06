@@ -34,3 +34,13 @@ func remove_item(itemData: ItemData) -> void:
 	
 	item_removed.emit(itemData, items[itemData.id])
 	inventory_changed.emit()
+
+func get_sorted() -> Dictionary[int, int]:
+	var sorted_dict: Dictionary[int, int] = {}
+	var keys: Array[int] = items.keys()
+	keys.sort()
+	
+	for key: int in keys:
+		sorted_dict[key] = items[key]
+	
+	return sorted_dict
