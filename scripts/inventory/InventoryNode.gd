@@ -59,4 +59,23 @@ func _create_inventory_slot(item: ItemData, count: int) -> void:
 	inventory_item_view.setup(item, count)
 	
 	item_views[item.id] = inventory_item_view
+	
+	var index: int = _find_insert_index_binary(item.id)
 	$ItemContainer.add_child(inventory_item_view)
+	$ItemContainer.move_child(inventory_item_view, index)
+
+func _find_insert_index_binary(new_id: int) -> int:
+	var container: HBoxContainer = $ItemContainer
+	var left: int = 0
+	var right: int = container.get_child_count()
+	
+	while left < right:
+		var mid: int = (left + right) / 2
+		var mid_view: InventoryItemView = container.get_child(mid)
+		
+		if mid_view.item.id < new_id:
+			left = mid + 1
+		else:
+			right = mid
+	
+	return left
