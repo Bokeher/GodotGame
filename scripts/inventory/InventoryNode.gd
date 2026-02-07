@@ -3,6 +3,8 @@ extends Control
 @onready var inventory: Inventory = GameManager.player.inventory
 const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
 
+var item_views: Dictionary[int, InventoryItemView] = {}
+
 func _ready() -> void:
 	inventory.item_added.connect(_on_item_added)
 	inventory.item_removed.connect(_on_item_removed)
@@ -15,14 +17,18 @@ func _on_item_removed(item_data: ItemData, _delta: int, total: int) -> void:
 	_update_item_view(item_data, total)
 
 func _update_item_view(item_data: ItemData, total: int) -> void:
-	for inventory_item_view: InventoryItemView in $ItemContainer.get_children():
-		if inventory_item_view.item.id == item_data.id:
-			if total <= 0:
-				inventory_item_view.queue_free()
-			else:
-				inventory_item_view.update_count(total)
-			
-			return
+	var id = item_data.id
+	
+	if item_views.has(id):
+		var item_view = item_views[id]
+		
+		if total <= 0:
+			item_view.queue_free()
+			item_views.erase(id)
+		else:
+			item_view.update_count(total)
+		
+		return
 	
 	if total > 0:
 		_create_inventory_slot(item_data, total)
@@ -43,11 +49,14 @@ func _build_inventory_ui() -> void:
 		_create_inventory_slot(item, count)
 
 func _clear_ui() -> void:
-	for inventory_item_view: InventoryItemView in $ItemContainer.get_children():
-		$ItemContainer.remove_child(inventory_item_view)
+	for item_view: InventoryItemView in item_views.values():
+		item_view.queue_free()
+	
+	item_views = {}
 
 func _create_inventory_slot(item: ItemData, count: int) -> void:
 	var inventory_item_view: InventoryItemView = inventory_item_scene.instantiate()
 	inventory_item_view.setup(item, count)
 	
+	item_views[item.id] = inventory_item_view
 	$ItemContainer.add_child(inventory_item_view)
