@@ -70,7 +70,7 @@ func _find_insert_index_binary(new_id: int) -> int:
 	var right: int = container.get_child_count()
 	
 	while left < right:
-		var mid: int = (left + right) / 2
+		var mid: int = floor(float(left + right) / 2)
 		var mid_view: InventoryItemView = container.get_child(mid)
 		
 		if mid_view.item.id < new_id:
