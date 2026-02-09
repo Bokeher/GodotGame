@@ -11,13 +11,24 @@ enum EquipmentSlotId {
 	CHEST
 }
 
-var slots: Dictionary[EquipmentSlotId, ItemData] = {
+var _slots: Dictionary[EquipmentSlotId, ItemData] = {
 	EquipmentSlotId.RING1: null,
+	EquipmentSlotId.RING2: null,
 	EquipmentSlotId.CHEST: null
 }
 
-func equip_item(item: ItemData):
-	slots[item.type] = item
+func get_item(slot: EquipmentSlotId) -> ItemData:
+	return _slots.get(slot)
 
-func unequip_item(type: EquipmentSlotId):
-	slots[type] = null
+func equip_item(slot: EquipmentSlotId, item: ItemData) -> void:
+	if _slots[slot] == item:
+		return 
+	
+	_slots[slot] = item
+	item_equipped.emit(slot, item)
+	equipment_changed.emit(slot)
+
+func unequip_item(slot: EquipmentSlotId) -> void:
+	_slots[slot] = null
+	item_unequipped.emit(slot)
+	equipment_changed.emit(slot)
