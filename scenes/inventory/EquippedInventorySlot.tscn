@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw05nt0shkixx"]
 
-[ext_resource type="Script" uid="uid://byu1gk2k5p2ak" path="res://scripts/inventory/EquippedInventorySlot.gd" id="1_ho61k"]
+[ext_resource type="Script" uid="uid://cikarsnjc16s" path="res://scripts/inventory/EquipmentSlot.gd" id="1_02ahe"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_02ahe"]
 load_path = "res://.godot/imported/artifact_slot.png-0062c40695d8c4060d0c32f6c3c26686.ctex"
@@ -15,7 +15,7 @@ offset_right = -1080.0
 offset_bottom = -576.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ho61k")
+script = ExtResource("1_02ahe")
 metadata/id = -1
 metadata/slot_type = -1
 metadata/selected_item_id = -1
