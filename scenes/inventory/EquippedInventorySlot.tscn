@@ -43,6 +43,4 @@ offset_bottom = 72.0
 texture_normal = SubResource("CompressedTexture2D_02ahe")
 stretch_mode = 3
 
-[connection signal="mouse_entered" from="SlotTexture" to="." method="_on_slot_texture_mouse_entered"]
-[connection signal="mouse_exited" from="SlotTexture" to="." method="_on_slot_texture_mouse_exited"]
 [connection signal="pressed" from="SlotTexture" to="." method="_on_slot_texture_pressed"]

@@ -3,6 +3,7 @@ extends Control
 @onready var inventory: Inventory = GameManager.player.inventory
 const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
 
+var selected_slot: Equipment.EquipmentSlotId
 var item_views: Dictionary[int, InventoryItemView] = {}
 
 func _ready() -> void:
@@ -79,3 +80,6 @@ func _find_insert_index_binary(new_id: int) -> int:
 			right = mid
 	
 	return left
+
+func select_equipment_slot(slot_id: Equipment.EquipmentSlotId) -> void:
+	selected_slot = slot_id

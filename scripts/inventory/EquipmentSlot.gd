@@ -5,7 +5,7 @@ class_name EquipmentSlot
 @export var equipment_slot_id: Equipment.EquipmentSlotId
 var is_selected: bool
 
-signal pressed(item: Equipment.EquipmentSlotId)
+signal pressed(equipment_slot_id: Equipment.EquipmentSlotId)
 
 func setup(slot_id: Equipment.EquipmentSlotId, is_selected_ = false) -> void:
 	equipment_slot_id = slot_id
@@ -23,3 +23,6 @@ func _on_equipment_change(slot_id: Equipment.EquipmentSlotId) -> void:
 
 func update_ui() -> void:
 	$SlotTexture.texture_normal = item.texture
+
+func _on_slot_texture_pressed() -> void:
+	pressed.emit(equipment_slot_id)
