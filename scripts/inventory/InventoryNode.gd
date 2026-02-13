@@ -2,6 +2,7 @@ extends Control
 
 @onready var inventory: Inventory = GameManager.player.inventory
 const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
+const equipment_scene = preload("res://scenes/inventory/EquippedInventorySlot.tscn")
 
 var selected_slot: Equipment.EquipmentSlotId
 var item_views: Dictionary[int, InventoryItemView] = {}
@@ -10,6 +11,13 @@ func _ready() -> void:
 	inventory.item_added.connect(_on_item_added)
 	inventory.item_removed.connect(_on_item_removed)
 	_build_inventory_ui()
+	_build_equipment_ui()
+
+func _build_equipment_ui() -> void:
+	for slot_id in inventory.equipment.get_slots():
+		var scene: EquipmentSlot = equipment_scene.instantiate()
+		scene.setup(slot_id)
+		$EquipSlots.add_child(scene)
 
 func _on_item_added(item_data: ItemData, _delta: int, total: int) -> void:
 	_update_item_view(item_data, total)

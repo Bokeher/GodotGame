@@ -32,3 +32,6 @@ func unequip_item(slot: EquipmentSlotId) -> void:
 	_slots[slot] = null
 	item_unequipped.emit(slot)
 	equipment_changed.emit(slot)
+
+func get_slots() -> Dictionary[EquipmentSlotId, ItemData]:
+	return _slots
