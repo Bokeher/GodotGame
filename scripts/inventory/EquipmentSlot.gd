@@ -12,6 +12,8 @@ func setup(slot_id: Equipment.EquipmentSlotId, is_selected_ = false) -> void:
 	is_selected = is_selected_
 	
 	GameManager.player.inventory.equipment.equipment_changed.connect(_on_equipment_change)
+	
+	update_ui()
 
 func _on_equipment_change(slot_id: Equipment.EquipmentSlotId) -> void:
 	if slot_id != equipment_slot_id:
@@ -22,6 +24,10 @@ func _on_equipment_change(slot_id: Equipment.EquipmentSlotId) -> void:
 	update_ui()
 
 func update_ui() -> void:
+	if item == null:
+		$SlotTexture.texture_normal = load(Enums.get_inventory_type_texture(equipment_slot_id))
+		return
+	
 	$SlotTexture.texture_normal = item.texture
 
 func _on_slot_texture_pressed() -> void:
