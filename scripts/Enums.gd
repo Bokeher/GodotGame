@@ -90,7 +90,7 @@ const ColorsHex := {
 	"SKILL_DESCRIPTION_SUB": "#D1B200"
 }
 
-const UNKNOWN_PNG_PATH: String = "res://assets/sprites/classes/unknown.png"
+const UNKNOWN_PNG_PATH: String = "res://assets/sprites/unknown.png"
 
 # Dir paths
 const CLASS_TEXTURES_DIR_PATH: String = "res://assets/sprites/classes/"
