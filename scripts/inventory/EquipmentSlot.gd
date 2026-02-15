@@ -25,7 +25,7 @@ func _on_equipment_change(slot_id: Equipment.EquipmentSlotId) -> void:
 
 func update_ui() -> void:
 	if item == null:
-		$SlotTexture.texture_normal = load(Enums.get_inventory_type_texture(equipment_slot_id))
+		$SlotTexture.texture_normal = load(Enums.get_equipment_slot_id_texture(equipment_slot_id))
 		return
 	
 	$SlotTexture.texture_normal = item.texture

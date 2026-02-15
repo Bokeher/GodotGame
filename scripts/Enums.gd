@@ -94,7 +94,7 @@ const UNKNOWN_PNG_PATH: String = "res://assets/sprites/unknown.png"
 
 # Dir paths
 const CLASS_TEXTURES_DIR_PATH: String = "res://assets/sprites/classes/"
-const INVENTORY_TEXTURES_DIR_PATH: String = "res://assets/sprites/items/slots/"
+const EQUIPMENT_SLOT_ID_TEXTURES_DIR_PATH: String = "res://assets/sprites/items/slots/"
 const CLASSES_DIR_PATH: String = "res://assets/jsons/classes/"
 
 const CLASS_TEXTURES := {
@@ -104,9 +104,10 @@ const CLASS_TEXTURES := {
 	Classes.KENSEI: CLASS_TEXTURES_DIR_PATH + "kensei.png"
 }
 
-const INVENTORY_TEXTURES := {
-	InventoryType.ARTIFACT: INVENTORY_TEXTURES_DIR_PATH + "artifact_slot.png",
-	InventoryType.CHEST: INVENTORY_TEXTURES_DIR_PATH + "chest_slot.png"
+const EQUIPMENT_SLOT_ID_TEXTURES := {
+	Equipment.EquipmentSlotId.RING1: EQUIPMENT_SLOT_ID_TEXTURES_DIR_PATH + "artifact_slot.png",
+	Equipment.EquipmentSlotId.RING2: EQUIPMENT_SLOT_ID_TEXTURES_DIR_PATH + "artifact_slot.png",
+	Equipment.EquipmentSlotId.CHEST: EQUIPMENT_SLOT_ID_TEXTURES_DIR_PATH + "chest_slot.png"
 }
 
 const CLASS_JSON_PATH := {
@@ -119,8 +120,8 @@ const CLASS_JSON_PATH := {
 func get_class_json_path(class_type: int) -> String:
 	return CLASS_JSON_PATH.get(class_type, null)
 
-func get_inventory_type_texture(slot_type: int) -> String:
-	return INVENTORY_TEXTURES.get(slot_type, UNKNOWN_PNG_PATH)
+func get_equipment_slot_id_texture(equipment_slot_id: Equipment.EquipmentSlotId) -> String:
+	return EQUIPMENT_SLOT_ID_TEXTURES.get(equipment_slot_id, UNKNOWN_PNG_PATH)
 
 func get_class_texture(class_type: int) -> String:
 	return CLASS_TEXTURES.get(class_type, UNKNOWN_PNG_PATH)
