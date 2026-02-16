@@ -35,11 +35,12 @@ func update_skill_points() -> void:
 		
 		for id in skill.requirement_ids:
 			var req_skill := Global.skills[id - 1]
-			var middle_offset := Vector2(34, 34)
+			var bottom_point_offset := Vector2(34, 0)
+			var top_point_offset := Vector2(34, 34)
 			
 			var line := Line2D.new()
-			line.add_point(new_skillNode.position + middle_offset)
-			line.add_point(get_vector_from_grid_position(req_skill.grid_position) + middle_offset)
+			line.add_point(new_skillNode.position + bottom_point_offset)
+			line.add_point(get_vector_from_grid_position(req_skill.grid_position) + top_point_offset)
 			line.width = 2
 			
 			skillTreePanel.add_child(line)
