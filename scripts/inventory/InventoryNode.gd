@@ -17,7 +17,11 @@ func _build_equipment_ui() -> void:
 	for slot_id in inventory.equipment.get_slots():
 		var scene: EquipmentSlot = equipment_scene.instantiate()
 		scene.setup(slot_id)
+		scene.pressed.connect(on_equiment_slot_selected)
 		$EquipSlots.add_child(scene)
+
+func on_equiment_slot_selected(slot_id: Equipment.EquipmentSlotId) -> void:
+	selected_slot = slot_id
 
 func _on_item_added(item_data: ItemData, _delta: int, total: int) -> void:
 	_update_item_view(item_data, total)
