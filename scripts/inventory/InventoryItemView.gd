@@ -20,3 +20,6 @@ func update_count(count_: int) -> void:
 	count = count_
 	$Count.visible = count > 1
 	$Count.text = str(count)
+
+func _on_slot_texture_pressed() -> void:
+	pressed.emit(item)

@@ -67,10 +67,14 @@ func _clear_ui() -> void:
 	
 	item_views = {}
 
+func on_item_pressed(item: ItemData) -> void:
+	if Equipment.slot_accepts_item(selected_slot, item.type):
+		inventory.equipment.equip_item(selected_slot, item)
+
 func _create_inventory_slot(item: ItemData, count: int) -> void:
 	var inventory_item_view: InventoryItemView = inventory_item_scene.instantiate()
 	inventory_item_view.setup(item, count)
-	
+	inventory_item_view.pressed.connect(on_item_pressed)
 	item_views[item.id] = inventory_item_view
 	
 	var index: int = _find_insert_index_binary(item.id)
