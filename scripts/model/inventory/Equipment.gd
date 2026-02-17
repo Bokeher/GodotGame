@@ -35,3 +35,11 @@ func unequip_item(slot: EquipmentSlotId) -> void:
 
 func get_slots() -> Dictionary[EquipmentSlotId, ItemData]:
 	return _slots
+
+static func slot_accepts_item(slot: EquipmentSlotId, item_type: ItemData.ItemType) -> bool:
+	match slot:
+		EquipmentSlotId.RING1, EquipmentSlotId.RING2:
+			return item_type == ItemData.ItemType.RING
+		EquipmentSlotId.CHEST:
+			return item_type == ItemData.ItemType.CHEST
+	return false
