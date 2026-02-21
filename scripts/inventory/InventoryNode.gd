@@ -7,6 +7,8 @@ const equipment_scene = preload("res://scenes/inventory/EquippedInventorySlot.ts
 var selected_slot: Equipment.EquipmentSlotId
 var item_views: Dictionary[int, InventoryItemView] = {}
 
+signal selected_slot_changed(slot: Equipment.EquipmentSlotId)
+
 func _ready() -> void:
 	inventory.item_added.connect(_on_item_added)
 	inventory.item_removed.connect(_on_item_removed)
@@ -16,12 +18,13 @@ func _ready() -> void:
 func _build_equipment_ui() -> void:
 	for slot_id in inventory.equipment.get_slots():
 		var scene: EquipmentSlot = equipment_scene.instantiate()
-		scene.setup(slot_id)
+		scene.setup(slot_id, selected_slot_changed)
 		scene.pressed.connect(on_equiment_slot_selected)
 		$EquipSlots.add_child(scene)
 
 func on_equiment_slot_selected(slot_id: Equipment.EquipmentSlotId) -> void:
 	selected_slot = slot_id
+	selected_slot_changed.emit(selected_slot)
 
 func _on_item_added(item_data: ItemData, _delta: int, total: int) -> void:
 	_update_item_view(item_data, total)

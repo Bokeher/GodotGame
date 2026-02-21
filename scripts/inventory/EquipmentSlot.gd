@@ -7,11 +7,16 @@ var is_selected: bool
 
 signal pressed(equipment_slot_id: Equipment.EquipmentSlotId)
 
-func setup(slot_id: Equipment.EquipmentSlotId, is_selected_ = false) -> void:
+func setup(slot_id: Equipment.EquipmentSlotId, selected_slot_changed_signal: Signal, is_selected_ = false) -> void:
 	equipment_slot_id = slot_id
 	is_selected = is_selected_
-	
+	selected_slot_changed_signal.connect(on_selected_slot_changed)
 	GameManager.player.inventory.equipment.equipment_changed.connect(_on_equipment_change)
+	
+	update_ui()
+
+func on_selected_slot_changed(slot_id: Equipment.EquipmentSlotId)  -> void:
+	is_selected = slot_id == equipment_slot_id
 	
 	update_ui()
 
@@ -27,6 +32,13 @@ func update_ui() -> void:
 	if item == null:
 		$SlotTexture.texture_normal = load(Enums.get_equipment_slot_id_texture(equipment_slot_id))
 		return
+	
+	if is_selected:
+		$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
+		$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
+	else:
+		$Border.color = Enums.Colors["BORDER_UNFOCUS_HOVER"]
+		$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
 	
 	$SlotTexture.texture_normal = item.texture
 
