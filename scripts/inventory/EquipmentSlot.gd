@@ -29,16 +29,16 @@ func _on_equipment_change(slot_id: Equipment.EquipmentSlotId) -> void:
 	update_ui()
 
 func update_ui() -> void:
-	if item == null:
-		$SlotTexture.texture_normal = load(Enums.get_equipment_slot_id_texture(equipment_slot_id))
-		return
-	
 	if is_selected:
 		$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
 		$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
 	else:
 		$Border.color = Enums.Colors["BORDER_UNFOCUS_HOVER"]
 		$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
+	
+	if item == null:
+		$SlotTexture.texture_normal = load(Enums.get_equipment_slot_id_texture(equipment_slot_id))
+		return
 	
 	$SlotTexture.texture_normal = item.texture
 
