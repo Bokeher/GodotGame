@@ -30,10 +30,8 @@ func _on_equipment_change(slot_id: Equipment.EquipmentSlotId) -> void:
 
 func update_ui() -> void:
 	if is_selected:
-		$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
 		$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
 	else:
-		$Border.color = Enums.Colors["BORDER_UNFOCUS_HOVER"]
 		$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
 	
 	if item == null:
