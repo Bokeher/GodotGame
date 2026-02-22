@@ -24,6 +24,7 @@ metadata/selected_item_id = -1
 layout_mode = 0
 offset_right = 72.0
 offset_bottom = 72.0
+mouse_filter = 1
 color = Color(0.235294, 0.235294, 0.235294, 1)
 
 [node name="Background" type="ColorRect" parent="."]
@@ -33,6 +34,7 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 70.0
 offset_bottom = 70.0
+mouse_filter = 1
 color = Color(0.21, 0.21, 0.21, 1)
 
 [node name="SlotTexture" type="TextureButton" parent="."]
@@ -40,7 +42,10 @@ custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
 offset_right = 72.0
 offset_bottom = 72.0
+mouse_filter = 1
 texture_normal = SubResource("CompressedTexture2D_02ahe")
 stretch_mode = 3
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="SlotTexture" to="." method="_on_slot_texture_pressed"]

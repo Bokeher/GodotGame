@@ -42,3 +42,9 @@ func update_ui() -> void:
 
 func _on_slot_texture_pressed() -> void:
 	pressed.emit(equipment_slot_id)
+
+func _on_mouse_entered() -> void:
+	$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
+
+func _on_mouse_exited() -> void:
+	$Border.color = Enums.Colors["BORDER_UNFOCUS_HOVER"]
