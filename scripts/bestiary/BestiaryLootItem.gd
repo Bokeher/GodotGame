@@ -21,7 +21,7 @@ func _ready() -> void:
 	$LootImage.texture = texture
 
 func _on_loot_image_mouse_entered() -> void:
-	$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
+	$Background.color = Enums.get_background_color(true)
 	
 	if(unknown):
 		popup.popup("Unknown item", "Drop chance: " + drop_chance_text)
@@ -48,6 +48,6 @@ func get_drop_chance_text() -> String:
 	return drop_percent_str + "%"
 
 func _on_loot_image_mouse_exited() -> void:
-	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
+	$Background.color = Enums.get_background_color(false)
 	
 	popup.hide_()

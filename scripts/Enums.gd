@@ -125,3 +125,13 @@ func get_equipment_slot_id_texture(equipment_slot_id: Equipment.EquipmentSlotId)
 
 func get_class_texture(class_type: int) -> String:
 	return CLASS_TEXTURES.get(class_type, UNKNOWN_PNG_PATH)
+
+func get_background_color(is_active: bool) -> Color:
+	if is_active:
+		return Colors["BG_FOCUS_HOVER"]
+	return Colors["BG_UNFOCUS_HOVER"]
+
+func get_border_color(is_active: bool) -> Color:
+	if is_active:
+		return Colors["BORDER_FOCUS_HOVER"]
+	return Colors["BORDER_UNFOCUS_HOVER"]

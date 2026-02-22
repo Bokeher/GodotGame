@@ -18,8 +18,8 @@ func update_skill() -> void:
 
 func _on_texture_button_mouse_entered() -> void:
 	if skill.level < skill.max_level:
-		$Background.color = Enums.Colors["BG_FOCUS_HOVER"]
-	$Border.color = Enums.Colors["BORDER_FOCUS_HOVER"]
+		$Background.color = Enums.get_background_color(true)
+	$Border.color = Enums.get_border_color(true)
 	
 	var skill_description: String = skill.get_formatted_description()
 	
@@ -28,8 +28,8 @@ func _on_texture_button_mouse_entered() -> void:
 	popup.popup(skill.name, description)
 
 func _on_texture_button_mouse_exited() -> void:
-	$Background.color = Enums.Colors["BG_UNFOCUS_HOVER"]
-	$Border.color = Enums.Colors["BORDER_UNFOCUS_HOVER"]
+	$Background.color = Enums.get_background_color(false)
+	$Border.color = Enums.get_border_color(false)
 	
 	popup.hide_()
 
