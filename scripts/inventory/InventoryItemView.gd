@@ -23,3 +23,11 @@ func update_count(count_: int) -> void:
 
 func _on_slot_texture_pressed() -> void:
 	pressed.emit(item)
+
+func _on_mouse_entered() -> void:
+	$Border.color = Enums.get_border_color(true)
+	hovered.emit(item)
+
+func _on_mouse_exited() -> void:
+	$Border.color = Enums.get_border_color(false)
+	hover_exited.emit()
