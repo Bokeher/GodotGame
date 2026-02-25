@@ -21,14 +21,14 @@ func _build_equipment_ui() -> void:
 	for slot_id in inventory.equipment.get_slots():
 		var scene: EquipmentSlot = equipment_scene.instantiate()
 		scene.setup(slot_id, selected_slot_changed)
-		scene.pressed.connect(on_equiment_slot_selected)
+		scene.pressed.connect(on_equipment_slot_selected)
 		$EquipSlots.add_child(scene)
 
 func set_filter(item_type: ItemData.ItemType) -> void:
 	current_filter = item_type
 	_build_inventory_ui()
 
-func on_equiment_slot_selected(slot_id: Equipment.EquipmentSlotId) -> void:
+func on_equipment_slot_selected(slot_id: Equipment.EquipmentSlotId) -> void:
 	selected_slot = slot_id
 	selected_slot_changed.emit(selected_slot)
 	set_filter(Equipment.get_item_type_for_slot(slot_id))
