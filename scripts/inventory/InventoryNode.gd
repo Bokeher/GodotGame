@@ -7,6 +7,8 @@ const equipment_scene = preload("res://scenes/inventory/EquippedInventorySlot.ts
 var selected_slot: Equipment.EquipmentSlotId
 var item_views: Dictionary[int, InventoryItemView] = {}
 
+var current_filter: ItemData.ItemType = ItemData.ItemType.NONE
+
 signal selected_slot_changed(slot: Equipment.EquipmentSlotId)
 
 func _ready() -> void:
@@ -22,9 +24,14 @@ func _build_equipment_ui() -> void:
 		scene.pressed.connect(on_equiment_slot_selected)
 		$EquipSlots.add_child(scene)
 
+func set_filter(item_type: ItemData.ItemType) -> void:
+	current_filter = item_type
+	_build_inventory_ui()
+
 func on_equiment_slot_selected(slot_id: Equipment.EquipmentSlotId) -> void:
 	selected_slot = slot_id
 	selected_slot_changed.emit(selected_slot)
+	set_filter(Equipment.get_item_type_for_slot(slot_id))
 
 func _on_item_added(item_data: ItemData, _delta: int, total: int) -> void:
 	_update_item_view(item_data, total)
@@ -33,6 +40,9 @@ func _on_item_removed(item_data: ItemData, _delta: int, total: int) -> void:
 	_update_item_view(item_data, total)
 
 func _update_item_view(item_data: ItemData, total: int) -> void:
+	if !check_filter(item_data.type):
+		return
+	
 	var id = item_data.id
 	
 	if item_views.has(id):
@@ -62,7 +72,14 @@ func _build_inventory_ui() -> void:
 			continue
 		
 		var item: ItemData = ItemDatabase.get_by_id(item_id)
+		
+		if !check_filter(item.type):
+			continue
+		
 		_create_inventory_slot(item, count)
+
+func check_filter(item_type: ItemData.ItemType) -> bool:
+	return current_filter == ItemData.ItemType.NONE or current_filter == item_type
 
 func _clear_ui() -> void:
 	for item_view: InventoryItemView in item_views.values():

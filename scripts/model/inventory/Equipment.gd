@@ -43,3 +43,12 @@ static func slot_accepts_item(slot: EquipmentSlotId, item_type: ItemData.ItemTyp
 		EquipmentSlotId.CHEST:
 			return item_type == ItemData.ItemType.CHEST
 	return false
+
+static func get_item_type_for_slot(slot: EquipmentSlotId) -> ItemData.ItemType:
+	match slot:
+		EquipmentSlotId.RING1, EquipmentSlotId.RING2:
+			return ItemData.ItemType.RING
+		EquipmentSlotId.CHEST:
+			return ItemData.ItemType.CHEST
+	
+	return ItemData.ItemType.NONE
