@@ -7,7 +7,7 @@
 script = ExtResource("1_h3akj")
 id = 1
 name = "Ring of Damage I"
-type = 0
+type = 1
 description = "+1 damage"
 texture = ExtResource("1_u71ai")
 metadata/_custom_type_script = "uid://csvqfii14cwyh"

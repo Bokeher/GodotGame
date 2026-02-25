@@ -7,7 +7,7 @@
 script = ExtResource("1_wu1qb")
 id = 4
 name = "Leather Vest"
-type = 1
+type = 2
 description = "+2 health"
 texture = ExtResource("1_7d5o8")
 metadata/_custom_type_script = "uid://csvqfii14cwyh"

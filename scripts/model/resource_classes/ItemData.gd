@@ -1,7 +1,7 @@
 extends Resource
 class_name ItemData
 
-enum ItemType { RING, CHEST }
+enum ItemType { NONE, RING, CHEST }
 
 @export var id: int
 @export var name: String
