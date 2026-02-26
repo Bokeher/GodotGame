@@ -88,7 +88,14 @@ func _clear_ui() -> void:
 	item_views = {}
 
 func on_item_pressed(item: ItemData) -> void:
-	if Equipment.slot_accepts_item(selected_slot, item.type):
+	if !Equipment.slot_accepts_item(selected_slot, item.type):
+		return
+	
+	var equipped_item: ItemData = inventory.equipment.get_item(selected_slot)
+	
+	if equipped_item == item:
+		inventory.equipment.unequip_item(selected_slot)
+	else:
 		inventory.equipment.equip_item(selected_slot, item)
 
 func _create_inventory_slot(item: ItemData, count: int) -> void:
