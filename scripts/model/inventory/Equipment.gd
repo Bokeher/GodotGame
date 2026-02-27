@@ -6,6 +6,7 @@ signal item_unequipped(slot: EquipmentSlotId)
 signal equipment_changed(slot: EquipmentSlotId)
 
 enum EquipmentSlotId {
+	NONE,
 	RING1,
 	RING2,
 	CHEST
@@ -46,6 +47,8 @@ static func slot_accepts_item(slot: EquipmentSlotId, item_type: ItemData.ItemTyp
 
 static func get_item_type_for_slot(slot: EquipmentSlotId) -> ItemData.ItemType:
 	match slot:
+		EquipmentSlotId.NONE:
+			return ItemData.ItemType.NONE
 		EquipmentSlotId.RING1, EquipmentSlotId.RING2:
 			return ItemData.ItemType.RING
 		EquipmentSlotId.CHEST:

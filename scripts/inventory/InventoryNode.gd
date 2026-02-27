@@ -29,9 +29,13 @@ func set_filter(item_type: ItemData.ItemType) -> void:
 	_build_inventory_ui()
 
 func on_equipment_slot_selected(slot_id: Equipment.EquipmentSlotId) -> void:
-	selected_slot = slot_id
+	if selected_slot == slot_id:
+		selected_slot = Equipment.EquipmentSlotId.NONE
+	else:
+		selected_slot = slot_id
+	
 	selected_slot_changed.emit(selected_slot)
-	set_filter(Equipment.get_item_type_for_slot(slot_id))
+	set_filter(Equipment.get_item_type_for_slot(selected_slot))
 
 func _on_item_added(item_data: ItemData, _delta: int, total: int) -> void:
 	_update_item_view(item_data, total)
