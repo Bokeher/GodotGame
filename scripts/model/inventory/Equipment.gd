@@ -45,6 +45,14 @@ static func slot_accepts_item(slot: EquipmentSlotId, item_type: ItemData.ItemTyp
 			return item_type == ItemData.ItemType.CHEST
 	return false
 
+func is_item_equipped(item: ItemData) -> bool:
+	for slot: EquipmentSlotId in _slots:
+		var item_in_slot: ItemData = _slots[slot]
+		if item_in_slot.id == item.id:
+			return true
+	
+	return false
+
 static func get_item_type_for_slot(slot: EquipmentSlotId) -> ItemData.ItemType:
 	match slot:
 		EquipmentSlotId.NONE:
