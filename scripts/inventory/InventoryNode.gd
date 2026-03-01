@@ -31,7 +31,12 @@ func _build_equipment_ui() -> void:
 
 func set_filter(item_type: ItemData.ItemType) -> void:
 	current_filter = item_type
-	_build_inventory_ui()
+	apply_filter()
+
+func apply_filter() -> void:
+	for view: InventoryItemView in item_views.values():
+		var visibility = check_filter(view.item.type)
+		view.visible = visibility
 
 func on_equipment_slot_selected(slot_id: Equipment.EquipmentSlotId) -> void:
 	if selected_slot == slot_id:
