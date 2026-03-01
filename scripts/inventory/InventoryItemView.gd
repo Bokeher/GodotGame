@@ -21,6 +21,9 @@ func update_count(count_: int) -> void:
 	$Count.visible = count > 1
 	$Count.text = str(count)
 
+func update_selection(is_selected: bool) -> void:
+	$Background.color = Enums.get_background_color(is_selected)
+
 func _on_slot_texture_pressed() -> void:
 	pressed.emit(item)
 

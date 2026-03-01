@@ -5,7 +5,8 @@ const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn"
 const equipment_scene = preload("res://scenes/inventory/EquippedInventorySlot.tscn")
 
 var selected_slot: Equipment.EquipmentSlotId
-var item_views: Dictionary[int, InventoryItemView] = {}
+var item_views: Dictionary[int, InventoryItemView] = {} 
+# <itemId, View>
 
 var current_filter: ItemData.ItemType = ItemData.ItemType.NONE
 
@@ -14,8 +15,12 @@ signal selected_slot_changed(slot: Equipment.EquipmentSlotId)
 func _ready() -> void:
 	inventory.item_added.connect(_on_item_added)
 	inventory.item_removed.connect(_on_item_removed)
+	inventory.equipment.equipment_changed.connect(_on_equipment_changed)
 	_build_inventory_ui()
 	_build_equipment_ui()
+
+func _on_equipment_changed(_slot: Equipment.EquipmentSlotId) -> void:
+	update_item_selection()
 
 func _build_equipment_ui() -> void:
 	for slot_id in inventory.equipment.get_slots():
@@ -36,6 +41,11 @@ func on_equipment_slot_selected(slot_id: Equipment.EquipmentSlotId) -> void:
 	
 	selected_slot_changed.emit(selected_slot)
 	set_filter(Equipment.get_item_type_for_slot(selected_slot))
+
+func update_item_selection() -> void:
+	for view: InventoryItemView in item_views.values():
+		var is_equipped: bool = inventory.equipment.is_item_equipped(view.item)
+		view.update_selection(is_equipped)
 
 func _on_item_added(item_data: ItemData, _delta: int, total: int) -> void:
 	_update_item_view(item_data, total)
