@@ -34,6 +34,10 @@ func unequip_item(slot: EquipmentSlotId) -> void:
 	item_unequipped.emit(slot)
 	equipment_changed.emit(slot)
 
+func unequip_all_items() -> void:
+	for slot: EquipmentSlotId in _slots:
+		unequip_item(slot)
+
 func get_slots() -> Dictionary[EquipmentSlotId, ItemData]:
 	return _slots
 

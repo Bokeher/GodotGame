@@ -145,3 +145,6 @@ func _find_insert_index_binary(new_id: int) -> int:
 
 func select_equipment_slot(slot_id: Equipment.EquipmentSlotId) -> void:
 	selected_slot = slot_id
+
+func _on_unequip_all_button_pressed() -> void:
+	inventory.equipment.unequip_all_items()
