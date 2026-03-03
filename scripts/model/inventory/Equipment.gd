@@ -25,6 +25,13 @@ func equip_item(slot: EquipmentSlotId, item: ItemData) -> void:
 	if _slots[slot] == item:
 		return 
 	
+	for slot_item: ItemData in _slots.values():
+		if slot_item == null:
+			continue
+		
+		if slot_item.id == item.id:
+			return
+	
 	_slots[slot] = item
 	item_equipped.emit(slot, item)
 	equipment_changed.emit(slot)
