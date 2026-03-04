@@ -1,6 +1,7 @@
 extends Control
 
 @onready var inventory: Inventory = GameManager.player.inventory
+@onready var popup: GlobalPopup = get_node("/root/Game/Popup")
 const inventory_item_scene = preload("res://scenes/inventory/InventoryItem.tscn")
 const equipment_scene = preload("res://scenes/inventory/EquippedInventorySlot.tscn")
 
@@ -121,6 +122,8 @@ func _create_inventory_slot(item: ItemData, count: int) -> void:
 	var inventory_item_view: InventoryItemView = inventory_item_scene.instantiate()
 	inventory_item_view.setup(item, count)
 	inventory_item_view.pressed.connect(on_item_pressed)
+	inventory_item_view.hovered.connect(on_item_hovered)
+	inventory_item_view.hover_exited.connect(on_item_hover_exited)
 	item_views[item.id] = inventory_item_view
 	
 	var index: int = _find_insert_index_binary(item.id)
@@ -148,3 +151,9 @@ func select_equipment_slot(slot_id: Equipment.EquipmentSlotId) -> void:
 
 func _on_unequip_all_button_pressed() -> void:
 	inventory.equipment.unequip_all_items()
+
+func on_item_hover_exited() -> void:
+	popup.hide_()
+
+func on_item_hovered(item: ItemData) -> void:
+	popup.popup(item.name, item.description)
