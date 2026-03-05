@@ -1,7 +1,5 @@
 extends Control
 
-@onready var popup: GlobalPopup = get_node("/root/Game/Popup")
-
 func set_enemy(enemy_id: int, discovered: bool = true) -> void:
 	$".".set_meta("enemy_id", enemy_id)
 	
@@ -36,13 +34,13 @@ func _on_item_button_mouse_entered() -> void:
 	
 	var enemy_id: int = $".".get_meta("enemy_id")
 	if !Global.bestiary.enemyEntries.has(enemy_id):
-		popup.popup("Unknown enemy", "")
+		GlobalPopup.popup("Unknown enemy", "")
 		return
 	
 	var enemy := Global.enemies[$".".get_meta("enemy_id") - 1]
-	popup.popup(enemy.name, "")
+	GlobalPopup.popup(enemy.name, "")
 
 func _on_item_button_mouse_exited() -> void:
 	$Border.color = Enums.get_background_color(false)
 	
-	popup.hide_()
+	GlobalPopup.hide_()

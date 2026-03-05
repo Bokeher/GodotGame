@@ -2,7 +2,6 @@ extends Control
 class_name StatusNode
 
 @onready var status: StatusEffect = $".".get_meta("status")
-@onready var popup: GlobalPopup = get_node("/root/Game/Popup")
 var popupRect2i := Rect2i(175, 31, 0, 0)
 
 func _ready() -> void:
@@ -35,7 +34,7 @@ func _on_timer_timeout() -> void:
 	decrease_stack()
 
 func _on_background_mouse_entered() -> void:
-	popup.popup(status.name, status.description, popupRect2i)
+	GlobalPopup.popup(status.name, status.description, popupRect2i)
 
 func _on_background_mouse_exited() -> void:
-	popup.hide_()
+	GlobalPopup.hide_()

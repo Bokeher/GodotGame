@@ -3,7 +3,6 @@ class_name SkillNode
 
 @onready var id: int = $".".get_meta("id")
 @onready var skill := Global.skills[id - 1]
-@onready var popup: GlobalPopup = get_node("/root/Game/Popup")
 
 func _ready() -> void:
 	update_level_label()
@@ -25,13 +24,13 @@ func _on_texture_button_mouse_entered() -> void:
 	
 	var description := skill_description + "\n\nLevel " + str(skill.level) + " / " + str(skill.max_level)
 	
-	popup.popup(skill.name, description)
+	GlobalPopup.popup(skill.name, description)
 
 func _on_texture_button_mouse_exited() -> void:
 	$Background.color = Enums.get_background_color(false)
 	$Border.color = Enums.get_border_color(false)
 	
-	popup.hide_()
+	GlobalPopup.hide_()
 
 func _on_texture_button_pressed() -> void:
 	level_up_skill()

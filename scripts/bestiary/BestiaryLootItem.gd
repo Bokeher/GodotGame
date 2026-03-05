@@ -2,7 +2,6 @@ extends Control
 
 @onready var item_id: int = $".".get_meta("item_id")
 @onready var enemy_id: int = $".".get_meta("enemy_id")
-@onready var popup: GlobalPopup = get_node("/root/Game/Popup")
 @onready var unknown: bool = $".".get_meta("unknown")
 @onready var drop_chance: float = get_drop_chance()
 @onready var drop_chance_text: String = get_drop_chance_text()
@@ -24,10 +23,10 @@ func _on_loot_image_mouse_entered() -> void:
 	$Background.color = Enums.get_background_color(true)
 	
 	if(unknown):
-		popup.popup("Unknown item", "Drop chance: " + drop_chance_text)
+		GlobalPopup.popup("Unknown item", "Drop chance: " + drop_chance_text)
 		return
 	
-	popup.popup(item.name, item.description)
+	GlobalPopup.popup(item.name, item.description)
 
 func get_drop_chance() -> float:
 	var loot_table := Global.enemies[enemy_id - 1].loot_table
@@ -50,4 +49,4 @@ func get_drop_chance_text() -> String:
 func _on_loot_image_mouse_exited() -> void:
 	$Background.color = Enums.get_background_color(false)
 	
-	popup.hide_()
+	GlobalPopup.hide_()
