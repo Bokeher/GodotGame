@@ -1,5 +1,4 @@
 extends Control
-
 class_name GlobalPopup
 
 @onready var name_ := $Popup/MarginContainer/VBoxContainer/Name

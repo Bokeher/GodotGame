@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cohumsh8to5j8"]
 
-[ext_resource type="Script" uid="uid://bgufw54j2uavm" path="res://scripts/Popup.gd" id="1_4c2u4"]
+[ext_resource type="Script" uid="uid://bgufw54j2uavm" path="res://scripts/GlobalPopup.gd" id="1_4c2u4"]
 
-[node name="Popup" type="Control"]
+[node name="GlobalPopup" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

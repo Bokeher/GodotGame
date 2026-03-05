@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bscctmm55ktp5" path="res://scenes/skills/SkillTab.tscn" id="20_mjx3u"]
 [ext_resource type="PackedScene" uid="uid://iohn0aebg218" path="res://scenes/inventory/InventoryTab.tscn" id="21_0usff"]
 [ext_resource type="PackedScene" uid="uid://dswlrnok1rmhq" path="res://scenes/AchievementsTab.tscn" id="25_fs0b5"]
-[ext_resource type="PackedScene" uid="uid://cohumsh8to5j8" path="res://scenes/Popup.tscn" id="26_36rkl"]
+[ext_resource type="PackedScene" uid="uid://cohumsh8to5j8" path="res://scenes/GlobalPopup.tscn" id="26_36rkl"]
 [ext_resource type="PackedScene" uid="uid://ivxjfj7k3lt1" path="res://scenes/PetsTab.tscn" id="26_lyvra"]
 [ext_resource type="Script" uid="uid://cpkq7hm5vknaa" path="res://scripts/SwordsPathTimer.gd" id="28_ma7h6"]
 [ext_resource type="PackedScene" uid="uid://bw2cwrtnmxrcv" path="res://scenes/bestiary/BestiaryTab.tscn" id="28_oy4c8"]
