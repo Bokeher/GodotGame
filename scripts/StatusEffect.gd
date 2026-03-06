@@ -34,7 +34,7 @@ func _on_timer_timeout() -> void:
 	decrease_stack()
 
 func _on_background_mouse_entered() -> void:
-	GlobalPopup.popup(status.name, status.description, popupRect2i)
+	GlobalPopup.popup(status.name, status.description, GlobalPopup.get_popup_position(GlobalPopup.PopupPosition.STATUS_BAR))
 
 func _on_background_mouse_exited() -> void:
 	GlobalPopup.hide_()
