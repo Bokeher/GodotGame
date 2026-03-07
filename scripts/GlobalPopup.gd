@@ -19,8 +19,8 @@ const POSITIONS := {
 	PopupPosition.STATUS_BAR: Vector2i(125, 30)
 }
 
-func get_popup_position(position: PopupPosition) -> Vector2i:
-	return POSITIONS[position]
+func get_popup_position(position_: PopupPosition) -> Vector2i:
+	return POSITIONS[position_]
 
 func _ready():
  # Add timers for delayed actions to prevent hiding after showing (happening when elements are really close to each other)
