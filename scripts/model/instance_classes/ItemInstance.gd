@@ -1,5 +1,5 @@
 extends Object
 class_name ItemInstance
 
-var data: ItemData
-var amount: int
+@export var data: ItemData
+@export var amount: int
