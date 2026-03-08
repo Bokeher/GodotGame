@@ -27,7 +27,15 @@ func _build_equipment_ui() -> void:
 		var scene: EquipmentSlot = equipment_scene.instantiate()
 		scene.setup(slot_id, selected_slot_changed)
 		scene.pressed.connect(on_equipment_slot_selected)
+		scene.hovered.connect(on_equipment_slot_hovered)
+		scene.hover_exited.connect(on_equipment_slot_hover_exited)
 		$EquipSlots.add_child(scene)
+
+func on_equipment_slot_hovered(slot_: Equipment.EquipmentSlotId) -> void:
+	GlobalPopup.popup("Press to select this slot", "")
+
+func on_equipment_slot_hover_exited() -> void:
+	GlobalPopup.hide_()
 
 func set_filter(item_type: ItemData.ItemType) -> void:
 	current_filter = item_type
