@@ -5,7 +5,9 @@ class_name EquipmentSlot
 @export var equipment_slot_id: Equipment.EquipmentSlotId
 var is_selected: bool
 
-signal pressed(equipment_slot_id: Equipment.EquipmentSlotId)
+signal pressed(slot: Equipment.EquipmentSlotId)
+signal hovered(slot: Equipment.EquipmentSlotId)
+signal hover_exited()
 
 func setup(slot_id: Equipment.EquipmentSlotId, selected_slot_changed_signal: Signal, is_selected_ = false) -> void:
 	equipment_slot_id = slot_id
@@ -42,6 +44,8 @@ func _on_slot_texture_pressed() -> void:
 
 func _on_mouse_entered() -> void:
 	$Border.color = Enums.get_border_color(true)
+	hovered.emit(equipment_slot_id)
 
 func _on_mouse_exited() -> void:
 	$Border.color = Enums.get_border_color(false)
+	hover_exited.emit()
