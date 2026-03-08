@@ -31,8 +31,16 @@ func _build_equipment_ui() -> void:
 		scene.hover_exited.connect(on_equipment_slot_hover_exited)
 		$EquipSlots.add_child(scene)
 
-func on_equipment_slot_hovered(slot_: Equipment.EquipmentSlotId) -> void:
-	GlobalPopup.popup("Press to select this slot", "")
+func on_equipment_slot_hovered(slot: Equipment.EquipmentSlotId) -> void:
+	var item_in_slot: ItemData = inventory.equipment.get_item(slot)
+	
+	if item_in_slot == null:
+		if selected_slot == slot:
+			return
+		
+		GlobalPopup.popup("Press to select this slot", "")
+	else:
+		GlobalPopup.popup(item_in_slot.name, item_in_slot.description)
 
 func on_equipment_slot_hover_exited() -> void:
 	GlobalPopup.hide_()
