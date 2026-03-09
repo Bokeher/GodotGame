@@ -41,6 +41,8 @@ func update_ui() -> void:
 
 func _on_slot_texture_pressed() -> void:
 	pressed.emit(equipment_slot_id)
+	hover_exited.emit()
+	hovered.emit(equipment_slot_id)
 
 func _on_mouse_entered() -> void:
 	$Border.color = Enums.get_border_color(true)
