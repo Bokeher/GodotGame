@@ -9,7 +9,7 @@ var cost_multiplier: float
 var level: int
 var max_level: int
 
-func _init(_id: int, _name: String, _description: String, _cost: int, _value: int, _cost_multiplier: float, _level: int, _max_level: int):
+func _init(_id: int, _name: String, _description: String, _cost: int, _value: int, _cost_multiplier: float, _level: int, _max_level: int) -> void:
 	id = _id
 	name = _name
 	description = _description

@@ -3,7 +3,7 @@ class_name BestiaryEntry
 var times_slayed: int
 var items_dropped: Dictionary[int, bool] # <id, has_dropped>
 
-func _init(_times_slayed: int, _items_dropped: Dictionary):
+func _init(_times_slayed: int, _items_dropped: Dictionary) -> void:
 	times_slayed = _times_slayed
 	items_dropped = _items_dropped
 

@@ -5,7 +5,7 @@ var name: String
 var skin_name: String
 var image_path: String
 
-func _init(_id: int = -1, _name: String = "", _skin_name: String = "", _image_path: String = ""):
+func _init(_id: int = -1, _name: String = "", _skin_name: String = "", _image_path: String = "") -> void:
 	id = _id
 	name = _name
 	skin_name = _skin_name
@@ -30,11 +30,11 @@ static func from_dict(data: Dictionary) -> Pet:
 	)
 
 static func generate_random_pet() -> Pet:
-	var names = ["Jhin", "Jin", "Dhjin", "Jin", "Jinn", "Djiin"]
-	var pet_skins = ["Stone", "Rock", "Boulder", "Pebble", "Flint"]
+	var names: Array[String] = ["Jhin", "Jin", "Dhjin", "Jin", "Jinn", "Djiin"]
+	var pet_skins: Array[String] = ["Stone", "Rock", "Boulder", "Pebble", "Flint"]
 	
 	# Choose random values
-	var pet_name = names[randi() % names.size()]
-	var pet_skin = pet_skins[randi() % pet_skins.size()]
+	var pet_name: String = names[randi() % names.size()]
+	var pet_skin: String = pet_skins[randi() % pet_skins.size()]
 	
 	return Pet.new(1, pet_name, pet_skin, "image_path")

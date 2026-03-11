@@ -52,7 +52,7 @@ func update_skill_points() -> void:
 func get_sorted_skills(skills: Array[Skill]) -> Array[Skill]:
 	var sorted: Array[Skill] = skills.duplicate()
 	
-	sorted.sort_custom(func(a, b):
+	sorted.sort_custom(func(a: Skill, b: Skill) -> bool:
 		if a.grid_position[1] == b.grid_position[1]:
 			return a.grid_position[0] < b.grid_position[0]
 		return a.grid_position[1] < b.grid_position[1]

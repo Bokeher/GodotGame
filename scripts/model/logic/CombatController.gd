@@ -50,7 +50,7 @@ func force_reset() -> void:
 	player_attack.target = null
 	enemy_attack.target = null
 
-func setup(player_: PlayerInstance, enemy_: EnemyInstance, damage_resolver_) -> void:
+func setup(player_: PlayerInstance, enemy_: EnemyInstance, damage_resolver_: DamageResolver) -> void:
 	player = player_
 	enemy = enemy_
 	damage_resolver = damage_resolver_

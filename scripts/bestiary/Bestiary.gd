@@ -18,13 +18,13 @@ func load_bestiary_list() -> void:
 		$ScrollContainer/BestiaryList.remove_child(child)
 		child.queue_free()
 	
-	for enemy_id in entries:
+	for enemy_id: int in entries:
 		var new_list_item := bestiary_list_item_scene.instantiate()
 		new_list_item.set_enemy(enemy_id)
 		
 		$ScrollContainer/BestiaryList.add_child(new_list_item)
 	
-	for enemy in Global.enemies:
+	for enemy: Enemy in Global.enemies:
 		if !entries.has(enemy.id):
 			var new_list_item := bestiary_list_item_scene.instantiate()
 			new_list_item.set_enemy(enemy.id, false)

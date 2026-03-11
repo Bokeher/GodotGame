@@ -2,7 +2,7 @@ class_name Bestiary
 
 var enemyEntries: Dictionary[int, BestiaryEntry] = {} # <enemy_id, entry>
 
-func _init(entries: Dictionary[int, BestiaryEntry] = {}):
+func _init(entries: Dictionary[int, BestiaryEntry] = {}) -> void:
 	enemyEntries = entries
 
 func set_entry(enemy_id: int, entry: BestiaryEntry) -> BestiaryEntry:
@@ -37,7 +37,7 @@ func to_dict() -> Dictionary:
 static func from_dict(dict: Dictionary) -> Bestiary:
 	var entries: Dictionary = {}
 	
-	for enemy_id in dict:
+	for enemy_id: int in dict:
 		var entry: Dictionary = dict[enemy_id]
 		entries[enemy_id] = BestiaryEntry.new(
 			entry["times_slayed"], 

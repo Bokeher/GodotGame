@@ -22,7 +22,7 @@ const POSITIONS := {
 func get_popup_position(position_: PopupPosition) -> Vector2i:
 	return POSITIONS[position_]
 
-func _ready():
+func _ready() -> void:
  # Add timers for delayed actions to prevent hiding after showing (happening when elements are really close to each other)
 	add_child(show_timer)
 	show_timer.one_shot = true
@@ -50,10 +50,10 @@ func hide_() -> void:
 	show_timer.stop()
 	hide_timer.start()
 
-func _show_popup():
+func _show_popup() -> void:
 	name_.text = pending_name
 	description.text = pending_description
 	popup_panel.visible = true
 
-func _hide_popup():
+func _hide_popup() -> void:
 	popup_panel.hide()

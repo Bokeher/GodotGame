@@ -31,7 +31,7 @@ func _on_loot_image_mouse_entered() -> void:
 func get_drop_chance() -> float:
 	var loot_table := Global.enemies[enemy_id - 1].loot_table
 	
-	for loot in loot_table:
+	for loot: Dictionary in loot_table:
 		if item_id == loot["item_id"]:
 			return loot["drop_chance"]
 	

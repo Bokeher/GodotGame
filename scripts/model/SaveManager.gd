@@ -14,7 +14,7 @@ func read() -> void:
 		print("ERROR: Failed to load savefile since file is null")
 		return
 	
-	var data = file.get_var()
+	var data: Dictionary = file.get_var()
 	file.close()
 	
 	if data == null:
@@ -22,13 +22,13 @@ func read() -> void:
 		return
 	
 	# Get dictionaries from file
-	var player_stats_dict = data[0]
-	var curr_enemy_dict = data[1]
-	var skills_dicts = data[2]
-	var upgrades_dicts = data[3]
+	var player_stats_dict: Dictionary = data[0]
+	var curr_enemy_dict: Dictionary = data[1]
+	var skills_dicts: Dictionary = data[2]
+	var upgrades_dicts: Dictionary = data[3]
 	Global.inventory = data[4]
-	var pet_dict = data[5]
-	var bestiary_dict = data[6]
+	var pet_dict: Dictionary = data[5]
+	var bestiary_dict: Dictionary = data[6]
 	Global.equipped_items = data[7]
 	
 	# Convert dictionaries to objects
@@ -37,41 +37,41 @@ func read() -> void:
 	Global.pet = Pet.from_dict(pet_dict) if pet_dict else null
 	Global.bestiary = Bestiary.from_dict(bestiary_dict) if bestiary_dict else Bestiary.new()
 	
-	for skills_dict in skills_dicts:
+	for skills_dict: Dictionary in skills_dicts:
 		Global.skills.append(Skill.from_dict(skills_dict))
 	
-	for upgrades_dict in upgrades_dicts:
+	for upgrades_dict: Dictionary in upgrades_dicts:
 		Global.upgrades.append(Upgrade.from_dict(upgrades_dict))
 	
 
 func save() -> void:
 	# Convert objects to dictionaries
-	var player_stats_dict
+	var player_stats_dict: Dictionary
 	if(Global.player):
 		player_stats_dict = Global.player.to_dict()
 	
-	var curr_enemy_dict
+	var curr_enemy_dict: Dictionary
 	if(Global.curr_enemy):
 		curr_enemy_dict = Global.curr_enemy.to_dict()
 	
-	var skills_dicts = []
+	var skills_dicts: Array[Dictionary] = []
 	for skill in Global.skills:
 		skills_dicts.append(skill.to_dict())
 	
-	var upgrades_dicts = []
+	var upgrades_dicts: Array[Dictionary] = []
 	for upgrade in Global.upgrades:
 		upgrades_dicts.append(upgrade.to_dict())
 	
-	var pet_dict = null
+	var pet_dict: Dictionary = {}
 	if(Global.pet):
 		pet_dict = Global.pet.to_dict()
 	
-	var bestiary_dict = null
+	var bestiary_dict: Dictionary = {}
 	if(Global.bestiary):
 		bestiary_dict = Global.bestiary.to_dict()
 	
 	# Save dictionaries
-	var file = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
+	var file: FileAccess = FileAccess.open(PATH_SAVE, FileAccess.WRITE)
 	
 	file.store_var([
 		player_stats_dict,

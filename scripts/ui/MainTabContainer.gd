@@ -10,7 +10,7 @@ func _ready() -> void:
 	for i in range(min($".".get_tab_count(), TAB_NAMES.size())):
 		$".".set_tab_title(i, TAB_NAMES[i])
 
-func _process(_delta) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("JumpUpgrades"):
 		$".".current_tab = 0
 	elif Input.is_action_just_pressed("JumpStats"):
@@ -24,7 +24,7 @@ func _process(_delta) -> void:
 	elif Input.is_action_just_pressed("JumpBestiary"):
 		$".".current_tab = 5
 
-func _on_tab_changed(tab):
+func _on_tab_changed(tab: int) -> void:
 	# TODO: add here all focus grabers
 	if(tab == 5): # 5 == BestiaryTab
 		$BestiaryPanel/Bestiary.update_bestiary()

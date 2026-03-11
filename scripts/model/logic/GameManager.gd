@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 	)
 
 func build_regen_timer() -> Timer:
-	var timer = Timer.new()
+	var timer: Timer = Timer.new()
 	timer.one_shot = false
 	timer.timeout.connect(_on_regen_timeout)
 	add_child(timer)
@@ -59,7 +59,7 @@ func _on_regen_timeout() -> void:
 	player.heal_damage(int(player.health_regen))
 
 func build_respawn_timer() -> Timer:
-	var timer = Timer.new()
+	var timer: Timer = Timer.new()
 	timer.one_shot = true
 	timer.timeout.connect(_on_respawn_timeout)
 	add_child(timer)
@@ -104,7 +104,7 @@ func change_stage(stage_id: int) -> void:
 	
 	setup_combat()
 
-func setup_combat():
+func setup_combat() -> void:
 	if combat_controller == null or player == null or enemy == null:
 		return
 	

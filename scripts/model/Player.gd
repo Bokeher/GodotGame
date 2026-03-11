@@ -42,7 +42,7 @@ func _init(
 	_level: int = 1,
 	_skill_points: int = 0,
 	_attack_interval: float = BASE_ATTACK_INTERVAL,
-):
+) -> void:
 	max_health = _max_health
 	health = _health
 	regen = _regen
@@ -113,8 +113,8 @@ func calc_xp_mult() -> int:
 	return wisdom + 99
 
 func add_xp(amount: int) -> bool:
-	var required_xp = 100
-	var leveled_up = false
+	var required_xp: int = 100
+	var leveled_up: bool = false
 	
 	xp += amount
 	

@@ -9,7 +9,7 @@ var damage: int
 var xp_reward: int
 var loot_table: Array
 
-func _init(_id: int, _name: String, _health: int, _gold_reward: int, _image_path: String, _damage: int, _xp_reward: int, _loot_table: Array = []):
+func _init(_id: int, _name: String, _health: int, _gold_reward: int, _image_path: String, _damage: int, _xp_reward: int, _loot_table: Array = []) -> void:
 	id = _id
 	name = _name
 	health = _health
@@ -36,10 +36,10 @@ func to_dict() -> Dictionary:
 static func from_dict(data: Dictionary) -> Enemy:
 	# TODO: investigate this further
 	# Convert float to int (for some reason its float)
-	for loot in data.get("loot_table"):
+	for loot: Dictionary in data.get("loot_table"):
 		loot["item_id"] = int(loot["item_id"])
 	
-	var instance = Enemy.new(
+	var instance: Enemy = Enemy.new(
 		data.get("id", -1),
 		data.get("name", ""),
 		data.get("health", 0),
@@ -60,11 +60,11 @@ static func get_enemy(id_: int) -> Enemy:
 
 # Roll loot from the loot table
 func get_loot() -> Array:
-	var dropped_items = []
-	var cumulative_chance = 0.0
-	var random_value = randf()
+	var dropped_items: Array = []
+	var cumulative_chance: float = 0.0
+	var random_value: float = randf()
 	
-	for loot in loot_table:
+	for loot: Dictionary in loot_table:
 		cumulative_chance += loot.drop_chance
 		if random_value < cumulative_chance:
 			dropped_items.append(loot.item_id)
@@ -73,13 +73,13 @@ func get_loot() -> Array:
 	return dropped_items
 
 static func set_new_random_enemy() -> void:
-	var cumulative_chance = 0.0
-	var random_value = randf()
+	var cumulative_chance: float = 0.0
+	var random_value: float = randf()
 	
-	for enemy in Global.curr_stage.enemies:
+	for enemy: Enemy in Global.curr_stage.enemies:
 		cumulative_chance += enemy["spawn_chance"]
 		if random_value < cumulative_chance:
-			var new_enemy_id = enemy["enemy_id"]
+			var new_enemy_id: int = enemy["enemy_id"]
 			Global.curr_enemy = Enemy.get_enemy(new_enemy_id)
 			return
 	

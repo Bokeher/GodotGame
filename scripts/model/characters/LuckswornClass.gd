@@ -148,7 +148,7 @@ func is_guaranteed_win_active() -> bool:
 
 ## Return true on stack reset (proc) else false
 func increase_guaranteed_win() -> bool:
-	var guaranteed_win_level = Global.skills[Enums.LuckswornSkillIds.GUARANTEED_WIN - 1].level
+	var guaranteed_win_level: int = Global.skills[Enums.LuckswornSkillIds.GUARANTEED_WIN - 1].level
 	if guaranteed_win_level == 0:
 		return false
 	

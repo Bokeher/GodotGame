@@ -51,7 +51,7 @@ func set_filter(item_type: ItemData.ItemType) -> void:
 
 func apply_filter() -> void:
 	for view: InventoryItemView in item_views.values():
-		var visibility = check_filter(view.item.type)
+		var visibility: bool = check_filter(view.item.type)
 		view.visible = visibility
 
 func on_equipment_slot_selected(slot_id: Equipment.EquipmentSlotId) -> void:
@@ -78,10 +78,10 @@ func _update_item_view(item_data: ItemData, total: int) -> void:
 	if !check_filter(item_data.type):
 		return
 	
-	var id = item_data.id
+	var id: int = item_data.id
 	
 	if item_views.has(id):
-		var item_view = item_views[id]
+		var item_view: InventoryItemView = item_views[id]
 		
 		if total <= 0:
 			item_view.queue_free()
@@ -102,7 +102,7 @@ func _build_inventory_ui() -> void:
 	_clear_ui()
 	
 	for item_id: int in inventory.get_sorted():
-		var count = inventory.items[item_id]
+		var count: int = inventory.items[item_id]
 		if count <= 0:
 			continue
 		

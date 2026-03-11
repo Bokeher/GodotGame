@@ -9,7 +9,7 @@ signal pressed(slot: Equipment.EquipmentSlotId)
 signal hovered(slot: Equipment.EquipmentSlotId)
 signal hover_exited()
 
-func setup(slot_id: Equipment.EquipmentSlotId, selected_slot_changed_signal: Signal, is_selected_ = false) -> void:
+func setup(slot_id: Equipment.EquipmentSlotId, selected_slot_changed_signal: Signal, is_selected_: bool = false) -> void:
 	equipment_slot_id = slot_id
 	is_selected = is_selected_
 	selected_slot_changed_signal.connect(on_selected_slot_changed)

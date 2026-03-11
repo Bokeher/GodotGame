@@ -11,7 +11,7 @@ func on_respawn_progress(value: float, max_value: float) -> void:
 	$EnemyRespawnBar.max_value = max_value
 	$EnemyRespawnBar.value = value
 
-func on_enemy_changed(new_enemy: EnemyInstance):
+func on_enemy_changed(new_enemy: EnemyInstance) -> void:
 	if enemy:
 		if enemy.is_connected("health_changed", on_health_changed):
 			enemy.health_changed.disconnect(on_health_changed)

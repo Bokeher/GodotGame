@@ -9,7 +9,7 @@ var max_level: int
 var requirement_ids: Array[int]
 var grid_position: Array[int]
 
-func _init(_id: int, _name: String, _description: String, _image_path: String, _level: int, _max_level: int, _requirement_ids: Array[int], _grid_position: Array[int]):
+func _init(_id: int, _name: String, _description: String, _image_path: String, _level: int, _max_level: int, _requirement_ids: Array[int], _grid_position: Array[int]) -> void:
 	id = _id
 	name = _name
 	description = _description
@@ -38,7 +38,7 @@ static func from_dict(data: Dictionary) -> Skill:
 	var requirement_ids_float: Array = data.get("requirement_ids", [])
 
 	var requirement_ids_int: Array[int] = []
-	for requirement_id in requirement_ids_float:
+	for requirement_id: int in requirement_ids_float:
 		requirement_ids_int.append(int(requirement_id))
 	
 	var grid_position_float: Array = data.get("grid_position", [0, 0])

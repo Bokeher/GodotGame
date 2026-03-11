@@ -15,8 +15,8 @@ func read() -> void:
 	
 	_data = ResourceLoaderHelper.load_folder_to_dict(_dir_path)
 
-func get_by_id(id: int):
-	var res = _data.get(id)
+func get_by_id(id: int) -> Resource:
+	var res: Resource = _data.get(id)
 	
 	if res == null:
 		print("Id not found")

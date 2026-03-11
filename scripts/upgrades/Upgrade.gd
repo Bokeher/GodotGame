@@ -3,7 +3,7 @@ extends Control
 var upgrade: Upgrade
 
 func _ready() -> void:
-	var upgrade_id = $".".get_meta("upgrade_id")
+	var upgrade_id: int = $".".get_meta("upgrade_id")
 	upgrade = Global.upgrades[upgrade_id - 1]
 	update_cost(upgrade.cost)
 	
@@ -11,14 +11,14 @@ func _ready() -> void:
 	update_level(upgrade.level, upgrade.max_level)
 
 func performUpgrade() -> void:
-	var cost = upgrade.cost
+	var cost: int = upgrade.cost
 	
 	# dont need to check anything here since this interaction is only 
 	# available when button is active
 	
 	Global.player.gold -= cost
 	
-	var id = upgrade.id
+	var id: int = upgrade.id
 	if(id == 1):
 		Global.player.damage += upgrade.value
 	elif(id == 2):
@@ -56,14 +56,14 @@ func update_upgrade() -> void:
 	update_level(upgrade.level, upgrade.max_level)
 	update_cost(upgrade.cost)
 
-func _process(_delta) -> void:
+func _process(_delta: float) -> void:
 	check_buy()
 
 func _on_upgrade_button_pressed() -> void:
 	performUpgrade()
 
 func update_level(level: int, max_level: int) -> void:
-	var level_text = "Level " + str(level)
+	var level_text: String = "Level " + str(level)
 	
 	if(max_level > 0):
 		level_text += " / " + str(max_level) 

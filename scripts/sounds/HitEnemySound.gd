@@ -5,6 +5,6 @@ func change_pitch(is_crit: bool = false) -> void:
 	if is_crit:
 		pitch_scale = randf_range(10, 12)
 
-func play_with_random_pitch():
+func play_with_random_pitch() -> void:
 	pitch_scale = randf_range(0.8, 3)
 	play()

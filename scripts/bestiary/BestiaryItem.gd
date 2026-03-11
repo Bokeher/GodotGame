@@ -23,7 +23,7 @@ func update_bestiary_item() -> void:
 		child.queue_free()
 	
 	# Add drops
-	for loot_table_item in enemy.loot_table:
+	for loot_table_item: Dictionary in enemy.loot_table:
 		var item_id: int = loot_table_item.item_id
 		
 		var new_loot_item := loot_item_scene.instantiate()

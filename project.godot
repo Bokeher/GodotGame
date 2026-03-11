@@ -25,6 +25,10 @@ GameManager="*res://scripts/model/logic/GameManager.gd"
 Global="*res://scripts/Global.gd"
 Enums="*res://scripts/Enums.gd"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
 [display]
 
 window/size/resizable=false
