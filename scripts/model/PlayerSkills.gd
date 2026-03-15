@@ -4,6 +4,9 @@ class_name PlayerSkills
 var _skill_levels_by_id: Dictionary[int, int] = {}
 # <skill_id, level>
 
+signal skill_level_changed(skill_data: SkillData, level: int)
+signal skills_refunded(total_points: int)
+
 func get_level(skill_id: int) -> int:
 	return _skill_levels_by_id.get(skill_id, 0)
 
@@ -16,6 +19,7 @@ func set_level(skill_id: int, level: int) -> void:
 		_skill_levels_by_id.erase(skill_id)
 		return
 	
+	skill_level_changed.emit(skill_data, final_level)
 	_skill_levels_by_id[skill_id] = final_level
 
 func can_level_up(skill_id: int, skill_points: int) -> bool:
@@ -43,4 +47,5 @@ func refund_all_skills() -> int:
 	
 	_skill_levels_by_id.clear()
 	
+	skills_refunded.emit(total_points)
 	return total_points
