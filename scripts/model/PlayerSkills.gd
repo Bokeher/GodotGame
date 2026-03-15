@@ -1,4 +1,4 @@
-extends Object
+extends Resource
 class_name PlayerSkills
 
 var _skill_levels_by_id: Dictionary[int, int] = {}
