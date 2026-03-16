@@ -21,7 +21,6 @@ class_name PlayerInstance
 @export var level: int
 @export var xp: int
 @export var max_stage_reached: int
-@export var skill_points: int
 @export var player_skills: PlayerSkills
 
 var base_xp_amount: int = 100
@@ -68,7 +67,6 @@ func load_base_stats() -> void:
 	level = 1
 	xp = 0
 	max_stage_reached = 1
-	skill_points = 0
 	
 	inventory = Inventory.new()
 	player_skills = PlayerSkills.new()
@@ -95,7 +93,7 @@ func add_xp(amount: int) -> void:
 
 func level_up() -> void:
 	level += 1
-	skill_points += 1
+	player_skills.increase_skill_points(1)
 	
 	xp_needed = calc_xp_needed(level)
 	

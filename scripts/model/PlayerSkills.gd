@@ -4,8 +4,18 @@ class_name PlayerSkills
 var _skill_levels_by_id: Dictionary[int, int] = {}
 # <skill_id, level>
 
+@export var skill_points: int
+
 signal skill_level_changed(skill_data: SkillData, level: int)
-signal skills_refunded(total_points: int)
+signal skills_refunded()
+signal skill_points_changed(skill_points: int)
+
+func increase_skill_points(count: int) -> void:
+	if count <= 0: 
+		return
+	
+	skill_points += count
+	skill_points_changed.emit(skill_points)
 
 func get_level(skill_id: int) -> int:
 	return _skill_levels_by_id.get(skill_id, 0)
@@ -15,14 +25,18 @@ func set_level(skill_id: int, level: int) -> void:
 	
 	var final_level: int = clampi(level, 0, skill_data.max_level)
 	
-	if final_level == 0:
-		_skill_levels_by_id.erase(skill_id)
+	if get_level(skill_id) == final_level:
 		return
 	
-	skill_level_changed.emit(skill_data, final_level)
+	if final_level == 0:
+		_skill_levels_by_id.erase(skill_id)
+		skill_level_changed.emit(skill_data, 0)
+		return
+	
 	_skill_levels_by_id[skill_id] = final_level
+	skill_level_changed.emit(skill_data, final_level)
 
-func can_level_up(skill_id: int, skill_points: int) -> bool:
+func can_level_up(skill_id: int) -> bool:
 	if skill_points <= 0:
 		return false
 	
@@ -39,13 +53,14 @@ func meets_requirements(skill_data: SkillData) -> bool:
 	
 	return true
 
-func refund_all_skills() -> int:
+func refund_all_skills() -> void:
 	var total_points: int = 0
 	
-	for skill_points: int in _skill_levels_by_id.values():
-		total_points += skill_points
+	for skill_points_: int in _skill_levels_by_id.values():
+		total_points += skill_points_
 	
 	_skill_levels_by_id.clear()
 	
-	skills_refunded.emit(total_points)
-	return total_points
+	skill_points += total_points
+	skill_points_changed.emit(skill_points)
+	skills_refund.emit()
