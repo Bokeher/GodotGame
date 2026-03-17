@@ -1,72 +1,33 @@
 extends Control
 class_name SkillNode
 
-@onready var id: int = $".".get_meta("id")
-@onready var skill := Global.skills[id - 1]
+@export var skill: SkillData
+var _player_skills: PlayerSkills
 
-func _ready() -> void:
+signal pressed(skill: SkillData)
+signal hovered(skill: SkillData)
+signal hover_exited()
+
+func setup(skill_: SkillData, player_skills_: PlayerSkills) -> void:
+	skill = skill_
+	_player_skills = player_skills_
+	
 	update_level_label()
 	update_skill_image()
 
-func update_skill() -> void:
-	if(skill == null): return
-	
-	skill = Global.skills[skill.id - 1]
-	
-	update_level_label()
-
 func _on_texture_button_mouse_entered() -> void:
-	if skill.level < skill.max_level:
-		$Background.color = Enums.get_background_color(true)
-	$Border.color = Enums.get_border_color(true)
-	
-	var skill_description: String = skill.get_formatted_description()
-	
-	var description := skill_description + "\n\nLevel " + str(skill.level) + " / " + str(skill.max_level)
-	
-	GlobalPopup.popup(skill.name, description)
+	hovered.emit(skill)
 
 func _on_texture_button_mouse_exited() -> void:
-	$Background.color = Enums.get_background_color(false)
-	$Border.color = Enums.get_border_color(false)
-	
-	GlobalPopup.hide_()
+	hover_exited.emit(skill)
 
 func _on_texture_button_pressed() -> void:
-	level_up_skill()
-
-func level_up_skill() -> void:
-	# 0 skill points
-	if Global.player.skill_points <= 0:
-		return
-	
-	# Max level
-	if skill.level >= skill.max_level :
-		return
-	
-	if !meets_skill_requirements(skill):
-		# TODO: Add popup here about skill requirements and also show in skill description when reqs are not met
-		return
-	
-	skill.level += 1
-	Global.player.skill_points -= 1
-	$"../../..".update_skill_points()
-	
-	update_level_label()
-
-func meets_skill_requirements(skill_: Skill) -> bool:
-	var required_ids: Array[int] = skill_.requirement_ids
-	
-	for required_id in required_ids:
-		var required_skill: Skill = Global.skills[required_id - 1]
-		
-		if required_skill.level < required_skill.max_level:
-			return false
-	
-	return true
+	pressed.emit(skill)
 
 func update_level_label() -> void:
-	$SkillLevelLabel.text = str(skill.level) + " / " + str(skill.max_level)
+	var curr_level: int = _player_skills.get_level(skill.id)
+	
+	$SkillLevelLabel.text = str(curr_level) + " / " + str(skill.max_level)
 
 func update_skill_image() -> void:
-	$SkillButton.texture_normal = load(skill.image_path)
+	$SkillButton.texture_normal = skill.texture
