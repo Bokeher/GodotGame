@@ -63,4 +63,15 @@ func refund_all_skills() -> void:
 	
 	skill_points += total_points
 	skill_points_changed.emit(skill_points)
-	skills_refund.emit()
+	skills_refunded.emit()
+
+func level_up(skill_id: int) -> bool:
+	if !can_level_up(skill_id):
+		return false
+	
+	set_level(skill_id, get_level(skill_id) + 1)
+	
+	skill_points -= 1
+	skill_points_changed.emit(skill_points)
+	
+	return true
