@@ -16,9 +16,11 @@ func setup(skill_: SkillData, player_skills_: PlayerSkills) -> void:
 	update_skill_image()
 
 func _on_texture_button_mouse_entered() -> void:
+	$Border.color = Enums.get_border_color(true)
 	hovered.emit(skill)
 
 func _on_texture_button_mouse_exited() -> void:
+	$Border.color = Enums.get_border_color(false)
 	hover_exited.emit(skill)
 
 func _on_texture_button_pressed() -> void:
