@@ -1,7 +1,8 @@
 extends Control
 
 const skillNode_scene := preload("res://scenes/skills/SkillNode.tscn")
-var points_spent: int
+
+@onready var player_skills: PlayerSkills = GameManager.player.player_skills 
 
 func _ready() -> void:
 	update_skill_points()
@@ -10,31 +11,21 @@ func update_skill_points() -> void:
 	var skillTreePanel := $SkillScrollContainer/SkillTreePanel
 	
 	for skill in skillTreePanel.get_children():
-		skillTreePanel.remove_child(skill)
 		skill.queue_free()
 	
-	points_spent = 0
+	var skills: Dictionary[int, SkillData] = SkillDatabase.get_all()
+	# Might need to sort this in the future
 	
-	# Sort skills to prevent node overlapping
-	var sorted_skills: Array[Skill] = get_sorted_skills(Global.skills)
-	
-	for skill: Skill in sorted_skills:
-		points_spent += skill.level
-		
-		var y: int = skill.grid_position[1]
-		var skill_points_needed: int = 3 * y # y starts from 0
-		if y == 1:
-			skill_points_needed = 1
-		
-		if points_spent < skill_points_needed && !Global.debug_mode:
-			continue
-		
+	for skill: SkillData in skills.values():
 		var new_skillNode := skillNode_scene.instantiate()
-		new_skillNode.set_meta("id", skill.id)
+		new_skillNode.setup(skill, player_skills)
 		new_skillNode.position = get_vector_from_grid_position(skill.grid_position)
 		
-		for id in skill.requirement_ids:
-			var req_skill := Global.skills[id - 1]
+		new_skillNode.hovered.connect(_on_skill_hovered)
+		new_skillNode.hover_exited.connect(_on_skill_hover_exited)
+		new_skillNode.pressed.connect(_on_skill_pressed)
+		
+		for req_skill: SkillData in skill.requirements:
 			var bottom_point_offset := Vector2(34, 0)
 			var top_point_offset := Vector2(34, 34)
 			
@@ -44,25 +35,22 @@ func update_skill_points() -> void:
 			line.width = 2
 			
 			skillTreePanel.add_child(line)
-		
 		skillTreePanel.add_child(new_skillNode)
 	
 	$SkillPointsAmount.text = "Skill points: " + str(Global.player.skill_points)
 
-func get_sorted_skills(skills: Array[Skill]) -> Array[Skill]:
-	var sorted: Array[Skill] = skills.duplicate()
-	
-	sorted.sort_custom(func(a: Skill, b: Skill) -> bool:
-		if a.grid_position[1] == b.grid_position[1]:
-			return a.grid_position[0] < b.grid_position[0]
-		return a.grid_position[1] < b.grid_position[1]
-	)
-	
-	return sorted
+func _on_skill_hovered(skill: SkillData) -> void:
+	GlobalPopup.popup(skill.name, skill.description)
 
-func get_vector_from_grid_position(grid_position: Array[int]) -> Vector2:
-	var x_pos := grid_position[0]
-	var y_pos := grid_position[1]
+func _on_skill_hover_exited() -> void:
+	GlobalPopup.hide_()
+
+func _on_skill_pressed(skill: SkillData) -> void:
+	player_skills.level_up(skill.id)
+
+func get_vector_from_grid_position(grid_position: Vector2i) -> Vector2:
+	var x_pos := grid_position.x
+	var y_pos := grid_position.y
 	
 	if x_pos > 5:
 		print("WARNING! skill grid x_pos > 5 (skill out of screen)")
@@ -79,9 +67,6 @@ func get_vector_from_grid_position(grid_position: Array[int]) -> Vector2:
 	)
 
 func _on_reset_skills_button_pressed() -> void:
-	for skill in Global.skills:
-		Global.player.skill_points += skill.level
-		points_spent = 0
-		skill.level = 0
+	
 	
 	update_skill_points()
