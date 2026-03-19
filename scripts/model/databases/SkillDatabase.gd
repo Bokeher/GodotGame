@@ -8,3 +8,12 @@ func _init() -> void:
 
 func get_by_id(id: int) -> SkillData:
 	return super.get_by_id(id)
+
+func get_all() -> Dictionary[int, SkillData]:
+	var untyped_data: Dictionary = super.get_all()
+	
+	var results: Dictionary[int, SkillData] = {}
+	for key: int in untyped_data:
+		results[key] = untyped_data[key] as SkillData
+	
+	return results
