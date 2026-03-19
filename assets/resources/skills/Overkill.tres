@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://dcef06xce0rkd"]
+
+[ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="1_3vfi0"]
+[ext_resource type="Resource" uid="uid://ba7aje4d8iyl1" path="res://assets/resources/skills/HeavyBlow.tres" id="2_8few6"]
+
+[resource]
+script = ExtResource("1_3vfi0")
+id = 2
+name = "Overkill"
+description = "When dealing a killing blow, deal 25/50/75/100/150% of overkill damage to the next enemy."
+grid_position = Vector2i(0, 1)
+requirements = Array[ExtResource("1_3vfi0")]([ExtResource("2_8few6")])
+max_level = 1
+metadata/_custom_type_script = "uid://cyxl3epodgara"
