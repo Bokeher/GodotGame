@@ -21,7 +21,7 @@ func _on_texture_button_mouse_entered() -> void:
 
 func _on_texture_button_mouse_exited() -> void:
 	$Border.color = Enums.get_border_color(false)
-	hover_exited.emit(skill)
+	hover_exited.emit()
 
 func _on_texture_button_pressed() -> void:
 	pressed.emit(skill)
