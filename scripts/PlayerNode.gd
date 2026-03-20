@@ -27,5 +27,6 @@ func on_health_changed(_old_health: int, new_health: int) -> void:
 	$PlayerHealthBar/PlayerHealth.text = player.get_hp_str()
 
 func on_xp_changed() -> void:
+	$PlayerXpBar.max_value = player.xp_needed
 	$PlayerXpBar.value = player.xp
 	$PlayerXpBar/PlayerXpProgressLabel.text = player.get_xp_str()
