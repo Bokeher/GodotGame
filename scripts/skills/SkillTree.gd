@@ -5,7 +5,12 @@ const skillNode_scene := preload("res://scenes/skills/SkillNode.tscn")
 @onready var player_skills: PlayerSkills = GameManager.player.player_skills 
 
 func _ready() -> void:
+	player_skills.skill_points_changed.connect(_on_skill_points_changed)
+	
 	update_skill_points()
+
+func _on_skill_points_changed(points: int) -> void:
+	$SkillPointsAmount.text = "Skill points: " + str(points)
 
 func update_skill_points() -> void:
 	var skillTreePanel := $SkillScrollContainer/SkillTreePanel
@@ -67,6 +72,4 @@ func get_vector_from_grid_position(grid_position: Vector2i) -> Vector2:
 	)
 
 func _on_reset_skills_button_pressed() -> void:
-	
-	
-	update_skill_points()
+	player_skills.refund_all_skills()

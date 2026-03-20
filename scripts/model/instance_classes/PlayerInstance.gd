@@ -23,7 +23,7 @@ class_name PlayerInstance
 @export var max_stage_reached: int
 @export var player_skills: PlayerSkills
 
-var base_xp_amount: int = 100
+var base_xp_amount: int = 2
 var on_level_up_xp_multiplier: float = 0.2
 var xp_needed: int = base_xp_amount
 
