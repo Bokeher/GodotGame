@@ -8,8 +8,13 @@ var skill_views: Dictionary[int, SkillNode] = {}
 
 func _ready() -> void:
 	player_skills.skill_points_changed.connect(_on_skill_points_changed)
+	player_skills.skill_level_changed.connect(_on_skill_level_changed)
 	
 	update_skill_points()
+
+func _on_skill_level_changed(skill: SkillData, level: int) -> void:
+	var skill_view: SkillNode = skill_views.get(skill.id)
+	skill_view.update_level_label(level)
 
 func _on_skill_points_changed(points: int) -> void:
 	$SkillPointsAmount.text = "Skill points: " + str(points)
