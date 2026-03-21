@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://wguylvq1tt10"]
 
-[ext_resource type="Script" uid="uid://dcp33h0kburur" path="res://scripts/skills/SkillNode.gd" id="1_t1asw"]
+[ext_resource type="Script" uid="uid://dcp33h0kburur" path="res://scripts/skills/SkillView.gd" id="1_t1asw"]
 [ext_resource type="Texture2D" uid="uid://o2n5ulu72kfo" path="res://assets/sprites/skills/skill1.png" id="2_yq7fh"]
 
-[node name="SkillNode" type="Control"]
+[node name="SkillView" type="Control"]
 z_index = 3
 custom_minimum_size = Vector2(68, 68)
 layout_mode = 3

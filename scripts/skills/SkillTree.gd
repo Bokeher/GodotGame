@@ -1,9 +1,9 @@
 extends Control
 
-const skillNode_scene := preload("res://scenes/skills/SkillNode.tscn")
+const skillView_scene := preload("res://scenes/skills/SkillView.tscn")
 
 @onready var player_skills: PlayerSkills = GameManager.player.player_skills 
-var skill_views: Dictionary[int, SkillNode] = {}
+var skill_views: Dictionary[int, SkillView] = {}
 # <skill_id, SkillView>
 
 func _ready() -> void:
@@ -13,7 +13,7 @@ func _ready() -> void:
 	update_skill_points()
 
 func _on_skill_level_changed(skill: SkillData, level: int) -> void:
-	var skill_view: SkillNode = skill_views.get(skill.id)
+	var skill_view: SkillView = skill_views.get(skill.id)
 	skill_view.update_level_label(level)
 
 func _on_skill_points_changed(points: int) -> void:
@@ -29,27 +29,27 @@ func update_skill_points() -> void:
 	# Might need to sort this in the future
 	
 	for skill: SkillData in skills.values():
-		var new_skillNode := skillNode_scene.instantiate()
-		new_skillNode.setup(skill, player_skills)
-		new_skillNode.position = get_vector_from_grid_position(skill.grid_position)
+		var new_skillView := skillView_scene.instantiate()
+		new_skillView.setup(skill)
+		new_skillView.position = get_vector_from_grid_position(skill.grid_position)
 		
-		new_skillNode.hovered.connect(_on_skill_hovered)
-		new_skillNode.hover_exited.connect(_on_skill_hover_exited)
-		new_skillNode.pressed.connect(_on_skill_pressed)
+		new_skillView.hovered.connect(_on_skill_hovered)
+		new_skillView.hover_exited.connect(_on_skill_hover_exited)
+		new_skillView.pressed.connect(_on_skill_pressed)
 		
-		skill_views.set(skill.id, new_skillNode)
+		skill_views.set(skill.id, new_skillView)
 		
 		for req_skill: SkillData in skill.requirements:
 			var bottom_point_offset := Vector2(34, 0)
 			var top_point_offset := Vector2(34, 34)
 			
 			var line := Line2D.new()
-			line.add_point(new_skillNode.position + bottom_point_offset)
+			line.add_point(new_skillView.position + bottom_point_offset)
 			line.add_point(get_vector_from_grid_position(req_skill.grid_position) + top_point_offset)
 			line.width = 2
 			
 			skillTreePanel.add_child(line)
-		skillTreePanel.add_child(new_skillNode)
+		skillTreePanel.add_child(new_skillView)
 	
 	$SkillPointsAmount.text = "Skill points: " + str(Global.player.skill_points)
 
@@ -71,13 +71,13 @@ func get_vector_from_grid_position(grid_position: Vector2i) -> Vector2:
 	
 	var left_offset := 16
 	var top_offset := 16
-	var skillNode_width := 68
-	var skillNode_height := 68
+	var skillView_width := 68
+	var skillView_height := 68
 	var skills_offset := 20
 	
 	return Vector2(
-		left_offset + (skillNode_width + skills_offset) * x_pos,
-		top_offset + (skillNode_height + skills_offset) * y_pos
+		left_offset + (skillView_width + skills_offset) * x_pos,
+		top_offset + (skillView_height + skills_offset) * y_pos
 	)
 
 func _on_reset_skills_button_pressed() -> void:

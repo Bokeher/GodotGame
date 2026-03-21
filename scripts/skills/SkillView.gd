@@ -1,5 +1,5 @@
 extends Control
-class_name SkillNode
+class_name SkillView
 
 @export var skill: SkillData
 
