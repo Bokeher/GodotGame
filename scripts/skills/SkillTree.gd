@@ -3,6 +3,8 @@ extends Control
 const skillNode_scene := preload("res://scenes/skills/SkillNode.tscn")
 
 @onready var player_skills: PlayerSkills = GameManager.player.player_skills 
+var skill_views: Dictionary[int, SkillNode] = {}
+# <skill_id, SkillView>
 
 func _ready() -> void:
 	player_skills.skill_points_changed.connect(_on_skill_points_changed)
@@ -29,6 +31,8 @@ func update_skill_points() -> void:
 		new_skillNode.hovered.connect(_on_skill_hovered)
 		new_skillNode.hover_exited.connect(_on_skill_hover_exited)
 		new_skillNode.pressed.connect(_on_skill_pressed)
+		
+		skill_views.set(skill.id, new_skillNode)
 		
 		for req_skill: SkillData in skill.requirements:
 			var bottom_point_offset := Vector2(34, 0)
