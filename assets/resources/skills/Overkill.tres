@@ -10,5 +10,5 @@ name = "Overkill"
 description = "When dealing a killing blow, deal 25/50/75/100/150% of overkill damage to the next enemy."
 grid_position = Vector2i(0, 1)
 requirements = Array[ExtResource("1_3vfi0")]([ExtResource("2_8few6")])
-max_level = 1
+max_level = 5
 metadata/_custom_type_script = "uid://cyxl3epodgara"
