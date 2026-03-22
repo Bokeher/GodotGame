@@ -22,7 +22,7 @@ func _on_skill_level_changed(skill: SkillData, level: int) -> void:
 	skill_view.update_level_label(level)
 
 func _on_skill_points_changed(points: int) -> void:
-	$SkillPointsAmount.text = "Skill points: " + str(points)
+	update_skill_points(points)
 
 func update_skills() -> void:
 	var skillTreePanel := $SkillScrollContainer/SkillTreePanel
@@ -83,7 +83,7 @@ func _on_skill_hover_exited() -> void:
 func _on_skill_pressed(skill: SkillData) -> void:
 	player_skills.level_up(skill.id)
 
-func grid_position_to_vector(grid_position: Vector2i) -> Vector2:
+func grid_position_to_vector(grid_position: Vector2i) -> Vector2i:
 	var x_pos := grid_position.x
 	var y_pos := grid_position.y
 	
@@ -96,7 +96,7 @@ func grid_position_to_vector(grid_position: Vector2i) -> Vector2:
 	var skillView_height := 68
 	var skills_offset := 20
 	
-	return Vector2(
+	return Vector2i(
 		left_offset + (skillView_width + skills_offset) * x_pos,
 		top_offset + (skillView_height + skills_offset) * y_pos
 	)
