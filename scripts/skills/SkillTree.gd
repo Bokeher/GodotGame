@@ -9,8 +9,13 @@ var skill_views: Dictionary[int, SkillView] = {}
 func _ready() -> void:
 	player_skills.skill_points_changed.connect(_on_skill_points_changed)
 	player_skills.skill_level_changed.connect(_on_skill_level_changed)
+	player_skills.skills_refunded.connect(_on_skills_refunded)
 	
 	update_skill_points()
+
+func _on_skills_refunded() -> void:
+	for view: SkillView in skill_views.values():
+		view.update_level_label(0)
 
 func _on_skill_level_changed(skill: SkillData, level: int) -> void:
 	var skill_view: SkillView = skill_views.get(skill.id)
