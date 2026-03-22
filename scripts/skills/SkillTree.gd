@@ -34,29 +34,43 @@ func update_skill_points() -> void:
 	# Might need to sort this in the future
 	
 	for skill: SkillData in skills.values():
-		var new_skillView := skillView_scene.instantiate()
-		new_skillView.setup(skill)
-		new_skillView.position = get_vector_from_grid_position(skill.grid_position)
-		
-		new_skillView.hovered.connect(_on_skill_hovered)
-		new_skillView.hover_exited.connect(_on_skill_hover_exited)
-		new_skillView.pressed.connect(_on_skill_pressed)
-		
-		skill_views.set(skill.id, new_skillView)
+		var new_skillView := build_skill_view(skill)
 		
 		for req_skill: SkillData in skill.requirements:
-			var bottom_point_offset := Vector2(34, 0)
-			var top_point_offset := Vector2(34, 34)
-			
-			var line := Line2D.new()
-			line.add_point(new_skillView.position + bottom_point_offset)
-			line.add_point(get_vector_from_grid_position(req_skill.grid_position) + top_point_offset)
-			line.width = 2
+			var line: Line2D = create_line(
+				new_skillView.position, 
+				grid_position_to_vector(req_skill.grid_position)
+			)
 			
 			skillTreePanel.add_child(line)
 		skillTreePanel.add_child(new_skillView)
 	
 	$SkillPointsAmount.text = "Skill points: " + str(Global.player.skill_points)
+
+func build_skill_view(skill: SkillData) -> SkillView:
+	var skill_view: SkillView = skillView_scene.instantiate()
+	
+	skill_view.setup(skill)
+	skill_view.position = grid_position_to_vector(skill.grid_position)
+	
+	skill_view.hovered.connect(_on_skill_hovered)
+	skill_view.hover_exited.connect(_on_skill_hover_exited)
+	skill_view.pressed.connect(_on_skill_pressed)
+	
+	skill_views.set(skill.id, skill_view)
+	
+	return skill_view
+
+func create_line(pos1: Vector2i, pos2: Vector2i) -> Line2D:
+	var bottom_point_offset := Vector2i(34, 0)
+	var top_point_offset := Vector2i(34, 34)
+	
+	var line := Line2D.new()
+	line.width = 2
+	line.add_point(pos1 + bottom_point_offset)
+	line.add_point(pos2 + top_point_offset)
+	
+	return line
 
 func _on_skill_hovered(skill: SkillData) -> void:
 	GlobalPopup.popup(skill.name, skill.description)
@@ -67,7 +81,7 @@ func _on_skill_hover_exited() -> void:
 func _on_skill_pressed(skill: SkillData) -> void:
 	player_skills.level_up(skill.id)
 
-func get_vector_from_grid_position(grid_position: Vector2i) -> Vector2:
+func grid_position_to_vector(grid_position: Vector2i) -> Vector2:
 	var x_pos := grid_position.x
 	var y_pos := grid_position.y
 	
