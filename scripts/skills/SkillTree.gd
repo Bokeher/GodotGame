@@ -11,7 +11,7 @@ func _ready() -> void:
 	player_skills.skill_level_changed.connect(_on_skill_level_changed)
 	player_skills.skills_refunded.connect(_on_skills_refunded)
 	
-	update_skill_points()
+	update_skills()
 
 func _on_skills_refunded() -> void:
 	for view: SkillView in skill_views.values():
@@ -24,7 +24,7 @@ func _on_skill_level_changed(skill: SkillData, level: int) -> void:
 func _on_skill_points_changed(points: int) -> void:
 	$SkillPointsAmount.text = "Skill points: " + str(points)
 
-func update_skill_points() -> void:
+func update_skills() -> void:
 	var skillTreePanel := $SkillScrollContainer/SkillTreePanel
 	
 	for skill in skillTreePanel.get_children():
@@ -45,7 +45,9 @@ func update_skill_points() -> void:
 			skillTreePanel.add_child(line)
 		skillTreePanel.add_child(new_skillView)
 	
-	$SkillPointsAmount.text = "Skill points: " + str(Global.player.skill_points)
+
+func update_skill_points(points: int) -> void:
+	$SkillPointsAmount.text = "Skill points: " + str(points)
 
 func build_skill_view(skill: SkillData) -> SkillView:
 	var skill_view: SkillView = skillView_scene.instantiate()
