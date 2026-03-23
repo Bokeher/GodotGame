@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://boeryvkxf7w35"]
+
+[ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="1_qngrm"]
+[ext_resource type="Texture2D" uid="uid://da3i1p10ovht4" path="res://assets/sprites/skills/kensei/swords_path.png" id="2_vbim2"]
+
+[resource]
+script = ExtResource("1_qngrm")
+id = 3
+name = "Sword's Path"
+description = "Do not deal damage on hit. Can't perform critical attacks \\n\\nInstead charge your attack and then deal all damage at once (2s cooldown). \\n\\nIncrease damage for 10% with each hit (max 5 stacks)"
+texture = ExtResource("2_vbim2")
+grid_position = Vector2i(2, 0)
+requirements = Array[ExtResource("1_qngrm")]([])
+max_level = 1
+metadata/_custom_type_script = "uid://cyxl3epodgara"
