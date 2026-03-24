@@ -18,6 +18,7 @@ class_name PlayerInstance
 @export var gold: int
 
 @export_category("Progress")
+@export var character_class: Enums.CharacterClass = Enums.CharacterClass.NONE
 @export var level: int
 @export var xp: int
 @export var max_stage_reached: int
@@ -101,3 +102,6 @@ func level_up() -> void:
 
 func get_xp_str() -> String:
 	return "%d / %d" % [xp, xp_needed]
+
+func choose_character_class(choice: Enums.CharacterClass) -> void:
+	character_class = choice
