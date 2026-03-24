@@ -17,3 +17,14 @@ func get_all() -> Dictionary[int, SkillData]:
 		results[key] = untyped_data[key] as SkillData
 	
 	return results
+
+func get_sorted(skills: Dictionary[int, SkillData]) -> Array[SkillData]:
+	var sorted: Array[SkillData] = skills.values()
+	
+	sorted.sort_custom(func(a: SkillData, b: SkillData) -> bool:
+		if a.grid_position[1] == b.grid_position[1]:
+			return a.grid_position[0] < b.grid_position[0]
+		return a.grid_position[1] < b.grid_position[1]
+	)
+	
+	return sorted

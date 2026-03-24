@@ -30,10 +30,10 @@ func update_skills() -> void:
 	for skill in skillTreePanel.get_children():
 		skill.queue_free()
 	
-	var skills: Dictionary[int, SkillData] = SkillDatabase.get_all()
+	var skills: Array[SkillData] = SkillDatabase.get_sorted(SkillDatabase.get_all())
 	# Might need to sort this in the future
 	
-	for skill: SkillData in skills.values():
+	for skill: SkillData in skills:
 		var new_skillView := build_skill_view(skill)
 		
 		for req_skill: SkillData in skill.requirements:
