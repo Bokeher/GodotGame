@@ -35,11 +35,11 @@ func _process(delta) -> void:
 		var damage_received: int = Global.curr_enemy.damage
 		
 		# WARRIOR SKILL: DIAMOND SKIN
-		if Global.selected_class_id == Enums.Classes.WARRIOR:
+		if Global.selected_class_id == Enums.CharacterClass.WARRIOR:
 			damage_received -= Global.warrior_class.get_diamondskin_damage_reduction(damage_received)
 		
 		# WARRIOR SKILL: IRON SKIN
-		if Global.selected_class_id == Enums.Classes.WARRIOR:
+		if Global.selected_class_id == Enums.CharacterClass.WARRIOR:
 			damage_received -= Global.warrior_class.get_ironskin_damage_reduction()
 		
 		# Receive damage
@@ -47,7 +47,7 @@ func _process(delta) -> void:
 		$"..".update_player_health_bar()
 		
 		# WARRIOR SKILL: ADRENALINE
-		if Global.selected_class_id == Enums.Classes.WARRIOR:
+		if Global.selected_class_id == Enums.CharacterClass.WARRIOR:
 			Global.warrior_class.add_adrenaline_stack()
 		
 		# Play sound

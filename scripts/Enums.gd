@@ -2,7 +2,7 @@ extends Node
 
 const UNEQUIP_INVENTORY_SLOT_ID: int = -1
 
-enum Classes {
+enum CharacterClass {
 	WARRIOR = 0,
 	UMBRAL_REAVER = 1,
 	LUCKSWORN = 2,
@@ -98,10 +98,10 @@ const EQUIPMENT_SLOT_ID_TEXTURES_DIR_PATH: String = "res://assets/sprites/items/
 const CLASSES_DIR_PATH: String = "res://assets/jsons/classes/"
 
 const CLASS_TEXTURES := {
-	Classes.WARRIOR: CLASS_TEXTURES_DIR_PATH + "warrior.png",
-	Classes.UMBRAL_REAVER: CLASS_TEXTURES_DIR_PATH + "umbral_reaver.png",
-	Classes.LUCKSWORN: CLASS_TEXTURES_DIR_PATH + "lucksworn.png",
-	Classes.KENSEI: CLASS_TEXTURES_DIR_PATH + "kensei.png"
+	CharacterClass.WARRIOR: CLASS_TEXTURES_DIR_PATH + "warrior.png",
+	CharacterClass.UMBRAL_REAVER: CLASS_TEXTURES_DIR_PATH + "umbral_reaver.png",
+	CharacterClass.LUCKSWORN: CLASS_TEXTURES_DIR_PATH + "lucksworn.png",
+	CharacterClass.KENSEI: CLASS_TEXTURES_DIR_PATH + "kensei.png"
 }
 
 const EQUIPMENT_SLOT_ID_TEXTURES := {
@@ -111,10 +111,10 @@ const EQUIPMENT_SLOT_ID_TEXTURES := {
 }
 
 const CLASS_JSON_PATH := {
-	Classes.WARRIOR: CLASSES_DIR_PATH + "warrior.json",
-	Classes.UMBRAL_REAVER: CLASSES_DIR_PATH + "umbral_reaver.json",
-	Classes.LUCKSWORN: CLASSES_DIR_PATH + "lucksworn.json",
-	Classes.KENSEI: CLASSES_DIR_PATH + "kensei.json",
+	CharacterClass.WARRIOR: CLASSES_DIR_PATH + "warrior.json",
+	CharacterClass.UMBRAL_REAVER: CLASSES_DIR_PATH + "umbral_reaver.json",
+	CharacterClass.LUCKSWORN: CLASSES_DIR_PATH + "lucksworn.json",
+	CharacterClass.KENSEI: CLASSES_DIR_PATH + "kensei.json",
 }
 
 func get_class_json_path(class_type: int) -> String:

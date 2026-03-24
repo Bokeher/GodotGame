@@ -133,7 +133,7 @@ static func calc_attack_interval() -> float:
 	var base: float = Player.BASE_ATTACK_INTERVAL
 	var mult: float = 1.00
 	
-	if Global.selected_class_id == Enums.Classes.WARRIOR:
+	if Global.selected_class_id == Enums.CharacterClass.WARRIOR:
 		for skill in Global.skills:
 			if skill.level == 0:
 				continue
@@ -164,7 +164,7 @@ static func calc_attack_damage() -> int:
 		elif item_id == Enums.ItemIds.RING_OF_MAJOR_DAMAGE:
 			base += 3
 	
-	if Global.selected_class_id == Enums.Classes.WARRIOR:
+	if Global.selected_class_id == Enums.CharacterClass.WARRIOR:
 		# rewrite this with Global.skills[] instead of checking all skills
 		for skill in Global.skills:
 			if skill.level == 0:
@@ -177,7 +177,7 @@ static func calc_attack_damage() -> int:
 				mult *= Global.warrior_class.get_adrenaline_damage_multiplier()
 			elif skill.id == Enums.WarriorSkillIds.BLOODRAGE and Global.warrior_class.bloodrage_active:
 				mult *= Global.warrior_class.get_bloodrage_damage_mult()
-	elif Global.selected_class_id == Enums.Classes.LUCKSWORN:
+	elif Global.selected_class_id == Enums.CharacterClass.LUCKSWORN:
 		for skill in Global.skills:
 			if skill.level == 0:
 				continue
