@@ -8,3 +8,11 @@ func _init() -> void:
 
 func get_by_id(id: int) -> CharacterClassData:
 	return super.get_by_id(id)
+
+func get_by_char_class(class_type: Enums.CharacterClass) -> CharacterClassData:
+	for char_class: CharacterClassData in get_all():
+		if char_class.type == class_type:
+			return char_class
+	
+	print("ERROR! This should never print! (Missing CharacterClassData in DB)")
+	return null
