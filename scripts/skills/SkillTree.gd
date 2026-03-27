@@ -30,8 +30,8 @@ func update_skills() -> void:
 	for skill in skillTreePanel.get_children():
 		skill.queue_free()
 	
-	var skills: Array[SkillData] = SkillDatabase.get_sorted(SkillDatabase.get_all())
-	# Might need to sort this in the future
+	# sort to prevent problems with overlapping
+	var skills: Array[SkillData] = get_sorted_skills(GameManager.player.character_class.skills)
 	
 	for skill: SkillData in skills:
 		var new_skillView := build_skill_view(skill)
@@ -45,6 +45,19 @@ func update_skills() -> void:
 			skillTreePanel.add_child(line)
 		skillTreePanel.add_child(new_skillView)
 	
+
+func get_sorted_skills(skills: Array[SkillData]) -> Array[SkillData]:
+	var sorted: Array[SkillData] = skills.duplicate()
+	
+	sorted.sort_custom(func(a: SkillData, b: SkillData) -> bool:
+		if a.grid_position[1] == b.grid_position[1]:
+			return a.grid_position[0] < b.grid_position[0]
+		return a.grid_position[1] < b.grid_position[1]
+	)
+	
+	return sorted
+
+
 
 func update_skill_points(points: int) -> void:
 	$SkillPointsAmount.text = "Skill points: " + str(points)
