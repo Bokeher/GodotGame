@@ -1,6 +1,7 @@
 extends Resource
 class_name CharacterClassData
 
+@export var id: int
 @export var class_type: Enums.CharacterClass
 @export var display_name: String
 @export var description: String

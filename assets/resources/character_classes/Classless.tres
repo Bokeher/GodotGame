@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_45vey")
+id = -1
 class_type = -1
 display_name = "Classless"
 description = "Classless-description"
