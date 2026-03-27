@@ -33,6 +33,8 @@ signal xp_changed
 
 func _init(base_stats_: GeneralBaseStats) -> void:
 	base_stats = base_stats_
+	character_class = CharacterClassDatabase.get_by_char_class(Enums.CharacterClass.NONE)
+	
 	if base_stats:
 		load_base_stats()
 
