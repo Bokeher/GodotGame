@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://bhgl0qbdiungd"]
+
+[ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="1_iup5q"]
+
+[resource]
+script = ExtResource("1_iup5q")
+id = 5
+name = "Poisoned Blade"
+description = "Deal 50% of your damage over 3 seconds, but reduce damage dealt by weapon by 25%."
+grid_position = Vector2i(2, 0)
+requirements = Array[ExtResource("1_iup5q")]([])
+max_level = 1
+metadata/_custom_type_script = "uid://cyxl3epodgara"
