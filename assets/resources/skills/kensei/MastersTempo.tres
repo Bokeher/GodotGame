@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SkillData" load_steps=4 format=3 uid="uid://dhb44wobs3td"]
 
 [ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="1_xmi7n"]
-[ext_resource type="Resource" uid="uid://boeryvkxf7w35" path="res://assets/resources/skills/SwordsPath.tres" id="2_j3uki"]
+[ext_resource type="Resource" uid="uid://boeryvkxf7w35" path="res://assets/resources/skills/kensei/SwordsPath.tres" id="2_j3uki"]
 [ext_resource type="Texture2D" uid="uid://b1kkcaps7ggs3" path="res://assets/sprites/skills/kensei/masters_tempo.png" id="3_0uujd"]
 
 [resource]

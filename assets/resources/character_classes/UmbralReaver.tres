@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bu44qj8rjihia" path="res://scripts/model/resource_classes/CharacterClassData.gd" id="1_ikqvn"]
 [ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="2_buf10"]
-[ext_resource type="Resource" uid="uid://bhgl0qbdiungd" path="res://assets/resources/skills/PoisonedBlade.tres" id="3_buf10"]
+[ext_resource type="Resource" uid="uid://bhgl0qbdiungd" path="res://assets/resources/skills/umbral_reaver/PoisonedBlade.tres" id="3_buf10"]
 
 [resource]
 script = ExtResource("1_ikqvn")

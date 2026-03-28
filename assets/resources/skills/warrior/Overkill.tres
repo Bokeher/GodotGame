@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3 uid="uid://dcef06xce0rkd"]
 
 [ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="1_3vfi0"]
-[ext_resource type="Resource" uid="uid://ba7aje4d8iyl1" path="res://assets/resources/skills/HeavyBlow.tres" id="2_8few6"]
+[ext_resource type="Resource" uid="uid://ba7aje4d8iyl1" path="res://assets/resources/skills/warrior/HeavyBlow.tres" id="2_8few6"]
 
 [resource]
 script = ExtResource("1_3vfi0")

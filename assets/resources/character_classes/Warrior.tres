@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bu44qj8rjihia" path="res://scripts/model/resource_classes/CharacterClassData.gd" id="1_r8dwm"]
 [ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="2_ws8p0"]
-[ext_resource type="Resource" uid="uid://ba7aje4d8iyl1" path="res://assets/resources/skills/HeavyBlow.tres" id="3_vuupo"]
-[ext_resource type="Resource" uid="uid://dcef06xce0rkd" path="res://assets/resources/skills/Overkill.tres" id="4_deybu"]
+[ext_resource type="Resource" uid="uid://ba7aje4d8iyl1" path="res://assets/resources/skills/warrior/HeavyBlow.tres" id="3_vuupo"]
+[ext_resource type="Resource" uid="uid://dcef06xce0rkd" path="res://assets/resources/skills/warrior/Overkill.tres" id="4_deybu"]
 
 [resource]
 script = ExtResource("1_r8dwm")

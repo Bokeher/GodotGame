@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bu44qj8rjihia" path="res://scripts/model/resource_classes/CharacterClassData.gd" id="1_dytuu"]
 [ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="2_tto6i"]
-[ext_resource type="Resource" uid="uid://boeryvkxf7w35" path="res://assets/resources/skills/SwordsPath.tres" id="3_tto6i"]
+[ext_resource type="Resource" uid="uid://boeryvkxf7w35" path="res://assets/resources/skills/kensei/SwordsPath.tres" id="3_tto6i"]
 
 [resource]
 script = ExtResource("1_dytuu")
