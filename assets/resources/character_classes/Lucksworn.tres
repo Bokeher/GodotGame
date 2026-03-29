@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterClassData" load_steps=3 format=3 uid="uid://daoinan5rqh85"]
+
+[ext_resource type="Script" uid="uid://bu44qj8rjihia" path="res://scripts/model/resource_classes/CharacterClassData.gd" id="1_lxqkg"]
+[ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="2_dpe65"]
+
+[resource]
+script = ExtResource("1_lxqkg")
+id = 4
+class_type = 2
+display_name = "Lucksworn"
+description = "Lucksworn-desc"
+skills = Array[ExtResource("2_dpe65")]([])
+metadata/_custom_type_script = "uid://bu44qj8rjihia"
