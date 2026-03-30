@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://iotfev4vej6x"]
+
+[ext_resource type="PackedScene" uid="uid://cflp32sdju7cu" path="res://scenes/skills/CharacterClassSelectionView.tscn" id="1_5nimi"]
+
+[node name="CharacterClassSelection" type="Control"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 0.949
+offset_bottom = 0.0479736
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharSelectionPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.984
+anchor_bottom = 1.171
+offset_right = 9.216
+offset_bottom = -105.165
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectionTitle" type="Label" parent="CharSelectionPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_right = 288.0
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Choose your character class"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterClassSelectionView" parent="CharSelectionPanel" instance=ExtResource("1_5nimi")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -225.0
+offset_right = 125.0
+offset_bottom = 225.0
