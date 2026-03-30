@@ -5,7 +5,10 @@
 
 [node name="SkillTree" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchor_right = 0.477
+anchor_bottom = 0.931
+offset_right = -549.504
+offset_bottom = -603.288
 script = ExtResource("1_7o6gi")
 
 [node name="SkillPointsAmount" type="Label" parent="."]
