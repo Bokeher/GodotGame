@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="CharacterClassData" load_steps=3 format=3 uid="uid://pmci4tj7yegf"]
+[gd_resource type="Resource" script_class="CharacterClassData" load_steps=4 format=3 uid="uid://pmci4tj7yegf"]
 
 [ext_resource type="Script" uid="uid://bu44qj8rjihia" path="res://scripts/model/resource_classes/CharacterClassData.gd" id="1_45vey"]
 [ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="2_tr1xt"]
+[ext_resource type="Texture2D" uid="uid://gkuccay8odx" path="res://assets/sprites/placeholder.png" id="3_tr1xt"]
 
 [resource]
 script = ExtResource("1_45vey")
@@ -9,5 +10,6 @@ id = -1
 class_type = -1
 display_name = "Classless"
 description = "Classless-description"
+texture = ExtResource("3_tr1xt")
 skills = Array[ExtResource("2_tr1xt")]([])
 metadata/_custom_type_script = "uid://bu44qj8rjihia"

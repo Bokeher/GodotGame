@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterClassData" load_steps=4 format=3 uid="uid://ctq88chyv1r4t"]
+[gd_resource type="Resource" script_class="CharacterClassData" load_steps=5 format=3 uid="uid://ctq88chyv1r4t"]
 
 [ext_resource type="Script" uid="uid://bu44qj8rjihia" path="res://scripts/model/resource_classes/CharacterClassData.gd" id="1_ikqvn"]
 [ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="2_buf10"]
 [ext_resource type="Resource" uid="uid://bhgl0qbdiungd" path="res://assets/resources/skills/umbral_reaver/PoisonedBlade.tres" id="3_buf10"]
+[ext_resource type="Texture2D" uid="uid://gkuccay8odx" path="res://assets/sprites/placeholder.png" id="4_jaexe"]
 
 [resource]
 script = ExtResource("1_ikqvn")
@@ -10,5 +11,6 @@ id = 2
 class_type = 1
 display_name = "Umbral Reaver"
 description = "umbral-desc"
+texture = ExtResource("4_jaexe")
 skills = Array[ExtResource("2_buf10")]([ExtResource("3_buf10")])
 metadata/_custom_type_script = "uid://bu44qj8rjihia"

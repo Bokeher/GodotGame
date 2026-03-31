@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CharacterClassData" load_steps=5 format=3 uid="uid://brb2bpuf2g52l"]
+[gd_resource type="Resource" script_class="CharacterClassData" load_steps=6 format=3 uid="uid://brb2bpuf2g52l"]
 
 [ext_resource type="Script" uid="uid://bu44qj8rjihia" path="res://scripts/model/resource_classes/CharacterClassData.gd" id="1_r8dwm"]
 [ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="2_ws8p0"]
 [ext_resource type="Resource" uid="uid://ba7aje4d8iyl1" path="res://assets/resources/skills/warrior/HeavyBlow.tres" id="3_vuupo"]
 [ext_resource type="Resource" uid="uid://dcef06xce0rkd" path="res://assets/resources/skills/warrior/Overkill.tres" id="4_deybu"]
+[ext_resource type="Texture2D" uid="uid://gkuccay8odx" path="res://assets/sprites/placeholder.png" id="5_deybu"]
 
 [resource]
 script = ExtResource("1_r8dwm")
@@ -11,5 +12,6 @@ id = 1
 class_type = 0
 display_name = "Warrior"
 description = "Warrior-description"
+texture = ExtResource("5_deybu")
 skills = Array[ExtResource("2_ws8p0")]([ExtResource("3_vuupo"), ExtResource("4_deybu")])
 metadata/_custom_type_script = "uid://bu44qj8rjihia"

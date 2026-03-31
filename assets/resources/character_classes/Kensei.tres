@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterClassData" load_steps=4 format=3 uid="uid://cmr1cq0x3i7ng"]
+[gd_resource type="Resource" script_class="CharacterClassData" load_steps=5 format=3 uid="uid://cmr1cq0x3i7ng"]
 
 [ext_resource type="Script" uid="uid://bu44qj8rjihia" path="res://scripts/model/resource_classes/CharacterClassData.gd" id="1_dytuu"]
 [ext_resource type="Script" uid="uid://cyxl3epodgara" path="res://scripts/model/resource_classes/SkillData.gd" id="2_tto6i"]
 [ext_resource type="Resource" uid="uid://boeryvkxf7w35" path="res://assets/resources/skills/kensei/SwordsPath.tres" id="3_tto6i"]
+[ext_resource type="Texture2D" uid="uid://gkuccay8odx" path="res://assets/sprites/placeholder.png" id="4_vi1jo"]
 
 [resource]
 script = ExtResource("1_dytuu")
@@ -10,5 +11,6 @@ id = 3
 class_type = 3
 display_name = "Kensei"
 description = "Kensei-desc"
+texture = ExtResource("4_vi1jo")
 skills = Array[ExtResource("2_tto6i")]([ExtResource("3_tto6i")])
 metadata/_custom_type_script = "uid://bu44qj8rjihia"
