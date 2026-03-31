@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://iotfev4vej6x"]
+[gd_scene load_steps=4 format=3 uid="uid://iotfev4vej6x"]
 
 [ext_resource type="PackedScene" uid="uid://cflp32sdju7cu" path="res://scenes/skills/CharacterClassSelectionView.tscn" id="1_5nimi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nimi"]
+bg_color = Color(0.294118, 0.513726, 1, 0.745098)
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m87dd"]
+bg_color = Color(0.294118, 0.513726, 1, 0.745098)
+corner_radius_top_right = 7
+corner_radius_bottom_right = 8
 
 [node name="CharacterClassSelection" type="Control"]
 custom_minimum_size = Vector2(550, 0)
@@ -46,3 +56,31 @@ offset_left = -125.0
 offset_top = -225.0
 offset_right = 125.0
 offset_bottom = 225.0
+
+[node name="PreviousButton" type="Button" parent="CharSelectionPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 93.0
+offset_top = -41.5
+offset_right = 157.0
+offset_bottom = 22.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_5nimi")
+text = "<"
+
+[node name="NextButton" type="Button" parent="CharSelectionPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 419.0
+offset_top = -41.5
+offset_right = 483.0
+offset_bottom = 22.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_m87dd")
+text = ">"
