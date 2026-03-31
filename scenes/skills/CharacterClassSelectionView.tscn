@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cflp32sdju7cu"]
+[gd_scene load_steps=3 format=3 uid="uid://cflp32sdju7cu"]
 
+[ext_resource type="Script" uid="uid://d3rtbax6bqnvj" path="res://scripts/skills/CharacterClassSelectionView.gd" id="1_6anlk"]
 [ext_resource type="Texture2D" uid="uid://da3i1p10ovht4" path="res://assets/sprites/skills/kensei/swords_path.png" id="1_pf22k"]
 
 [node name="CharacterClassSelectionView" type="Control"]
@@ -11,6 +12,7 @@ offset_right = 0.0159912
 offset_bottom = 0.287994
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6anlk")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -81,3 +83,5 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "CHOOSE"
+
+[connection signal="pressed" from="Background/ChooseButton" to="." method="_on_choose_button_pressed"]
