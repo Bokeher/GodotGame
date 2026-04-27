@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://iotfev4vej6x"]
+[gd_scene load_steps=5 format=3 uid="uid://iotfev4vej6x"]
 
 [ext_resource type="PackedScene" uid="uid://cflp32sdju7cu" path="res://scenes/skills/CharacterClassSelectionView.tscn" id="1_5nimi"]
+[ext_resource type="Script" uid="uid://der2nrn1g5ov1" path="res://scripts/skills/CharacterClassSelection.gd" id="1_m87dd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nimi"]
 bg_color = Color(0.294118, 0.513726, 1, 0.745098)
@@ -20,6 +21,7 @@ anchor_bottom = 0.949
 offset_bottom = 0.0479736
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_m87dd")
 
 [node name="CharSelectionPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -84,3 +86,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_m87dd")
 text = ">"
+
+[connection signal="pressed" from="CharSelectionPanel/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="CharSelectionPanel/NextButton" to="." method="_on_next_button_pressed"]
