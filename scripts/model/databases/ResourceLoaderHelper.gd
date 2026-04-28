@@ -42,7 +42,7 @@ static func _process_file(base_path: String, file_name: String, key_property: St
 		push_error("Failed to load: %s" % full_path)
 		return
 	
-	if not res.get(key_property):
+	if not res.get_property_list().any(func(p: Dictionary) -> bool: return p.name == key_property):
 		push_error("Resource %s missing '%s'" % [full_path, key_property])
 		return
 	
