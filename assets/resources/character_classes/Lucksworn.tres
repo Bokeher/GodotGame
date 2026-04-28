@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_lxqkg")
-id = 4
+id = 3
 class_type = 2
 display_name = "Lucksworn"
 description = "Lucksworn-desc"

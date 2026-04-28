@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "skills/character-class-selection"
+        "skills/character-class-selection",
+        "character-classes"
     ]
 }
