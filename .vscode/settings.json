@@ -4,5 +4,8 @@
         "database",
         "character-selection",
         "player"
-    ]
+    ],
+    "files.exclude": {
+        "**/*.tmp": true
+    }
 }
