@@ -7,7 +7,16 @@ var current_char_id: int = Enums.CharacterClass.WARRIOR
 @onready var classes: Array = Enums.CharacterClass.values().filter(func(c: int) -> int: return c >= 0 ) 
 
 func _ready() -> void:
+	char_selection_view.selected.connect(_on_char_selected)
+	GameManager.player.char_class_changed.connect(_on_char_class_changed)
+	
 	update_char(current_char_id)
+
+func _on_char_class_changed(char_class: CharacterClassData) -> void:
+	self.visible = char_class.class_type == Enums.CharacterClass.NONE
+
+func _on_char_selected(char_class: CharacterClassData) -> void:
+	GameManager.player.choose_character_class(char_class)
 
 func update_char(id: int) -> void:
 	current_char_id = id
