@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "character-classes",
         "database",
-        "character-selection"
+        "character-selection",
+        "player"
     ]
 }

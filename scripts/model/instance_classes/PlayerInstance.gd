@@ -30,10 +30,11 @@ var xp_needed: int = base_xp_amount
 
 signal stats_changed
 signal xp_changed
+signal char_class_changed(char_class: CharacterClassData)
 
 func _init(base_stats_: GeneralBaseStats) -> void:
 	base_stats = base_stats_
-	character_class = CharacterClassDatabase.get_by_char_class(Enums.CharacterClass.NONE)
+	choose_character_class(CharacterClassDatabase.get_by_char_class(Enums.CharacterClass.NONE))
 	
 	if base_stats:
 		load_base_stats()
@@ -105,5 +106,6 @@ func level_up() -> void:
 func get_xp_str() -> String:
 	return "%d / %d" % [xp, xp_needed]
 
-func choose_character_class(choice: Enums.CharacterClass) -> void:
-	character_class =  CharacterClassDatabase.get_by_char_class(choice)
+func choose_character_class(choice: CharacterClassData) -> void:
+	character_class = choice
+	char_class_changed.emit(character_class)
