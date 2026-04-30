@@ -3,7 +3,8 @@
         "character-classes",
         "database",
         "character-selection",
-        "player"
+        "player",
+        "readme"
     ],
     "files.exclude": {
         "**/*.tmp": true
